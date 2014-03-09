@@ -578,6 +578,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_NETWORK_MODE_TILE_LTE = "pref_network_mode_tile_lte";
     public static final String PREF_KEY_NETWORK_MODE_TILE_CDMA = "pref_network_mode_tile_cdma";
     public static final String PREF_KEY_RINGER_MODE_TILE_MODE = "pref_qs_ringer_mode";
+    public static final String PREF_STAY_AWAKE_TILE_MODE = "pref_qs_stay_awake";
     public static final String PREF_KEY_QS_TILE_SPAN_DISABLE = "pref_qs_tile_span_disable";
     public static final String PREF_KEY_QS_ALARM_SINGLETAP_APP = "pref_qs_alarm_singletap_app";
     public static final String PREF_KEY_QS_ALARM_LONGPRESS_APP = "pref_qs_alarm_longpress_app";
@@ -585,6 +586,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String EXTRA_NMT_LTE = "networkModeTileLte";
     public static final String EXTRA_NMT_CDMA = "networkModeTileCdma";
     public static final String EXTRA_RMT_MODE = "ringerModeTileMode";
+    public static final String EXTRA_SA_MODE = "stayAwakeTileMode";
     public static final String EXTRA_QS_TILE_SPAN_DISABLE = "qsTileSpanDisable";
     public static final String EXTRA_QS_ALARM_SINGLETAP_APP = "qsAlarmSingletapApp";
     public static final String EXTRA_QS_ALARM_LONGPRESS_APP = "qsAlarmLongpressApp";
@@ -2441,6 +2443,17 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                     imodes[i] = Integer.valueOf(lmodes.get(i));
                 }
                 intent.putExtra(EXTRA_RMT_MODE, imodes);
+            } else if (key.equals(PREF_STAY_AWAKE_TILE_MODE)) {
+                intent.setAction(ACTION_PREF_QUICKSETTINGS_CHANGED);
+                Set<String> sAModes = prefs.getStringSet(PREF_STAY_AWAKE_TILE_MODE,
+                        new HashSet<String>(Arrays.asList(new String[] { "0", "1", "2", "3", "4", "5", "6", "7" })));
+                List<String> sALmodes = new ArrayList<String>(sAModes);
+                Collections.sort(sALmodes);
+                int[] sAImodes = new int[sALmodes.size()];
+                for (int i = 0; i < sALmodes.size(); i++) {
+                    sAImodes[i] = Integer.valueOf(sALmodes.get(i));
+                }
+                intent.putExtra(EXTRA_SA_MODE, sAImodes);
             } else if (key.equals(PREF_KEY_QS_TILE_SPAN_DISABLE)) {
                 intent.setAction(ACTION_PREF_QUICKSETTINGS_CHANGED);
                 intent.putExtra(EXTRA_QS_TILE_SPAN_DISABLE,

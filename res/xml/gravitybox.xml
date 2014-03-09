@@ -389,6 +389,13 @@
                     android:entryValues="@array/ringer_mode_values"
                     android:defaultValue="@array/ringer_mode_values" />
 
+                <MultiSelectListPreference 
+                    android:key="pref_qs_stay_awake"
+                    android:title="@string/pref_qs_stay_awake_title"
+                    android:entries="@array/stay_awake_entries"
+                    android:entryValues="@array/stay_awake_values"
+                    android:defaultValue="@array/stay_awake_values" />
+
             </PreferenceScreen>
 
             <Preference
