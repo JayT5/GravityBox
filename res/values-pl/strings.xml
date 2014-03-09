@@ -99,6 +99,7 @@
     <string name="qs_tile_usb_tethering">Tethering USB</string>
     <string name="qs_tile_music">Muzyka</string>
     <string name="qs_tile_smart_radio">Smart Radio</string>
+    <string name="qs_tile_alarm">Alarm</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Wybór koloru</string>
@@ -1144,7 +1145,7 @@
     <string name="shortcuts_icon_picker_phone">Telefon</string>
     <string name="shortcuts_icon_picker_package">Paczka</string>
     <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
-    <string name="shortcuts_icon_picker_play">Odtwórz</string>
+    <string name="shortcuts_icon_picker_play">Google Play</string>
     <string name="shortcuts_icon_picker_pocket">Kieszeń</string>
     <string name="shortcuts_icon_picker_quicksettings">Szybkie ustawienia</string>
     <string name="shortcuts_icon_picker_rss">Kanał RSS</string>
@@ -1272,5 +1273,39 @@
 
     <!-- Navbar ring: option to disable -->
     <string name="pref_navbar_ring_disable_title">Wyłącz pierścień paska nawigacji</string>
+
+    <!-- Data traffic monitor style -->
+    <string name="pref_data_traffic_mode_title">Styl monitora transmisji danych</string>
+    <string name="dt_mode_off">Wyłączony</string>
+    <string name="dt_mode_simple">Prosty</string>
+    <string name="dt_mode_omni">Omni</string>
+
+    <!-- Omni data traffic monitor -->
+    <string name="pref_data_traffic_omni_mode_title">Tryb monitorowania</string>
+    <string name="dt_omni_mode_in">Pobieranie</string>
+    <string name="dt_omni_mode_out">Wysyłanie</string>
+    <string name="dt_omni_mode_in_out">Pobieranie i wysyłanie</string>
+    <string name="byte_per_sec_abbr">B/s</string>
+    <string name="bit_per_sec_abbr">b/s</string>
+    <string name="kilo_abbr">k</string>
+    <string name="mega_abbr">M</string>
+    <string name="giga_abbr">G</string>
+    <string name="pref_data_traffic_omni_show_icon_title">Pokaż ikonę</string>
+
+    <!--  Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">Kalkulator</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">Specyficzne ustawienia kafelka</string>
+    <string name="pref_cat_qs_tile_settings_summary">Zawiera specyficzne ustawienia kafelka</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">Ustawienia kefelka Trybu Sieci</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">Ustawienia kefelka Alarmu</string>
+    <string name="pref_qs_alarm_singletap_app_title">Apl. pojedynczego kliknięcia</string>
+    <string name="alarm_singletap_app_default">Domyślna aplikacja</string>
+    <string name="pref_qs_alarm_longpress_app_title">Apl. długiego naciśnięcia</string>
 
 </resources>
