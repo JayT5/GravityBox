@@ -114,6 +114,7 @@
     <string name="qs_tile_usb_tethering">Раздача по USB</string>
     <string name="qs_tile_music">Музыка</string>
     <string name="qs_tile_smart_radio">Умное радио</string>
+    <string name="qs_tile_alarm">Будильник</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Выбор цвета</string>
@@ -1317,5 +1318,21 @@
     <string name="mega_abbr">М</string>
     <string name="giga_abbr">Г</string>
     <string name="pref_data_traffic_omni_show_icon_title">Отображать значок</string>
+
+    <!--  Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">Калькулятор</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">Особые настройки</string>
+    <string name="pref_cat_qs_tile_settings_summary">Применение особых настроек плитки</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">Плитка сет.режима</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">Плитка будильника</string>
+    <string name="pref_qs_alarm_singletap_app_title">Прилож.на нажатие</string>
+    <string name="alarm_singletap_app_default">Прилож.по умолчанию</string>
+    <string name="pref_qs_alarm_longpress_app_title">Прилож.на удержание</string>
 
 </resources>
