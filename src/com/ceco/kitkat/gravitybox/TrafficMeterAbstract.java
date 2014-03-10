@@ -96,8 +96,6 @@ public abstract class TrafficMeterAbstract extends TextView
         }
 
         onInitialize(prefs);
-
-        updateState();
     }
 
     private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
@@ -122,23 +120,23 @@ public abstract class TrafficMeterAbstract extends TextView
         super.onAttachedToWindow();
         if (!mAttached) {
             mAttached = true;
+            if (DEBUG) log("attached to window");
             IntentFilter filter = new IntentFilter();
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
             getContext().registerReceiver(mIntentReceiver, filter, null, getHandler());
-            if (DEBUG) log("attached to window");
+            updateState();
         }
-        updateState();
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         if (mAttached) {
-            getContext().unregisterReceiver(mIntentReceiver);
             mAttached = false;
             if (DEBUG) log("detached from window");
+            getContext().unregisterReceiver(mIntentReceiver);
+            updateState();
         }
-        updateState();
     }
 
     public int getTrafficMeterPosition() {
@@ -155,6 +153,9 @@ public abstract class TrafficMeterAbstract extends TextView
     @Override
     public void onBroadcastReceived(Context context, Intent intent) {
         if (intent.getAction().equals(GravityBoxSettings.ACTION_PREF_DATA_TRAFFIC_CHANGED)) {
+            if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_MODE)) {
+                return;
+            }
             if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_POSITION)) {
                 mPosition = intent.getIntExtra(GravityBoxSettings.EXTRA_DT_POSITION,
                         GravityBoxSettings.DT_POSITION_AUTO);
@@ -180,7 +181,21 @@ public abstract class TrafficMeterAbstract extends TextView
         }
     }
 
-    protected abstract void updateState();
+    protected void updateState() {
+        if (mAttached && mIsScreenOn && getConnectAvailable()) {
+            startTrafficUpdates();
+            setVisibility(View.VISIBLE);
+            if (DEBUG) log("traffic updates started");
+        } else {
+            stopTrafficUpdates();
+            setVisibility(View.GONE);
+            setText("");
+            if (DEBUG) log("traffic updates stopped");
+        }
+    }
+
     protected abstract void onInitialize(XSharedPreferences prefs);
     protected abstract void onPreferenceChanged(Intent intent);
+    protected abstract void startTrafficUpdates();
+    protected abstract void stopTrafficUpdates();
 }

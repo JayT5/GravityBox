@@ -202,17 +202,16 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
     }
 
     @Override
-    protected void updateState() {
-        if (mAttached && mIsScreenOn && getConnectAvailable()) {
-            totalRxBytes = TrafficStats.getTotalRxBytes();
-            lastUpdateTime = SystemClock.elapsedRealtime();
-            mTrafficHandler.sendEmptyMessage(1);
-            setVisibility(View.VISIBLE);
-            updateTrafficDrawable();
-        } else {
-            clearHandlerCallbacks();
-            setVisibility(View.GONE);
-        }
+    protected void startTrafficUpdates() {
+        totalRxBytes = TrafficStats.getTotalRxBytes();
+        lastUpdateTime = SystemClock.elapsedRealtime();
+        mTrafficHandler.sendEmptyMessage(1);
+        updateTrafficDrawable();
+    }
+
+    @Override
+    protected void stopTrafficUpdates() {
+        clearHandlerCallbacks();
     }
 
     private void clearHandlerCallbacks() {

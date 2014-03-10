@@ -97,23 +97,22 @@ public class TrafficMeter extends TrafficMeterAbstract {
         }
     }
 
-    private void stopTrafficUpdates() {
-        final Handler h = getHandler();
-        if (h != null && mRunnable != null) {
-            h.removeCallbacks(mRunnable);
-            setText("");
-            if (DEBUG) log("traffic updates stopped");
-        }
-    }
-
-    private void startTrafficUpdates() {
+    @Override
+    protected void startTrafficUpdates() {
         mTotalRxBytes = getTotalReceivedBytes();
         mLastUpdateTime = SystemClock.elapsedRealtime();
         mTrafficBurstStartTime = Long.MIN_VALUE;
 
         getHandler().removeCallbacks(mRunnable);
         getHandler().post(mRunnable);
-        if (DEBUG) log("traffic updates started");
+    }
+
+    @Override
+    protected void stopTrafficUpdates() {
+        final Handler h = getHandler();
+        if (h != null && mRunnable != null) {
+            h.removeCallbacks(mRunnable);
+        }
     }
 
     private String formatTraffic(long bytes, boolean speed) {
@@ -201,20 +200,6 @@ public class TrafficMeter extends TrafficMeterAbstract {
             getHandler().postDelayed(mRunnable, mInterval);
         }
     };
-
-    @Override
-    protected void updateState() {
-        if (DEBUG) log("updating state");
-
-        if (mAttached && mIsScreenOn && getConnectAvailable()) {
-            setVisibility(View.VISIBLE);
-            startTrafficUpdates();
-        } else {
-            stopTrafficUpdates();
-            setVisibility(View.GONE);
-            setText("");
-        }
-    }
 
     private boolean canReadFromFile() {
         return new File("/proc/net/dev").exists();
