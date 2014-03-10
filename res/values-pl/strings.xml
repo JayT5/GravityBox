@@ -67,6 +67,8 @@
     <string name="quick_settings_music_pause">Pauza</string>
     <string name="quick_settings_smart_radio_on">Smart Radio Włączone</string>
     <string name="quick_settings_smart_radio_off">Smart Radio Wyłączone</string>
+    <string name="quick_settings_lock_screen_on">Ekran Blokady Włączony</string>
+    <string name="quick_settings_lock_screen_off">Ekran Blokady Wyłączony</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Kafelki Szybkich Ustawień</string>
@@ -100,6 +102,7 @@
     <string name="qs_tile_music">Muzyka</string>
     <string name="qs_tile_smart_radio">Smart Radio</string>
     <string name="qs_tile_alarm">Alarm</string>
+    <string name="qs_tile_lock_screen">Ekran blokady</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Wybór koloru</string>
@@ -1210,6 +1213,7 @@
     <string name="pref_quick_pulldown_size_title">Rozmiar aktywnego obszaru</string>
 
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">Tryb kafelka Blokowania Uśpienia</string>
     <string name="stay_awake_15s">15s</string>
     <string name="stay_awake_30s">30s</string>
     <string name="stay_awake_1m">1m</string>
@@ -1217,6 +1221,7 @@
     <string name="stay_awake_5m">5m</string>
     <string name="stay_awake_10m">10m</string>
     <string name="stay_awake_30m">30m</string>
+    <string name="stay_awake_on">Blokowanie Uśpienia Włączone</string>
 
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">Nagrywanie ekranu</string>
