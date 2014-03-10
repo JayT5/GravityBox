@@ -90,8 +90,8 @@ public class StayAwakeTile extends BasicTile {
         mOnLongClick = new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-            	if (mLongestTimeoutIndex < 0)
-            		return false;
+                if (mLongestTimeoutIndex < 0)
+                    return false;
                 if (Settings.System.getInt(mContext.getContentResolver(),
                         Settings.System.SCREEN_OFF_TIMEOUT,
                             FALLBACK_SCREEN_TIMEOUT_VALUE) == SCREEN_TIMEOUT[mLongestTimeoutIndex].mMillis) {
@@ -198,8 +198,8 @@ public class StayAwakeTile extends BasicTile {
     }
 
     private void toggleStayAwake(int index) {
-    	if (mLongestTimeoutIndex < 0)
-    		return;
+        if (mLongestTimeoutIndex < 0)
+            return;
         final int startIndex = mCurrentTimeoutIndex;
         int i = 0;
         do {
