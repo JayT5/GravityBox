@@ -757,6 +757,12 @@
                 android:entryValues="@array/data_traffic_mode_values"
                 android:defaultValue="OFF" />
 
+            <CheckBoxPreference 
+                android:key="pref_data_traffic_active_dl_only"
+                android:title="@string/pref_data_traffic_active_dl_only_title"
+                android:summary="@string/pref_data_traffic_active_dl_only_summary"
+                android:defaultValue="false" />
+
             <ListPreference
                 android:key="pref_data_traffic_position"
                 android:title="@string/pref_data_traffic_position_title" 

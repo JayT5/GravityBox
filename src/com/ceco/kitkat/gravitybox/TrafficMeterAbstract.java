@@ -49,6 +49,8 @@ public abstract class TrafficMeterAbstract extends TextView
     protected int mSize;
     protected int mMargin;
     protected boolean mIsScreenOn = true;
+    protected boolean mShowOnlyWhenDownloadActive;
+    protected boolean mIsDownloadActive;
 
     protected static void log(String message) {
         XposedBridge.log(TAG + ": " + message);
@@ -95,6 +97,9 @@ public abstract class TrafficMeterAbstract extends TextView
             log("Invalid preference value for PREF_KEY_DATA_TRAFFIC_POSITION");
         }
 
+        mShowOnlyWhenDownloadActive = prefs.getBoolean(
+                GravityBoxSettings.PREF_KEY_DATA_TRAFFIC_ACTIVE_DL_ONLY, false);
+
         onInitialize(prefs);
     }
 
@@ -104,6 +109,13 @@ public abstract class TrafficMeterAbstract extends TextView
             String action = intent.getAction();
             if (action != null && action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
                 updateState();
+            } else if (ModDownloadProvider.ACTION_DOWNLOAD_STATE_CHANGED.equals(action)
+                    && intent.hasExtra(ModDownloadProvider.EXTRA_ACTIVE)) {
+                mIsDownloadActive = intent.getBooleanExtra(ModDownloadProvider.EXTRA_ACTIVE, false);
+                if (DEBUG) log("ACTION_DOWNLOAD_STATE_CHANGED; active=" + mIsDownloadActive);
+                if (mShowOnlyWhenDownloadActive) {
+                    updateState();
+                }
             }
         }
     };
@@ -123,6 +135,7 @@ public abstract class TrafficMeterAbstract extends TextView
             if (DEBUG) log("attached to window");
             IntentFilter filter = new IntentFilter();
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            filter.addAction(ModDownloadProvider.ACTION_DOWNLOAD_STATE_CHANGED);
             getContext().registerReceiver(mIntentReceiver, filter, null, getHandler());
             updateState();
         }
@@ -163,6 +176,10 @@ public abstract class TrafficMeterAbstract extends TextView
             if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_SIZE)) {
                 mSize = intent.getIntExtra(GravityBoxSettings.EXTRA_DT_SIZE, 14);
             }
+            if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_ACTIVE_DL_ONLY)) {
+                mShowOnlyWhenDownloadActive = intent.getBooleanExtra(
+                        GravityBoxSettings.EXTRA_DT_ACTIVE_DL_ONLY, false);
+            }
 
             onPreferenceChanged(intent);
             updateState();
@@ -181,8 +198,16 @@ public abstract class TrafficMeterAbstract extends TextView
         }
     }
 
+    private boolean shoudStartTrafficUpdates() {
+        boolean shouldStart = mAttached && mIsScreenOn && getConnectAvailable();
+        if (mShowOnlyWhenDownloadActive) {
+            shouldStart &= mIsDownloadActive;
+        }
+        return shouldStart;
+    }
+
     protected void updateState() {
-        if (mAttached && mIsScreenOn && getConnectAvailable()) {
+        if (shoudStartTrafficUpdates()) {
             startTrafficUpdates();
             setVisibility(View.VISIBLE);
             if (DEBUG) log("traffic updates started");
