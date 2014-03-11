@@ -1316,4 +1316,9 @@
     <string name="alarm_singletap_app_default">Výchozí</string>
     <string name="pref_qs_alarm_longpress_app_title">Aplikace na dlouhé podržení</string>
 
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Pouze pro Download Manager</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Zobrazí monitor průtoku dat jen v případě aktivních 
+         downloadů přes standardní Android Download Manager</string>
+
 </resources>

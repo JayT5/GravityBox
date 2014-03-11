@@ -1307,4 +1307,9 @@
     <string name="alarm_singletap_app_default">Predvolená</string>
     <string name="pref_qs_alarm_longpress_app_title">Aplikácia na dlhé podržanie</string>
 
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Len pre Download Manager</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Zobrazí monitor prietoku dát len v prípade aktívnych 
+        downloadov cez štandardný Android Download Manager</string>
+
 </resources>
