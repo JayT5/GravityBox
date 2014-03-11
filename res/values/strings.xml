@@ -1341,7 +1341,7 @@
     <string name="pref_qs_alarm_longpress_app_title">Long-press app</string>
 
     <!-- Traffic meter: show only when download active -->
-    <string name="pref_data_traffic_active_dl_only_title">Only while download active</string>
+    <string name="pref_data_traffic_active_dl_only_title">Download Manager only</string>
     <string name="pref_data_traffic_active_dl_only_summary">Shows traffic meter only while there are ongoing downloads via 
         standard Android\'s Download Manager</string>
 
