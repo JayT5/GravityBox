@@ -67,6 +67,8 @@
     <string name="quick_settings_music_pause">Pausa</string>
     <string name="quick_settings_smart_radio_on">Rádio inteligente ativado</string>
     <string name="quick_settings_smart_radio_off">Rádio inteligente desativado</string>
+    <string name="quick_settings_lock_screen_on">Bloqueio de ecrã ativado</string>
+    <string name="quick_settings_lock_screen_off">Bloqueio de ecrã desativado</string>
 
     <!-- QuickSettings settings -->
     <string name="quick_settings_title">Definições rápidas na barra de status</string>
@@ -99,6 +101,8 @@
     <string name="qs_tile_usb_tethering">Associação USB</string>
     <string name="qs_tile_music">Música</string>
     <string name="qs_tile_smart_radio">Rádio inteligente</string>
+    <string name="qs_tile_alarm">Alarme</string>
+    <string name="qs_tile_lock_screen">Bloqueio de ecrã</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Escolher cor</string>
@@ -1218,6 +1222,7 @@
     <string name="pref_quick_pulldown_size_title">Àrea de acesso rápido</string>
 
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">Modo do painel Manter ligado</string>
     <string name="stay_awake_15s">15s</string>
     <string name="stay_awake_30s">30s</string>
     <string name="stay_awake_1m">1m</string>
@@ -1225,6 +1230,7 @@
     <string name="stay_awake_5m">5m</string>
     <string name="stay_awake_10m">10m</string>
     <string name="stay_awake_30m">30m</string>
+    <string name="stay_awake_on">Manter ligado</string>
 
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">Gravação de ecrã</string>
@@ -1282,5 +1288,43 @@
 
     <!-- Navbar ring: option to disable -->
     <string name="pref_navbar_ring_disable_title">Desativar anel de navegação</string>
+
+    <!-- Data traffic monitor style -->
+    <string name="pref_data_traffic_mode_title">Estilo da monitorização</string>
+    <string name="dt_mode_off">Desativado</string>
+    <string name="dt_mode_simple">Estilo simples</string>
+    <string name="dt_mode_omni">Estilo Omni</string>
+
+    <!-- Omni data traffic monitor -->
+    <string name="pref_data_traffic_omni_mode_title">Modo de monitorização</string>
+    <string name="dt_omni_mode_in">Download</string>
+    <string name="dt_omni_mode_out">Upload</string>
+    <string name="dt_omni_mode_in_out">Download e upload</string>
+    <string name="byte_per_sec_abbr">B/s</string>
+    <string name="bit_per_sec_abbr">b/s</string>
+    <string name="kilo_abbr">k</string>
+    <string name="mega_abbr">M</string>
+    <string name="giga_abbr">G</string>
+    <string name="pref_data_traffic_omni_show_icon_title">Mostrar indicador</string>
+
+    <!--  Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">Calculatora</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">Definições específicas de painéis</string>
+    <string name="pref_cat_qs_tile_settings_summary">Permite alterar configurações específicas dos painéis das definições rápidas</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">Definições do painel Modo de Rede</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">Definições do painel Alarme</string>
+    <string name="pref_qs_alarm_singletap_app_title">Aplicação ao pressionar</string>
+    <string name="alarm_singletap_app_default">Por defeito</string>
+    <string name="pref_qs_alarm_longpress_app_title">Aplicação ao manter pressionado</string>
+
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Apenas quando download estiver ativo</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Permite mostrar o medidor de tráfego de dados apenas quando estiver a decorrer algum download</string>
 
 </resources>
