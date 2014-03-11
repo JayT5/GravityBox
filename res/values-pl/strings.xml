@@ -1314,7 +1314,7 @@
     <string name="pref_qs_alarm_longpress_app_title">Apl. długiego naciśnięcia</string>
 
     <!-- Traffic meter: show only when download active -->
-    <string name="pref_data_traffic_active_dl_only_title">Tylko, gdy jest aktywne pobieranie</string>
-    <string name="pref_data_traffic_active_dl_only_summary">Pokazuje miernik ruchu sieciowego tylko, gdy trwa pobranie za pośrednictwem standardowego Menadżera Pobierania systemu Android</string>
+    <string name="pref_data_traffic_active_dl_only_title">Tylko przy Menedżerze Pobierania</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Pokazuje miernik ruchu sieciowego tylko, gdy trwa pobranie za pośrednictwem standardowego Menedżera Pobierania systemu Android</string>
 
 </resources>
