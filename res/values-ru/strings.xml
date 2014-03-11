@@ -82,6 +82,8 @@
     <string name="quick_settings_music_pause">Пауза</string>
     <string name="quick_settings_smart_radio_on">Умн.радио вкл</string>
     <string name="quick_settings_smart_radio_off">Умн.радио выкл</string>
+    <string name="quick_settings_lock_screen_on">Экр.блокировки вкл</string>
+    <string name="quick_settings_lock_screen_off">Экр.блокировки выкл</string>
     
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Плитки быстрых настроек</string>
@@ -115,6 +117,7 @@
     <string name="qs_tile_music">Музыка</string>
     <string name="qs_tile_smart_radio">Умное радио</string>
     <string name="qs_tile_alarm">Будильник</string>
+    <string name="qs_tile_lock_screen">Экран блокировки</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Выбор цвета</string>
@@ -1236,6 +1239,7 @@
     <string name="pref_quick_pulldown_size_title">Размер зоны вытягивания</string>
 
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">Режимы бодрствования</string>
     <string name="stay_awake_15s">15с</string>
     <string name="stay_awake_30s">30с</string>
     <string name="stay_awake_1m">1м</string>
@@ -1243,6 +1247,7 @@
     <string name="stay_awake_5m">5м</string>
     <string name="stay_awake_10m">10м</string>
     <string name="stay_awake_30m">30м</string>
+    <string name="stay_awake_on">Бодрств.вкл</string>
 
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">Запись экрана</string>
@@ -1334,5 +1339,10 @@
     <string name="pref_qs_alarm_singletap_app_title">Прилож.на нажатие</string>
     <string name="alarm_singletap_app_default">Прилож.по умолчанию</string>
     <string name="pref_qs_alarm_longpress_app_title">Прилож.на удержание</string>
+
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Только при активн.загрузке</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Отображение трафика только при текущих загрузках через 
+        стандартный менеджер загрузки Андроид</string>
 
 </resources>
