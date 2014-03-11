@@ -1342,7 +1342,7 @@
 
     <!-- Traffic meter: show only when download active -->
     <string name="pref_data_traffic_active_dl_only_title">Uniquement lorsque le téléchargement est actif</string>
-    <string name="pref_data_traffic_active_dl_only_summary">Affiche le compteur de flux de données uniquement lorsqu'\il y a un téléchargement en cours via 
+    <string name="pref_data_traffic_active_dl_only_summary">Affiche le compteur de flux de données uniquement lorsqu\'il y a un téléchargement en cours via 
         le gestionnaire standard de téléchargement d\'Android</string>
 
 </resources>
