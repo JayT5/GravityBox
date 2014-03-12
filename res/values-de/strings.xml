@@ -1270,5 +1270,66 @@
 
     <!-- GB Actions: Toggle Smart Radio -->
     <string name="shortcut_smart_radio_toggle">Netzautomatik umschalten</string>
+	
+	<!-- Mute volume adjust vibrate -->
+    <string name="pref_volume_adjust_vibrate_mute_title">Kein Vibrieren bei Lautstärkeänderung</string>
+    <string name="pref_volume_adjust_vibrate_mute_summary">Verhindert das Vibrieren der Lautstärkeanpassung mittels der Lautstärketasten</string>
+
+    <!-- ScreenRecord: use stock binary -->
+    <string name="pref_screenrecord_use_stock_title">Standardanwendung verwenden</string>
+    <string name="pref_screenrecord_use_stock_summary">Sollte benutzt werden, wenn die alternative Anwendung der Bildschirmaufnahme Fehler verursacht. Achtung: Die Standardanwendung nimmt keinen Ton auf und ist auf maximal 3 Minuten begrenzt</string>
+
+    <!-- Clock settings master switch -->
+    <string name="pref_sb_clock_masterswitch_summary">Zuständig für Anpassungen der Uhr in der Statusleiste (erfordert Neustart)</string>
+
+    <!-- Clock: day of week size -->
+    <string name="pref_sb_clock_dow_size_title">Größe des Wochentages</string>
+
+    <!-- Clock: AM/PM size -->
+    <string name="pref_sb_clock_ampm_size_title">Größe von AM/PM</string>
+
+    <!-- Navigation bar ring category -->
+    <string name="pref_cat_navbar_ring_title">Navigationsring</string>
+
+    <!-- Navbar ring: option to disable -->
+    <string name="pref_navbar_ring_disable_title">Navigationsring deaktivieren</string>
+
+    <!-- Data traffic monitor style -->
+    <string name="pref_data_traffic_mode_title">Stil der Datenverbrauchsanzeige</string>
+    <string name="dt_mode_off">Deaktiviert</string>
+    <string name="dt_mode_simple">Einfach</string>
+    <string name="dt_mode_omni">Omni</string>
+
+    <!-- Omni data traffic monitor -->
+    <string name="pref_data_traffic_omni_mode_title">Überwachungsart</string>
+    <string name="dt_omni_mode_in">Download</string>
+    <string name="dt_omni_mode_out">Upload</string>
+    <string name="dt_omni_mode_in_out">Download und upload</string>
+    <string name="byte_per_sec_abbr">B/s</string>
+    <string name="bit_per_sec_abbr">b/s</string>
+    <string name="kilo_abbr">k</string>
+    <string name="mega_abbr">M</string>
+    <string name="giga_abbr">G</string>
+    <string name="pref_data_traffic_omni_show_icon_title">Symbol zeigen</string>
+
+    <!--  Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">Rechner</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">Spezifische Schnelleinstellungen</string>
+    <string name="pref_cat_qs_tile_settings_summary">Enthält Optionen für einzelne Schnelleinstellungen</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">Netzmodus anpassen</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">Wecker anpassen</string>
+    <string name="pref_qs_alarm_singletap_app_title">App (Einfach drücken)</string>
+    <string name="alarm_singletap_app_default">Systemstandard</string>
+    <string name="pref_qs_alarm_longpress_app_title">App (Lange drücken)</string>
+
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Nur während aktivem Download</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Verbrauch nur während Downloads des systemeigenen Download Managers anzeigen</string>
 
 </resources>
