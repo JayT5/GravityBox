@@ -82,6 +82,8 @@
     <string name="quick_settings_music_pause">Pausar</string>
     <string name="quick_settings_smart_radio_on">Modo de red inteligente activado</string>
     <string name="quick_settings_smart_radio_off">Modo de red inteligente desactivado</string>
+    <string name="quick_settings_lock_screen_on">Bloquear pantalla activado</string>
+    <string name="quick_settings_lock_screen_off">Bloquear pantalla desactivado</string>
  
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Ajustes rápidos de la barra de estado</string>
@@ -115,6 +117,7 @@
     <string name="qs_tile_music">Música</string>
     <string name="qs_tile_smart_radio">Modo de red inteligente</string>
     <string name="qs_tile_alarm">Alarma</string>
+    <string name="qs_tile_lock_screen">Bloquear pantalla</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Selector de color</string>
@@ -1209,7 +1212,7 @@
     <string name="pref_statusbar_dt2s_summary">Suspende el dispositivo al realizar una doble pulsación en la barra de estado</string>
     
     <!-- Animation scales -->
-    <string name="animation_scale0">Animation deasctivada</string>
+    <string name="animation_scale0">Animación deasctivada</string>
     <string name="animation_scale1">Escala de animación .25x</string>
     <string name="animation_scale2">Escala de animación .5x</string>
     <string name="animation_scale3">Escala de animación 1x</string>
@@ -1237,6 +1240,7 @@
     <string name="pref_quick_pulldown_size_title">Área para desplegar ajustes rápidos</string>
  
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">Modos de casilla \'Mantener despierto\'</string>
     <string name="stay_awake_15s">15s</string>
     <string name="stay_awake_30s">30s</string>
     <string name="stay_awake_1m">1m</string>
@@ -1244,6 +1248,7 @@
     <string name="stay_awake_5m">5m</string>
     <string name="stay_awake_10m">10m</string>
     <string name="stay_awake_30m">30m</string>
+    <string name="stay_awake_on">Mantener despierto activado</string>
  
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">Grabación de pantalla</string>
@@ -1332,4 +1337,8 @@
     <string name="pref_qs_alarm_singletap_app_title">App al pulsar</string>
     <string name="alarm_singletap_app_default">App predeterminada</string>
     <string name="pref_qs_alarm_longpress_app_title">App con pulsación larga</string>
+    
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Solo gestor de descargas</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Muestra el medidor de tráfico solo cuando haya descargas en curso en el gestor de descargas estándar de Android</string>
 </resources>
