@@ -1,3 +1,42 @@
+Changelog 2.9.9 - 12/03/2014
+--------------------------------------
+- QuickSettings management:
+--- Option for choosing timeout modes for Stay Awake Tile (thanks to JayT5)
+--- Added Lockscreen Tile: allows enabling/disabling lockscreen 
+--- Added Alarm dynamic tile to the list of manageable tiles:
+------ allows Alarm tile enable/disable/reorder
+------ option for assigning app/shortcut on single-tap
+------ option for assigning app/shortcut on long-press
+--- Added long-press action to Airplane mode tile (thanks to SilentException)
+--- Added long-press action to Auto-rotate tile (thanks to SilentException)
+--- Added long-press action to Settings tile (opens GB) (thanks to SilentException)
+--- Added long-press action to Brightness tile (thanks to SilentException)
+--- Reorganized tile specific settings for better user experience
+- Data traffic monitor revamped:
+--- Added new style (Omni) that can show download/upload separately
+--- Option to show traffic monitor only while there are ongoing downloads via Android's Download Manager (CPU/battery friendly)
+- Signal cluster settings: option to specify data activity indicator color (independent of statusbar icon coloring)
+- Lockscreen tweaks: removed "Allow any widget" option due to locskcreen widget API breakage
+- Battery charged/charger plugged/unplugged sounds:
+--- Linked to notification stream instead of media stream
+--- Ogg files are now stored in the filesystem thus can be easily replaced with custom ones:
+------ stored in /data/data/com.ceco.kitkat.gravitybox/files
+------ when replaced, correct file permission mode must be set for files to be readable by everyone
+--- Falls back to system notification sound in case ogg is missing or is not readable
+- Icon Picker: Added icons for Calculator, Skype and Viber
+- New permission: RECEIVE_BOOT_COMPLETED needed for preparation of assets at boot (e.g. ogg files)
+- Fixed error in computation of auto-brightness spline (when Brightness tweaks are active)
+- Updated Russian translations (thanks to gaich)
+- Updated French translation (thanks to ch-vox)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated Italian translations (thanks to pesa1234, valerioscifoni)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated Chinese (Traditional) translations (thanks to Eric850130)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated Slovak and Czech translations
+
 Changelog 2.9.8 - 03/03/2014
 --------------------------------------
 - Last screen: fixed scaling of images (thanks to bgcngm)
