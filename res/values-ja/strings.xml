@@ -67,6 +67,8 @@
     <string name="quick_settings_music_pause">一時停止</string>
     <string name="quick_settings_smart_radio_on">スマートネットワークオン</string>
     <string name="quick_settings_smart_radio_off">スマートネットワークオフ</string>
+    <string name="quick_settings_lock_screen_on">ロック画面オン</string>
+    <string name="quick_settings_lock_screen_off">ロック画面オフ</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">ステータスバークイック設定タイル</string>
@@ -98,6 +100,8 @@
     <string name="qs_tile_usb_tethering">USBテザリング</string>
     <string name="qs_tile_music">音楽</string>
     <string name="qs_tile_smart_radio">スマートネットワーク</string>
+    <string name="qs_tile_alarm">アラーム</string>
+    <string name="qs_tile_lock_screen">ロック画面</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">カラーピッカー</string>
@@ -1209,6 +1213,7 @@
     <string name="pref_quick_pulldown_size_title">クイックプルダウンのサイズ</string>
     
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">常時点灯タイルのモード</string>
     <string name="stay_awake_15s">15秒</string>
     <string name="stay_awake_30s">30秒</string>
     <string name="stay_awake_1m">1分</string>
@@ -1216,6 +1221,7 @@
     <string name="stay_awake_5m">5分</string>
     <string name="stay_awake_10m">10分</string>
     <string name="stay_awake_30m">30分</string>
+    <string name="stay_awake_on">常時点灯オン</string>
     
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">画面の録画</string>
@@ -1273,5 +1279,43 @@
 
     <!-- Navbar ring: option to disable -->
     <string name="pref_navbar_ring_disable_title">ナビバーリングの無効化</string>
+
+    <!-- Data traffic monitor style -->
+    <string name="pref_data_traffic_mode_title">データ通信量モニターのスタイル</string>
+    <string name="dt_mode_off">無効</string>
+    <string name="dt_mode_simple">シンプル</string>
+    <string name="dt_mode_omni">Omni風</string>
+
+    <!-- Omni data traffic monitor -->
+    <string name="pref_data_traffic_omni_mode_title">監視モード</string>
+    <string name="dt_omni_mode_in">ダウンロード</string>
+    <string name="dt_omni_mode_out">アップロード</string>
+    <string name="dt_omni_mode_in_out">ダウンロードとアップロード</string>
+    <string name="byte_per_sec_abbr">B/s</string>
+    <string name="bit_per_sec_abbr">b/s</string>
+    <string name="kilo_abbr">k</string>
+    <string name="mega_abbr">M</string>
+    <string name="giga_abbr">G</string>
+    <string name="pref_data_traffic_omni_show_icon_title">アイコンを表示</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">計算機</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">タイル個別設定</string>
+    <string name="pref_cat_qs_tile_settings_summary">タイル別の設定をします。</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">ネットワークモードタイル設定</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">アラームタイル設定</string>
+    <string name="pref_qs_alarm_singletap_app_title">タップで起動するアプリ</string>
+    <string name="alarm_singletap_app_default">デフォルトのアプリ</string>
+    <string name="pref_qs_alarm_longpress_app_title">長押しで起動するアプリ</string>
+
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">ダウンロード中のみ</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Androidの標準ダウンロードマネージャでダウンロードしているときだけ表示するようにします。</string>
     
 </resources>
