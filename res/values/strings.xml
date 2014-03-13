@@ -1345,4 +1345,22 @@
     <string name="pref_data_traffic_active_dl_only_summary">Shows traffic meter only while there are ongoing downloads via 
         standard Android\'s Download Manager</string>
 
+    <!-- Led control -->
+    <string name="pref_led_control_title">Notification LED control</string>
+    <string name="pref_led_control_summary">Allows notification LED control on per-app basis</string>
+    <string name="lc_please_wait">Please wait&#8230;</string>
+    <string name="lc_disabled">LED control disabled</string>
+    <string name="pref_lc_led_color_title">LED color</string>
+    <string name="pref_lc_led_time_on_title">LED On duration</string>
+    <string name="pref_lc_led_time_off_title">LED Off duration</string>
+    <string name="pref_lc_ongoing_title">Ongoing</string>
+    <string name="pref_lc_ongoing_summary">Applies also to ongoing notifications when enabled</string>
+    <string name="lc_btn_preview">Preview</string>
+    <string name="lc_btn_save">Save</string>
+    <string name="lc_item_summary_on">On</string>
+    <string name="lc_item_summary_off">Off</string>
+    <string name="lc_item_summary_ongoing">Ongoing</string>
+    <string name="lc_preview_notif_title">GravityBox LED control</string>
+    <string name="lc_preview_notif_text">Test for %s</string>
+
 </resources>

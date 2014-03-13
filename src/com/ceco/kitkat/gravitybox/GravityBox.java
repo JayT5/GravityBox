@@ -71,6 +71,8 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
         if (prefs.getBoolean(GravityBoxSettings.PREF_KEY_NAVBAR_OVERRIDE, false)) {
             ModNavigationBar.initZygote(prefs);
         }
+
+        ModLedControl.initZygote();
     }
 
     @Override

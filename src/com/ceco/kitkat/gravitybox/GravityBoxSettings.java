@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import com.ceco.kitkat.gravitybox.R;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedControlActivity;
 import com.ceco.kitkat.gravitybox.preference.AppPickerPreference;
 import com.ceco.kitkat.gravitybox.preference.AutoBrightnessDialogPreference;
 import com.ceco.kitkat.gravitybox.preference.SeekBarPreference;
@@ -688,6 +689,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
 
     private static final String PREF_KEY_TRANS_VERIFICATION = "pref_trans_verification"; 
 
+    private static final String PREF_LED_CONTROL = "pref_led_control";
+
     public static final String PREF_KEY_SCREENRECORD_SIZE = "pref_screenrecord_size";
     public static final String PREF_KEY_SCREENRECORD_BITRATE = "pref_screenrecord_bitrate";
     public static final String PREF_KEY_SCREENRECORD_TIMELIMIT = "pref_screenrecord_timelimit";
@@ -1073,6 +1076,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private PreferenceScreen mPrefCatSignalCluster;
         private PreferenceScreen mPrefCatQsTileSettings;
         private PreferenceScreen mPrefCatQsNmTileSettings;
+        private Preference mPrefLedControl;
 
         @SuppressWarnings("deprecation")
         @Override
@@ -1354,6 +1358,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
 
             mPrefCatSignalCluster = (PreferenceScreen) findPreference(PREF_CAT_KEY_SIGNAL_CLUSTER);
 
+            mPrefLedControl = findPreference(PREF_LED_CONTROL);
+
             // Remove Phone specific preferences on Tablet devices
             if (sSystemProperties.isTablet) {
                 mPrefCatStatusbarQs.removePreference(mPrefAutoSwitchQs);
@@ -1584,6 +1590,9 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 mPrefBackup.setSummary(R.string.wsc_trans_required_summary);
                 mPrefRestore.setEnabled(false);
                 mPrefRestore.setSummary(R.string.wsc_trans_required_summary);
+                mPrefLedControl.setEnabled(false);
+                mPrefLedControl.setSummary(String.format("%s (%s)", mPrefLedControl.getSummary(),
+                        getString(R.string.wsc_trans_required_summary)));
                 mPrefs.edit().putString(PREF_KEY_TRANS_VERIFICATION, null).commit();
                 mPrefTransVerification.getEditText().setText(null);
             } else {
@@ -2695,6 +2704,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 } else {
                     Toast.makeText(getActivity(), R.string.settings_restore_no_backup, Toast.LENGTH_SHORT).show();
                 }
+            } else if (PREF_LED_CONTROL.equals(pref.getKey())) {
+                intent = new Intent(getActivity(), LedControlActivity.class);
             }
 
             if (intent != null) {

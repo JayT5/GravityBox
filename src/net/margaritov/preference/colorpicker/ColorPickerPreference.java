@@ -146,6 +146,10 @@ public class ColorPickerPreference
 		}
 	}
 
+	public int getValue() {
+	    return mValue;
+	}
+
 	public void setValue(int color) {
 	    if (isPersistent()) {
 	        persistInt(color);
