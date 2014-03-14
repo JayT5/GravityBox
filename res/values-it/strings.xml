@@ -70,7 +70,7 @@
     <string name="quick_settings_expanded_desktop_disabled">Disattivato</string>
     <string name="quick_settings_expanded_desktop_normal">Normale</string>
     <string name="quick_settings_expanded_desktop_expanded">Esteso</string>
-    <string name="quick_settings_stay_awake_on">Sempre acceso On</string>
+    <string name="quick_settings_stay_awake_on">Sempre acceso</string>
     <string name="quick_settings_stay_awake_off">Sempre acceso Off</string>
     <string name="quick_settings_nfc_on">NFC On</string>
     <string name="quick_settings_nfc_off">NFC Off</string>
@@ -82,6 +82,8 @@
     <string name="quick_settings_music_pause">Pausa</string>
     <string name="quick_settings_smart_radio_on">Modem Intelligente On</string>
     <string name="quick_settings_smart_radio_off">Modem Intelligente Off</string>
+    <string name="quick_settings_lock_screen_on">Blocco schermo On</string>
+    <string name="quick_settings_lock_screen_off">Blocco schermo Off</string>
 
     <!-- QuickSettings settings -->
     <string name="quick_settings_title">Caselle QuickSetting</string>
@@ -114,6 +116,8 @@
     <string name="qs_tile_usb_tethering">Tethering USB</string>
     <string name="qs_tile_music">Musica</string>
     <string name="qs_tile_smart_radio">Modem Intelligente</string>
+    <string name="qs_tile_alarm">Sveglia</string>
+    <string name="qs_tile_lock_screen">Schermata di blocco</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Scegli colore</string>
@@ -382,6 +386,7 @@
     <string name="recent_clear_top_right">Alto destra</string>
     <string name="recent_clear_bottom_left">Basso sinistra</string>
     <string name="recent_clear_bottom_right">Basso destra</string>
+    <string name="recent_clear_navigation_bar">Barra di navigazione (richiede ottimizzazioni Barra di navigazione attive)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Margine superiore</string>
@@ -648,7 +653,7 @@
     <string name="pref_cat_hwkey_volume_title">Tasti volume</string>
     <string name="pref_cat_hwkey_actions_others">Altre impostazioni</string>
     <string name="pref_hwkey_longpress_title">Azione pressione prolungata</string>
-    <string name="pref_hwkey_singletap_title">Azione pressione corta</string>
+    <string name="pref_hwkey_singletap_title">Azione tocco singolo</string>
     <string name="pref_hwkey_doubletap_title">Azione doppio tap</string>
 
     <!-- Disable double-tap (e.g. for Home Key on Android 4.3+) -->
@@ -1235,6 +1240,7 @@
     <string name="pref_quick_pulldown_size_title">Dimensione bordo visualizzazione rapida</string>
     
     <!-- Stay Awake Tile modes -->
+    <string name="pref_qs_stay_awake_title">Modalità casella Timeout display</string>
     <string name="stay_awake_15s">15s</string>
     <string name="stay_awake_30s">30s</string>
     <string name="stay_awake_1m">1m</string>
@@ -1242,6 +1248,7 @@
     <string name="stay_awake_5m">5m</string>
     <string name="stay_awake_10m">10m</string>
     <string name="stay_awake_30m">30m</string>
+    <string name="stay_awake_on">Sempre acceso</string>
 
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">Registrazione schermo</string>
@@ -1299,5 +1306,67 @@
 
     <!-- Navbar ring: option to disable -->
     <string name="pref_navbar_ring_disable_title">Disabilita anello</string>
+
+<!-- Data traffic monitor style -->
+    <string name="pref_data_traffic_mode_title">Stile contatore dati</string>
+    <string name="dt_mode_off">Disabilitato</string>
+    <string name="dt_mode_simple">Semplice</string>
+    <string name="dt_mode_omni">OmniROM</string>
+
+    <!-- Omni data traffic monitor -->
+    <string name="pref_data_traffic_omni_mode_title">Modalità contatore</string>
+    <string name="dt_omni_mode_in">Download</string>
+    <string name="dt_omni_mode_out">Upload</string>
+    <string name="dt_omni_mode_in_out">Download e upload</string>
+    <string name="byte_per_sec_abbr">B/s</string>
+    <string name="bit_per_sec_abbr">b/s</string>
+    <string name="kilo_abbr">k</string>
+    <string name="mega_abbr">M</string>
+    <string name="giga_abbr">G</string>
+    <string name="pref_data_traffic_omni_show_icon_title">Mostra icona</string>
+
+    <!--  Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_viber">Viber</string>
+    <string name="shortcuts_icon_picker_skype">Skype</string>
+    <string name="shortcuts_icon_picker_calculator">Calcolatrice</string>
+
+    <!-- QS Tiles: tile specific settings categories -->
+    <string name="pref_cat_qs_tile_settings_title">Impostazioni caselle Quicksetting</string>
+    <string name="pref_cat_qs_tile_settings_summary">Permette di impostare singolarmente il comportamento di ogni casella</string>
+    <string name="pref_cat_qs_nm_tile_settings_title">Casella Modalità rete</string>
+
+    <!-- QS Tiles: Alarm tile settings -->
+    <string name="pref_cat_qs_alarm_tile_settings_title">Casella Sveglia</string>
+    <string name="pref_qs_alarm_singletap_app_title">App tocco singolo</string>
+    <string name="alarm_singletap_app_default">App predefinita</string>
+    <string name="pref_qs_alarm_longpress_app_title">App pressione prolungata</string>
+
+    <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">Solo con gestore Download</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Mostra il contatore traffico dati solo quando è in uso l\'app predefinita di Android 
+    per la gestione dei Download</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Colori LED di notifica</string>
+    <string name="pref_led_control_summary">Permette di impostare un colore al LED di notifica per ogni app</string>
+    <string name="lc_please_wait">Attendere prego&#8230;</string>
+    <string name="lc_disabled">Colore LED disabilitato</string>
+    <string name="pref_lc_led_color_title">Colore LED</string>
+    <string name="pref_lc_led_time_on_title">Durata LED Acceso</string>
+    <string name="pref_lc_led_time_off_title">Durata LED Spento</string>
+    <string name="pref_lc_ongoing_title">In corso</string>
+    <string name="pref_lc_ongoing_summary">Quando abilitato, il LED di notifica si accenderà anche per le notifiche in corso</string>
+    <string name="lc_btn_preview">Anteprima</string>
+    <string name="lc_btn_save">Salva</string>
+    <string name="lc_item_summary_on">Acceso</string>
+    <string name="lc_item_summary_off">Spento</string>
+    <string name="lc_item_summary_ongoing">In corso</string>
+    <string name="lc_preview_notif_title">LED di notifica GravityBox</string>
+    <string name="lc_preview_notif_text">Test per %s</string>
+    <string name="lc_activity_menu_show_all">Mostra tutti gli elementi</string>
+    <string name="lc_activity_menu_show_active">Mostra elementi attivi</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Soglia di inattività</string>
 
 </resources>
