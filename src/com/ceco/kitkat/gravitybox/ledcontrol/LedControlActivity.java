@@ -33,6 +33,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -48,6 +50,7 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
     private ProgressDialog mProgressDialog;
     private LedListItem mCurrentItem;
     private EditText mSearchEditText;
+    private boolean mShowActiveOnly;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,10 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
         }
 
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mShowActiveOnly = savedInstanceState.getBoolean("showActiveOnly", false);
+        }
 
         setContentView(R.layout.led_control_activity);
 
@@ -88,6 +95,28 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
         super.onStop();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.led_control_activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.lc_activity_menu_show_all:
+                mShowActiveOnly = false;
+                setData();
+                return true;
+            case R.id.lc_activity_menu_show_active:
+                mShowActiveOnly = true;
+                setData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void setData() {
         mAsyncTask = new AsyncTask<Void,Void,ArrayList<LedListItem>>() {
             @Override
@@ -107,6 +136,7 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                     if (isCancelled()) break;
                     if (ai.packageName.equals(LedControlActivity.this.getPackageName())) continue;
                     LedListItem item = new LedListItem(LedControlActivity.this, ai);
+                    if (mShowActiveOnly && !item.isEnabled()) continue;
                     itemList.add(item);
                 }
 
@@ -124,6 +154,7 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                 mList.setAdapter(new LedListAdapter(LedControlActivity.this, result, 
                         LedControlActivity.this));
                 ((LedListAdapter)mList.getAdapter()).notifyDataSetChanged();
+                mSearchEditText.setVisibility(mShowActiveOnly ? View.GONE : View.VISIBLE);
             }
         }.execute();
     }
@@ -178,5 +209,10 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                 mList.invalidateViews();
             }
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        bundle.putBoolean("showActiveOnly", mShowActiveOnly);
     }
 }

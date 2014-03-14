@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/app_picker_search"
         android:inputType="textVisiblePassword"
-        android:saveEnabled="false" />
+        android:saveEnabled="false"
+        android:visibility="gone" />
 
     <ListView
         android:id="@android:id/list"

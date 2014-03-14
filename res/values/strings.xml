@@ -1362,5 +1362,7 @@
     <string name="lc_item_summary_ongoing">Ongoing</string>
     <string name="lc_preview_notif_title">GravityBox LED control</string>
     <string name="lc_preview_notif_text">Test for %s</string>
+    <string name="lc_activity_menu_show_all">Show all items</string>
+    <string name="lc_activity_menu_show_active">Show active items</string>
 
 </resources>
