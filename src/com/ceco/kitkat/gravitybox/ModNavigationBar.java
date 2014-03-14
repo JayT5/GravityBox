@@ -841,8 +841,14 @@ public class ModNavigationBar {
 
         if (mRecentAlt) {
             mRecentBtn.setImageDrawable(mNavbarVertical ? mRecentAltLandIcon : mRecentAltIcon);
-            mRecentsSingletapActionBck = mRecentsSingletapAction;
-            mRecentsLongpressActionBck = mRecentsLongpressAction;
+            if (mRecentsSingletapAction != GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_SINGLETAP &&
+                    mRecentsSingletapAction != GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS) {
+                mRecentsSingletapActionBck = mRecentsSingletapAction;
+            }
+            if (mRecentsLongpressAction != GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_SINGLETAP &&
+                    mRecentsLongpressAction != GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS) {
+                mRecentsLongpressActionBck = mRecentsLongpressAction;
+            }
             broadcastRecentsActions(context, GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_SINGLETAP, 
                     GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS);
         } else {
