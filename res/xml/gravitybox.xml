@@ -796,6 +796,22 @@
                 android:title="@string/pref_data_traffic_omni_show_icon_title"
                 android:defaultValue="true" />
 
+            <CheckBoxPreference 
+                android:key="pref_data_traffic_omni_autohide"
+                android:title="@string/inactivity_mode_hide"
+                android:defaultValue="false" />
+
+            <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
+                android:key="pref_data_traffic_omni_autohide_threshold"
+                android:title="@string/pref_data_traffic_omni_autohide_threshold_title"
+                minimum="0"
+                maximum="100"
+                interval="1"
+                monitorBoxEnabled="true"
+                monitorBoxUnit="kB/s"
+                android:defaultValue="10"
+                android:dependency="pref_data_traffic_omni_autohide" />
+
         </PreferenceScreen>
 
         <com.ceco.kitkat.gravitybox.preference.OngoingNotifPreference

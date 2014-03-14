@@ -1366,4 +1366,7 @@
     <string name="lc_activity_menu_show_all">Show all items</string>
     <string name="lc_activity_menu_show_active">Show active items</string>
 
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Inactivity threshold</string>
+
 </resources>

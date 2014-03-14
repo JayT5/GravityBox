@@ -70,6 +70,8 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
     private Mode mMode;
     private Integer mIconColor;
     private boolean mShowIcon;
+    private boolean mAutoHide;
+    private int mAutoHideThreshold;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
@@ -94,40 +96,46 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
             long rxData = newTotalRxBytes - totalRxBytes;
             long txData = newTotalTxBytes - totalTxBytes;
 
-            // If bit/s convert from Bytes to bits
-            String symbol;
-            if (KB == KILOBYTE) {
-                symbol = SYMBOLS.get("B/s");
+            if (shouldHide(rxData, txData, timeDelta)) {
+                setText("");
+                setVisibility(View.GONE);
             } else {
-                symbol = SYMBOLS.get("b/s");
-                rxData = rxData * 8;
-                txData = txData * 8;
-            }
+                // If bit/s convert from Bytes to bits
+                String symbol;
+                if (KB == KILOBYTE) {
+                    symbol = SYMBOLS.get("B/s");
+                } else {
+                    symbol = SYMBOLS.get("b/s");
+                    rxData = rxData * 8;
+                    txData = txData * 8;
+                }
 
-            // Get information for uplink ready so the line return can be added
-            String output = "";
-            if (mMode == Mode.OUT || mMode == Mode.IN_OUT) {
-                output = formatOutput(timeDelta, txData, symbol);
-            }
-
-            // Ensure text size is where it needs to be
-            int textSize;
-            if (mMode == Mode.IN_OUT) {
-                output += "\n";
-                textSize = txtSizeMulti;
-            } else {
-                textSize = txtSizeSingle;
-            }
-
-            // Add information for downlink if it's called for
-            if (mMode == Mode.IN || mMode == Mode.IN_OUT) {
-                output += formatOutput(timeDelta, rxData, symbol);
-            }
-
-            // Update view if there's anything new to show
-            if (!output.contentEquals(getText()) || msg.what == 1) {
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)textSize);
-                setText(output);
+                // Get information for uplink ready so the line return can be added
+                String output = "";
+                if (mMode == Mode.OUT || mMode == Mode.IN_OUT) {
+                    output = formatOutput(timeDelta, txData, symbol);
+                }
+    
+                // Ensure text size is where it needs to be
+                int textSize;
+                if (mMode == Mode.IN_OUT) {
+                    output += "\n";
+                    textSize = txtSizeMulti;
+                } else {
+                    textSize = txtSizeSingle;
+                }
+    
+                // Add information for downlink if it's called for
+                if (mMode == Mode.IN || mMode == Mode.IN_OUT) {
+                    output += formatOutput(timeDelta, rxData, symbol);
+                }
+    
+                // Update view if there's anything new to show
+                if (!output.contentEquals(getText()) || msg.what == 1) {
+                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)textSize);
+                    setText(output);
+                }
+                setVisibility(View.VISIBLE);
             }
 
             // Post delayed message to refresh in ~1000ms
@@ -147,6 +155,18 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
                 return decimalFormat.format(speed / (float)MB) + SYMBOLS.get("M") + symbol;
             }
             return decimalFormat.format(speed / (float)GB) + SYMBOLS.get("G") + symbol;
+        }
+
+        private boolean shouldHide(long rxData, long txData, long timeDelta) {
+            long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KILOBYTE;
+            long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KILOBYTE;
+            return mAutoHide &&
+                   (mMode == Mode.IN && speedRxKB <= mAutoHideThreshold ||
+                   mMode == Mode.OUT && speedTxKB <= mAutoHideThreshold ||
+                   mMode == Mode.IN_OUT && 
+                       speedRxKB <= mAutoHideThreshold && 
+                       speedTxKB <= mAutoHideThreshold);
+                    
         }
     };
 
@@ -177,6 +197,8 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
 
         mMode = Mode.valueOf(prefs.getString(GravityBoxSettings.PREF_KEY_DATA_TRAFFIC_OMNI_MODE, "IN_OUT"));
         mShowIcon = prefs.getBoolean(GravityBoxSettings.PREF_KEY_DATA_TRAFFIC_OMNI_SHOW_ICON, true);
+        mAutoHide = prefs.getBoolean(GravityBoxSettings.PREF_KEY_DATA_TRAFFIC_OMNI_AUTOHIDE, false);
+        mAutoHideThreshold = prefs.getInt(GravityBoxSettings.PREF_KEY_DATA_TRAFFIC_OMNI_AUTOHIDE_TH, 10);
         setSize();
     }
 
@@ -190,6 +212,12 @@ public class TrafficMeterOmni extends TrafficMeterAbstract {
         }
         if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_SIZE)) {
             setSize();
+        }
+        if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_OMNI_AUTOHIDE)) {
+            mAutoHide = intent.getBooleanExtra(GravityBoxSettings.EXTRA_DT_OMNI_AUTOHIDE, false);
+        }
+        if (intent.hasExtra(GravityBoxSettings.EXTRA_DT_OMNI_AUTOHIDE_TH)) {
+            mAutoHideThreshold = intent.getIntExtra(GravityBoxSettings.EXTRA_DT_OMNI_AUTOHIDE_TH, 10);
         }
     }
 
