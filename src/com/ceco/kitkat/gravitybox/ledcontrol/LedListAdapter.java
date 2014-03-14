@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ceco.kitkat.gravitybox.R;
+import com.ceco.kitkat.gravitybox.adapters.BaseListAdapterFilter;
+import com.ceco.kitkat.gravitybox.adapters.IIconListAdapterItem;
+import com.ceco.kitkat.gravitybox.adapters.BaseListAdapterFilter.IBaseListAdapterFilterable;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -29,11 +32,14 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LedListAdapter extends ArrayAdapter<LedListItem> {
+public class LedListAdapter extends ArrayAdapter<LedListItem>
+                            implements IBaseListAdapterFilterable<LedListItem> {
 
     private Context mContext;
     private List<LedListItem> mData = null;
+    private List<LedListItem> mFilteredData = null;
     private ListItemActionHandler mActionHandler;
+    private android.widget.Filter mFilter;
 
     protected interface ListItemActionHandler {
         void onItemCheckedChanged(LedListItem item, boolean checked);
@@ -44,6 +50,7 @@ public class LedListAdapter extends ArrayAdapter<LedListItem> {
 
         mContext = context;
         mData = new ArrayList<LedListItem>(objects);
+        mFilteredData = new ArrayList<LedListItem>(objects);
         mActionHandler = handler;
     }
 
@@ -86,7 +93,7 @@ public class LedListAdapter extends ArrayAdapter<LedListItem> {
             holder = (ViewHolder) row.getTag();
         }
 
-        LedListItem item = mData.get(position);
+        LedListItem item = mFilteredData.get(position);
         holder.appIconView.setImageDrawable(item.getAppIcon());
         holder.appNameView.setText(item.getAppName());
         holder.appDescView.setText(item.getAppDesc());
@@ -96,5 +103,34 @@ public class LedListAdapter extends ArrayAdapter<LedListItem> {
         holder.enabledView.setTag(item);
 
         return row;
+    }
+
+    @Override
+    public android.widget.Filter getFilter() {
+        if(mFilter == null) {
+            mFilter = new BaseListAdapterFilter<LedListItem>(this);
+        }
+
+        return mFilter;
+    }
+
+    @Override
+    public List<LedListItem> getOriginalData() {
+        return mData;
+    }
+
+    @Override
+    public List<LedListItem> getFilteredData() {
+        return mFilteredData;
+    }
+
+    @Override
+    public void onFilterPublishResults(List<LedListItem> results) {
+        mFilteredData = results;
+        clear();
+        for (int i = 0; i < mFilteredData.size(); i++) {
+            LedListItem item = mFilteredData.get(i);
+            add(item);
+        }
     }
 }

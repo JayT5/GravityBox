@@ -31,8 +31,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -44,6 +47,7 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
     private AsyncTask<Void, Void, ArrayList<LedListItem>> mAsyncTask;
     private ProgressDialog mProgressDialog;
     private LedListItem mCurrentItem;
+    private EditText mSearchEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,8 +58,27 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
 
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.led_control_activity);
+
         mList = getListView();
         mList.setOnItemClickListener(this);
+
+        mSearchEditText = (EditText) findViewById(R.id.input_search);
+        mSearchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mList.getAdapter() != null) {
+                    ((LedListAdapter)mList.getAdapter()).getFilter().filter(s);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
         setData();
     }
 
