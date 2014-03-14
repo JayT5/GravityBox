@@ -1611,6 +1611,15 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 mPrefTransVerification.setSummary(mPrefs.getString(PREF_KEY_TRANS_VERIFICATION,
                         getString(R.string.pref_trans_verification_summary)));
             }
+
+            // fix for potential invalid alpha value stored for data activity indicator color introduced in v2.9.9
+            int color = mPrefs.getInt(PREF_KEY_STATUSBAR_DATA_ACTIVITY_COLOR,
+                    getResources().getInteger(R.integer.signal_cluster_data_activity_icon_color));
+            if (Color.alpha(color) == 0) {
+                color = Color.argb(0xff, Color.red(color), Color.green(color), Color.blue(color));
+                mPrefs.edit().putInt(PREF_KEY_STATUSBAR_DATA_ACTIVITY_COLOR, color).commit();
+            }
+
             WebServiceClient.getAppSignatureHash(getActivity());
         }
 
