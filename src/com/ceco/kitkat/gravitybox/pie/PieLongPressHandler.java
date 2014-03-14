@@ -79,6 +79,15 @@ public class PieLongPressHandler implements PieItem.PieOnLongPressListener {
         }
     }
 
+    protected int getLongPressAction(ButtonType buttonType) {
+        if (buttonType == null) return 0;
+
+        if (mActions.containsKey(buttonType)) {
+            return mActions.get(buttonType);
+        }
+        return 0;
+    }
+
     private boolean performActionFor(ButtonType btnType) {
         Intent intent = null;
         switch(mActions.get(btnType)) {
@@ -137,6 +146,9 @@ public class PieLongPressHandler implements PieItem.PieOnLongPressListener {
                 break;
             case GravityBoxSettings.HWKEY_ACTION_BRIGHTNESS_DIALOG:
                 intent = new Intent(ModHwKeys.ACTION_SHOW_BRIGHTNESS_DIALOG);
+                break;
+            case GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS:
+                intent = new Intent(ModHwKeys.ACTION_RECENTS_CLEAR_ALL_LONGPRESS);
                 break;
             case GravityBoxSettings.HWKEY_ACTION_DEFAULT:
             default: return false;

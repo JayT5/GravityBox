@@ -53,6 +53,8 @@ import android.widget.ImageView;
 import com.ceco.kitkat.gravitybox.AppLauncher;
 import com.ceco.kitkat.gravitybox.GravityBox;
 import com.ceco.kitkat.gravitybox.GravityBoxSettings;
+import com.ceco.kitkat.gravitybox.ModClearAllRecents;
+import com.ceco.kitkat.gravitybox.ModHwKeys;
 import com.ceco.kitkat.gravitybox.ModPieControls;
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.pie.PieItem;
@@ -123,6 +125,10 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
     private PieLongPressHandler mLongPressHandler;
     private boolean mSysinfoDisabled;
     private int mLongpressDelay;
+    private Drawable mRecentIcon;
+    private Drawable mRecentAltIcon;
+    private boolean mRecentAlt = false;
+    private int mRecentLongPressAction = 0;
 
     private static void log(String message) {
         XposedBridge.log(TAG + ": " + message);
@@ -269,12 +275,21 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
         mHandler.sendMessageDelayed(Message.obtain(mHandler, MSG_INJECT_KEY, keycode, 0), 50);
     }
 
-    private BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            mBatteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
-            mBatteryStatus = intent.getIntExtra(BatteryManager.EXTRA_STATUS,
-                    BatteryManager.BATTERY_STATUS_UNKNOWN);
+            if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
+                mBatteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+                mBatteryStatus = intent.getIntExtra(BatteryManager.EXTRA_STATUS,
+                        BatteryManager.BATTERY_STATUS_UNKNOWN);
+            } else if (intent.getAction().equals(ModClearAllRecents.NAVBAR_RECENTS_CLEAR_ALL)) {
+                Boolean recentAltCurrent = mRecentAlt;
+                mRecentAlt = intent.getBooleanExtra(ModClearAllRecents.EXTRA_NAVBAR_RECENTS_CLEAR_ALL, false);
+                if (DEBUG) log("mRecentAlt = " + mRecentAlt);
+                if (recentAltCurrent != mRecentAlt) {
+                    setRecentAlt();
+                }
+            }
         }
     };
 
@@ -299,6 +314,7 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
         mGbContext = gbContext;
         mGbResources = gbContext.getResources();
         mLongPressHandler = new PieLongPressHandler(context, prefs);
+        mRecentLongPressAction = getLongPressAction(ButtonType.RECENT);
 
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -312,6 +328,8 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
                 "ic_sysbar_back", "drawable", PACKAGE_NAME));
         mBackAltIcon = res.getDrawable(context.getResources().getIdentifier(
                 "ic_sysbar_back_ime", "drawable", PACKAGE_NAME));
+        mRecentIcon = res.getDrawable(res.getIdentifier("ic_sysbar_recent", "drawable", PACKAGE_NAME));
+        mRecentAltIcon = mGbResources.getDrawable(R.drawable.ic_sysbar_recent_clear);
 
         try {
             mBaseStatusBarClass = XposedHelpers.findClass(CLASS_BASE_STATUSBAR, mContext.getClassLoader());
@@ -372,8 +390,10 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
         mPieContainer.addSlice(mSysInfo);
 
         // start listening for changes
-        mContext.registerReceiver(mBatteryReceiver,
-                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        intentFilter.addAction(ModClearAllRecents.NAVBAR_RECENTS_CLEAR_ALL);
+        mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
         if (mHasTelephony) {
             TelephonyManager telephonyManager =
@@ -390,13 +410,13 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
 
         mNavigationSlice.clear();
         mNavigationSlice.addItem(constructItem(2, ButtonType.BACK,
-                res.getDrawable(res.getIdentifier("ic_sysbar_back", "drawable", PACKAGE_NAME)),
+                mBackIcon,
                 minimumImageSize));
         mNavigationSlice.addItem(constructItem(2, ButtonType.HOME,
                 res.getDrawable(res.getIdentifier("ic_sysbar_home", "drawable", PACKAGE_NAME)),
                 minimumImageSize));
         mNavigationSlice.addItem(constructItem(2, ButtonType.RECENT,
-                res.getDrawable(res.getIdentifier("ic_sysbar_recent", "drawable", PACKAGE_NAME)),
+                mRecentIcon,
                 minimumImageSize));
         if (mCustomKeyMode == GravityBoxSettings.PIE_CUSTOM_KEY_SEARCH) {
             mNavigationSlice.addItem(constructItem(1, ButtonType.SEARCH,
@@ -569,7 +589,10 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
                 injectKeyDelayed(KeyEvent.KEYCODE_MENU);
                 break;
             case RECENT:
-                if (mStatusBar != null && mBaseStatusBarClass != null) {
+                if (mRecentAlt) {
+                    Intent intent = new Intent(ModHwKeys.ACTION_RECENTS_CLEAR_ALL_SINGLETAP);
+                    mContext.sendBroadcast(intent);
+                } else if (mStatusBar != null && mBaseStatusBarClass != null) {
                     try {
                         Method m = mBaseStatusBarClass.getDeclaredMethod("toggleRecentApps");
                         m.setAccessible(true);
@@ -638,6 +661,20 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
 
         if (mAppLauncher != null) {
             mAppLauncher.showDialog();
+        }
+    }
+
+    private void setRecentAlt() {
+        PieItem recentBtn = findItem(ButtonType.RECENT);
+        if (recentBtn == null) return;
+
+        if (mRecentAlt) {
+            recentBtn.setImageDrawable(mRecentAltIcon);
+            mRecentLongPressAction = getLongPressAction(ButtonType.RECENT);
+            setLongPressAction(ButtonType.RECENT.name(), GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS);
+        } else {
+            recentBtn.setImageDrawable(mRecentIcon);
+            setLongPressAction(ButtonType.RECENT.name(), mRecentLongPressAction);
         }
     }
 
@@ -727,6 +764,13 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
         if (mLongPressHandler != null) {
             mLongPressHandler.setLongPressAction(button, action);
         }
+    }
+
+    public int getLongPressAction(ButtonType button) {
+        if (mLongPressHandler != null) {
+            return mLongPressHandler.getLongPressAction(button);
+        }
+        return 0;
     }
 
     public void setSysinfoDisabled(boolean disabled) {

@@ -90,6 +90,8 @@ public class ModHwKeys {
     public static final String EXTRA_APP_ID = "launchAppId";
     public static final String ACTION_SHOW_VOLUME_PANEL = "gravitybox.intent.action.SHOW_VOLUME_PANEL";
     public static final String ACTION_SHOW_BRIGHTNESS_DIALOG = "gravitybox.intent.action.SHOW_BRIGHTNESS_DIALOG";
+    public static final String ACTION_RECENTS_CLEAR_ALL_SINGLETAP = "gravitybox.intent.action.ACTION_RECENTS_CLEARALL";
+    public static final String ACTION_RECENTS_CLEAR_ALL_LONGPRESS = "gravitybox.intent.action.ACTION_RECENTS_CLEARALL_LONGPRESS";
 
     public static final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
@@ -1035,6 +1037,10 @@ public class ModHwKeys {
             showLauncherDrawer();
         } else if (action == GravityBoxSettings.HWKEY_ACTION_BRIGHTNESS_DIALOG) {
             showBrightnessDialog();
+        } else if (action == GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_SINGLETAP) {
+            clearAllRecents(false);
+        } else if (action == GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS) {
+            clearAllRecents(true);
         }
     }
 
@@ -1473,6 +1479,20 @@ public class ModHwKeys {
             mContext.sendBroadcast(intent);
         } catch (Throwable t) {
             log("Error executing showLauncherDrawer: " + t.getMessage());
+        }
+    }
+
+    private static void clearAllRecents(boolean longPress) {
+        try {
+            Intent intent;
+            if (!longPress) {
+                intent = new Intent(ACTION_RECENTS_CLEAR_ALL_SINGLETAP);
+            } else {
+                intent = new Intent(ACTION_RECENTS_CLEAR_ALL_LONGPRESS);
+            }
+            mContext.sendBroadcast(intent);
+        } catch (Throwable t) {
+            log("Error executing clearAllRecents(" + longPress + "): " + t.getMessage());
         }
     }
 
