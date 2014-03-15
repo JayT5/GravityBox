@@ -151,6 +151,7 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
             @Override
             protected void onPostExecute(ArrayList<LedListItem> result) {
                 dismissProgressDialog();
+                mSearchEditText.setText("");
                 mList.setAdapter(new LedListAdapter(LedControlActivity.this, result, 
                         LedControlActivity.this));
                 ((LedListAdapter)mList.getAdapter()).notifyDataSetChanged();
