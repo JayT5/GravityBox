@@ -32,6 +32,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class LedSettingsActivity extends Activity implements OnClickListener {
     protected static final String EXTRA_PACKAGE_NAME = "packageName";
@@ -113,6 +114,17 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         if (mPrefsFragment.getInsistent()) {
             n.flags |= Notification.FLAG_INSISTENT;
         }
+        if (mPrefsFragment.getVibrateOverride()) {
+            try {
+                long[] pattern = LedSettings.parseVibratePatternString(
+                        mPrefsFragment.getVibratePatternAsString());
+                n.defaults &= ~Notification.DEFAULT_VIBRATE;
+                n.vibrate = pattern;
+            } catch (Exception e) {
+                Toast.makeText(this, getString(R.string.lc_vibrate_pattern_invalid),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
         Intent intent = new Intent(ModHwKeys.ACTION_SLEEP);
         sendBroadcast(intent);
         new Handler().postDelayed(new Runnable() {
@@ -132,6 +144,8 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setSoundUri(mPrefsFragment.getSoundUri());
         mLedSettings.setSoundOnlyOnce(mPrefsFragment.getSoundOnlyOnce());
         mLedSettings.setInsistent(mPrefsFragment.getInsistent());
+        mLedSettings.setVibrateOverride(mPrefsFragment.getVibrateOverride());
+        mLedSettings.setVibratePatternFromString(mPrefsFragment.getVibratePatternAsString());
         mLedSettings.serialize();
         Intent intent = new Intent();
         intent.putExtra(EXTRA_PACKAGE_NAME, mLedSettings.getPackageName());

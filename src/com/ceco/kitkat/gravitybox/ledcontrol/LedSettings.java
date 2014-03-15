@@ -35,6 +35,9 @@ public class LedSettings {
     private Uri mSoundUri;
     private boolean mSoundOnlyOnce;
     private boolean mInsistent;
+    private boolean mVibrateOverride;
+    private String mVibratePatternStr;
+    private long[] mVibratePattern;
 
     public static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -80,6 +83,10 @@ public class LedSettings {
                 ls.setSoundOnlyOnce(Boolean.valueOf(data[1]));
             } else if (data[0].equals("insistent")) {
                 ls.setInsistent(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("vibrateOverride")) {
+                ls.setVibrateOverride(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("vibratePattern")) {
+                ls.setVibratePatternFromString(data[1]);
             }
         }
         return ls;
@@ -97,6 +104,9 @@ public class LedSettings {
         mSoundUri = null;
         mSoundOnlyOnce = false;
         mInsistent = false;
+        mVibrateOverride = false;
+        mVibratePatternStr = null;
+        mVibratePattern = null;
     }
 
     protected void setEnabled(boolean enabled) {
@@ -133,6 +143,32 @@ public class LedSettings {
 
     protected void setInsistent(boolean insistent) {
         mInsistent = insistent;
+    }
+
+    protected void setVibrateOverride(boolean override) {
+        mVibrateOverride = override;
+    }
+
+    protected static long[] parseVibratePatternString(String patternStr) throws Exception {
+        String[] vals = patternStr.split(",");
+        long[] pattern = new long[vals.length];
+        for (int i=0; i<pattern.length; i++) {
+            pattern[i] = Long.valueOf(vals[i]);
+        }
+        return pattern;
+    }
+
+    protected void setVibratePatternFromString(String pattern) {
+        mVibratePatternStr = pattern == null || pattern.isEmpty() ?
+                null : pattern;
+        mVibratePattern = null;
+        if (mVibratePatternStr != null) {
+            try {
+                mVibratePattern = parseVibratePatternString(mVibratePatternStr);
+            } catch (Exception e) {
+                mVibratePatternStr = null;
+            }
+        }
     }
 
     public String getPackageName() {
@@ -175,6 +211,18 @@ public class LedSettings {
         return mInsistent;
     }
 
+    public boolean getVibrateOverride() {
+        return mVibrateOverride;
+    }
+
+    public String getVibratePatternAsString() {
+        return mVibratePatternStr;
+    }
+
+    public long[] getVibratePattern() {
+        return mVibratePattern;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -189,6 +237,10 @@ public class LedSettings {
             }
             dataSet.add("soundOnlyOnce:" + mSoundOnlyOnce);
             dataSet.add("insistent:" + mInsistent);
+            dataSet.add("vibrateOverride:" + mVibrateOverride);
+            if (mVibratePatternStr != null) {
+                dataSet.add("vibratePattern:" + mVibratePatternStr);
+            }
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();

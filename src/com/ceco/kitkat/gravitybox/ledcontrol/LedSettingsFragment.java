@@ -27,12 +27,16 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.Editable;
+import android.widget.Toast;
 
-public class LedSettingsFragment extends PreferenceFragment {
+public class LedSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener {
     private static final String PREF_KEY_LED_COLOR = "pref_lc_led_color";
     private static final String PREF_KEY_LED_TIME_ON = "pref_lc_led_time_on";
     private static final String PREF_KEY_LED_TIME_OFF = "pref_lc_led_time_off";
@@ -41,6 +45,8 @@ public class LedSettingsFragment extends PreferenceFragment {
     private static final String PREF_KEY_NOTIF_SOUND = "pref_lc_notif_sound";
     private static final String PREF_KEY_NOTIF_SOUND_ONLY_ONCE = "pref_lc_notif_sound_only_once";
     private static final String PREF_KEY_NOTIF_INSISTENT = "pref_lc_notif_insistent";
+    private static final String PREF_KEY_VIBRATE_OVERRIDE = "pref_lc_vibrate_override";
+    private static final String PREF_KEY_VIBRATE_PATTERN = "pref_lc_vibrate_pattern";
 
     private static final int REQ_PICK_SOUND = 101;
 
@@ -53,6 +59,8 @@ public class LedSettingsFragment extends PreferenceFragment {
     private Uri mSoundUri;
     private CheckBoxPreference mNotifSoundOnlyOncePref;
     private CheckBoxPreference mNotifInsistentPref;
+    private CheckBoxPreference mVibratePatternOverridePref;
+    private EditTextPreference mVibratePatternPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +75,9 @@ public class LedSettingsFragment extends PreferenceFragment {
         mNotifSoundPref = findPreference(PREF_KEY_NOTIF_SOUND);
         mNotifSoundOnlyOncePref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_SOUND_ONLY_ONCE);
         mNotifInsistentPref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_INSISTENT);
+        mVibratePatternOverridePref = (CheckBoxPreference) findPreference(PREF_KEY_VIBRATE_OVERRIDE);
+        mVibratePatternPref = (EditTextPreference) findPreference(PREF_KEY_VIBRATE_PATTERN);
+        mVibratePatternPref.setOnPreferenceChangeListener(this);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -78,6 +89,10 @@ public class LedSettingsFragment extends PreferenceFragment {
         mSoundUri = ledSettings.getSoundUri();
         mNotifSoundOnlyOncePref.setChecked(ledSettings.getSoundOnlyOnce());
         mNotifInsistentPref.setChecked(ledSettings.getInsistent());
+        mVibratePatternOverridePref.setChecked(ledSettings.getVibrateOverride());
+        if (ledSettings.getVibratePatternAsString() != null) {
+            mVibratePatternPref.setText(ledSettings.getVibratePatternAsString());
+        }
         updateSoundPrefSummary();
     }
 
@@ -125,6 +140,14 @@ public class LedSettingsFragment extends PreferenceFragment {
         return mNotifInsistentPref.isChecked();
     }
 
+    protected boolean getVibrateOverride() {
+        return mVibratePatternOverridePref.isChecked();
+    }
+
+    protected String getVibratePatternAsString() {
+        return mVibratePatternPref.getText();
+    }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
         if (pref == mNotifSoundPref) {
@@ -149,5 +172,21 @@ public class LedSettingsFragment extends PreferenceFragment {
             mSoundUri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
             updateSoundPrefSummary();
         }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mVibratePatternPref) {
+            try {
+                String val = (String)newValue;
+                LedSettings.parseVibratePatternString(val);
+                return true;
+            } catch (Exception e) {
+                Toast.makeText(getActivity(), getString(R.string.lc_vibrate_pattern_invalid),
+                        Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -148,6 +148,12 @@ public class ModLedControl {
                     n.flags &= ~Notification.FLAG_INSISTENT;
                 }
 
+                // vibration
+                if (ls.getVibrateOverride() && ls.getVibratePattern() != null) {
+                    n.defaults &= ~Notification.DEFAULT_VIBRATE;
+                    n.vibrate = ls.getVibratePattern();
+                }
+
                 if (DEBUG) log("Notification info: defaults=" + n.defaults + "; flags=" + n.flags);
             } catch (Throwable t) {
                 XposedBridge.log(t);

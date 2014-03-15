@@ -86,6 +86,19 @@
         android:key="pref_cat_lc_vibrations"
         android:title="@string/pref_cat_lc_vibrations_title">
 
+        <CheckBoxPreference
+            android:key="pref_lc_vibrate_override"
+            android:title="@string/pref_lc_vibrate_override_title"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <EditTextPreference
+            android:key="pref_lc_vibrate_pattern"
+            android:title="@string/pref_lc_vibrate_pattern_title"
+            android:summary="@string/pref_lc_vibrate_pattern_summary"
+            android:persistent="false"
+            android:defaultValue="0,250,250,250"
+            android:dependency="pref_lc_vibrate_override" />
 
     </PreferenceCategory>
 
