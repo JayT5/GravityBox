@@ -1367,7 +1367,8 @@
     <string name="lc_activity_menu_show_active">Show active items</string>
     <string name="pref_cat_lc_lights_title">Lights</string>
     <string name="pref_cat_lc_other_title">Other settings</string>
-    <string name="pref_cat_lc_sound_vib_title">Sound &amp; vibrations</string>
+    <string name="pref_cat_lc_sounds_title">Sounds</string>
+    <string name="pref_cat_lc_vibrations_title">Vibrations</string>
     <string name="pref_lc_notif_sound_override_title">Override notification sound</string>
     <string name="pref_lc_notif_sound_title">Notification sound</string>
     <string name="lc_notif_sound_none">No sound</string>

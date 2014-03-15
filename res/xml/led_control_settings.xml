@@ -51,8 +51,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="pref_cat_lc_sound_vib"
-        android:title="@string/pref_cat_lc_sound_vib_title">
+        android:key="pref_cat_lc_sounds"
+        android:title="@string/pref_cat_lc_sounds_title">
 
         <CheckBoxPreference
             android:key="pref_lc_notif_sound_override"
@@ -79,6 +79,13 @@
             android:summary="@string/pref_lc_notif_insistent_summary"
             android:defaultValue="false"
             android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_cat_lc_vibrations"
+        android:title="@string/pref_cat_lc_vibrations_title">
+
 
     </PreferenceCategory>
 
