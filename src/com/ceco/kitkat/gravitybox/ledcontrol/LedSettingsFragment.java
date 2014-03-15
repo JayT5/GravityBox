@@ -40,6 +40,7 @@ public class LedSettingsFragment extends PreferenceFragment {
     private static final String PREF_KEY_NOTIF_SOUND_OVERRIDE = "pref_lc_notif_sound_override";
     private static final String PREF_KEY_NOTIF_SOUND = "pref_lc_notif_sound";
     private static final String PREF_KEY_NOTIF_SOUND_ONLY_ONCE = "pref_lc_notif_sound_only_once";
+    private static final String PREF_KEY_NOTIF_INSISTENT = "pref_lc_notif_insistent";
 
     private static final int REQ_PICK_SOUND = 101;
 
@@ -51,6 +52,7 @@ public class LedSettingsFragment extends PreferenceFragment {
     private CheckBoxPreference mNotifSoundOverridePref;
     private Uri mSoundUri;
     private CheckBoxPreference mNotifSoundOnlyOncePref;
+    private CheckBoxPreference mNotifInsistentPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class LedSettingsFragment extends PreferenceFragment {
         mNotifSoundOverridePref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_SOUND_OVERRIDE);
         mNotifSoundPref = findPreference(PREF_KEY_NOTIF_SOUND);
         mNotifSoundOnlyOncePref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_SOUND_ONLY_ONCE);
+        mNotifInsistentPref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_INSISTENT);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -74,6 +77,7 @@ public class LedSettingsFragment extends PreferenceFragment {
         mNotifSoundOverridePref.setChecked(ledSettings.getSoundOverride());
         mSoundUri = ledSettings.getSoundUri();
         mNotifSoundOnlyOncePref.setChecked(ledSettings.getSoundOnlyOnce());
+        mNotifInsistentPref.setChecked(ledSettings.getInsistent());
         updateSoundPrefSummary();
     }
 
@@ -115,6 +119,10 @@ public class LedSettingsFragment extends PreferenceFragment {
 
     protected boolean getSoundOnlyOnce() {
         return mNotifSoundOnlyOncePref.isChecked();
+    }
+
+    protected boolean getInsistent() {
+        return mNotifInsistentPref.isChecked();
     }
 
     @Override

@@ -75,6 +75,9 @@ public class LedListItem implements IBaseListAdapterItem {
             if (mLedSettings.getSoundOnlyOnce()) {
                 buf += "; " + mContext.getString(R.string.pref_lc_notif_sound_only_once_title);
             }
+            if (mLedSettings.getInsistent()) {
+                buf += "; " + mContext.getString(R.string.pref_lc_notif_insistent_title);
+            }
             if (mLedSettings.getOngoing()) {
                 buf += "; " + mContext.getString(R.string.lc_item_summary_ongoing);
             }

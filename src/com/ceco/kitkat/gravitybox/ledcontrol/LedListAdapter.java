@@ -60,6 +60,7 @@ public class LedListAdapter extends ArrayAdapter<LedListItem>
         TextView appDescView;
         LedColorView colorView;
         CheckBox enabledView;
+        ImageView insistentView;
     }
 
     @Override
@@ -87,6 +88,7 @@ public class LedListAdapter extends ArrayAdapter<LedListItem>
                     }
                 }
             });
+            holder.insistentView = (ImageView) row.findViewById(R.id.led_alert);
 
             row.setTag(holder);
         } else {
@@ -101,6 +103,8 @@ public class LedListAdapter extends ArrayAdapter<LedListItem>
         holder.colorView.setVisibility(item.isEnabled() ? View.VISIBLE : View.GONE);
         holder.enabledView.setChecked(item.isEnabled());
         holder.enabledView.setTag(item);
+        holder.insistentView.setVisibility(item.getLedSettings().getInsistent() ? 
+                View.VISIBLE : View.GONE);
 
         return row;
     }

@@ -142,6 +142,11 @@ public class ModLedControl {
                 } else {
                     n.flags &= ~Notification.FLAG_ONLY_ALERT_ONCE;
                 }
+                if (ls.getInsistent()) {
+                    n.flags |= Notification.FLAG_INSISTENT;
+                } else {
+                    n.flags &= ~Notification.FLAG_INSISTENT;
+                }
 
                 if (DEBUG) log("Notification info: defaults=" + n.defaults + "; flags=" + n.flags);
             } catch (Throwable t) {

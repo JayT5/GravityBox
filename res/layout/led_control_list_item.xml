@@ -56,6 +56,13 @@
         />
     </LinearLayout>
 
+    <ImageView 
+        android:id="@+id/led_alert"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:focusable="false"
+        android:src="@drawable/ic_alert_orange" />
+
     <com.ceco.kitkat.gravitybox.ledcontrol.LedColorView 
         android:id="@+id/led_color"
         android:layout_width="20dp"

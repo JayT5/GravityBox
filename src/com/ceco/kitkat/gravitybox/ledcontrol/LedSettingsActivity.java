@@ -110,6 +110,9 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
             n.defaults &= ~Notification.DEFAULT_SOUND;
             n.sound = mPrefsFragment.getSoundUri();
         }
+        if (mPrefsFragment.getInsistent()) {
+            n.flags |= Notification.FLAG_INSISTENT;
+        }
         Intent intent = new Intent(ModHwKeys.ACTION_SLEEP);
         sendBroadcast(intent);
         new Handler().postDelayed(new Runnable() {
@@ -128,6 +131,7 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setSoundOverride(mPrefsFragment.getSoundOverride());
         mLedSettings.setSoundUri(mPrefsFragment.getSoundUri());
         mLedSettings.setSoundOnlyOnce(mPrefsFragment.getSoundOnlyOnce());
+        mLedSettings.setInsistent(mPrefsFragment.getInsistent());
         mLedSettings.serialize();
         Intent intent = new Intent();
         intent.putExtra(EXTRA_PACKAGE_NAME, mLedSettings.getPackageName());

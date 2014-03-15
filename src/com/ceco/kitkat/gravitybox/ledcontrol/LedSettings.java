@@ -34,6 +34,7 @@ public class LedSettings {
     private boolean mSoundOverride;
     private Uri mSoundUri;
     private boolean mSoundOnlyOnce;
+    private boolean mInsistent;
 
     public static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -77,6 +78,8 @@ public class LedSettings {
                 ls.setSoundUri(Uri.parse(data[1]));
             } else if (data[0].equals("soundOnlyOnce")) {
                 ls.setSoundOnlyOnce(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("insistent")) {
+                ls.setInsistent(Boolean.valueOf(data[1]));
             }
         }
         return ls;
@@ -93,6 +96,7 @@ public class LedSettings {
         mSoundOverride = false;
         mSoundUri = null;
         mSoundOnlyOnce = false;
+        mInsistent = false;
     }
 
     protected void setEnabled(boolean enabled) {
@@ -125,6 +129,10 @@ public class LedSettings {
 
     protected void setSoundOnlyOnce(boolean onlyOnce) {
         mSoundOnlyOnce = onlyOnce;
+    }
+
+    protected void setInsistent(boolean insistent) {
+        mInsistent = insistent;
     }
 
     public String getPackageName() {
@@ -163,6 +171,10 @@ public class LedSettings {
         return mSoundOnlyOnce;
     }
 
+    public boolean getInsistent() {
+        return mInsistent;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -176,6 +188,7 @@ public class LedSettings {
                 dataSet.add("sound:" + mSoundUri.toString());
             }
             dataSet.add("soundOnlyOnce:" + mSoundOnlyOnce);
+            dataSet.add("insistent:" + mInsistent);
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();
@@ -187,7 +200,7 @@ public class LedSettings {
     public String toString() {
         String buf = "[" + mPackageName + "," + mEnabled + "," + mColor + "," + mLedOnMs + 
                 "," + mLedOffMs + "," + mOngoing + ";" + mSoundOverride + ";" + 
-                mSoundUri + ";" + mSoundOnlyOnce + "]";
+                mSoundUri + ";" + mSoundOnlyOnce + ";" + mInsistent + "]";
         return buf;
     }
 }

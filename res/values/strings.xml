@@ -1373,6 +1373,8 @@
     <string name="lc_notif_sound_none">No sound</string>
     <string name="pref_lc_notif_sound_only_once_title">Alert only once</string>
     <string name="pref_lc_notif_sound_only_once_summary">When enabled, the sound and/or vibration won\'t play in case notification already exists</string>
+    <string name="pref_lc_notif_insistent_title">Insistent</string>
+    <string name="pref_lc_notif_insistent_summary">When enabled, audio will be repeated until the notification is cancelled or the notification window is opened</string>
 
     <!-- Omni data traffic monitor inactivity threshold -->
     <string name="pref_data_traffic_omni_autohide_threshold_title">Inactivity threshold</string>
