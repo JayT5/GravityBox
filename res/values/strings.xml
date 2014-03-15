@@ -1384,4 +1384,8 @@
     <!-- Omni data traffic monitor inactivity threshold -->
     <string name="pref_data_traffic_omni_autohide_threshold_title">Inactivity threshold</string>
 
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
 </resources>
