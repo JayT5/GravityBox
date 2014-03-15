@@ -122,15 +122,27 @@ public class ModLedControl {
                 if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
                         !ls.getOngoing()) {
                     if (DEBUG) log("Ongoing led control disabled. Forcing LED Off");
-                    n.flags &= ~Notification.FLAG_SHOW_LIGHTS;
                     return;
                 }
 
+                // lights
                 n.defaults &= ~Notification.DEFAULT_LIGHTS;
                 n.flags |= Notification.FLAG_SHOW_LIGHTS;
                 n.ledOnMS = ls.getLedOnMs();
                 n.ledOffMS = ls.getLedOffMs();
                 n.ledARGB = ls.getColor();
+
+                // sound
+                if (ls.getSoundOverride()) {
+                    n.defaults &= ~Notification.DEFAULT_SOUND;
+                    n.sound = ls.getSoundUri();
+                }
+                if (ls.getSoundOnlyOnce()) {
+                    n.flags |= Notification.FLAG_ONLY_ALERT_ONCE;
+                } else {
+                    n.flags &= ~Notification.FLAG_ONLY_ALERT_ONCE;
+                }
+
                 if (DEBUG) log("Notification info: defaults=" + n.defaults + "; flags=" + n.flags);
             } catch (Throwable t) {
                 XposedBridge.log(t);

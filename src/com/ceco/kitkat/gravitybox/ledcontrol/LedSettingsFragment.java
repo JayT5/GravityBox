@@ -20,20 +20,37 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.preference.SeekBarPreference;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+import android.provider.Settings;
 
 public class LedSettingsFragment extends PreferenceFragment {
     private static final String PREF_KEY_LED_COLOR = "pref_lc_led_color";
     private static final String PREF_KEY_LED_TIME_ON = "pref_lc_led_time_on";
     private static final String PREF_KEY_LED_TIME_OFF = "pref_lc_led_time_off";
     private static final String PREF_KEY_ONGOING = "pref_lc_ongoing";
+    private static final String PREF_KEY_NOTIF_SOUND_OVERRIDE = "pref_lc_notif_sound_override";
+    private static final String PREF_KEY_NOTIF_SOUND = "pref_lc_notif_sound";
+    private static final String PREF_KEY_NOTIF_SOUND_ONLY_ONCE = "pref_lc_notif_sound_only_once";
+
+    private static final int REQ_PICK_SOUND = 101;
 
     private ColorPickerPreference mColorPref;
     private SeekBarPreference mLedOnMsPref;
     private SeekBarPreference mLedOffMsPref;
     private CheckBoxPreference mOngoingPref;
+    private Preference mNotifSoundPref;
+    private CheckBoxPreference mNotifSoundOverridePref;
+    private Uri mSoundUri;
+    private CheckBoxPreference mNotifSoundOnlyOncePref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +61,9 @@ public class LedSettingsFragment extends PreferenceFragment {
         mLedOnMsPref = (SeekBarPreference) findPreference(PREF_KEY_LED_TIME_ON);
         mLedOffMsPref = (SeekBarPreference) findPreference(PREF_KEY_LED_TIME_OFF);
         mOngoingPref = (CheckBoxPreference) findPreference(PREF_KEY_ONGOING);
+        mNotifSoundOverridePref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_SOUND_OVERRIDE);
+        mNotifSoundPref = findPreference(PREF_KEY_NOTIF_SOUND);
+        mNotifSoundOnlyOncePref = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_SOUND_ONLY_ONCE);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -51,6 +71,22 @@ public class LedSettingsFragment extends PreferenceFragment {
         mLedOnMsPref.setValue(ledSettings.getLedOnMs());
         mLedOffMsPref.setValue(ledSettings.getLedOffMs());
         mOngoingPref.setChecked(ledSettings.getOngoing());
+        mNotifSoundOverridePref.setChecked(ledSettings.getSoundOverride());
+        mSoundUri = ledSettings.getSoundUri();
+        mNotifSoundOnlyOncePref.setChecked(ledSettings.getSoundOnlyOnce());
+        updateSoundPrefSummary();
+    }
+
+    private void updateSoundPrefSummary() {
+        mNotifSoundPref.setSummary(getString(R.string.lc_notif_sound_none));
+        if (mSoundUri != null) {
+            Ringtone r = RingtoneManager.getRingtone(getActivity(), mSoundUri);
+            if (r != null) {
+                mNotifSoundPref.setSummary(r.getTitle(getActivity()));
+            } else {
+                mSoundUri = null;
+            }
+        }
     }
 
     protected int getColor() {
@@ -67,5 +103,43 @@ public class LedSettingsFragment extends PreferenceFragment {
 
     protected boolean getOngoing() {
         return mOngoingPref.isChecked();
+    }
+
+    protected boolean getSoundOverride() {
+        return mNotifSoundOverridePref.isChecked();
+    }
+
+    protected Uri getSoundUri() {
+        return mSoundUri;
+    }
+
+    protected boolean getSoundOnlyOnce() {
+        return mNotifSoundOnlyOncePref.isChecked();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
+        if (pref == mNotifSoundPref) {
+            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, mSoundUri);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI, 
+                    Settings.System.DEFAULT_NOTIFICATION_URI);
+            startActivityForResult(intent, REQ_PICK_SOUND);
+            return true;
+        }
+        return super.onPreferenceTreeClick(prefScreen, pref);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQ_PICK_SOUND && resultCode == Activity.RESULT_OK && data != null) {
+            mSoundUri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+            updateSoundPrefSummary();
+        }
     }
 }

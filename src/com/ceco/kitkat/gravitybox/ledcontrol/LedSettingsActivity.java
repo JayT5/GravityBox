@@ -106,6 +106,10 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
             .setSmallIcon(R.drawable.ic_launcher)
             .setLights(mPrefsFragment.getColor(), mPrefsFragment.getLedOnMs(), mPrefsFragment.getLedOffMs());
         final Notification n = builder.build();
+        if (mPrefsFragment.getSoundOverride() && mPrefsFragment.getSoundUri() != null) {
+            n.defaults &= ~Notification.DEFAULT_SOUND;
+            n.sound = mPrefsFragment.getSoundUri();
+        }
         Intent intent = new Intent(ModHwKeys.ACTION_SLEEP);
         sendBroadcast(intent);
         new Handler().postDelayed(new Runnable() {
@@ -121,6 +125,9 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setLedOnMs(mPrefsFragment.getLedOnMs());
         mLedSettings.setLedOffMs(mPrefsFragment.getLedOffMs());
         mLedSettings.setOngoing(mPrefsFragment.getOngoing());
+        mLedSettings.setSoundOverride(mPrefsFragment.getSoundOverride());
+        mLedSettings.setSoundUri(mPrefsFragment.getSoundUri());
+        mLedSettings.setSoundOnlyOnce(mPrefsFragment.getSoundOnlyOnce());
         mLedSettings.serialize();
         Intent intent = new Intent();
         intent.putExtra(EXTRA_PACKAGE_NAME, mLedSettings.getPackageName());

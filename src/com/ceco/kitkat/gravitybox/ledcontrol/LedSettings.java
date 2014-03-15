@@ -20,6 +20,7 @@ import java.util.Set;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 public class LedSettings {
 
@@ -30,6 +31,9 @@ public class LedSettings {
     private int mLedOnMs;
     private int mLedOffMs;
     private int mColor;
+    private boolean mSoundOverride;
+    private Uri mSoundUri;
+    private boolean mSoundOnlyOnce;
 
     public static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -56,7 +60,7 @@ public class LedSettings {
             return ls;
         }
         for (String val : dataSet) {
-            String[] data = val.split(":");
+            String[] data = val.split(":", 2);
             if (data[0].equals("enabled")) {
                 ls.setEnabled(Boolean.valueOf(data[1]));
             } else if (data[0].equals("ongoing")) {
@@ -67,6 +71,12 @@ public class LedSettings {
                 ls.setLedOffMs(Integer.valueOf(data[1]));
             } else if (data[0].equals("color")) {
                 ls.setColor(Integer.valueOf(data[1]));
+            } else if (data[0].equals("soundOverride")) {
+                ls.setSoundOverride(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("sound")) {
+                ls.setSoundUri(Uri.parse(data[1]));
+            } else if (data[0].equals("soundOnlyOnce")) {
+                ls.setSoundOnlyOnce(Boolean.valueOf(data[1]));
             }
         }
         return ls;
@@ -80,6 +90,9 @@ public class LedSettings {
         mLedOnMs = 1000;
         mLedOffMs = 5000;
         mColor = 0xffffffff;
+        mSoundOverride = false;
+        mSoundUri = null;
+        mSoundOnlyOnce = false;
     }
 
     protected void setEnabled(boolean enabled) {
@@ -100,6 +113,18 @@ public class LedSettings {
 
     protected void setColor(int color) {
         mColor = color;
+    }
+
+    protected void setSoundOverride(boolean override) {
+        mSoundOverride = override;
+    }
+
+    protected void setSoundUri(Uri soundUri) {
+        mSoundUri = soundUri;
+    }
+
+    protected void setSoundOnlyOnce(boolean onlyOnce) {
+        mSoundOnlyOnce = onlyOnce;
     }
 
     public String getPackageName() {
@@ -126,6 +151,18 @@ public class LedSettings {
         return mColor;
     }
 
+    public boolean getSoundOverride() {
+        return mSoundOverride;
+    }
+
+    public Uri getSoundUri() {
+        return mSoundUri;
+    }
+
+    public boolean getSoundOnlyOnce() {
+        return mSoundOnlyOnce;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -134,6 +171,11 @@ public class LedSettings {
             dataSet.add("ledOnMs:" + mLedOnMs);
             dataSet.add("ledOffMs:" + mLedOffMs);
             dataSet.add("color:" + mColor);
+            dataSet.add("soundOverride:" + mSoundOverride);
+            if (mSoundUri != null) {
+                dataSet.add("sound:" + mSoundUri.toString());
+            }
+            dataSet.add("soundOnlyOnce:" + mSoundOnlyOnce);
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();
@@ -144,7 +186,8 @@ public class LedSettings {
 
     public String toString() {
         String buf = "[" + mPackageName + "," + mEnabled + "," + mColor + "," + mLedOnMs + 
-                "," + mLedOffMs + "," + mOngoing + "]";
+                "," + mLedOffMs + "," + mOngoing + ";" + mSoundOverride + ";" + 
+                mSoundUri + ";" + mSoundOnlyOnce + "]";
         return buf;
     }
 }

@@ -50,6 +50,31 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="pref_cat_lc_sound_vib"
+        android:title="@string/pref_cat_lc_sound_vib_title">
+
+        <CheckBoxPreference
+            android:key="pref_lc_notif_sound_override"
+            android:title="@string/pref_lc_notif_sound_override_title"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <Preference
+            android:key="pref_lc_notif_sound"
+            android:title="@string/pref_lc_notif_sound_title"
+            android:persistent="false"
+            android:dependency="pref_lc_notif_sound_override" />
+
+        <CheckBoxPreference
+            android:key="pref_lc_notif_sound_only_once"
+            android:title="@string/pref_lc_notif_sound_only_once_title"
+            android:summary="@string/pref_lc_notif_sound_only_once_summary"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory 
         android:key="pref_cat_lc_other"
         android:title="@string/pref_cat_lc_other_title">

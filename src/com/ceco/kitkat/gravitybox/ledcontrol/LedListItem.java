@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 
 public class LedListItem implements IBaseListAdapterItem {
 
@@ -60,6 +62,19 @@ public class LedListItem implements IBaseListAdapterItem {
             buf += String.format(Locale.getDefault(),
                     "; %s=%dms", mContext.getString(R.string.lc_item_summary_off),
                     mLedSettings.getLedOffMs());
+            if (mLedSettings.getSoundOverride()) {
+                if (mLedSettings.getSoundUri() == null) {
+                    buf += "; " + mContext.getString(R.string.lc_notif_sound_none);
+                } else {
+                    Ringtone r = RingtoneManager.getRingtone(mContext, mLedSettings.getSoundUri());
+                    if (r != null) {
+                        buf += "; " + r.getTitle(mContext);
+                    }
+                }
+            }
+            if (mLedSettings.getSoundOnlyOnce()) {
+                buf += "; " + mContext.getString(R.string.pref_lc_notif_sound_only_once_title);
+            }
             if (mLedSettings.getOngoing()) {
                 buf += "; " + mContext.getString(R.string.lc_item_summary_ongoing);
             }

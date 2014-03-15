@@ -52,8 +52,7 @@
             android:textSize="12sp"
             android:textColor="?android:attr/textColorAlertDialogListItem"
             android:gravity="center_vertical|start"
-            android:singleLine="true"
-            android:ellipsize="marquee"
+            android:singleLine="false"
         />
     </LinearLayout>
 
