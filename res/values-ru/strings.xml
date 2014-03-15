@@ -386,6 +386,7 @@
     <string name="recent_clear_top_right">Сверху справа</string>
     <string name="recent_clear_bottom_left">Снизу слева</string>
     <string name="recent_clear_bottom_right">Снизу справа</string>
+    <string name="recent_clear_navigation_bar">Панель навигации (необходимо включение настроек панели навигации))</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Настроить отступ сверху</string>
@@ -1341,8 +1342,31 @@
     <string name="pref_qs_alarm_longpress_app_title">Прилож.на удержание</string>
 
     <!-- Traffic meter: show only when download active -->
-    <string name="pref_data_traffic_active_dl_only_title">Только при активн.загрузке</string>
+    <string name="pref_data_traffic_active_dl_only_title">Только менеджер загрузки</string>
     <string name="pref_data_traffic_active_dl_only_summary">Отображение трафика только при текущих загрузках через 
         стандартный менеджер загрузки Андроид</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Управление индикацией</string>
+    <string name="pref_led_control_summary">Управление оповещениями посредством  светодиодного индикатора для соответствующих приложений</string>
+    <string name="lc_please_wait">Пожалуйста, подождите&#8230;</string>
+    <string name="lc_disabled">Управление индикацией отключено</string>
+    <string name="pref_lc_led_color_title">Цвет индикации</string>
+    <string name="pref_lc_led_time_on_title">Длит.вкл диода</string>
+    <string name="pref_lc_led_time_off_title">Длит.откл диода</string>
+    <string name="pref_lc_ongoing_title">Текущие</string>
+    <string name="pref_lc_ongoing_summary">Применимо также к текущим оповещениям, если включено</string>
+    <string name="lc_btn_preview">Предпросмотр</string>
+    <string name="lc_btn_save">Сохранить</string>
+    <string name="lc_item_summary_on">Вкл</string>
+    <string name="lc_item_summary_off">Откл</string>
+    <string name="lc_item_summary_ongoing">Текущие</string>
+    <string name="lc_preview_notif_title">Управление индикацией GravityBox</string>
+    <string name="lc_preview_notif_text">Проверка %s</string>
+    <string name="lc_activity_menu_show_all">Показать все</string>
+    <string name="lc_activity_menu_show_active">Показать активные</string>
+	
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Порог неактивности</string>
 
 </resources>
