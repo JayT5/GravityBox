@@ -394,6 +394,15 @@ public class Utils {
         return buf;
     }
 
+    public static long[] csvToLongArray(String csv) throws Exception {
+        String[] vals = csv.split(",");
+        long[] arr = new long[vals.length];
+        for (int i=0; i<arr.length; i++) {
+            arr[i] = Long.valueOf(vals[i]);
+        }
+        return arr;
+    }
+
     static class SystemProp extends Utils {
         
         private SystemProp() {

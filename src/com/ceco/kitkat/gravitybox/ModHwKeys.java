@@ -143,6 +143,8 @@ public class ModHwKeys {
     private static boolean mCustomKeyDoubletapPending = false;
     private static boolean mWasCustomKeyDoubletap = false;
     private static boolean mCustomKeyPressed = false;
+    private static long[] mVkVibePattern;
+    private static long[] mVkVibePatternDefault;
 
     private static List<String> mKillIgnoreList = new ArrayList<String>(Arrays.asList(
             "com.android.systemui",
@@ -339,6 +341,9 @@ public class ModHwKeys {
                 showVolumePanel();
             } else if (action.equals(ACTION_SHOW_BRIGHTNESS_DIALOG)) {
                 showBrightnessDialog();
+            } else if (action.equals(GravityBoxSettings.ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED)) {
+                setVirtualKeyVibePattern(intent.getStringExtra(
+                        GravityBoxSettings.EXTRA_VK_VIBRATE_PATTERN));
             }
         }
     };
@@ -772,6 +777,10 @@ public class ModHwKeys {
 
             mAppLauncher = new AppLauncher(mContext, mPrefs);
 
+            mVkVibePatternDefault = (long[]) XposedHelpers.getObjectField(
+                    mPhoneWindowManager, "mVirtualKeyVibePattern");
+            setVirtualKeyVibePattern(mPrefs.getString(GravityBoxSettings.PREF_KEY_VK_VIBRATE_PATTERN, null));
+
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(GravityBoxSettings.ACTION_PREF_HWKEY_MENU_LONGPRESS_CHANGED);
             intentFilter.addAction(GravityBoxSettings.ACTION_PREF_HWKEY_MENU_DOUBLETAP_CHANGED);
@@ -808,6 +817,7 @@ public class ModHwKeys {
             intentFilter.addAction(ACTION_LAUNCH_APP);
             intentFilter.addAction(ACTION_SHOW_VOLUME_PANEL);
             intentFilter.addAction(ACTION_SHOW_BRIGHTNESS_DIALOG);
+            intentFilter.addAction(GravityBoxSettings.ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
             if (DEBUG) log("Phone window manager initialized");
@@ -1529,6 +1539,28 @@ public class ModHwKeys {
             } catch (Throwable t) {
                 XposedBridge.log(t);
             }
+        }
+    }
+
+    private static void setVirtualKeyVibePattern(String pattern) {
+        if (mPhoneWindowManager == null) return;
+
+        mVkVibePattern = null;
+        try {
+            if (pattern != null && !pattern.isEmpty()) {
+                mVkVibePattern = Utils.csvToLongArray(pattern);
+            }
+        } catch (Throwable t) { 
+            XposedBridge.log(t);
+        }
+
+        try {
+            final long[] vp = mVkVibePattern == null ? mVkVibePatternDefault : mVkVibePattern;
+            if (vp != null) {
+                XposedHelpers.setObjectField(mPhoneWindowManager, "mVirtualKeyVibePattern", vp);
+            }
+        } catch (Throwable t) {
+            XposedBridge.log(t);
         }
     }
 }

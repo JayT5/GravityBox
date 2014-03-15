@@ -1849,6 +1849,11 @@
                 android:entryValues="@array/hwkey_kill_delay_values"
                 android:defaultValue="1000" />
 
+            <EditTextPreference
+                android:key="pref_virtual_key_vibrate_pattern"
+                android:title="@string/pref_virtual_key_vibrate_pattern_title"
+                android:summary="@string/pref_virtual_key_vibrate_pattern_summary" />
+
         </PreferenceCategory>
 
     </PreferenceScreen>
