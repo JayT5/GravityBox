@@ -1347,10 +1347,10 @@
         standard Android\'s Download Manager</string>
 
     <!-- Led control -->
-    <string name="pref_led_control_title">Notification LED control</string>
-    <string name="pref_led_control_summary">Allows notification LED control on per-app basis</string>
+    <string name="pref_led_control_title">Ultimate notification control</string>
+    <string name="pref_led_control_summary">Allows controlling notification lights, sounds and vibrations on per-app basis</string>
     <string name="lc_please_wait">Please wait&#8230;</string>
-    <string name="lc_disabled">LED control disabled</string>
+    <string name="lc_disabled">Notification control disabled</string>
     <string name="pref_lc_led_color_title">LED color</string>
     <string name="pref_lc_led_time_on_title">LED On duration</string>
     <string name="pref_lc_led_time_off_title">LED Off duration</string>
@@ -1361,7 +1361,7 @@
     <string name="lc_item_summary_on">On</string>
     <string name="lc_item_summary_off">Off</string>
     <string name="lc_item_summary_ongoing">Ongoing</string>
-    <string name="lc_preview_notif_title">GravityBox LED control</string>
+    <string name="lc_preview_notif_title">GravityBox notification control</string>
     <string name="lc_preview_notif_text">Test for %s</string>
     <string name="lc_activity_menu_show_all">Show all items</string>
     <string name="lc_activity_menu_show_active">Show active items</string>
