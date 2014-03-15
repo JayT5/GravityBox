@@ -1365,6 +1365,8 @@
     <string name="lc_preview_notif_text">Test for %s</string>
     <string name="lc_activity_menu_show_all">Show all items</string>
     <string name="lc_activity_menu_show_active">Show active items</string>
+    <string name="pref_cat_lc_lights_title">Lights</string>
+    <string name="pref_cat_lc_other_title">Other settings</string>
 
     <!-- Omni data traffic monitor inactivity threshold -->
     <string name="pref_data_traffic_omni_autohide_threshold_title">Inactivity threshold</string>

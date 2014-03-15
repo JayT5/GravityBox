@@ -15,40 +15,52 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference 
-        android:key="pref_lc_led_color"
-        android:title="@string/pref_lc_led_color_title"
-        android:defaultValue="@integer/COLOR_WHITE"
-        alphaSlider="true"
-        android:persistent="false" />
+    <PreferenceCategory 
+        android:key="pref_cat_lc_lights"
+        android:title="@string/pref_cat_lc_lights_title">
 
-    <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
-        android:key="pref_lc_led_time_on"
-        android:title="@string/pref_lc_led_time_on_title"
-        minimum="300"
-        maximum="3000"
-        interval="100"
-        monitorBoxEnabled="true"
-        monitorBoxUnit="ms"
-        android:defaultValue="1000"
-        android:persistent="false" />
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:key="pref_lc_led_color"
+            android:title="@string/pref_lc_led_color_title"
+            android:defaultValue="@integer/COLOR_WHITE"
+            alphaSlider="true"
+            android:persistent="false" />
 
-    <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
-        android:key="pref_lc_led_time_off"
-        android:title="@string/pref_lc_led_time_off_title"
-        minimum="500"
-        maximum="30000"
-        interval="100"
-        monitorBoxEnabled="true"
-        monitorBoxUnit="ms"
-        android:defaultValue="5000"
-        android:persistent="false" />
+        <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
+            android:key="pref_lc_led_time_on"
+            android:title="@string/pref_lc_led_time_on_title"
+            minimum="300"
+            maximum="3000"
+            interval="100"
+            monitorBoxEnabled="true"
+            monitorBoxUnit="ms"
+            android:defaultValue="1000"
+            android:persistent="false" />
 
-    <CheckBoxPreference
-        android:key="pref_lc_ongoing"
-        android:title="@string/pref_lc_ongoing_title"
-        android:summary="@string/pref_lc_ongoing_summary"
-        android:defaultValue="false"
-        android:persistent="false" />
+        <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
+            android:key="pref_lc_led_time_off"
+            android:title="@string/pref_lc_led_time_off_title"
+            minimum="500"
+            maximum="30000"
+            interval="100"
+            monitorBoxEnabled="true"
+            monitorBoxUnit="ms"
+            android:defaultValue="5000"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:key="pref_cat_lc_other"
+        android:title="@string/pref_cat_lc_other_title">
+
+        <CheckBoxPreference
+            android:key="pref_lc_ongoing"
+            android:title="@string/pref_lc_ongoing_title"
+            android:summary="@string/pref_lc_ongoing_summary"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
