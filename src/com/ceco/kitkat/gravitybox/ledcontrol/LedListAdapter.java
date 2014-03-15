@@ -103,7 +103,8 @@ public class LedListAdapter extends ArrayAdapter<LedListItem>
         holder.colorView.setVisibility(item.isEnabled() ? View.VISIBLE : View.GONE);
         holder.enabledView.setChecked(item.isEnabled());
         holder.enabledView.setTag(item);
-        holder.insistentView.setVisibility(item.getLedSettings().getInsistent() ? 
+        holder.insistentView.setVisibility(item.isEnabled() && 
+                item.getLedSettings().getInsistent() ? 
                 View.VISIBLE : View.GONE);
 
         return row;
