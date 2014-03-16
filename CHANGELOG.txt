@@ -1,3 +1,28 @@
+Changelog 3.0.0 - 16/03/2014
+--------------------------------------
+- Introducing Ultimate Notification Control (premium)
+--- allows notification LED color and duration control on per-app basis
+--- allows overriding notification sounds and vibrations on per-app basis
+--- supports "Alert only once" and "Insistent" notification features
+--- workaround for AOSP bug preventing LED from working for missed calls
+------ activates by enabling Notification Control for "Phone" app
+- New clear all recents style: clear all button in Navigation bar/Pie (thanks to SilentException)
+--- replaces recents button with clear all button while recents panel is showing
+- Lockscreen: option to hide red trail when wrong pattern is entered (thanks to SilentException)
+- Omni traffic monitor: added option for auto-hiding on inactivity based on user-defined speed threshold
+- Navigation keys: added option for specifying virtual key vibe pattern
+- Icon Picker: added icons for Chrome and Spotify (thanks to Jason_MCG, jacknicholson)
+- Fixed invalid value of Data Activity Indicator color
+- Updated German translations (thanks to Minty123, Wikiwix)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated French translation (thanks to ch-vox)
+- Updated Italian translations (valerioscifoni)
+- Updated Russian translations (thanks to gaich)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Slovak and Czech translations
+
 Changelog 2.9.9 - 12/03/2014
 --------------------------------------
 - QuickSettings management:
