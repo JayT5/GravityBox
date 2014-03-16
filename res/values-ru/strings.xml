@@ -386,7 +386,7 @@
     <string name="recent_clear_top_right">Сверху справа</string>
     <string name="recent_clear_bottom_left">Снизу слева</string>
     <string name="recent_clear_bottom_right">Снизу справа</string>
-    <string name="recent_clear_navigation_bar">Панель навигации (необходимо включение настроек панели навигации))</string>
+    <string name="recent_clear_navigation_bar">Панель навигации (необходимо включение настроек панели навигации)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Настроить отступ сверху</string>
@@ -1347,13 +1347,13 @@
         стандартный менеджер загрузки Андроид</string>
 
     <!-- Led control -->
-    <string name="pref_led_control_title">Управление индикацией</string>
-    <string name="pref_led_control_summary">Управление оповещениями посредством  светодиодного индикатора для соответствующих приложений</string>
+    <string name="pref_led_control_title">Управление оповещением</string>
+    <string name="pref_led_control_summary">Управление оповещением посредством световой индикации, звуков и вибрации для соответствующих приложений</string>
     <string name="lc_please_wait">Пожалуйста, подождите&#8230;</string>
-    <string name="lc_disabled">Управление индикацией отключено</string>
+    <string name="lc_disabled">Управление оповещением отключено</string>
     <string name="pref_lc_led_color_title">Цвет индикации</string>
-    <string name="pref_lc_led_time_on_title">Длит.вкл диода</string>
-    <string name="pref_lc_led_time_off_title">Длит.откл диода</string>
+    <string name="pref_lc_led_time_on_title">Длит.вкл индикации</string>
+    <string name="pref_lc_led_time_off_title">Длит.откл индикации</string>
     <string name="pref_lc_ongoing_title">Текущие</string>
     <string name="pref_lc_ongoing_summary">Применимо также к текущим оповещениям, если включено</string>
     <string name="lc_btn_preview">Предпросмотр</string>
@@ -1361,12 +1361,35 @@
     <string name="lc_item_summary_on">Вкл</string>
     <string name="lc_item_summary_off">Откл</string>
     <string name="lc_item_summary_ongoing">Текущие</string>
-    <string name="lc_preview_notif_title">Управление индикацией GravityBox</string>
+    <string name="lc_preview_notif_title">Управление оповещением GravityBox</string>
     <string name="lc_preview_notif_text">Проверка %s</string>
     <string name="lc_activity_menu_show_all">Показать все</string>
     <string name="lc_activity_menu_show_active">Показать активные</string>
+    <string name="pref_cat_lc_lights_title">Свет</string>
+    <string name="pref_cat_lc_other_title">Другие настройки</string>
+    <string name="pref_cat_lc_sounds_title">Звуки</string>
+    <string name="pref_cat_lc_vibrations_title">Вибрации</string>
+    <string name="pref_lc_notif_sound_override_title">Заменить звук уведомления</string>
+    <string name="pref_lc_notif_sound_title">Звук уведомления</string>
+    <string name="lc_notif_sound_none">Без звука</string>
+    <string name="pref_lc_notif_sound_only_once_title">Только один раз</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Если включено, звук и/или вибрация не будут воспроизводиться, если уведомление уже существует</string>
+    <string name="pref_lc_notif_insistent_title">Настойчивость</string>
+    <string name="pref_lc_notif_insistent_summary">Если включено, аудиосигнал будет повторяться до тех пор, пока уведомление не будет отменено или не будет открыто его диалоговое окно</string>
+    <string name="pref_lc_vibrate_override_title">Заменить вибрацию</string>
+    <string name="pref_lc_vibrate_pattern_title">Виброотклик</string>
+    <string name="pref_lc_vibrate_pattern_summary">Список разделённых запятыми пар выключения/включения в миллисекундах. Установите 0 для отключения вибрации.</string>
+    <string name="lc_vibrate_pattern_invalid">Неверный формат виброотклика</string>
 	
     <!-- Omni data traffic monitor inactivity threshold -->
     <string name="pref_data_traffic_omni_autohide_threshold_title">Порог неактивности</string>
+	
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Виброотклик вирт.клавиш</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Список разделённых запятыми пар выключения/включения в миллисекундах.</string>
 
 </resources>
