@@ -852,34 +852,26 @@ public class ModLockscreen {
     }
 
     private static void beforeLockPatternDraw(final Class<? extends Enum> displayModeEnum, final Object thisObject) {
-        try {
-            final Object patternDisplayMode = XposedHelpers.getObjectField(thisObject, "mPatternDisplayMode");
-            final Boolean inStealthMode = XposedHelpers.getBooleanField(thisObject, "mInStealthMode");  
+        final Object patternDisplayMode = XposedHelpers.getObjectField(thisObject, "mPatternDisplayMode");
+        final Boolean inStealthMode = XposedHelpers.getBooleanField(thisObject, "mInStealthMode");  
 
-            if (!mPrefs.getBoolean(GravityBoxSettings.PREF_KEY_LOCKSCREEN_SHOW_PATTERN_ERROR, true) &&
-                        mPatternDisplayMode == null && patternDisplayMode == Enum.valueOf(displayModeEnum, "Wrong")) {
-                mInStealthMode = inStealthMode;
-                mPatternDisplayMode = patternDisplayMode;
-                XposedHelpers.setBooleanField(thisObject, "mInStealthMode", true);
-                XposedHelpers.setObjectField(thisObject, "mPatternDisplayMode", Enum.valueOf(displayModeEnum, "Correct"));
-            } else {
-                mPatternDisplayMode = null;
-            }
-        } catch (Throwable t) {
-            XposedBridge.log(t);
+        if (!mPrefs.getBoolean(GravityBoxSettings.PREF_KEY_LOCKSCREEN_SHOW_PATTERN_ERROR, true) &&
+                    mPatternDisplayMode == null && patternDisplayMode == Enum.valueOf(displayModeEnum, "Wrong")) {
+            mInStealthMode = inStealthMode;
+            mPatternDisplayMode = patternDisplayMode;
+            XposedHelpers.setBooleanField(thisObject, "mInStealthMode", true);
+            XposedHelpers.setObjectField(thisObject, "mPatternDisplayMode", Enum.valueOf(displayModeEnum, "Correct"));
+        } else {
+            mPatternDisplayMode = null;
         }
     }
 
     private static void afterLockPatternDraw(final Object thisObject) {
-        try {
-            if (null != mPatternDisplayMode) {
-                XposedHelpers.setBooleanField(thisObject, "mInStealthMode", mInStealthMode);
-                XposedHelpers.setObjectField(thisObject, "mPatternDisplayMode", mPatternDisplayMode);
-                mInStealthMode = false;
-                mPatternDisplayMode = null;
-            }
-        } catch (Throwable t) {
-            XposedBridge.log(t);
+        if (null != mPatternDisplayMode) {
+            XposedHelpers.setBooleanField(thisObject, "mInStealthMode", mInStealthMode);
+            XposedHelpers.setObjectField(thisObject, "mPatternDisplayMode", mPatternDisplayMode);
+            mInStealthMode = false;
+            mPatternDisplayMode = null;
         }
     }
 }
