@@ -358,15 +358,19 @@ public class ModStatusBar {
                         mCarrierTextView = (TextView) carrierTextView;
                     }
 
-                    View dtView = (View) XposedHelpers.getObjectField(param.thisObject, "mDateTimeView");
-                    if (dtView != null) {
-                        dtView.setOnLongClickListener(new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                launchClockLongpressApp();
-                                return true;
-                            }
-                        });
+                    try {
+                        View dtView = (View) XposedHelpers.getObjectField(param.thisObject, "mDateTimeView");
+                        if (dtView != null) {
+                            dtView.setOnLongClickListener(new View.OnLongClickListener() {
+                                @Override
+                                public boolean onLongClick(View v) {
+                                    launchClockLongpressApp();
+                                    return true;
+                                }
+                            });
+                        }
+                    } catch (Throwable t) {
+                        log("Error setting long-press handler on mDateTimeView: " + t.getMessage());
                     }
 
                     mScreenWidth = (float) res.getDisplayMetrics().widthPixels;
