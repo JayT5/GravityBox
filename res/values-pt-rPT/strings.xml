@@ -371,6 +371,7 @@
     <string name="recent_clear_top_right">Canto superior direito</string>
     <string name="recent_clear_bottom_left">Canto inferior esquerdo</string>
     <string name="recent_clear_bottom_right">Canto inferior direito</string>
+    <string name="recent_clear_navigation_bar">Barra de navegação (requer ativação dos ajustes da barra de navegação)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Ajustar margem superior</string>
@@ -1326,5 +1327,55 @@
     <!-- Traffic meter: show only when download active -->
     <string name="pref_data_traffic_active_dl_only_title">Apenas quando download estiver ativo</string>
     <string name="pref_data_traffic_active_dl_only_summary">Permite mostrar o medidor de tráfego de dados apenas quando estiver a decorrer algum download</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Controlo de notificações</string>
+    <string name="pref_led_control_summary">Permite controlar as notificações (avisos luminosos, sonoros e por vibração) por aplicação</string>
+    <string name="lc_please_wait">Por favor aguarde&#8230;</string>
+    <string name="lc_disabled">Controlo desativado</string>
+    <string name="pref_lc_led_color_title">Cor da notificação</string>
+    <string name="pref_lc_led_time_on_title">Duração do aviso quando ligado</string>
+    <string name="pref_lc_led_time_off_title">Duração do aviso quando desligado</string>
+    <string name="pref_lc_ongoing_title">A decorrer</string>
+    <string name="pref_lc_ongoing_summary">Aplicável também às notificações a decorrer, quando selecionado</string>
+    <string name="lc_btn_preview">Pré-visualizar</string>
+    <string name="lc_btn_save">Guardar</string>
+    <string name="lc_item_summary_on">Ligado</string>
+    <string name="lc_item_summary_off">Desligado</string>
+    <string name="lc_item_summary_ongoing">A decorrer</string>
+    <string name="lc_preview_notif_title">Controlo de notificações GravityBox</string>
+    <string name="lc_preview_notif_text">Testar durante %s</string>
+    <string name="lc_activity_menu_show_all">Mostrar todas as aplicações</string>
+    <string name="lc_activity_menu_show_active">Mostrar aplicações com controlo ativado</string>
+    <string name="pref_cat_lc_lights_title">Avisos luminosos</string>
+    <string name="pref_cat_lc_other_title">Outras definições</string>
+    <string name="pref_cat_lc_sounds_title">Avisos sonoros</string>
+    <string name="pref_cat_lc_vibrations_title">Avisos por vibração</string>
+    <string name="pref_lc_notif_sound_override_title">Sobrepor aviso sonoro</string>
+    <string name="pref_lc_notif_sound_title">Som da notificação</string>
+    <string name="lc_notif_sound_none">Sem som</string>
+    <string name="pref_lc_notif_sound_only_once_title">Alertar apenas uma vez</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Quando selecionado, o aviso sonoro e/ou por vibração não atua se a notificação já existir</string>
+    <string name="pref_lc_notif_insistent_title">Insistente</string>
+    <string name="pref_lc_notif_insistent_summary">Quando selecionado, o aviso sonoro e/ou por vibração será repetido até que a notificação seja cancelada ou a janela de notificações seja aberta</string>
+    <string name="pref_lc_vibrate_override_title">Sobrepor vibração</string>
+    <string name="pref_lc_vibrate_pattern_title">Padrão de vibração</string>
+    <string name="pref_lc_vibrate_pattern_summary">Lista de pares de duração (desligado/ligado), em milisegundos, separados por vírgula. Colocar a 0 para desativar a vibração.</string>
+    <string name="lc_vibrate_pattern_invalid">Formato inválido para padrão de vibraçã</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Limite de inatividade</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Padrão de vibração das teclas</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Lista de pares de duração (desligado/ligado), em milisegundos, separados por vírgula. Deixar vazio para o padrão pré-definido.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Mostrar erro na sequência</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Permite mostrar um trilho vermelho quando a sequência é introduzida incorretamente</string>
 
 </resources>
