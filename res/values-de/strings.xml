@@ -80,8 +80,10 @@
     <string name="quick_settings_usb_tether_on">Tethering</string>
     <string name="quick_settings_music_play">Abspielen</string>
     <string name="quick_settings_music_pause">Pause</string>
-    <string name="quick_settings_smart_radio_on">Netzautomatik An</string>
-    <string name="quick_settings_smart_radio_off">Netzautomatik Aus</string>
+    <string name="quick_settings_smart_radio_on">Netzautomatik an</string>
+    <string name="quick_settings_smart_radio_off">Netzautomatik aus</string>
+    <string name="quick_settings_lock_screen_on">Bildschirm-Sperre an</string>
+    <string name="quick_settings_lock_screen_off">Bildschirm-Sperre aus</string>
 
     <!-- QuickSettings settings -->
     <string name="quick_settings_title">Schnelleinstellungen in Statusleiste</string>
