@@ -386,6 +386,7 @@
     <string name="recent_clear_top_right">Superior derecha</string>
     <string name="recent_clear_bottom_left">Inferior izquierda</string>
     <string name="recent_clear_bottom_right">Inferior derecha</string>
+    <string name="recent_clear_navigation_bar">Barra de navegación (requiere activar los ajustes de la barra de navegación)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Ajustar margen superior</string>
@@ -1341,4 +1342,46 @@
     <!-- Traffic meter: show only when download active -->
     <string name="pref_data_traffic_active_dl_only_title">Solo gestor de descargas</string>
     <string name="pref_data_traffic_active_dl_only_summary">Muestra el medidor de tráfico solo cuando haya descargas en curso en el gestor de descargas estándar de Android</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Control de notificaciones</string>
+    <string name="pref_led_control_summary">Permite controlar las luces de notificación, sonidos y vibraciones en cada app</string>
+    <string name="lc_please_wait">Por favor, espera&#8230;</string>
+    <string name="lc_disabled">Control de notificaciones desactivado</string>
+    <string name="pref_lc_led_color_title">Color del LED</string>
+    <string name="pref_lc_led_time_on_title">Duración del LED activado</string>
+    <string name="pref_lc_led_time_off_title">Duración del LED desactivado</string>
+    <string name="pref_lc_ongoing_title">En curso</string>
+    <string name="pref_lc_ongoing_summary">Aplica también a las notificaciones en curso al activarse</string>
+    <string name="lc_btn_preview">Vista previa</string>
+    <string name="lc_btn_save">Guardar</string>
+    <string name="lc_item_summary_on">Activado</string>
+    <string name="lc_item_summary_off">Desactivado</string>
+    <string name="lc_item_summary_ongoing">En curso</string>
+    <string name="lc_preview_notif_title">Control de notificaciones de GravityBox</string>
+    <string name="lc_preview_notif_text">Probar durante %s</string>
+    <string name="lc_activity_menu_show_all">Mostrar todos los artículos</string>
+    <string name="lc_activity_menu_show_active">Mostrar artículos activos</string>
+    <string name="pref_cat_lc_lights_title">Luces</string>
+    <string name="pref_cat_lc_other_title">Otros ajustes</string>
+    <string name="pref_cat_lc_sounds_title">Sonidos</string>
+    <string name="pref_cat_lc_vibrations_title">Vibraciones</string>
+    <string name="pref_lc_notif_sound_override_title">Sobrescribir sonido de notificación</string>
+    <string name="pref_lc_notif_sound_title">Sonido de notificación</string>
+    <string name="lc_notif_sound_none">Sin sonido</string>
+    <string name="pref_lc_notif_sound_only_once_title">Avisar solo una vez</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Al activar, el sonido y/o vibración no se reproducirá en caso de que la notificación ya exista</string>
+    <string name="pref_lc_notif_insistent_title">Insistente</string>
+    <string name="pref_lc_notif_insistent_summary">Al activar, el sonido se repetirá hasta que la notificación se cancele o la ventana de notificacion se abra</string>
+    <string name="pref_lc_vibrate_override_title">Sobrescribir vibraciones</string>
+    <string name="pref_lc_vibrate_pattern_title">Patrón de vibración</string>
+    <string name="pref_lc_vibrate_pattern_summary">Lista separada por comas de las duraciones activadas/desactivadas en milisegundos. Establecer a 0 para desactivar vibraciones.</string>
+    <string name="lc_vibrate_pattern_invalid">Formato de patrón de vibraciones inválido</string>
+ 
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Umbral de inactividad</string>
+    
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
 </resources>
