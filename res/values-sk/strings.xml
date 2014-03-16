@@ -361,6 +361,7 @@
     <string name="recent_clear_top_right">Vpravo hore</string>
     <string name="recent_clear_bottom_left">Vľavo dole</string>
     <string name="recent_clear_bottom_right">Vpravo dole</string>
+    <string name="recent_clear_navigation_bar">Navigačná lišta (vyžaduje zapnuté nastavenia navigačnej lišty)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Prispôsobiť horný okraj</string>
@@ -1311,5 +1312,55 @@
     <string name="pref_data_traffic_active_dl_only_title">Len pre Download Manager</string>
     <string name="pref_data_traffic_active_dl_only_summary">Zobrazí monitor prietoku dát len v prípade aktívnych 
         downloadov cez štandardný Android Download Manager</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Nastavenia oznámení</string>
+    <string name="pref_led_control_summary">Umožňuje nastavenia LED, zvukov a vibrácií oznámení pre každú aplikáciu samostatne</string>
+    <string name="lc_please_wait">Prosím čakajte&#8230;</string>
+    <string name="lc_disabled">Nastavenia oznámení vypnuté</string>
+    <string name="pref_lc_led_color_title">Farba</string>
+    <string name="pref_lc_led_time_on_title">Doba zapnutia</string>
+    <string name="pref_lc_led_time_off_title">Doba vypnutia</string>
+    <string name="pref_lc_ongoing_title">Prebiehajúce</string>
+    <string name="pref_lc_ongoing_summary">Ak povolené, nastavenia budú použité aj pre prebiehajúce oznámenia</string>
+    <string name="lc_btn_preview">Náhľad</string>
+    <string name="lc_btn_save">Uložiť</string>
+    <string name="lc_item_summary_on">Zap</string>
+    <string name="lc_item_summary_off">Vyp</string>
+    <string name="lc_item_summary_ongoing">Prebiehajúce</string>
+    <string name="lc_preview_notif_title">GravityBox nastavenia oznámení</string>
+    <string name="lc_preview_notif_text">Test pre %s</string>
+    <string name="lc_activity_menu_show_all">Zobraziť všetky položky</string>
+    <string name="lc_activity_menu_show_active">Zobraziť aktívne položky</string>
+    <string name="pref_cat_lc_lights_title">LED</string>
+    <string name="pref_cat_lc_other_title">Iné nastavenia</string>
+    <string name="pref_cat_lc_sounds_title">Zvuky</string>
+    <string name="pref_cat_lc_vibrations_title">Vibrácie</string>
+    <string name="pref_lc_notif_sound_override_title">Obísť predvolený zvuk</string>
+    <string name="pref_lc_notif_sound_title">Zvuk oznámenia</string>
+    <string name="lc_notif_sound_none">Ticho</string>
+    <string name="pref_lc_notif_sound_only_once_title">Upozorniť len raz</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Ak povolené, zvuk a/alebo vibrácie nebudú prehraté ak už oznámenie existuje</string>
+    <string name="pref_lc_notif_insistent_title">Neústupné</string>
+    <string name="pref_lc_notif_insistent_summary">Ak povolené, zvuky budú prehrávané opakovane pokiaľ nebude oznámenie zrušené alebo nedôjde k otvoreniu panelu oznámení</string>
+    <string name="pref_lc_vibrate_override_title">Obísť predvolené vibrácie</string>
+    <string name="pref_lc_vibrate_pattern_title">Vzorec vibrácie</string>
+    <string name="pref_lc_vibrate_pattern_summary">Zoznam čiarkou oddelených hodnôt pre dobu vypnutia/zapnutia vibrátora v milisekundách. Zadajte 0 pre vypnutie vibrácií.</string>
+    <string name="lc_vibrate_pattern_invalid">Nesprávny formát vzorca vibrácie</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Prah nečinnosti</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Vzorec vibrácie soft tlačidiel</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Zoznam čiarkou oddelených hodnôt pre dobu vypnutia/zapnutia vibrátora v milisekundách. Ponechajte prázdne pre použitie pedvoleného vzorca.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Ukázať chybu vzorca</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Zobrazí červenú stopu po zadaní nesprávneho odomykacieho vzorca</string>
 
 </resources>
