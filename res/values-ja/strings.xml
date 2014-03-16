@@ -370,6 +370,7 @@
     <string name="recent_clear_top_right">右上</string>
     <string name="recent_clear_bottom_left">左下</string>
     <string name="recent_clear_bottom_right">右下</string>
+    <string name="recent_clear_navigation_bar">ナビバー(ナビバー設定も有効にしてください)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">ボタン上の余白</string>
@@ -1317,5 +1318,51 @@
     <!-- Traffic meter: show only when download active -->
     <string name="pref_data_traffic_active_dl_only_title">ダウンロード中のみ</string>
     <string name="pref_data_traffic_active_dl_only_summary">Androidの標準ダウンロードマネージャでダウンロードしているときだけ表示するようにします。</string>
+    
+    <!-- Led control -->
+    <string name="pref_led_control_title">通知コントロール</string>
+    <string name="pref_led_control_summary">通知LEDや通知音、バイブをアプリごとに管理します。</string>
+    <string name="lc_please_wait">お待ちください&#8230;</string>
+    <string name="lc_disabled">通知コントロールは無効です</string>
+    <string name="pref_lc_led_color_title">LED色</string>
+    <string name="pref_lc_led_time_on_title">LEDオン間隔</string>
+    <string name="pref_lc_led_time_off_title">LEDオフ間隔</string>
+    <string name="pref_lc_ongoing_title">実行中</string>
+    <string name="pref_lc_ongoing_summary">有効にすると「実行中の通知」にも適用するようにします。</string>
+    <string name="lc_btn_preview">プレビュー</string>
+    <string name="lc_btn_save">保存</string>
+    <string name="lc_item_summary_on">オン</string>
+    <string name="lc_item_summary_off">オフ</string>
+    <string name="lc_item_summary_ongoing">実行中</string>
+    <string name="lc_preview_notif_title">GravityBox通知コントロール</string>
+    <string name="lc_preview_notif_text">%sのテスト</string>
+    <string name="lc_activity_menu_show_all">アイテムを全て表示</string>
+    <string name="lc_activity_menu_show_active">アクティブなアイテムを表示</string>
+    <string name="pref_cat_lc_lights_title">LED</string>
+    <string name="pref_cat_lc_other_title">その他の設定</string>
+    <string name="pref_cat_lc_sounds_title">通知音</string>
+    <string name="pref_cat_lc_vibrations_title">通知バイブ</string>
+    <string name="pref_lc_notif_sound_override_title">通知音を上書き</string>
+    <string name="pref_lc_notif_sound_title">通知音</string>
+    <string name="lc_notif_sound_none">通知音なし</string>
+    <string name="pref_lc_notif_sound_only_once_title">一度だけ再生</string>
+    <string name="pref_lc_notif_sound_only_once_summary">通知がすでにある場合は通知音やバイブを再生しないようにします。</string>
+    <string name="pref_lc_notif_insistent_title">通知の継続</string>
+    <string name="pref_lc_notif_insistent_summary">有効にすると、通知がキャンセルされるか通知領域を開くまで通知音を再生し続けるようにします。</string>
+    <string name="pref_lc_vibrate_override_title">バイブの上書き</string>
+    <string name="pref_lc_vibrate_pattern_title">バイブのパターン</string>
+    <string name="pref_lc_vibrate_pattern_summary">オフ/オンの間隔をコンマで区切ってミリ秒で入力してください。0にセットするとバイブを無効にします。</string>
+    <string name="lc_vibrate_pattern_invalid">バイブのパターンが正しくありません。</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">非アクティブの閾値</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+    
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">ソフトキーバイブのパターン</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">オフ/オンの間隔をコンマで区切ってミリ秒で入力してください。空欄にするとデフォルトのバイブのままにします。</string>
     
 </resources>
