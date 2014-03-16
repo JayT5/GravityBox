@@ -1378,7 +1378,7 @@
     <string name="pref_lc_notif_insistent_summary">Quando abilitato, il suono di notifica verrà riprodotto finchè la notifica non sarà cancellata o sarà aperto il pannello delle notifiche</string>
     <string name="pref_lc_vibrate_override_title">Sovrascrivi vibrazioni</string>
     <string name="pref_lc_vibrate_pattern_title">Schema di vibrazione</string>
-    <string name="pref_lc_vibrate_pattern_summary">Imposta un valore in millisecondi che indichi la durata tra "acceso" e "spento", separando ogni valore con una virgola.</string>
+    <string name="pref_lc_vibrate_pattern_summary">Imposta un valore in millisecondi che indichi la durata tra "acceso" e "spento", separando ogni valore con una virgola. Inserire 0 per disabilitare la vibrazione.</string>
     <string name="lc_vibrate_pattern_invalid">Schema di vibrazione non valido</string>
     
     <!-- Omni data traffic monitor inactivity threshold -->
@@ -1387,5 +1387,13 @@
     <!-- Icon Picker: additional icons -->
     <string name="shortcuts_icon_picker_chrome">Chrome</string>
     <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Schema vibrazione tasti virtuali</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Imposta un valore in millisecondi che indichi la durata tra "acceso" e "spento", separando ogni valore con una virgola. Lascia il campo vuoto per usare il valore predefinito.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Mostra errori schema</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Mostra un segno rosso quando viene inserito uno schema non valido</string>
 
 </resources>
