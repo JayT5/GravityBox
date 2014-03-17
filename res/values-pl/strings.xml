@@ -1368,4 +1368,7 @@
     <string name="pref_lockscreen_show_pattern_error_title">Pokaż błąd wzoru</string>
     <string name="pref_lockscreen_show_pattern_error_summary">Wyświetla czerwony ślad po wprowadzeniu złego wzoru odblokowania</string>
 
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Ta funkcja działa obecnie w trybie próbnym. Jeśli okaże się przydatna, będzie jej można nadal używać po zarejestrowaniu identyfikatora transakcji PayPal. Okres próbny kończy się po %d ponownych uruchomieniach.</string>
+
 </resources>
