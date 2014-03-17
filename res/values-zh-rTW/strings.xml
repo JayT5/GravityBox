@@ -81,6 +81,9 @@
     <string name="quick_settings_music_pause">暫停</string>
     <string name="quick_settings_smart_radio_on">Smart Radio 開啟</string>
     <string name="quick_settings_smart_radio_off">Smart Radio 關閉</string>
+    <string name="quick_settings_lock_screen_on">鎖定螢幕開啟</string>
+    <string name="quick_settings_lock_screen_off">鎖定螢幕關閉</string>
+
 
 
     <!--  QuickSettings settings -->
@@ -113,7 +116,10 @@
     <string name="qs_tile_camera">相機</string>
     <string name="qs_tile_usb_tethering">USB 連結</string>
     <string name="qs_tile_music">音樂</string>
-    <string name="qs_tile_smart_radio">Smart Radio</string>
+    <string name="qs_tile_smart_radio">智慧網路</string>
+    <string name="qs_tile_alarm">鬧鐘</string>
+    <string name="qs_tile_lock_screen">鎖定螢幕</string>
+
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">顏色選擇器</string>
@@ -1298,6 +1304,64 @@
     <string name="pref_cat_qs_alarm_tile_settings_title">時鐘瓷貼設定</string>
     <string name="pref_qs_alarm_singletap_app_title">單擊 應用程式</string>
     <string name="alarm_singletap_app_default">預設應用程式</string>
-    <string name="pref_qs_alarm_longpress_app_title">長按 應用程式app</string>
+    <string name="pref_qs_alarm_longpress_app_title">長按 應用程式</string>
+    
+     <!-- Traffic meter: show only when download active -->
+    <string name="pref_data_traffic_active_dl_only_title">當有下載任務時</string>
+    <string name="pref_data_traffic_active_dl_only_summary">僅在當 Android 標準下載管理員有下載任務時顯示資料流量指示符</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">最終通知控制</string>
+    <string name="pref_led_control_summary">允許控制每一個應用程式的基礎通知，鈴聲與震動</string>
+    <string name="lc_please_wait">請稍後&#8230;</string>
+    <string name="lc_disabled">通知控制停用</string>
+    <string name="pref_lc_led_color_title">LED 顏色</string>
+    <string name="pref_lc_led_time_on_title">LED 開啟時間</string>
+    <string name="pref_lc_led_time_off_title">LED 關閉時間</string>
+    <string name="pref_lc_ongoing_title">正在進行</string>
+    <string name="pref_lc_ongoing_summary">當啟用時也套用於正在進行的通知</string>
+    <string name="lc_btn_preview">預覽</string>
+    <string name="lc_btn_save">儲存</string>
+    <string name="lc_item_summary_on">開啟</string>
+    <string name="lc_item_summary_off">關閉</string>
+    <string name="lc_item_summary_ongoing">正在進行</string>
+    <string name="lc_preview_notif_title">GravityBox 通知控制</string>
+    <string name="lc_preview_notif_text">測試 %s</string>
+    <string name="lc_activity_menu_show_all">顯示所有項目</string>
+    <string name="lc_activity_menu_show_active">顯示活動項目</string>
+    <string name="pref_cat_lc_lights_title">指示燈</string>
+    <string name="pref_cat_lc_other_title">其他設定</string>
+    <string name="pref_cat_lc_sounds_title">音效</string>
+    <string name="pref_cat_lc_vibrations_title">振動</string>
+    <string name="pref_lc_notif_sound_override_title">變更通知音效</string>
+    <string name="pref_lc_notif_sound_title">通知音效</string>
+    <string name="lc_notif_sound_none">沒有音效</string>
+    <string name="pref_lc_notif_sound_only_once_title">警示僅一次</string>
+    <string name="pref_lc_notif_sound_only_once_summary">當啟用時，已經存在的通知將不會播放音效或發出震動</string>
+    <string name="pref_lc_notif_insistent_title">持續</string>
+    <string name="pref_lc_notif_insistent_summary">當啟用時，音效將不斷的播放，直到通知被關閉或開啟通知窗口</string>
+    <string name="pref_lc_vibrate_override_title">變更震動</string>
+    <string name="pref_lc_vibrate_pattern_title">震動模式</string>
+    <string name="pref_lc_vibrate_pattern_summary">在幾毫秒內關閉/開啟持續時間的逗號分隔清單。設定0為停用振動.</string>
+    <string name="lc_vibrate_pattern_invalid">無效的振動模式格式</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">活動閾值</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">虛擬按鍵振動模式</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">在幾毫秒內關閉/開啟持續時間的逗號分隔清單。留空為預設震動模式.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">顯示模式錯誤</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">當進入錯誤模式時顯示紅色足跡</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">此功能尚在試用階段，如果您覺得實用並想繼續使用此功能，請使用您的 PayPal 
+     ID. 來捐贈本開哀發者帳號，本功能試用期將在您 %d 重啟裝置後結束.</string>
     
 </resources>
