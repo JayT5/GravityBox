@@ -1384,4 +1384,16 @@
     <!-- Icon Picker: additional icons -->
     <string name="shortcuts_icon_picker_chrome">Chrome</string>
     <string name="shortcuts_icon_picker_spotify">Spotify</string>
+    
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Patrón de vibración de botón virtual</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Lista separada por comas de las duraciones activadas/desactivadas en milisegundos. Dejar vacío para desactivar vibraciones.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Mostrar patrón erróneo</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Mostrar rastro rojo al introducir patrón incorrecto</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Esta característica es de prueba. Si la encuentras útil, puedes seguir usándola tras registrar la ID la transacción de tu donación. Modo de prueba acaba tras %d reinicios.</string>
+
 </resources>
