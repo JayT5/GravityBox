@@ -24,6 +24,8 @@ import android.net.Uri;
 
 public class LedSettings {
 
+    public static final String PREF_KEY_LOCKED = "uncLocked";
+
     private Context mContext;
     private String mPackageName;
     private boolean mEnabled;

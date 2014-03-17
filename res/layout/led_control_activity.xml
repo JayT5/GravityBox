@@ -20,6 +20,14 @@
     android:focusable="true"
     android:focusableInTouchMode="true" >
 
+    <TextView
+        android:id="@+id/trial_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:padding="6dp"
+        android:visibility="gone" />
+
     <EditText 
         android:id="@+id/input_search"
         android:layout_width="match_parent"

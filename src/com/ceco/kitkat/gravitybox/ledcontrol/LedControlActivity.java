@@ -40,10 +40,13 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class LedControlActivity extends ListActivity implements ListItemActionHandler, OnItemClickListener {
 
     private static final int REQ_SETTINGS = 1;
+    public static final String EXTRA_UUID_REGISTERED = "uuidRegistered";
+    public static final String EXTRA_TRIAL_COUNTDOWN = "uncTrialCountdown";
 
     private ListView mList;
     private AsyncTask<Void, Void, ArrayList<LedListItem>> mAsyncTask;
@@ -51,6 +54,9 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
     private LedListItem mCurrentItem;
     private EditText mSearchEditText;
     private boolean mShowActiveOnly;
+    private TextView mTrialInfoView;
+    private boolean mUuidRegistered;
+    private int mTrialCountdown;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,19 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
 
         super.onCreate(savedInstanceState);
 
+        if (getIntent() == null || !getIntent().hasExtra(EXTRA_UUID_REGISTERED) ||
+                !getIntent().hasExtra(EXTRA_TRIAL_COUNTDOWN)) {
+            finish();
+            return;
+        } else {
+            mUuidRegistered = getIntent().getBooleanExtra(EXTRA_UUID_REGISTERED, false);
+            mTrialCountdown = getIntent().getIntExtra(EXTRA_TRIAL_COUNTDOWN, 0);
+            if (!mUuidRegistered && mTrialCountdown == 0) {
+                finish();
+                return;
+            }
+        }
+
         if (savedInstanceState != null) {
             mShowActiveOnly = savedInstanceState.getBoolean("showActiveOnly", false);
         }
@@ -69,6 +88,12 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
 
         mList = getListView();
         mList.setOnItemClickListener(this);
+
+        mTrialInfoView = (TextView) findViewById(R.id.trial_info);
+        if (!mUuidRegistered) {
+            mTrialInfoView.setText(String.format(getString(R.string.trial_info), mTrialCountdown));
+            mTrialInfoView.setVisibility(View.VISIBLE);
+        }
 
         mSearchEditText = (EditText) findViewById(R.id.input_search);
         mSearchEditText.addTextChangedListener(new TextWatcher() {

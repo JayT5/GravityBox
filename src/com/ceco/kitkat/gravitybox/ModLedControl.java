@@ -102,6 +102,11 @@ public class ModLedControl {
         protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
             try {
                 mPrefs.reload();
+                if (mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false)) {
+                    if (DEBUG) log("Ultimate notification control feature locked.");
+                    return;
+                }
+
                 final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
                 final String pkgName = context.getPackageName();
                 final LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));

@@ -16,6 +16,7 @@
 package com.ceco.kitkat.gravitybox;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -39,6 +40,7 @@ public class SystemPropertyProvider {
             "gravitybox.intent.action.ACTION_REGISTER_UUID";
     public static final String EXTRA_UUID = "uuid";
     private static final String SETTING_GRAVITYBOX_UUID = "gravitybox_uuid";
+    private static final String SETTING_UNC_TRIAL_COUNTDOWN = "gravitybox_unc_trial_countdown";
 
     private static String mSettingsUuid;
 
@@ -66,6 +68,18 @@ public class SystemPropertyProvider {
                     Context context = (Context) param.thisObject;
                     if (context != null) {
                         if (DEBUG) log("SystemUIService created. Registering BroadcastReceiver");
+                        final ContentResolver cr = context.getContentResolver();
+
+                        // register or decrease UNC trial countdown
+                        int uncTrialCountdown = Settings.System.getInt(cr, SETTING_UNC_TRIAL_COUNTDOWN, -1);
+                        if (uncTrialCountdown == -1) {
+                            Settings.System.putInt(cr, SETTING_UNC_TRIAL_COUNTDOWN, 20);
+                        } else {
+                            if (--uncTrialCountdown >= 0) {
+                                Settings.System.putInt(cr, SETTING_UNC_TRIAL_COUNTDOWN, uncTrialCountdown);
+                            }
+                        }
+
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction(ACTION_GET_SYSTEM_PROPERTIES);
                         intentFilter.addAction(ACTION_REGISTER_UUID);
@@ -89,7 +103,9 @@ public class SystemPropertyProvider {
                                             getSystemConfigInteger(res, "config_defaultNotificationLedOff"));
                                     data.putBoolean("uuidRegistered", (mSettingsUuid != null &&
                                             mSettingsUuid.equals(Settings.System.getString(
-                                                    context.getContentResolver(), SETTING_GRAVITYBOX_UUID))));
+                                                    cr, SETTING_GRAVITYBOX_UUID))));
+                                    data.putInt("uncTrialCountdown", Settings.System.getInt(cr,
+                                            SETTING_UNC_TRIAL_COUNTDOWN, 20));
                                     if (DEBUG) {
                                         log("hasGeminiSupport: " + data.getBoolean("hasGeminiSupport"));
                                         log("isTablet: " + data.getBoolean("isTablet"));
@@ -97,13 +113,13 @@ public class SystemPropertyProvider {
                                         log("unplugTurnsOnScreen: " + data.getBoolean("unplugTurnsOnScreen"));
                                         log("defaultNotificationLedOff: " + data.getInt("defaultNotificationLedOff"));
                                         log("uuidRegistered: " + data.getBoolean("uuidRegistered"));
+                                        log("uncTrialCountdown: " + data.getInt("uncTrialCountdown"));
                                     }
                                     receiver.send(RESULT_SYSTEM_PROPERTIES, data);
                                 } else if (intent.getAction().equals(ACTION_REGISTER_UUID) && 
                                             intent.hasExtra(EXTRA_UUID) && 
                                             intent.getStringExtra(EXTRA_UUID).equals(mSettingsUuid)) {
-                                    Settings.System.putString(context.getContentResolver(), 
-                                                SETTING_GRAVITYBOX_UUID, mSettingsUuid);
+                                    Settings.System.putString(cr, SETTING_GRAVITYBOX_UUID, mSettingsUuid);
                                 }
                             }
                         }, intentFilter);

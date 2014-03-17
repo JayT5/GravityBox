@@ -1396,4 +1396,8 @@
     <string name="pref_lockscreen_show_pattern_error_title">Show pattern error</string>
     <string name="pref_lockscreen_show_pattern_error_summary">Show red trail when wrong pattern is entered</string>
 
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">This feature is in trial mode. If you find it useful you can continue using it after registering your PayPal 
+        donation transaction ID. Trial period ends after %d reboots.</string>
+
 </resources>

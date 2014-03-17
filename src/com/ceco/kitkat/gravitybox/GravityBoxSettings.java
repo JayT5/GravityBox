@@ -27,6 +27,7 @@ import java.util.Set;
 
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.ledcontrol.LedControlActivity;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.preference.AppPickerPreference;
 import com.ceco.kitkat.gravitybox.preference.AutoBrightnessDialogPreference;
 import com.ceco.kitkat.gravitybox.preference.SeekBarPreference;
@@ -749,6 +750,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         public boolean unplugTurnsOnScreen;
         public int defaultNotificationLedOff;
         public boolean uuidRegistered;
+        public int uncTrialCountdown;
 
         public SystemProperties(Bundle data) {
             if (data.containsKey("hasGeminiSupport")) {
@@ -768,6 +770,9 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             }
             if (data.containsKey("uuidRegistered")) {
                 uuidRegistered = data.getBoolean("uuidRegistered");
+            }
+            if (data.containsKey("uncTrialCountdown")) {
+                uncTrialCountdown = data.getInt("uncTrialCountdown");
             }
         }
     }
@@ -1612,12 +1617,20 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 mPrefBackup.setSummary(R.string.wsc_trans_required_summary);
                 mPrefRestore.setEnabled(false);
                 mPrefRestore.setSummary(R.string.wsc_trans_required_summary);
-                mPrefLedControl.setEnabled(false);
-                mPrefLedControl.setSummary(String.format("%s (%s)", mPrefLedControl.getSummary(),
+                if (sSystemProperties.uncTrialCountdown == 0) {
+                    mPrefLedControl.setEnabled(false);
+                    mPrefLedControl.setSummary(String.format("%s (%s)", mPrefLedControl.getSummary(),
                         getString(R.string.wsc_trans_required_summary)));
+                    SharedPreferences uncPrefs = getActivity().getSharedPreferences(
+                            "ledcontrol", Context.MODE_WORLD_READABLE);
+                    uncPrefs.edit().putBoolean(LedSettings.PREF_KEY_LOCKED, true).commit();
+                }
                 mPrefs.edit().putString(PREF_KEY_TRANS_VERIFICATION, null).commit();
                 mPrefTransVerification.getEditText().setText(null);
             } else {
+                SharedPreferences uncPrefs = getActivity().getSharedPreferences(
+                        "ledcontrol", Context.MODE_WORLD_READABLE);
+                uncPrefs.edit().putBoolean(LedSettings.PREF_KEY_LOCKED, false).commit();
                 mPrefTransVerification.setEnabled(false);
                 mPrefTransVerification.setSummary(mPrefs.getString(PREF_KEY_TRANS_VERIFICATION,
                         getString(R.string.pref_trans_verification_summary)));
@@ -2768,6 +2781,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 }
             } else if (PREF_LED_CONTROL.equals(pref.getKey())) {
                 intent = new Intent(getActivity(), LedControlActivity.class);
+                intent.putExtra(LedControlActivity.EXTRA_UUID_REGISTERED, sSystemProperties.uuidRegistered);
+                intent.putExtra(LedControlActivity.EXTRA_TRIAL_COUNTDOWN, sSystemProperties.uncTrialCountdown);
             }
 
             if (intent != null) {
