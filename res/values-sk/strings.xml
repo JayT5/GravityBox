@@ -1363,4 +1363,8 @@
     <string name="pref_lockscreen_show_pattern_error_title">Ukázať chybu vzorca</string>
     <string name="pref_lockscreen_show_pattern_error_summary">Zobrazí červenú stopu po zadaní nesprávneho odomykacieho vzorca</string>
 
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Táto funkcia je v skúšobnom režime. V prípade, ak vyhovuje Vašim potrebám je možné ju aktivovať zadaním platného ID PayPal transakcie. 
+        Počet reštartov do skončenia skúšobného režimu: %d</string>
+
 </resources>
