@@ -82,7 +82,7 @@
     <string name="quick_settings_music_pause">暂停</string>
     <string name="quick_settings_smart_radio_on">智能网络已开启</string>
     <string name="quick_settings_smart_radio_off">智能网络已关闭</string>
-	<string name="quick_settings_lock_screen_on">锁屏已开启</string>
+    <string name="quick_settings_lock_screen_on">锁屏已开启</string>
     <string name="quick_settings_lock_screen_off">锁屏已关闭</string>
 
     <!--  QuickSettings settings -->
@@ -116,7 +116,7 @@
     <string name="qs_tile_usb_tethering">USB 共享</string>
     <string name="qs_tile_music">音乐</string>
     <string name="qs_tile_smart_radio">智能网络</string>
-	<string name="qs_tile_alarm">闹钟</string>
+    <string name="qs_tile_alarm">闹钟</string>
     <string name="qs_tile_lock_screen">锁屏</string>
 
     <!-- Color Picker -->
@@ -386,6 +386,7 @@
     <string name="recent_clear_top_right">右上角</string>
     <string name="recent_clear_bottom_left">左下角</string>
     <string name="recent_clear_bottom_right">右下角</string>
+    <string name="recent_clear_navigation_bar">虚拟键（需要启用虚拟键调整）</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">调整顶部边距</string>
@@ -1343,6 +1344,60 @@
     <!-- Traffic meter: show only when download active -->
     <string name="pref_data_traffic_active_dl_only_title">仅在下载激活</string>
     <string name="pref_data_traffic_active_dl_only_summary">只有正在下载并通过标准Android下载管理器才显示流量计</string>
-	
+    
+    
+    <!-- Led control -->
+    <string name="pref_led_control_title">终极通知控制</string>
+    <string name="pref_led_control_summary">允许控制通知指示灯在每个应用程序的基础上控制声音和振动</string>
+    <string name="lc_please_wait">请稍等&#8230;</string>
+    <string name="lc_disabled">通知控制已禁用</string>
+    <string name="pref_lc_led_color_title">LED颜色</string>
+    <string name="pref_lc_led_time_on_title">LED开启持续时间</string>
+    <string name="pref_lc_led_time_off_title">LED关闭持续时间</string>
+    <string name="pref_lc_ongoing_title">正在进行</string>
+    <string name="pref_lc_ongoing_summary">当启用时也适用于正在进行的通知</string>
+    <string name="lc_btn_preview">预览</string>
+    <string name="lc_btn_save">保存</string>
+    <string name="lc_item_summary_on">开启</string>
+    <string name="lc_item_summary_off">关闭</string>
+    <string name="lc_item_summary_ongoing">正在进行</string>
+    <string name="lc_preview_notif_title">GravityBox通知控制</string>
+    <string name="lc_preview_notif_text">测试%s</string>
+    <string name="lc_activity_menu_show_all">显示所有项目</string>
+    <string name="lc_activity_menu_show_active">显示激活项目</string>
+    <string name="pref_cat_lc_lights_title">指示灯</string>
+    <string name="pref_cat_lc_other_title">其它设置</string>
+    <string name="pref_cat_lc_sounds_title">声音</string>
+    <string name="pref_cat_lc_vibrations_title">振动</string>
+    <string name="pref_lc_notif_sound_override_title">更改通知声音</string>
+    <string name="pref_lc_notif_sound_title">通知声音</string>
+    <string name="lc_notif_sound_none">没有声音</string>
+    <string name="pref_lc_notif_sound_only_once_title">警报只有一次</string>
+    <string name="pref_lc_notif_sound_only_once_summary">当启用时已存在通知事件的情况下不会发出声音和振动</string>
+    <string name="pref_lc_notif_insistent_title">持续</string>
+    <string name="pref_lc_notif_insistent_summary">当启用时声音将被重复发出直到通知关闭或打开通知窗口</string>
+    <string name="pref_lc_vibrate_override_title">覆盖振动</string>
+    <string name="pref_lc_vibrate_pattern_title">振动格式</string>
+    <string name="pref_lc_vibrate_pattern_summary">设置分隔逗号在几毫秒内关闭/开启持续时间，设置为0以禁用振动</string>
+    <string name="lc_vibrate_pattern_invalid">没效的振动格式</string>
 
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">活动阈值</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">虚拟键振动模式</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">设置分隔逗号在几毫秒内关闭/开启持续时间，留空为默认振动格式</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">显示格式错误</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">进入错误格式时显示红色足迹</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">此功能是试用模式！如果您觉得它有用您可以继续登录您的PayPal后使用它捐赠交易ID。 %d将在重启后结束试用期</string>
+    
+    
 </resources>
