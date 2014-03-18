@@ -1336,4 +1336,57 @@
     <string name="pref_data_traffic_active_dl_only_title">Nur während aktivem Download</string>
     <string name="pref_data_traffic_active_dl_only_summary">Verbrauch nur während Downloads des systemeigenen Download Managers anzeigen</string>
 
+    <!-- Led control -->
+    <string name="pref_led_control_title">Ultimative Benachrichtigungen Kontrolle</string>
+    <string name="pref_led_control_summary">Ermöglicht, das Benachrichtigungslicht, Töne und Vibration appspezifisch zu gestalten</string>
+    <string name="lc_please_wait">Bitte warten!&#8230;</string>
+    <string name="lc_disabled">Benachrichtigungs Kontrolle deaktiviert</string>
+    <string name="pref_lc_led_color_title">LED Farbe</string>
+    <string name="pref_lc_led_time_on_title">LED Aktiv Dauer</string>
+    <string name="pref_lc_led_time_off_title">LED Inaktiv Dauer</string>
+    <string name="pref_lc_ongoing_title">Durchgehend</string>
+    <string name="pref_lc_ongoing_summary">Wird auch auf durchgehende Benachrichtigungen angewendet, wenn aktiviert</string>
+    <string name="lc_btn_preview">Vorschau</string>
+    <string name="lc_btn_save">Sichern</string>
+    <string name="lc_item_summary_on">An</string>
+    <string name="lc_item_summary_off">Aus</string>
+    <string name="lc_item_summary_ongoing">Durchgehend</string>
+    <string name="lc_preview_notif_title">GravityBox Benachrichtigungskontrolle</string>
+    <string name="lc_preview_notif_text">Testen für %s</string>
+    <string name="lc_activity_menu_show_all">Zeige alle Punkte</string>
+    <string name="lc_activity_menu_show_active">Zeige alle aktiven Punkte</string>
+    <string name="pref_cat_lc_lights_title">Lichter</string>
+    <string name="pref_cat_lc_other_title">Andere Einstellungen</string>
+    <string name="pref_cat_lc_sounds_title">Töne</string>
+    <string name="pref_cat_lc_vibrations_title">Vibration</string>
+    <string name="pref_lc_notif_sound_override_title">Überschreibe Benachrichtigungston</string>
+    <string name="pref_lc_notif_sound_title">Benachrichtigungston</string>
+    <string name="lc_notif_sound_none">Kein Ton</string>
+    <string name="pref_lc_notif_sound_only_once_title">Nur einmal Alarm abspielen</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Wenn aktiviert, wird der Ton und/oder die Vibration im Falle einer bereits existierenden Benachrichtigung nicht abgespielt</string>
+    <string name="pref_lc_notif_insistent_title">Penetrant</string>
+    <string name="pref_lc_notif_insistent_summary">Wenn aktiviert, wird der Ton, bis die Benachrichtigung weg gewischt oder die Benachrichtigung geöffnet ist, abgespielt</string>
+    <string name="pref_lc_vibrate_override_title">Überschreibe Vibration</string>
+    <string name="pref_lc_vibrate_pattern_title">Vibrationsschema</string>
+    <string name="pref_lc_vibrate_pattern_summary">Mit Komma separierte Liste von an/aus Dauer Paaren in Millisekunden. Setze 0 um zu deaktivieren.</string>
+    <string name="lc_vibrate_pattern_invalid">Unzulässiges Vibrationsschema Format</string>
+
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Inaktivitätsschwelle</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Virtuelle Tasten Vibrationsschema</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Mit Komma separierte Liste von an/aus Dauer Paaren in Millisekunden. Lasse leer für das Standart Vibrationsschema.</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Zeige Schema Fehler</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Zeige roten Pfad, wenn ein falsches Schema eingegeben wurde.</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Diese Funktion ist im Versuchsmodus. Wenn Sie es nützlich finden, können Sie es weiter nutzen, nachdem Ihre PayPal Transaktions ID registriert haben. Versuchszeit endet nach %d neustarts.</string>
+
 </resources>
