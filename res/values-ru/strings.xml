@@ -1396,4 +1396,8 @@
     <string name="pref_lockscreen_show_pattern_error_title">Показать ошибку ключа</string>
     <string name="pref_lockscreen_show_pattern_error_summary">Отображение красным неправильного ввода графического ключа</string>
 
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Функция работает в пробном режиме. Если Вы считаете её полезной, можете продолжать пользоваться ей после регистрации 
+        ID транзакции пожертвования PayPal. Пробный период заканчивается через %d перезагрузок.</string>
+
 </resources>
