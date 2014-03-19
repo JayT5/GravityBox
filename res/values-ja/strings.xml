@@ -1365,4 +1365,11 @@
     <string name="pref_virtual_key_vibrate_pattern_title">ソフトキーバイブのパターン</string>
     <string name="pref_virtual_key_vibrate_pattern_summary">オフ/オンの間隔をコンマで区切ってミリ秒で入力してください。空欄にするとデフォルトのバイブのままにします。</string>
     
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">パターンエラーの表示</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">入力したパターンが間違っているとき赤くするようにします。</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">この機能はお試しモードです。もし便利だと思ったら寄付をしてPayPal取引ID番号を入力すれば使えるようになります。お試しモードはあと%d回再起動すると終了します。</string>
+    
 </resources>
