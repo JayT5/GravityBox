@@ -386,6 +386,7 @@
     <string name="recent_clear_top_right">En haut à droite</string>
     <string name="recent_clear_bottom_left">En bas à gauche</string>
     <string name="recent_clear_bottom_right">En bas à droite</string>
+    <string name="recent_clear_navigation_bar">Barre de navigation (nécessite d\'activer les modifications de la barre de navigation dans GB)</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">Ajuster la marge supérieure</string>
@@ -1344,5 +1345,59 @@
     <string name="pref_data_traffic_active_dl_only_title">Gestionnaire de téléchargement uniquement</string>
     <string name="pref_data_traffic_active_dl_only_summary">Affiche le compteur de flux de données uniquement lorsqu\'il y a un téléchargement en cours via 
         le gestionnaire standard de téléchargement d\'Android</string>
+
+    <!-- Led control -->
+    <string name="pref_led_control_title">Contrôle ultime de notification</string>
+    <string name="pref_led_control_summary">Permet de contrôler les lumières, sons et vibrations de notification application par application</string>
+    <string name="lc_please_wait">Attendez s\'il vous plaît&#8230;</string>
+    <string name="lc_disabled">Contrôle de notification désactivé</string>
+    <string name="pref_lc_led_color_title">Couleur de la LED</string>
+    <string name="pref_lc_led_time_on_title">Durée d\'allumage de la LED</string>
+    <string name="pref_lc_led_time_off_title">Durée d\'exctinction de la LED</string>
+    <string name="pref_lc_ongoing_title">En cours</string>
+    <string name="pref_lc_ongoing_summary">S\'applique également aux notifications en cours si activée</string>
+    <string name="lc_btn_preview">Prévisualiser</string>
+    <string name="lc_btn_save">Enregistrer</string>
+    <string name="lc_item_summary_on">On</string>
+    <string name="lc_item_summary_off">Off</string>
+    <string name="lc_item_summary_ongoing">En cours</string>
+    <string name="lc_preview_notif_title">Contrôle de notification par GravityBox</string>
+    <string name="lc_preview_notif_text">Tester pendant %s</string>
+    <string name="lc_activity_menu_show_all">Afficher tout</string>
+    <string name="lc_activity_menu_show_active">Afficher actifs seulement</string>
+    <string name="pref_cat_lc_lights_title">Lumières</string>
+    <string name="pref_cat_lc_other_title">Autres paramètres</string>
+    <string name="pref_cat_lc_sounds_title">Sons</string>
+    <string name="pref_cat_lc_vibrations_title">Vibrations</string>
+    <string name="pref_lc_notif_sound_override_title">Outrepasse le son de notification</string>
+    <string name="pref_lc_notif_sound_title">Son de notification</string>
+    <string name="lc_notif_sound_none">Pas de son</string>
+    <string name="pref_lc_notif_sound_only_once_title">Avertir une fois seulement</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Si activé, le son et/ou les vibrations ne seront pas reproduits dans le cas où la notication existait déjà</string>
+    <string name="pref_lc_notif_insistent_title">Insistance</string>
+    <string name="pref_lc_notif_insistent_summary">Si activé, le son sera répété jusqu\'à ce que la notification soit annulée ou que sa fenêtre soit ouverte</string>
+    <string name="pref_lc_vibrate_override_title">Outrepasser les vibrations</string>
+    <string name="pref_lc_vibrate_pattern_title">Modèle de vibration</string>
+    <string name="pref_lc_vibrate_pattern_summary">Liste séparée par une virgule de durées par pair (off,on) en millisecondes. Mettre 0 pour désactiver les vibrations</string>
+    <string name="lc_vibrate_pattern_invalid">Mauvais format pour le modèle de vibration</string>
+ 
+    <!-- Omni data traffic monitor inactivity threshold -->
+    <string name="pref_data_traffic_omni_autohide_threshold_title">Seuil d\'inactivité</string>
+
+    <!-- Icon Picker: additional icons -->
+    <string name="shortcuts_icon_picker_chrome">Chrome</string>
+    <string name="shortcuts_icon_picker_spotify">Spotify</string>
+
+    <!-- Virtual keys vibrate pattern -->
+    <string name="pref_virtual_key_vibrate_pattern_title">Modèle de vibration pour touche virtuelle</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Liste séparée par une virgule de durées par pair (off,on) en millisecondes. Laisser vide pour le modèle de vibration par défaut</string>
+
+    <!-- Lockscreen: show pattern error -->
+    <string name="pref_lockscreen_show_pattern_error_title">Afficher l\'erreur du modèle</string>
+    <string name="pref_lockscreen_show_pattern_error_summary">Affiche une ligne rouge lorsqu\'une mauvaise entrée est saisie dans le modèle</string>
+
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Cette option est en mode d\'essai. Si vous la trouvez utile vous pouvez continuer de l\'utiliser après avoir enregistrer 
+        votre N° de transaction unique PayPal. La période d\'essai finit dans %d redémarrage(s)</string>
 
 </resources>
