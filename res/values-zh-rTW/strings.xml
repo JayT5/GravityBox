@@ -589,8 +589,8 @@
     <!-- Clock Day Of Week style -->
     <string name="clock_dow_disabled">停用</string>
     <string name="clock_dow_standard">標準</string>
-    <string name="clock_dow_lowercase">小寫字符(僅英文有效)</string>
-    <string name="clock_dow_uppercase">大寫字符(僅英文有效)</string>
+    <string name="clock_dow_lowercase">小寫字元(僅英文有效)</string>
+    <string name="clock_dow_uppercase">大寫字元(僅英文有效)</string>
 
     <!-- Statusbar expand policy -->
     <string name="pref_statusbar_lock_policy_title">鎖定螢幕時的狀態列鎖定政策</string>
@@ -1092,7 +1092,7 @@
     <!-- Web service client strings -->
     <string name="wsc_hash_creation_failed">錯誤產生應用程式特定的散列碼</string>
     <string name="wsc_parse_response_error">從 Web 服務獲得的錯誤剖析資料</string>
-    <string name="wsc_hash_invalid">由於散列碼不符 Web 遭服務拒絕通信，。這通常發生在以下情況
+    <string name="wsc_hash_invalid">由於散列碼不符 Web 遭服務拒絕通信。這通常發生在以下情況
       您運行非官方版或 GravityBox APK 已經被第三方修改.</string>
     <string name="wsc_please_wait">請稍後&#8230;</string>
     <string name="wsc_error">與 Web 服務通信錯誤: %s</string>
