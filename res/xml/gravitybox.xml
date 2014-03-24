@@ -678,10 +678,17 @@
                     android:defaultValue="true" />
 
                 <CheckBoxPreference 
+                    android:key="pref_clock_hide"
+                    android:title="@string/pref_clock_hide_title"
+                    android:defaultValue="false"
+                    android:dependency="pref_sb_clock_masterswitch"
+                    android:disableDependentsState="true" />
+
+                <CheckBoxPreference 
                     android:key="pref_statusbar_center_clock"
                     android:title="@string/pref_statusbar_center_clock_title"
                     android:defaultValue="false"
-                    android:dependency="pref_sb_clock_masterswitch" />
+                    android:dependency="pref_clock_hide" />
 
                 <ListPreference 
                     android:key="pref_statusbar_clock_dow2"
@@ -689,7 +696,7 @@
                     android:entries="@array/clock_dow_entries"
                     android:entryValues="@array/clock_dow_values"
                     android:defaultValue="0"
-                    android:dependency="pref_sb_clock_masterswitch" />
+                    android:dependency="pref_clock_hide" />
 
                 <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
                     android:key="pref_sb_clock_dow_size"
@@ -700,13 +707,14 @@
                     monitorBoxEnabled="true"
                     monitorBoxUnit="%"
                     android:defaultValue="70"
-                    android:dependency="pref_sb_clock_masterswitch" />
+                    android:dependency="pref_clock_hide" />
 
                 <CheckBoxPreference 
                     android:key="pref_clock_ampm_hide"
                     android:title="@string/pref_clock_ampm_hide_title"
                     android:defaultValue="false"
-                    android:dependency="pref_sb_clock_masterswitch" />
+                    android:dependency="pref_clock_hide"
+                    android:disableDependentsState="true"/>
 
                 <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
                     android:key="pref_sb_clock_ampm_size"
@@ -717,18 +725,13 @@
                     monitorBoxEnabled="true"
                     monitorBoxUnit="%"
                     android:defaultValue="70"
-                    android:dependency="pref_sb_clock_masterswitch" />
-
-                <CheckBoxPreference 
-                    android:key="pref_clock_hide"
-                    android:title="@string/pref_clock_hide_title"
-                    android:defaultValue="false"
-                    android:dependency="pref_sb_clock_masterswitch" />
+                    android:dependency="pref_clock_ampm_hide" />
 
                 <CheckBoxPreference 
                     android:key="pref_alarm_icon_hide"
                     android:title="@string/pref_alarm_icon_hide_title"
-                    android:defaultValue="false" />
+                    android:defaultValue="false"
+                    android:dependency="pref_sb_clock_masterswitch"	/>
 
             </PreferenceCategory>
 
