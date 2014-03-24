@@ -10,7 +10,7 @@
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * See the License for the specific language governing permissions  and
  * limitations under the License.
 -->
 
@@ -1031,7 +1031,7 @@
     <string name="pref_smart_radio_mode_change_delay_summary">网络模式改变延迟指定秒数</string>
 
     <!-- Lockscreen: custom carrier text -->
-    <string name="pref_lockscreen_carrier_text_title">自定义机主信息</string>
+    <string name="pref_lockscreen_carrier_text_title">自定义运营商名称</string>
     <string name="carrier_text_default">默认</string>
     <string name="carrier_text_empty">空</string>
     
