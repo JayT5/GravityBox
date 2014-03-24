@@ -714,7 +714,7 @@
                     android:title="@string/pref_clock_ampm_hide_title"
                     android:defaultValue="false"
                     android:dependency="pref_clock_hide"
-                    android:disableDependentsState="true"/>
+                    android:disableDependentsState="true" />
 
                 <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
                     android:key="pref_sb_clock_ampm_size"
@@ -731,7 +731,7 @@
                     android:key="pref_alarm_icon_hide"
                     android:title="@string/pref_alarm_icon_hide_title"
                     android:defaultValue="false"
-                    android:dependency="pref_sb_clock_masterswitch"	/>
+                    android:dependency="pref_sb_clock_masterswitch" />
 
             </PreferenceCategory>
 
