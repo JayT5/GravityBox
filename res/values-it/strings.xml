@@ -1396,4 +1396,8 @@
     <string name="pref_lockscreen_show_pattern_error_title">Mostra errori schema</string>
     <string name="pref_lockscreen_show_pattern_error_summary">Mostra un segno rosso quando viene inserito uno schema non valido</string>
 
+    <!-- Premium features: allow trial period -->
+    <string name="trial_info">Questa funzione è in Demo. Se la reputi utile puoi continuare ad usarla dopo la registrazione dell\'ID della transazione donazione PayPal.
+    Il periodo di prova termina dopo %d riavvii.</string>
+
 </resources>
