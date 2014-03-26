@@ -66,6 +66,8 @@ public class ModClearAllRecents {
     private static XSharedPreferences mPrefs;
     private static ImageView mRecentsClearButton;
     private static int mClearRecentsMode;
+    private static Activity mRecentsActivity;
+    private static Handler mFinishHandler;
 
     // RAM bar
     private static TextView mBackgroundProcessText;
@@ -96,6 +98,18 @@ public class ModClearAllRecents {
             } else if (intent.getAction().equals(ModHwKeys.ACTION_RECENTS_CLEAR_ALL_LONGPRESS)) {
                 clearAll(true);
             }
+        }
+    };
+
+    private static Runnable mFinishRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (mRecentsActivity != null) {
+                setRecentsClearAll(false, mRecentsActivity);
+                mRecentsActivity.finish();
+                mRecentsActivity = null;
+            }
+            mFinishHandler = null;
         }
     };
 
@@ -224,7 +238,13 @@ public class ModClearAllRecents {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction(ModHwKeys.ACTION_RECENTS_CLEAR_ALL_SINGLETAP);
                     intentFilter.addAction(ModHwKeys.ACTION_RECENTS_CLEAR_ALL_LONGPRESS);
-                    ((Activity)param.thisObject).registerReceiver(mBroadcastReceiver, intentFilter);
+                    mRecentsActivity = ((Activity)param.thisObject);
+                    mRecentsActivity.registerReceiver(mBroadcastReceiver, intentFilter);
+                    if (mFinishHandler != null) {
+                        mFinishHandler.removeCallbacks(mFinishRunnable);
+                        mFinishHandler = null;
+                    }
+                    mFinishHandler = new Handler();
                     if (DEBUG) log("Broadcast receiver registered");
                 }
             });
@@ -232,7 +252,8 @@ public class ModClearAllRecents {
             XposedHelpers.findAndHookMethod(recentActivityClass, "onPause", new XC_MethodHook() {
                 @Override
                 protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
-                    ((Activity)param.thisObject).unregisterReceiver(mBroadcastReceiver);
+                    mRecentsActivity.unregisterReceiver(mBroadcastReceiver);
+                    mFinishHandler.postDelayed(mFinishRunnable, 500);
                     if (DEBUG) log("Broadcast receiver unregistered");
                 }
             });
@@ -263,17 +284,18 @@ public class ModClearAllRecents {
                 List<?> recentTaskDescriptions = (List<?>) XposedHelpers.getObjectField(param.thisObject, "mRecentTaskDescriptions");
                 boolean visible = (recentTaskDescriptions != null && recentTaskDescriptions.size() > 0);
                 int gravity = Integer.valueOf(mPrefs.getString(GravityBoxSettings.PREF_KEY_RECENTS_CLEAR_ALL, "53"));
-                setRecentsClearAll(show && visible && gravity == GravityBoxSettings.RECENT_CLEAR_NAVIGATION_BAR, (View) param.thisObject);
+                setRecentsClearAll(show && visible && gravity == GravityBoxSettings.RECENT_CLEAR_NAVIGATION_BAR, 
+                        ((View) param.thisObject).getContext());
             } catch (Throwable t) {
                 XposedBridge.log(t);
             }
         }
     };
 
-    private static void setRecentsClearAll(Boolean show, View container) {
+    private static void setRecentsClearAll(Boolean show, Context context) {
         Intent intent = new Intent(NAVBAR_RECENTS_CLEAR_ALL);
         intent.putExtra(EXTRA_NAVBAR_RECENTS_CLEAR_ALL, show);
-        container.getContext().sendBroadcast(intent);
+        context.sendBroadcast(intent);
     }
 
     private static void updateButtonLayout(View container) {
