@@ -142,7 +142,9 @@ public class ModVolumePanel {
                     mExpandFully = prefs.getBoolean(
                             GravityBoxSettings.PREF_KEY_VOLUME_PANEL_FULLY_EXPANDABLE, false);
 
-                    updateVolumePanelMode();
+                    if (!Utils.isXperiaDevice()) {
+                        updateVolumePanelMode();
+                    }
 
                     mAutoExpand = prefs.getBoolean(GravityBoxSettings.PREF_KEY_VOLUME_PANEL_AUTOEXPAND, false);
                     mVolumesLinked = prefs.getBoolean(GravityBoxSettings.PREF_KEY_LINK_VOLUMES, true);
@@ -324,23 +326,30 @@ public class ModVolumePanel {
     private static void updateVolumePanelMode() {
         if (mVolumePanel == null) return;
 
-        View mMoreButton = (View) XposedHelpers.getObjectField(mVolumePanel, "mMoreButton");
-        View mDivider = (View) XposedHelpers.getObjectField(mVolumePanel, "mDivider");
+        try {
+            View mMoreButton = (View) XposedHelpers.getObjectField(mVolumePanel, "mMoreButton");
+            View mDivider = (View) XposedHelpers.getObjectField(mVolumePanel, "mDivider");
 
-        if (mMoreButton != null) {
-            mMoreButton.setVisibility(mExpandable ? View.VISIBLE : View.GONE);
-            if (!mMoreButton.hasOnClickListeners()) {
-                mMoreButton.setOnClickListener((OnClickListener) mVolumePanel);
+            if (mMoreButton != null) {
+                mMoreButton.setVisibility(mExpandable ? View.VISIBLE : View.GONE);
+                if (!mMoreButton.hasOnClickListeners()) {
+                    mMoreButton.setOnClickListener((OnClickListener) mVolumePanel);
+                }
             }
-        }
 
-        if (mDivider != null) {
-            mDivider.setVisibility(mExpandable ? View.VISIBLE : View.GONE);
-        }
+            if (mDivider != null) {
+                mDivider.setVisibility(mExpandable ? View.VISIBLE : View.GONE);
+            }
 
-        XposedHelpers.setBooleanField(mVolumePanel, "mShowCombinedVolumes", mExpandable);
-        XposedHelpers.setObjectField(mVolumePanel, "mStreamControls", null);
-        if (DEBUG) log("VolumePanel mode changed to: " + ((mExpandable) ? "EXPANDABLE" : "SIMPLE"));
+            XposedHelpers.setBooleanField(mVolumePanel, "mShowCombinedVolumes", mExpandable);
+            if (XposedHelpers.getObjectField(mVolumePanel, "mStreamControls") != null) {
+                XposedHelpers.callMethod(mVolumePanel, "createSliders");
+                if (DEBUG) log("Sliders recreated");
+            }
+            if (DEBUG) log("VolumePanel mode changed to: " + ((mExpandable) ? "EXPANDABLE" : "SIMPLE"));
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
     }
 
     private static void hideNotificationSliderIfLinked() {
