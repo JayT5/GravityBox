@@ -390,13 +390,15 @@ public class ModClearAllRecents {
                             try {
                                 if (mPreserveCurrentTask && index == (count-1)) {
                                     Object callback = XposedHelpers.getObjectField(param.thisObject, "mCallback");
-                                    XposedHelpers.callMethod(callback, "handleOnClick", child);
+                                    if (callback != null) {
+                                        XposedHelpers.callMethod(callback, "handleOnClick", child);
+                                    }
                                 } else {
                                     Object[] newArgs = new Object[] { child };
                                     XposedBridge.invokeOriginalMethod(param.method, param.thisObject, newArgs);
                                 }
-                            } catch (Exception e) {
-                                XposedBridge.log(e);
+                            } catch (Throwable t) {
+                                XposedBridge.log(t);
                             }
                         }
                     }, 150 * i);
