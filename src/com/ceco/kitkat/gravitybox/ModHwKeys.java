@@ -693,6 +693,27 @@ public class ModHwKeys {
                         param.setResult(-1);
                         return;
                     }
+
+                    if (keyCode == KeyEvent.KEYCODE_HOME && !down && !event.isCanceled() &&
+                            !(Boolean) XposedHelpers.getBooleanField(param.thisObject, "mHomeConsumed") &&
+                        prefs.getBoolean(GravityBoxSettings.PREF_KEY_PHONE_NONINTRUSIVE_INCOMING_CALL, false)) {
+                        final Object ts = XposedHelpers.callMethod(param.thisObject, "getTelephonyService");
+                        if (ts != null && (Boolean) XposedHelpers.callMethod(ts, "isRinging")) {
+                            if (XposedHelpers.getIntField(param.thisObject, "mDoubleTapOnHomeBehavior") != 0) {
+                                final Runnable dtr = (Runnable) XposedHelpers.getObjectField(
+                                        param.thisObject, "mHomeDoubleTapTimeoutRunnable");
+                                if (dtr != null) {
+                                    mHandler.removeCallbacks(dtr);
+                                    XposedHelpers.setBooleanField(param.thisObject, "mHomeDoubleTapPending", true);
+                                    mHandler.postDelayed(dtr, ViewConfiguration.getDoubleTapTimeout());
+                                } else {
+                                    XposedHelpers.callMethod(param.thisObject, "launchHomeFromHotKey");
+                                }
+                            } else {
+                                XposedHelpers.callMethod(param.thisObject, "launchHomeFromHotKey");
+                            }
+                        }
+                    }
                 }
             });
 
