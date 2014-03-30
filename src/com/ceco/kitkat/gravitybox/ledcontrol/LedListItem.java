@@ -54,7 +54,9 @@ public class LedListItem implements IBaseListAdapterItem {
 
     protected String getAppDesc() {
         if (!isEnabled()) {
-            return mContext.getString(R.string.lc_disabled);
+            LedSettings defLs = LedSettings.getDefault(mContext);
+            return defLs.getEnabled() ? mContext.getString(R.string.lc_defaults_apply) :
+                    mContext.getString(R.string.lc_disabled);
         } else {
             String buf = String.format(Locale.getDefault(),
                     "%s=%dms", mContext.getString(R.string.lc_item_summary_on),

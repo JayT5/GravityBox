@@ -45,6 +45,7 @@ import android.widget.TextView;
 public class LedControlActivity extends ListActivity implements ListItemActionHandler, OnItemClickListener {
 
     private static final int REQ_SETTINGS = 1;
+    private static final int REQ_SETTINGS_DEFAULT = 2;
     public static final String EXTRA_UUID_REGISTERED = "uuidRegistered";
     public static final String EXTRA_TRIAL_COUNTDOWN = "uncTrialCountdown";
 
@@ -137,6 +138,13 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                 mShowActiveOnly = true;
                 setData();
                 return true;
+            case R.id.lc_activity_menu_default_settings:
+                Intent intent = new Intent(this, LedSettingsActivity.class);
+                intent.putExtra(LedSettingsActivity.EXTRA_PACKAGE_NAME, "default");
+                intent.putExtra(LedSettingsActivity.EXTRA_APP_NAME, 
+                        getString(R.string.lc_activity_menu_default_settings));
+                startActivityForResult(intent, REQ_SETTINGS_DEFAULT);
+                return true; 
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -234,6 +242,13 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                 mCurrentItem.refreshLedSettings();
                 mList.invalidateViews();
             }
+        }
+
+        if (requestCode == REQ_SETTINGS_DEFAULT && resultCode == RESULT_OK) {
+            for (int i = 0; i < mList.getCount(); i++) {
+                ((LedListItem)mList.getItemAtPosition(i)).refreshLedSettings();
+            }
+            mList.invalidateViews();
         }
     }
 

@@ -41,13 +41,20 @@ public class LedSettings {
     private String mVibratePatternStr;
     private long[] mVibratePattern;
 
-    public static LedSettings deserialize(Context context, String packageName) {
+    protected static LedSettings deserialize(Context context, String packageName) {
         try {
             SharedPreferences prefs = context.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             Set<String> dataSet = prefs.getStringSet(packageName, null);
             if (dataSet == null) {
-                return new LedSettings(context, packageName);
+                if (packageName.equals("default")) {
+                    return new LedSettings(context, packageName);
+                } else {
+                    LedSettings defLs = LedSettings.getDefault(context);
+                    defLs.mPackageName = packageName;
+                    defLs.mEnabled = false;
+                    return defLs;
+                }
             }
             return deserialize(context, packageName, dataSet);
         } catch (Throwable t) {
@@ -94,7 +101,7 @@ public class LedSettings {
         return ls;
     }
 
-    private LedSettings(Context context, String packageName) { 
+    private LedSettings(Context context, String packageName) {
         mContext = context;
         mPackageName = packageName;
         mEnabled = false;
@@ -109,6 +116,10 @@ public class LedSettings {
         mVibrateOverride = false;
         mVibratePatternStr = null;
         mVibratePattern = null;
+    }
+
+    protected static LedSettings getDefault(Context context) {
+        return deserialize(context, "default");
     }
 
     protected void setEnabled(boolean enabled) {

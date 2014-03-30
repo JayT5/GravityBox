@@ -38,7 +38,7 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
     protected static final String EXTRA_PACKAGE_NAME = "packageName";
     protected static final String EXTRA_APP_NAME = "appName";
 
-    private static final int NOTIF_ID = 2049;
+    private static int NOTIF_ID = 2049;
 
     private LedSettings mLedSettings;
     private LedSettingsFragment mPrefsFragment;
@@ -104,9 +104,13 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
             .setContentTitle(getString(R.string.lc_preview_notif_title))
             .setContentText(String.format(Locale.getDefault(),
                     getString(R.string.lc_preview_notif_text), getTitle()))
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setLights(mPrefsFragment.getColor(), mPrefsFragment.getLedOnMs(), mPrefsFragment.getLedOffMs());
+            .setSmallIcon(R.drawable.ic_launcher);
         final Notification n = builder.build();
+        n.defaults &= ~Notification.DEFAULT_LIGHTS;
+        n.flags |= Notification.FLAG_SHOW_LIGHTS;
+        n.ledARGB = mPrefsFragment.getColor();
+        n.ledOnMS = mPrefsFragment.getLedOnMs();
+        n.ledOffMS =  mPrefsFragment.getLedOffMs();
         if (mPrefsFragment.getSoundOverride() && mPrefsFragment.getSoundUri() != null) {
             n.defaults &= ~Notification.DEFAULT_SOUND;
             n.sound = mPrefsFragment.getSoundUri();
@@ -125,17 +129,21 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
                         Toast.LENGTH_SHORT).show();
             }
         }
+        n.extras.putBoolean("gbIgnoreNotification", true);
         Intent intent = new Intent(ModHwKeys.ACTION_SLEEP);
         sendBroadcast(intent);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).notify(NOTIF_ID,  n);
+                ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).notify(++NOTIF_ID,  n);
             }
         }, 1000);
     }
 
     private void saveSettings() {
+        if (mLedSettings.getPackageName().equals("default")) {
+            mLedSettings.setEnabled(mPrefsFragment.getDefaultSettingsEnabled());
+        }
         mLedSettings.setColor(mPrefsFragment.getColor());
         mLedSettings.setLedOnMs(mPrefsFragment.getLedOnMs());
         mLedSettings.setLedOffMs(mPrefsFragment.getLedOffMs());

@@ -15,6 +15,13 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <SwitchPreference
+            android:key="pref_lc_default_settings"
+            android:title="@string/lc_activity_menu_default_settings"
+            android:summary="@string/pref_lc_default_settings_summary"
+            android:defaultValue="false"
+            android:persistent="false" />
+
     <PreferenceCategory 
         android:key="pref_cat_lc_lights"
         android:title="@string/pref_cat_lc_lights_title">

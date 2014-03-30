@@ -18,4 +18,6 @@
           android:title="@string/lc_activity_menu_show_all" />
     <item android:id="@+id/lc_activity_menu_show_active" 
           android:title="@string/lc_activity_menu_show_active" />
+    <item android:id="@+id/lc_activity_menu_default_settings"
+          android:title="@string/lc_activity_menu_default_settings" />
 </menu>

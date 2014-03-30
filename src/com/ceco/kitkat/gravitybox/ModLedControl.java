@@ -107,13 +107,20 @@ public class ModLedControl {
                     return;
                 }
 
+                Notification n = (Notification) param.args[2];
+                if (n.extras.containsKey("gbIgnoreNotification")) return;
+
                 final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
                 final String pkgName = context.getPackageName();
-                final LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
+                LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
+                if (!ls.getEnabled()) {
+                    // use default settings in case they are active
+                    ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
+                    if (!ls.getEnabled()) {
+                        return;
+                    }
+                }
                 if (DEBUG) log(pkgName + ": " + ls.toString());
-                if (!ls.getEnabled()) return;
-
-                Notification n = (Notification) param.args[2];
 
                 // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
                 if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
