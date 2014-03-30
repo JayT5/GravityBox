@@ -546,6 +546,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_NAVBAR_KEY_GLOW_COLOR = "pref_navbar_key_glow_color";
     public static final String PREF_KEY_NAVBAR_BG_COLOR = "pref_navbar_bg_color";
     public static final String PREF_KEY_NAVBAR_RING_DISABLE = "pref_navbar_ring_disable";
+    public static final String PREF_KEY_NAVBAR_CAMERA_KEY_DISABLE = "pref_navbar_camera_key_disable";
     public static final String ACTION_PREF_NAVBAR_CHANGED = "gravitybox.intent.action.ACTION_NAVBAR_CHANGED";
     public static final String ACTION_PREF_NAVBAR_SWAP_KEYS = "gravitybox.intent.action.ACTION_NAVBAR_SWAP_KEYS";
     public static final String EXTRA_NAVBAR_HEIGHT = "navbarHeight";
@@ -563,6 +564,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String EXTRA_NAVBAR_CUSTOM_KEY_DOUBLETAP = "navbarCustomKeyDoubletap";
     public static final String EXTRA_NAVBAR_CUSTOM_KEY_SWAP = "navbarCustomKeySwap";
     public static final String EXTRA_NAVBAR_RING_DISABLE = "navbarRingDisable";
+    public static final String EXTRA_NAVBAR_CAMERA_KEY_DISABLE = "navbarCameraKeyDisable";
 
     public static final String PREF_KEY_LOCKSCREEN_TARGETS_ENABLE = "pref_lockscreen_ring_targets_enable";
     public static final String PREF_KEY_LOCKSCREEN_TARGETS_APP[] = new String[] {
@@ -2456,6 +2458,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent.setAction(ACTION_PREF_NAVBAR_RING_TARGET_CHANGED);
                 intent.putExtra(EXTRA_RING_HAPTIC_FEEDBACK,
                         prefs.getString(PREF_KEY_NAVBAR_RING_HAPTIC_FEEDBACK, "DEFAULT"));
+            } else if (key.equals(PREF_KEY_NAVBAR_CAMERA_KEY_DISABLE)) {
+                intent.setAction(ACTION_PREF_NAVBAR_CHANGED);
+                intent.putExtra(EXTRA_NAVBAR_CAMERA_KEY_DISABLE,
+                        prefs.getBoolean(PREF_KEY_NAVBAR_CAMERA_KEY_DISABLE, false));
             } else if (key.equals(PREF_KEY_NAVBAR_COLOR_ENABLE)) {
                 intent.setAction(ACTION_PREF_NAVBAR_CHANGED);
                 intent.putExtra(EXTRA_NAVBAR_COLOR_ENABLE,

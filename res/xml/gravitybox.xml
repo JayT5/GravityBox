@@ -932,6 +932,12 @@
 
             </PreferenceScreen>
 
+            <CheckBoxPreference 
+                android:key="pref_navbar_camera_key_disable"
+                android:title="@string/pref_navbar_camera_key_disable_title"
+                android:summary="@string/pref_navbar_camera_key_disable_summary"
+                android:defaultValue="false" />
+
         </PreferenceCategory>
 
         <PreferenceCategory 

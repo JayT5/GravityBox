@@ -1400,4 +1400,8 @@
     <string name="trial_info">This feature is in trial mode. If you find it useful you can continue using it after registering your PayPal 
         donation transaction ID. Trial period ends after %d reboots.</string>
 
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Disable camera icon</string>
+    <string name="pref_navbar_camera_key_disable_summary">Disables camera icon showing on lock screen</string>
+
 </resources>
