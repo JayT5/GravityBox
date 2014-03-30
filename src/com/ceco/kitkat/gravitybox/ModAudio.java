@@ -100,6 +100,10 @@ public class ModAudio {
                         context.registerReceiver(mBroadcastReceiver, intentFilter);
                         if (DEBUG) log("AudioService constructed. Broadcast receiver registered");
                     }
+                    if (prefs.getBoolean(GravityBoxSettings.PREF_KEY_MUSIC_VOLUME_STEPS, false)) {
+                        XposedHelpers.setIntField(param.thisObject, "mSafeMediaVolumeIndex", 150);
+                        if (DEBUG) log("Default mSafeMediaVolumeIndex set to 150");
+                    }
                 }
             });
 
@@ -128,6 +132,26 @@ public class ModAudio {
                     }
                 }
             });
+
+            if (prefs.getBoolean(GravityBoxSettings.PREF_KEY_MUSIC_VOLUME_STEPS, false)) {
+                XposedHelpers.findAndHookMethod(classAudioService, "onConfigureSafeVolume",
+                        boolean.class, new XC_MethodHook() {
+                    @Override
+                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                        param.setObjectExtra("gbCurSafeMediaVolIndex",
+                                XposedHelpers.getIntField(param.thisObject, "mSafeMediaVolumeIndex"));
+                    }
+                    @Override
+                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                        if ((Integer) param.getObjectExtra("gbCurSafeMediaVolIndex") !=
+                                XposedHelpers.getIntField(param.thisObject, "mSafeMediaVolumeIndex")) {
+                            int safeMediaVolIndex = XposedHelpers.getIntField(param.thisObject, "mSafeMediaVolumeIndex") * 2;
+                            XposedHelpers.setIntField(param.thisObject, "mSafeMediaVolumeIndex", safeMediaVolIndex);
+                            if (DEBUG) log("onConfigureSafeVolume: mSafeMediaVolumeIndex set to " + safeMediaVolIndex);
+                        }
+                    }
+                });
+            }
 
             mVolForceMusicControl = prefs.getBoolean(
                     GravityBoxSettings.PREF_KEY_VOL_FORCE_MUSIC_CONTROL, false);
