@@ -1400,4 +1400,13 @@
     <string name="trial_info">Cette option est en mode d\'essai. Si vous la trouvez utile vous pouvez continuer de l\'utiliser après avoir enregistrer 
         votre N° de transaction unique PayPal. La période d\'essai finit dans %d redémarrage(s)</string>
 
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Désactiver l\'icône de l\'appareil photo</string>
+    <string name="pref_navbar_camera_key_disable_summary">Désactive l\'icône de l\'appareil photo sur l\'écran de déverrouillage</string>
+
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">Paramètres par défaut</string>
+    <string name="pref_lc_default_settings_summary">Si activé, les paramètres par défaut sont appliqués automatiquement pour toutes les applications qui n\'ont pas de paramètre explicite actif</string>
+    <string name="lc_defaults_apply">Appliquer les paramètres par défaut</string>
+
 </resources>
