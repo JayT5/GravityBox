@@ -1407,6 +1407,7 @@
     <!-- Notification control: default settings -->
     <string name="lc_activity_menu_default_settings">Paramètres par défaut</string>
     <string name="pref_lc_default_settings_summary">Si activé, les paramètres par défaut sont appliqués automatiquement pour toutes les applications qui n\'ont pas de paramètre explicite actif</string>
-    <string name="lc_defaults_apply">Appliquer les paramètres par défaut</string>
+    <string name="lc_defaults_apply">Paramètres par défaut appliqués</string>
+    <string name="lc_settings_menu_reset">Rétablir les paramètres par défaut</string>
 
 </resources>
