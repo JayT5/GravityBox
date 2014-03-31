@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -97,6 +99,34 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
             setResult(RESULT_CANCELED);
             finish();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!mLedSettings.getPackageName().equals("default")) {
+            getMenuInflater().inflate(R.menu.led_settings_activity_menu, menu);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.lc_settings_menu_reset:
+                resetToDefaults();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void resetToDefaults() {
+        LedSettings newLs = LedSettings.getDefault(this);
+        newLs.setPackageName(mLedSettings.getPackageName());
+        newLs.setEnabled(mLedSettings.getEnabled());
+        mLedSettings = newLs;
+        mPrefsFragment.initialize(mLedSettings);
     }
 
     private void previewSettings() {

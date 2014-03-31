@@ -1408,5 +1408,6 @@
     <string name="lc_activity_menu_default_settings">Default settings</string>
     <string name="pref_lc_default_settings_summary">When on, default settings apply automatically to all applications that have no active explicit settings</string>
     <string name="lc_defaults_apply">Default settings apply</string>
+    <string name="lc_settings_menu_reset">Reset to defaults</string>
 
 </resources>

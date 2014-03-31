@@ -122,6 +122,10 @@ public class LedSettings {
         return deserialize(context, "default");
     }
 
+    protected void setPackageName(String pkgName) {
+        mPackageName = pkgName;
+    }
+
     protected void setEnabled(boolean enabled) {
         mEnabled = enabled;
     }
