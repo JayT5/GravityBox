@@ -1,3 +1,32 @@
+Changelog 3.0.1 - 31/03/2014
+--------------------------------------
+- Fixed volume key crashes on Xperia devices
+- Notification control: implemented default settings
+--- when enabled, all apps that have no active explicit settings will automatically use default settings
+--- introduced trial period to allow users to check if notification control submodule works on their device
+- Clear all recents:
+--- fixed clear all key being stuck in navbar under certain conditions
+--- workaround for AOSP bug that kept recents panel active in the background under certain conditions
+--- fixed clear all key coloring in Pie (thanks to SilentException)
+--- further optimizations (thanks to SilentException)
+--- potential fix for SystemUI crash on Xperia devices
+- Navigation bar: option to disable camera icon in lock screen
+- Phone: fixed Home key not responding during non-intrusive incoming call
+- Media: take increased music volume steps into account for safe headset volume
+- Reorganized Clock settings (thanks to Minty123)
+- Added Malay translations (thanks to zamzameir)
+- Updated Russian translations (thanks to gaich)
+- Updated Chinese (Traditional) translations (thanks to Eric850130, knight00931, momomok)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated Chinese (Simplified) translations (thanks to liveasx, logicmd)
+- Updated German translations (thanks to Minty123, LibertyMarine)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated French translation (thanks to ch-vox)
+- Updated Italian translations (thanks to pesa1234)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Slovak and Czech translations
+
 Changelog 3.0.0 - 16/03/2014
 --------------------------------------
 - Introducing Ultimate Notification Control (premium)
