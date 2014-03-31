@@ -37,8 +37,8 @@
     <string name="reboot_required">重啟裝置後更改將被套用</string>
 
     <string name="poweroff_advanced_title">進階重啟選單</string>
-    <string name="poweroff_advanced_summary">啟用進階重啟選單，將有重啟至 recovery 模式選項</string>
-    <string name="poweroff_recovery">Recovery</string>
+    <string name="poweroff_advanced_summary">啟用進階重啟選單 (內含重啟至還原模式選項)</string>
+    <string name="poweroff_recovery">還原模式</string>
     <string name="poweroff_bootloader">Bootloader</string>
 
     <string name="vol_key_cursor_control_title">音量鍵游標控制</string>
@@ -62,7 +62,7 @@
     <string name="quick_settings_torch_off">手電筒關閉</string>
     <string name="quick_settings_torch_off_notif">輕觸以關閉手電筒</string>
     <string name="quick_settings_qr_playing">播放中&#8230;</string>
-    <string name="quick_settings_qr_recording">錄音中…</string>
+    <string name="quick_settings_qr_recording">錄音中&#8230;</string>
     <string name="quick_settings_qr_recorded">已錄音</string>
     <string name="quick_settings_qr_record">長按以錄音</string>
     <string name="quick_settings_qr_recording_notif">按下以停止錄音</string>
@@ -110,7 +110,7 @@
     <string name="qs_tile_settings">設定</string>
     <string name="qs_tile_volume">音量</string>
     <string name="qs_tile_expanded_desktop">全螢幕功能</string>
-    <string name="qs_tile_stay_awake">保持清醒</string>
+    <string name="qs_tile_stay_awake">保持螢幕開啓</string>
     <string name="qs_tile_screenshot">螢幕截圖</string>
     <string name="qs_tile_nfc">NFC</string>
     <string name="qs_tile_camera">相機</string>
@@ -226,7 +226,7 @@
 
     <!-- More music volume steps -->
     <string name="pref_music_volume_steps_title">更多音樂音量的調整段數</string>
-    <string name="pref_music_volume_steps_summary">為音樂串流新增更多的音量調整段數（需要重新啟動）</string>
+    <string name="pref_music_volume_steps_summary">為音樂音量新增更多的調整段數（需要重新啟動）</string>
 
     <!-- Safe headset media volume -->
     <string name="pref_safe_media_volume_title">安全的耳機媒體音量</string>
@@ -1100,7 +1100,7 @@
 
     <!-- Transaction verification -->
     <string name="wsc_trans_parse_response_error">從Web服務獲得的錯誤剖析交易資料</string>
-    <string name="wsc_trans_valid">交易ID驗證成功。 GravityBox重新啟動後的進階功能將被解鎖.</string>
+    <string name="wsc_trans_valid">交易ID驗證成功。 進階功能將於GravityBox重新啟動後被解鎖.</string>
     <string name="wsc_trans_invalid">無法找到指定的交易ID記錄</string>
     <string name="wsc_trans_violation">指定的交易ID已經註冊過很多次。請聯絡 GravityBox 開發者來解決.</string>
     <string name="wsc_trans_blocked">指定交易ID已被封鎖。請聯絡 GravityBox 開發者來解決.</string>
@@ -1236,7 +1236,7 @@
 
     <!-- Unlock ring: double-tap to sleep -->
     <string name="pref_lockscreen_ring_dt2s_title">啟用 雙擊 休眠</string>
-    <string name="pref_lockscreen_ring_dt2s_summary">雙點擊解鎖環使裝置進入休眠</string>
+    <string name="pref_lockscreen_ring_dt2s_summary">雙擊解鎖環使裝置進入休眠</string>
 
     <!-- Charger plugged/unplugged sound -->
     <string name="pref_charger_plugged_sound_title">充電器插入音效</string>
@@ -1362,6 +1362,6 @@
 
     <!-- Premium features: allow trial period -->
     <string name="trial_info">此功能尚在試用階段，如果您覺得實用並想繼續使用此功能，請使用您的 PayPal 
-     ID. 來捐贈本開哀發者帳號，本功能試用期將在您 %d 重啟裝置後結束.</string>
+     ID. 來捐贈本開發者帳號，本功能試用期將在您 %d 重啟裝置後結束.</string>
     
 </resources>
