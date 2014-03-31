@@ -1388,5 +1388,15 @@
 
     <!-- Premium features: allow trial period -->
     <string name="trial_info">Diese Premiumfunktion kann getestet werden. Nach Ablauf der Testphase kann sie durch die Registrierung eines PayPal Transaktionscodes weiterhin genutzt werden. Die Testphase endet nach %d Neustarts.</string>
+    
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Kamerasymbol deaktivieren</string>
+    <string name="pref_navbar_camera_key_disable_summary">Deaktiviert das Kamerasymbol auf dem Sperrbildschirm</string>
+    
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">Standardeinstellungen</string>
+    <string name="pref_lc_default_settings_summary">Wenn aktiviert werden Standardeinstellungen auf alle Anwendungen ohne aktive Einstellungen angewendet</string>
+    <string name="lc_defaults_apply">Standardeinstellungen aktiv</string>
+    <string name="lc_settings_menu_reset">Standard wiederherstellen</string>
 
 </resources>
