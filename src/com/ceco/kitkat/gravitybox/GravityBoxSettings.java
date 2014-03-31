@@ -1039,6 +1039,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private Preference mPrefQsTileOrder;
         private ListPreference mPrefQsTileLabelStyle;
         private ListPreference mPrefSbClockDow;
+        private SeekBarPreference mPrefSbClockDowSize;
         private ListPreference mPrefSbLockPolicy;
         private PreferenceScreen mPrefCatDataTraffic;
         private ListPreference mPrefDataTrafficPosition;
@@ -1307,6 +1308,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefQsTileLabelStyle = (ListPreference) findPreference(PREF_KEY_QUICK_SETTINGS_TILE_LABEL_STYLE);
 
             mPrefSbClockDow = (ListPreference) findPreference(PREF_KEY_STATUSBAR_CLOCK_DOW);
+            mPrefSbClockDowSize = (SeekBarPreference) findPreference(PREF_KEY_STATUSBAR_CLOCK_DOW_SIZE);
             mPrefSbLockPolicy = (ListPreference) findPreference(PREF_KEY_STATUSBAR_LOCK_POLICY);
 
             mPrefCatDataTraffic = (PreferenceScreen) findPreference(PREF_CAT_KEY_DATA_TRAFFIC);
@@ -1830,6 +1832,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
 
             if (key == null || key.equals(PREF_KEY_STATUSBAR_CLOCK_DOW)) {
                 mPrefSbClockDow.setSummary(mPrefSbClockDow.getEntry());
+                mPrefSbClockDowSize.setEnabled(Integer.valueOf(
+                        mPrefSbClockDow.getValue()) != 0);
             }
 
             if (key == null || key.equals(PREF_KEY_STATUSBAR_LOCK_POLICY)) {
