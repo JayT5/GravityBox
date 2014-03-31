@@ -1102,7 +1102,7 @@
     <string name="wsc_parse_response_error">Erreur dans l\'analyse des données reçues par le service Web</string>
     <string name="wsc_hash_invalid">Le service Web refuse de communiquer à cause d\'une clé de contrôle discordante. Cela arrive typiquement lorsque
         vous utilisez une version non officielle ou si l\'APK de GravityBox a été modifié par une tierce partie</string>
-    <string name="wsc_please_wait">Attendez s\'il vous plaît&#8230;</string>
+    <string name="wsc_please_wait">Patientez s\'il vous plaît&#8230;</string>
     <string name="wsc_error">Erreur de communication avec le service Web : %s</string>
     <string name="wsc_task_cancelled">Opération du service Web annulée</string>
 
@@ -1349,7 +1349,7 @@
     <!-- Led control -->
     <string name="pref_led_control_title">Contrôle ultime de notification</string>
     <string name="pref_led_control_summary">Permet de contrôler les lumières, sons et vibrations de notification application par application</string>
-    <string name="lc_please_wait">Attendez s\'il vous plaît&#8230;</string>
+    <string name="lc_please_wait">Patientez s\'il vous plaît&#8230;</string>
     <string name="lc_disabled">Contrôle de notification désactivé</string>
     <string name="pref_lc_led_color_title">Couleur de la LED</string>
     <string name="pref_lc_led_time_on_title">Durée d\'allumage de la LED</string>
