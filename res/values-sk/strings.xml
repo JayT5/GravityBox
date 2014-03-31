@@ -1367,4 +1367,14 @@
     <string name="trial_info">Táto funkcia je v skúšobnom režime. V prípade, ak vyhovuje Vašim potrebám je možné ju aktivovať zadaním platného ID PayPal transakcie. 
         Počet reštartov do skončenia skúšobného režimu: %d</string>
 
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Skryť ikonu kamery</string>
+    <string name="pref_navbar_camera_key_disable_summary">Skryje ikonu kamery na obrazovke uzamknutia</string>
+
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">Predvolené nastavenia</string>
+    <string name="pref_lc_default_settings_summary">Ak zapnuté, predvolené nastavenia budú aplikované automaticky na všetky aplikácie, ktoré nemajú aktívne vlastné explicitné nastavenia</string>
+    <string name="lc_defaults_apply">Aplikované predvolené nastavenia</string>
+    <string name="lc_settings_menu_reset">Nastaviť predvolené hodnoty</string>
+
 </resources>
