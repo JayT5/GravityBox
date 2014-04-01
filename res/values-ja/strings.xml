@@ -1372,4 +1372,14 @@
     <!-- Premium features: allow trial period -->
     <string name="trial_info">この機能はお試しモードです。もし便利だと思ったら寄付をしてPayPal取引ID番号を入力すれば使えるようになります。お試しモードはあと%d回再起動すると終了します。</string>
     
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">カメラアイコンの無効化</string>
+    <string name="pref_navbar_camera_key_disable_summary">ロック画面のカメラアイコン表示を無効化します。</string>
+
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">デフォルト設定</string>
+    <string name="pref_lc_default_settings_summary">有効にすると個別に設定されていない全てのアプリにデフォルトの設定が適用されます。</string>
+    <string name="lc_defaults_apply">デフォルト設定の適用</string>
+    <string name="lc_settings_menu_reset">デフォルトに戻す</string>
+    
 </resources>
