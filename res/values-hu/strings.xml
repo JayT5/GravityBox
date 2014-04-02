@@ -808,5 +808,17 @@
     <string name="screen_off_effect_default">Gyári beállítás</string>
     <string name="screen_off_effect_crt">CRT effektus</string>
     <string name="screen_off_effect_fade">Elhalványulás</string>
+    
+     <!-- Screen recording -->
+    <string name="screenrecord_notif_ticker">Képernyő rögzítése</string>
+    <string name="screenrecord_notif_title">Felvételi képernyő</string>
+    <string name="screenrecord_notif_stop">Állj</string>
+    <string name="screenrecord_notif_pointer">Érintés mutatása</string>
+    <string name="screenrecord_toast_error">Nem lehet rögzíteni képernyőt</string>
+    <string name="screenrecord_toast_processing">Nem indítható új felvételmivel a korábbi felvétel még feldolgozás alatt</string>
+    <string name="screenrecord_toast_saved">Felvétel mentés %s</string>
+    <string name="screenrecord_toast_save_error">Nem sikerült menteni felvételt a kimeneti fájlba</string>
+    <string name="action_screenrecord">Képernyő felvétel</string>
+    <string name="pref_powermenu_screenrecord_title">Képernyő felvétel power menüben</string>
 
 </resources>
