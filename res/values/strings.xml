@@ -1410,4 +1410,8 @@
     <string name="lc_defaults_apply">Default settings apply</string>
     <string name="lc_settings_menu_reset">Reset to defaults</string>
 
+    <!-- Remove silent/airplane mode from power menu -->
+    <string name="pref_powermenu_airplane_title">Airplane mode in power menu</string>
+    <string name="pref_powermenu_silent_title">Silent mode in power menu</string>
+
 </resources>

@@ -1296,6 +1296,16 @@
                 android:title="@string/pref_powermenu_screenrecord_title"
                 android:defaultValue="false" />
 
+            <CheckBoxPreference 
+                android:key="pref_powermenu_airplane"
+                android:title="@string/pref_powermenu_airplane_title"
+                android:defaultValue="true" />
+
+            <CheckBoxPreference 
+                android:key="pref_powermenu_silent"
+                android:title="@string/pref_powermenu_silent_title"
+                android:defaultValue="true" />
+
         </PreferenceCategory>
 
         <PreferenceCategory 

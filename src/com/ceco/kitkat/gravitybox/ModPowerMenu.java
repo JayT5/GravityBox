@@ -280,6 +280,55 @@ public class ModPowerMenu {
                         mItems.add(index++, mExpandedDesktopAction);
                     }
 
+                    // Remove airplane mode if disabled
+                    if (!prefs.getBoolean(GravityBoxSettings.PREF_KEY_POWERMENU_AIRPLANE, false)) {
+                        Resources res = mContext.getResources();
+                        int airplaneIndex = -1;
+                        for (Object o : mItems) {
+                            // search text for "airplane" substring
+                            try {
+                                Field a = XposedHelpers.findField(o.getClass(), "mMessageResId");
+                                String aresName = res.getResourceEntryName((Integer) a.get(o)).toLowerCase(Locale.US);
+                                if (aresName.contains("airplane")) {
+                                    airplaneIndex = mItems.indexOf(o);
+                                    break;
+                                }
+                            } catch (NoSuchFieldError nfe) {
+                                // continue
+                            } catch (Resources.NotFoundException resnfe) {
+                                // continue
+                            } catch (IllegalArgumentException iae) {
+                                // continue
+                            }
+                        }
+                        if (airplaneIndex != -1) {
+                            mItems.remove(airplaneIndex);
+                        }
+                    }
+
+                    // Remove silent mode if disabled
+                    if (!prefs.getBoolean(GravityBoxSettings.PREF_KEY_POWERMENU_SILENT, false)) {
+                        int silentIndex = -1;
+                        for (Object o : mItems) {
+                            // search for "silent" substring
+                            try {
+                                String os = o.toString();
+                                if (os != null && os.toLowerCase(Locale.US).contains("silent")) {
+                                    silentIndex = mItems.indexOf(o);
+                                    break;
+                                }
+                            } catch (NoSuchFieldError nfe) {
+                                // continue
+                            } catch (Resources.NotFoundException resnfe) {
+                                // continue
+                            } catch (IllegalArgumentException iae) {
+                                // continue
+                            }
+                        }
+                        if (silentIndex != -1) {
+                            mItems.remove(silentIndex);
+                        }
+                    }
                     mAdapter.notifyDataSetChanged();
                 }
             });
