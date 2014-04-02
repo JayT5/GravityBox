@@ -1395,5 +1395,15 @@
 
     <!-- Premium features: allow trial period -->
     <string name="trial_info">Esta característica es de prueba. Si la encuentras útil, puedes seguir usándola tras registrar la ID la transacción de tu donación. Modo de prueba acaba tras %d reinicios.</string>
+    
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Desactivar icono de cámara</string>
+    <string name="pref_navbar_camera_key_disable_summary">Desactiva el icono de la cámara en la pantalla de bloqueo</string>
 
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">Ajustes predeterminados</string>
+    <string name="pref_lc_default_settings_summary">Al activar se aplicarán automáticamente los ajustes predeterminados a todas las aplicaciones que no tengan ajustes explícitos activos/string>
+    <string name="lc_defaults_apply">Default settings apply</string>
+    <string name="lc_settings_menu_reset">Restablecer a predeterminados</string>
+    
 </resources>
