@@ -1400,4 +1400,14 @@
     <string name="trial_info">此功能是试用模式！如果您觉得它有用您可以继续登录您的PayPal后使用它捐赠交易ID。 %d将在重启后结束试用期</string>
     
     
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">禁用相机图标</string>
+    <string name="pref_navbar_camera_key_disable_summary">在锁屏界面不显示相机图标</string>
+
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">默认设置</string>
+    <string name="pref_lc_default_settings_summary"></string>
+    <string name="lc_defaults_apply">应用默认设置</string>
+    <string name="lc_settings_menu_reset">重置为默认值</string>
+    
 </resources>
