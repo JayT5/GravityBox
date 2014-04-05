@@ -818,28 +818,6 @@
     <string name="screenrecord_toast_processing">Nem indítható új felvételmivel a korábbi felvétel még feldolgozás alatt</string>
     <string name="screenrecord_toast_saved">Felvétel mentés %s</string>
     <string name="screenrecord_toast_save_error">Nem sikerült menteni felvételt a kimeneti fájlba</string>
-    <string name="action_screenrecord">Képernyő felvétel</string>
-    <string name="pref_powermenu_screenrecord_title">Képernyő felvétel power menüben</string>
-    
-    <!-- Power tweaks categories -->
-    <string name="pref_cat_power_menu_title">Kikapcsoló menü</string>
-    <string name="pref_cat_power_other_title">Egyéb</string>
-
-    <!-- Advanced reboot menu: Allow on lockscreen -->
-    <string name="pref_reboot_allow_on_lockscreen_title">Újraindítás engedélyezése zárképernyőnél</string>
-
-    <!-- Data traffic monitor enhancements -->
-    <string name="pref_data_traffic_inactivity_mode_title">Inaktivitás mód</string>
-    <string name="inactivity_mode_default">Alapértelmezett</string>
-    <string name="inactivity_mode_hide">Elrejtés inaktivitáskor</string>
-    <string name="inactivity_mode_summary">Összegzés mutatása és elrejtés inaktivitáskor</string>
-
-    <!-- Navigation bar custom key (previously as App launcher key) -->
-    <string name="pref_cat_navbar_custom_key_title">Egyedi gomb (alkalmazásindító) beállítások</string>
-    <string name="pref_navbar_custom_key_enable_title">Egyedi gomb engedélyezése</string>
-
-    <!-- Network mode tile: CDMA support -->
-    <string name="pref_network_mode_tile_cdma_title">CDMA hálózati módok használata</string>
 
     <!--  HW Key Action: Toggle auto rotation -->
     <string name="hwkey_action_auto_rotation">Automata elforgatás ki-bekapcsolása</string>

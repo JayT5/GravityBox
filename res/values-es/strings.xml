@@ -1402,7 +1402,7 @@
 
     <!-- Notification control: default settings -->
     <string name="lc_activity_menu_default_settings">Ajustes predeterminados</string>
-    <string name="pref_lc_default_settings_summary">Al activar se aplicarán automáticamente los ajustes predeterminados a todas las aplicaciones que no tengan ajustes explícitos activos/string>
+    <string name="pref_lc_default_settings_summary">Al activar se aplicarán automáticamente los ajustes predeterminados a todas las aplicaciones que no tengan ajustes explícitos activos</string>
     <string name="lc_defaults_apply">Default settings apply</string>
     <string name="lc_settings_menu_reset">Restablecer a predeterminados</string>
     
