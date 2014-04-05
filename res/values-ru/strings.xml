@@ -135,9 +135,9 @@
 
     <!-- About -->
     <string name="pref_cat_about_title">О программе</string>
-    <string name="about_gb_summary">Разработка C3C076@XDA. Нажмите для перехода в официальный форум.</string>
+    <string name="about_gb_summary">Разработка C3C076@XDA. Нажмите для перехода в официальный форум</string>
     <string name="about_xposed_title">Xposed framework</string>
-    <string name="about_xposed_summary">Разработка rovo89@XDA. Нажмите для перехода в официальный форум.</string>
+    <string name="about_xposed_summary">Разработка rovo89@XDA. Нажмите для перехода в официальный форум</string>
     <string name="about_donate_title">Пожертвовать</string>
     <string name="about_donate_summary">Пожертвуйте через PayPal для поддержки разработки</string>
 
@@ -819,7 +819,7 @@
     <string name="pref_cat_launcher_tweaks_title">Настройки лончера</string>
     <string name="pref_cat_launcher_tweaks_summary">Только для стокового лончера и Google Experience</string>
     <string name="pref_cat_launcher_desktop_grid_title">Сетка рабочего стола</string>
-    <string name="pref_launcher_desktop_grid_info_title">Использование значений, отличных от значений по умолчанию, может привести к проблемам с виджетами. Используйте с осторожностью. Изменения требуют перезапуска лончера.</string>
+    <string name="pref_launcher_desktop_grid_info_title">Использование значений, отличных от значений по умолчанию, может привести к проблемам с виджетами. Используйте с осторожностью. Изменения требуют перезапуска лончера</string>
     <string name="pref_launcher_desktop_grid_rows_title">Количество строк</string>
     <string name="pref_launcher_desktop_grid_cols_title">Количество столбцов</string>
     <string name="desktop_grid_default">По умолчанию</string>
@@ -1113,7 +1113,7 @@
     <string name="wsc_trans_violation">Указанный ID транзакции был использован слишком много раз. Свяжитесь с разработчиком GravityBox для решения проблемы.</string>
     <string name="wsc_trans_blocked">Указанный ID транзакции заблокирован. Свяжитесь с разработчиком GravityBox для решения проблемы.</string>
     <string name="pref_trans_verification_title">ID транзакции PayPal</string>
-    <string name="pref_trans_verification_summary">Если Вы внесли пожертвование, можете ввести ID транзакции пожертвования PayPal для разблокировки премиум-функции</string>
+    <string name="pref_trans_verification_summary">Если Вы внесли пожертвование, можете ввести ID транзакции пожертвования PayPal для разблокировки премиум-функций</string>
     <string name="wsc_trans_required_summary">Функция требует действительного ID транзакции PayPal</string>
 
     <!-- Pie: disable system info -->
@@ -1290,7 +1290,7 @@
     <!-- ScreenRecord: use stock binary -->
     <string name="pref_screenrecord_use_stock_title">Стоковый бинарный файл</string>
     <string name="pref_screenrecord_use_stock_summary">Если включено, для записи экрана будет использоваться стоковый бинарный файл. 
-        Активируйте при проблемах с альтернативным бинарным файлом. Имейте в виду, что стоковый файл не поддерживает аудио и запись более 3 минут.</string>
+        Активируйте при проблемах с альтернативным бинарным файлом. Имейте в виду, что стоковый файл не поддерживает аудио и запись более 3 минут</string>
 
     <!-- Clock settings master switch -->
     <string name="pref_sb_clock_masterswitch_summary">Включение настроек часов в строке состояния (необходима перезагрузка)</string>
@@ -1390,7 +1390,7 @@
 
     <!-- Virtual keys vibrate pattern -->
     <string name="pref_virtual_key_vibrate_pattern_title">Виброотклик вирт.клавиш</string>
-    <string name="pref_virtual_key_vibrate_pattern_summary">Список разделённых запятыми пар выключения/включения в миллисекундах.</string>
+    <string name="pref_virtual_key_vibrate_pattern_summary">Список разделённых запятыми пар выключения/включения в миллисекундах</string>
     
     <!-- Lockscreen: show pattern error -->
     <string name="pref_lockscreen_show_pattern_error_title">Показать ошибку ключа</string>
