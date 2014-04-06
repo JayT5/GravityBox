@@ -1381,4 +1381,30 @@
     <string name="lc_defaults_apply">Zastosuj ustawienia domyślne</string>
     <string name="lc_settings_menu_reset">Zresetuj ustawienia domyślne</string>
 
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Aktywny Ekran</string>
+    <string name="lc_active_screen_info">Funkcja ta automatycznie włącza ekran za każdym razem 
+        gdy dotrze nowe powiadomienie. Stanie się tak tylko w przypadku, gdy ekran nie jest przykryty 
+        (np. gdy urządzenie nie jest w kieszeni). Opcjonalnie rozwija panel powiadomień w zależności 
+        od bieżącej polityki bezpieczeństwa blokady ekranu i preferencji użytkownika. Należy pamiętać, że Aktywny Ekran
+        wymaga włączenia blokady ekranu.\nPrzełącznik poniżej jest głównym wyłącznikiem. 
+        Po włączeniu go dodatkowa konfiguracja może być wykonana na bazie danej aplikacji.</string>
+    <string name="lc_active_screen_switch_title">Włącz Aktywny Ekran</string>
+    <string name="lc_expand_notification_panel_title">Rozwiń panel powiadomień</string>
+    <string name="lc_expand_notification_panel_summary">Automatycznie rozwija panel powiadomień, gdy włącza się ekran (jeśli pozwala na to bieżąca polityka bezpieczeństwa blokady ekranu)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Ciche Godziny</string>
+    <string name="pref_lc_qh_enabled_title">Włącz Ciche Godziny</string>
+    <string name="pref_lc_qh_enabled_summary">Wycisza dźwięki / wibracje i opcjonalnie wygasza LED dla wszystkich powiadomień przychodzących w określonym przedziale czasowym</string>
+    <string name="pref_lc_qh_start_title">Początek</string>
+    <string name="pref_lc_qh_end_title">Koniec</string>
+    <string name="pref_lc_qh_mute_led_title">Wygaś LED</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Tryb LED</string>
+    <string name="lc_led_mode_original">Oryginalny (z aplikacji)</string>
+    <string name="lc_led_mode_override">Zastąp</string>
+    <string name="lc_led_mode_off">Wyłącz (brak sygnalizacji LED)</string>
+
 </resources>
