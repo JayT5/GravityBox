@@ -1406,8 +1406,36 @@
 
     <!-- Notification control: default settings -->
     <string name="lc_activity_menu_default_settings">默认设置</string>
-    <string name="pref_lc_default_settings_summary"></string>
+    <string name="pref_lc_default_settings_summary">当打开时默认设置会自动应用到那些没有激活设定的应用程序</string>
     <string name="lc_defaults_apply">应用默认设置</string>
     <string name="lc_settings_menu_reset">重置为默认值</string>
+    
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">激活屏幕</string>
+    <string name="lc_active_screen_info">每收到新的通知激活屏幕功能将会自动开启屏幕
+        出现这种情况仅在屏幕不是盖住的（例如：当设备没有在口袋）
+        它可以选择扩展面板的通知根据当前锁屏的安全策略和用户偏好
+        请注意，激活屏幕，需要启用锁屏
+        下面此开关是总开关
+        启用后，额外的配置可以在每个应用程序的基础上进行</string>
+    <string name="lc_active_screen_switch_title">启用激活屏幕</string>
+    <string name="lc_expand_notification_panel_title">展开通知面板</string>
+    <string name="lc_expand_notification_panel_summary">当屏幕开启自动展开通知面板
+        （如果当前的锁屏安全策略允许）</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">清静时光</string>
+    <string name="pref_lc_qh_enabled_title">启用清静时光</string>
+    <string name="pref_lc_qh_enabled_summary">静音声音/振动和可选的LED 
+        自定义时间范围内所有到达的通知</string>
+    <string name="pref_lc_qh_start_title">开始时间</string>
+    <string name="pref_lc_qh_end_title">结束时间</string>
+    <string name="pref_lc_qh_mute_led_title">静音指示灯</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">LED模式</string>
+    <string name="lc_led_mode_original">原始（来自应用程序）</string>
+    <string name="lc_led_mode_override">覆盖</string>
+    <string name="lc_led_mode_off">关闭（无灯光）</string>
     
 </resources>
