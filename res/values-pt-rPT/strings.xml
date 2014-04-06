@@ -1333,7 +1333,7 @@
     <string name="pref_led_control_summary">Permite controlar as notificações (avisos luminosos, sonoros e por vibração) por aplicação</string>
     <string name="lc_please_wait">Por favor aguarde&#8230;</string>
     <string name="lc_disabled">Controlo desativado</string>
-    <string name="pref_lc_led_color_title">Cor da notificação</string>
+    <string name="pref_lc_led_color_title">Cor do aviso</string>
     <string name="pref_lc_led_time_on_title">Duração do aviso quando ligado</string>
     <string name="pref_lc_led_time_off_title">Duração do aviso quando desligado</string>
     <string name="pref_lc_ongoing_title">A decorrer</string>
@@ -1391,5 +1391,32 @@
     <string name="pref_lc_default_settings_summary">Quando ativado, as definições padrão são aplicadas automaticamente a todas as aplicações que não tenham uma configuração explicita</string>
     <string name="lc_defaults_apply">Definições padrão aplicáveis</string>
     <string name="lc_settings_menu_reset">Repôr definições de origem</string>
+
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Ecrã ligado</string>
+    <string name="lc_active_screen_info">Esta funcionalidade permite que o ecrã se ligue automaticamente sempre que uma nova
+        notificação ocorra. Tal apenas acontecerá caso o ecrã não esteja coberto (por exemplo, quando o dispositivo está no bolso). 
+        Opcionalmente, poderá permitir também a expansão do painel de notificações, dependendo da política de segurança do ecrã de 
+        bloqueio e das preferências do utilizador. De notar que esta funcionalidade requer que o bloqueio de ecrã esteja ativado.\n\nO
+        interruptor permite a ativação global da funcionalidade. Depois de ativar, as configurações poderão ser efetuadas por aplicação.</string>
+    <string name="lc_active_screen_switch_title">Ativar Ecrã ligado</string>
+    <string name="lc_expand_notification_panel_title">Expandir painel de notificações</string>
+    <string name="lc_expand_notification_panel_summary">Permite expandir o painel de notificações automaticamente quando o ecrã se liga 
+        (se permitido pela atual política de segurança do ecrã de bloqueio)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Horas de silêncio</string>
+    <string name="pref_lc_qh_enabled_title">Interruptor</string>
+    <string name="pref_lc_qh_enabled_summary">Desativa avisos sonoros e por vibração e opcionalmente luminosos de 
+        todas as notificações que ocorram na janela de tempo definida</string>
+    <string name="pref_lc_qh_start_title">Tempo de ínicio</string>
+    <string name="pref_lc_qh_end_title">Tempo de fim</string>
+    <string name="pref_lc_qh_mute_led_title">Desativar avisos luminosos</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Modo do aviso</string>
+    <string name="lc_led_mode_original">Original (predefindo pela aplicação)</string>
+    <string name="lc_led_mode_override">Sobreposto</string>
+    <string name="lc_led_mode_off">Desativado (sem aviso luminoso)</string>
 
 </resources>
