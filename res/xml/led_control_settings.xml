@@ -109,6 +109,26 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="pref_cat_lc_active_screen"
+        android:title="@string/lc_active_screen">
+
+        <CheckBoxPreference
+            android:key="pref_lc_active_screen_enable"
+            android:title="@string/lc_active_screen_switch_title"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <CheckBoxPreference
+            android:key="pref_lc_active_screen_expand"
+            android:title="@string/lc_expand_notification_panel_title"
+            android:summary="@string/lc_expand_notification_panel_summary"
+            android:defaultValue="false"
+            android:persistent="false"
+            android:dependency="pref_lc_active_screen_enable" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory 
         android:key="pref_cat_lc_other"
         android:title="@string/pref_cat_lc_other_title">

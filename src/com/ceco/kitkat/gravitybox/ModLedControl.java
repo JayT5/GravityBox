@@ -15,14 +15,23 @@
 
 package com.ceco.kitkat.gravitybox;
 
+import com.ceco.kitkat.gravitybox.ledcontrol.ActiveScreenActivity;
 import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 
+import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
@@ -32,11 +41,21 @@ public class ModLedControl {
     private static final String TAG = "GB:ModLedControl";
     private static final boolean DEBUG = false;
     private static final String CLASS_USER_HANDLE = "android.os.UserHandle";
+    private static final String CLASS_NOTIFICATION_MANAGER_SERVICE = "com.android.server.NotificationManagerService";
+    private static final String CLASS_STATUSBAR_MGR_SERVICE = "com.android.server.StatusBarManagerService";
     private static final String PACKAGE_NAME_PHONE = "com.android.phone";
     private static final int MISSED_CALL_NOTIF_ID = 1;
 
     private static XSharedPreferences mPrefs;
     private static Notification mNotifOnNextScreenOff;
+    private static Context mContext;
+    private static Handler mHandler;
+    private static PowerManager mPm;
+    private static SensorManager mSm;
+    private static KeyguardManager mKm;
+    private static Sensor mProxSensor;
+    private static boolean mScreenCovered;
+    private static boolean mOnPanelRevealedBlocked;
 
     private static BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
         @Override
@@ -52,6 +71,34 @@ public class ModLedControl {
                 mNotifOnNextScreenOff = null;
             }
             context.unregisterReceiver(this);
+        }
+    };
+
+    private static SensorEventListener mProxSensorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) { 
+            mScreenCovered = event.values[0] == 0;
+            if (DEBUG) log("Screen covered: " + mScreenCovered);
+        }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+    };
+
+    private static BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(ActiveScreenActivity.ACTION_ACTIVE_SCREEN_CHANGED)) {
+                mPrefs.reload();
+                if (intent.hasExtra(ActiveScreenActivity.EXTRA_ENABLED)) {
+                    toggleActiveScreenFeature(intent.getBooleanExtra(
+                            ActiveScreenActivity.EXTRA_ENABLED, false));
+                }
+            }
+            if (action.equals(Intent.ACTION_USER_PRESENT)) {
+                if (DEBUG) log("User present");
+                mOnPanelRevealedBlocked = false;
+            }
         }
     };
 
@@ -92,6 +139,45 @@ public class ModLedControl {
 
         try {
             XposedHelpers.findAndHookMethod(NotificationManager.class, "cancelAll", cancelHook);
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
+
+        try {
+            final Class<?> nmsClass = XposedHelpers.findClass(CLASS_NOTIFICATION_MANAGER_SERVICE, null);
+            XposedBridge.hookAllConstructors(nmsClass, new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
+                    if (mContext == null) {
+                        mContext = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
+                        mHandler = (Handler) XposedHelpers.getObjectField(param.thisObject, "mHandler");
+
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(ActiveScreenActivity.ACTION_ACTIVE_SCREEN_CHANGED);
+                        intentFilter.addAction(Intent.ACTION_USER_PRESENT);
+                        mContext.registerReceiver(mBroadcastReceiver, intentFilter);
+
+                        toggleActiveScreenFeature(mPrefs.getBoolean(
+                                LedSettings.PREF_KEY_ACTIVE_SCREEN_ENABLED, false));
+                        if (DEBUG) log("Notification manager service initialized");
+                    }
+                }
+            });
+
+            XposedHelpers.findAndHookMethod(CLASS_NOTIFICATION_MANAGER_SERVICE, null, "enqueueNotificationWithTag",
+                    String.class, String.class, String.class, int.class, Notification.class, 
+                    int[].class, int.class, activeScreenHook);
+
+            XposedHelpers.findAndHookMethod(CLASS_STATUSBAR_MGR_SERVICE, null, "onPanelRevealed", 
+                    new XC_MethodHook() {
+                @Override
+                protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
+                    if (mOnPanelRevealedBlocked) {
+                        param.setResult(null);
+                        if (DEBUG) log("onPanelRevealed blocked");
+                    }
+                }
+            });
         } catch (Throwable t) {
             XposedBridge.log(t);
         }
@@ -191,4 +277,64 @@ public class ModLedControl {
             }
         }
     };
+
+    private static XC_MethodHook activeScreenHook = new XC_MethodHook() {
+        @Override
+        protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
+            if (mPm != null && !mPm.isScreenOn() && !mScreenCovered && mKm.isKeyguardLocked()) {
+                final String pkgName = (String) param.args[0];
+                LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
+                if (!ls.getEnabled()) {
+                    // use default settings in case they are active
+                    ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
+                    if (!ls.getEnabled()) {
+                        return;
+                    }
+                }
+                if (!ls.getActiveScreenEnabled()) return;
+
+                if (DEBUG) log("Performing Active Screen for " + pkgName);
+                final LedSettings fls = ls;
+                mOnPanelRevealedBlocked = fls.getActiveScreenExpanded();
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (fls.getActiveScreenExpanded()) {
+                            mContext.sendBroadcast(new Intent(ModHwKeys.ACTION_EXPAND_NOTIFICATIONS));
+                        }
+                        final WakeLock wl = mPm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
+                                PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, TAG);
+                        wl.acquire();
+                        wl.release();
+                    }
+                }, 1000);
+            }
+        }
+    };
+
+    private static void toggleActiveScreenFeature(boolean enable) {
+        try {
+            if (enable && mContext != null) {
+                mScreenCovered = false;
+                mPm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+                mKm = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+                mSm = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
+                mProxSensor = mSm.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+                if (mSm != null && mProxSensor != null) {
+                    mSm.registerListener(mProxSensorEventListener, mProxSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                }
+            } else {
+                if (mSm != null && mProxSensor != null) {
+                    mSm.unregisterListener(mProxSensorEventListener, mProxSensor);
+                }
+                mProxSensor = null;
+                mSm = null;
+                mPm = null;
+                mKm = null;
+            }
+            if (DEBUG) log("Active screen feature: " + enable);
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
+    }
 }

@@ -83,6 +83,10 @@ public class LedListItem implements IBaseListAdapterItem {
             if (mLedSettings.getVibrateOverride()) {
                 buf += "; " + mContext.getString(R.string.pref_lc_vibrate_override_title);
             }
+            if (LedSettings.isActiveScreenMasterEnabled(mContext) &&
+                    mLedSettings.getActiveScreenEnabled()) {
+                buf += "; " + mContext.getString(R.string.lc_active_screen);
+            }
             if (mLedSettings.getOngoing()) {
                 buf += "; " + mContext.getString(R.string.lc_item_summary_ongoing);
             }

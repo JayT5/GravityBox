@@ -25,6 +25,7 @@ import android.net.Uri;
 public class LedSettings {
 
     public static final String PREF_KEY_LOCKED = "uncLocked";
+    public static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "activeScreenEnabled";
 
     private Context mContext;
     private String mPackageName;
@@ -40,6 +41,8 @@ public class LedSettings {
     private boolean mVibrateOverride;
     private String mVibratePatternStr;
     private long[] mVibratePattern;
+    private boolean mActiveScreenEnabled;
+    private boolean mActiveScreenExpanded;
 
     protected static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -96,6 +99,10 @@ public class LedSettings {
                 ls.setVibrateOverride(Boolean.valueOf(data[1]));
             } else if (data[0].equals("vibratePattern")) {
                 ls.setVibratePatternFromString(data[1]);
+            } else if (data[0].equals("activeScreenEnabled")) {
+                ls.setActiveScreenEnabled(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("activeScreenExpanded")) {
+                ls.setActiveScreenExpanded(Boolean.valueOf(data[1]));
             }
         }
         return ls;
@@ -116,10 +123,23 @@ public class LedSettings {
         mVibrateOverride = false;
         mVibratePatternStr = null;
         mVibratePattern = null;
+        mActiveScreenEnabled = false;
+        mActiveScreenExpanded = false;
     }
 
     protected static LedSettings getDefault(Context context) {
         return deserialize(context, "default");
+    }
+
+    protected static boolean isActiveScreenMasterEnabled(Context context) {
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(
+                    "ledcontrol", Context.MODE_WORLD_READABLE);
+            return prefs.getBoolean(PREF_KEY_ACTIVE_SCREEN_ENABLED, false);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return false;
+        }
     }
 
     protected void setPackageName(String pkgName) {
@@ -188,6 +208,14 @@ public class LedSettings {
         }
     }
 
+    protected void setActiveScreenEnabled(boolean enabled) {
+        mActiveScreenEnabled = enabled;
+    }
+
+    protected void setActiveScreenExpanded(boolean expanded) {
+        mActiveScreenExpanded = expanded;
+    }
+
     public String getPackageName() {
         return mPackageName;
     }
@@ -240,6 +268,14 @@ public class LedSettings {
         return mVibratePattern;
     }
 
+    public boolean getActiveScreenEnabled() {
+        return mActiveScreenEnabled;
+    }
+
+    public boolean getActiveScreenExpanded() {
+        return mActiveScreenExpanded;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -258,6 +294,8 @@ public class LedSettings {
             if (mVibratePatternStr != null) {
                 dataSet.add("vibratePattern:" + mVibratePatternStr);
             }
+            dataSet.add("activeScreenEnabled:" + mActiveScreenEnabled);
+            dataSet.add("activeScreenExpanded:" + mActiveScreenExpanded);
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();

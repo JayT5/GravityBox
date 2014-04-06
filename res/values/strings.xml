@@ -1410,4 +1410,17 @@
     <string name="lc_defaults_apply">Default settings apply</string>
     <string name="lc_settings_menu_reset">Reset to defaults</string>
 
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Active Screen</string>
+    <string name="lc_active_screen_info">Active Screen feature automatically turns on screen every 
+        time new notification arrives. This will happen only in case screen is not covered 
+        (e.g. when device is not in the pocket). It optionally expands notification panel depending on 
+        the current lock screen security policy and user preference. Be aware that Active Screen requires lock screen
+        to be enabled.\nThe switch below is a master switch. After it\'s enabled, 
+        additional configuration can be done on per-app basis</string>
+    <string name="lc_active_screen_switch_title">Enable Active Screen</string>
+    <string name="lc_expand_notification_panel_title">Expand notification panel</string>
+    <string name="lc_expand_notification_panel_summary">Expands notification panel automatically when screen turns on 
+        (if allowed by current lock screen security policy)</string>
+
 </resources>

@@ -144,7 +144,10 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
                 intent.putExtra(LedSettingsActivity.EXTRA_APP_NAME, 
                         getString(R.string.lc_activity_menu_default_settings));
                 startActivityForResult(intent, REQ_SETTINGS_DEFAULT);
-                return true; 
+                return true;
+            case R.id.lc_activity_menu_active_screen:
+                startActivity(new Intent(this, ActiveScreenActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

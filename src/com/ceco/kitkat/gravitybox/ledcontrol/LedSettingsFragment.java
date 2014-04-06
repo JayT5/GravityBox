@@ -30,6 +30,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -49,6 +50,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private static final String PREF_KEY_VIBRATE_OVERRIDE = "pref_lc_vibrate_override";
     private static final String PREF_KEY_VIBRATE_PATTERN = "pref_lc_vibrate_pattern";
     private static final String PREF_KEY_DEFAULT_SETTINGS = "pref_lc_default_settings";
+    private static final String PREF_CAT_KEY_ACTIVE_SCREEN = "pref_cat_lc_active_screen";
+    private static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "pref_lc_active_screen_enable";
+    private static final String PREF_KEY_ACTIVE_SCREEN_EXPANDED = "pref_lc_active_screen_expand";
 
     private static final int REQ_PICK_SOUND = 101;
 
@@ -64,6 +68,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private CheckBoxPreference mVibratePatternOverridePref;
     private EditTextPreference mVibratePatternPref;
     private SwitchPreference mDefaultSettingsPref;
+    private PreferenceCategory mActiveScreenCat;
+    private CheckBoxPreference mActiveScreenEnabledPref;
+    private CheckBoxPreference mActiveScreenExpandedPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +89,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         mVibratePatternPref = (EditTextPreference) findPreference(PREF_KEY_VIBRATE_PATTERN);
         mVibratePatternPref.setOnPreferenceChangeListener(this);
         mDefaultSettingsPref = (SwitchPreference) findPreference(PREF_KEY_DEFAULT_SETTINGS);
+        mActiveScreenCat = (PreferenceCategory) findPreference(PREF_CAT_KEY_ACTIVE_SCREEN);
+        mActiveScreenEnabledPref = (CheckBoxPreference) findPreference(PREF_KEY_ACTIVE_SCREEN_ENABLED);
+        mActiveScreenExpandedPref = (CheckBoxPreference) findPreference(PREF_KEY_ACTIVE_SCREEN_EXPANDED);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -103,6 +113,12 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         } else {
             mDefaultSettingsPref.setChecked(false);
             getPreferenceScreen().removePreference(mDefaultSettingsPref);
+        }
+        if (!LedSettings.isActiveScreenMasterEnabled(getActivity())) {
+            getPreferenceScreen().removePreference(mActiveScreenCat);
+        } else {
+            mActiveScreenEnabledPref.setChecked(ledSettings.getActiveScreenEnabled());
+            mActiveScreenExpandedPref.setChecked(ledSettings.getActiveScreenExpanded());
         }
     }
 
@@ -160,6 +176,14 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
 
     protected boolean getDefaultSettingsEnabled() {
         return mDefaultSettingsPref.isChecked();
+    }
+
+    protected boolean getActiveScreenEnabled() {
+        return mActiveScreenEnabledPref.isChecked();
+    }
+
+    protected boolean getActiveScreenExpanded() {
+        return mActiveScreenExpandedPref.isChecked();
     }
 
     @Override
