@@ -26,6 +26,13 @@
         android:key="pref_cat_lc_lights"
         android:title="@string/pref_cat_lc_lights_title">
 
+        <ListPreference
+            android:key="pref_lc_led_mode"
+            android:title="@string/pref_lc_led_mode_title"
+            android:entries="@array/lc_led_mode_entries"
+            android:entryValues="@array/lc_led_mode_values"
+            android:defaultValue="OVERRIDE" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
             android:key="pref_lc_led_color"
             android:title="@string/pref_lc_led_color_title"

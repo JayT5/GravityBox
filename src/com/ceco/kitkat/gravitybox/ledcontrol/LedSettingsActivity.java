@@ -21,6 +21,7 @@ import java.util.Locale;
 import com.ceco.kitkat.gravitybox.GravityBoxSettings;
 import com.ceco.kitkat.gravitybox.ModHwKeys;
 import com.ceco.kitkat.gravitybox.R;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings.LedMode;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -136,11 +137,16 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
                     getString(R.string.lc_preview_notif_text), getTitle()))
             .setSmallIcon(R.drawable.ic_launcher);
         final Notification n = builder.build();
-        n.defaults &= ~Notification.DEFAULT_LIGHTS;
-        n.flags |= Notification.FLAG_SHOW_LIGHTS;
-        n.ledARGB = mPrefsFragment.getColor();
-        n.ledOnMS = mPrefsFragment.getLedOnMs();
-        n.ledOffMS =  mPrefsFragment.getLedOffMs();
+        if (mPrefsFragment.getLedMode() == LedMode.OFF) {
+            n.defaults &= ~Notification.DEFAULT_LIGHTS;
+            n.flags &= ~Notification.FLAG_SHOW_LIGHTS;
+        } else if (mPrefsFragment.getLedMode() == LedMode.OVERRIDE) {
+            n.defaults &= ~Notification.DEFAULT_LIGHTS;
+            n.flags |= Notification.FLAG_SHOW_LIGHTS;
+            n.ledARGB = mPrefsFragment.getColor();
+            n.ledOnMS = mPrefsFragment.getLedOnMs();
+            n.ledOffMS =  mPrefsFragment.getLedOffMs();
+        }
         if (mPrefsFragment.getSoundOverride() && mPrefsFragment.getSoundUri() != null) {
             n.defaults &= ~Notification.DEFAULT_SOUND;
             n.sound = mPrefsFragment.getSoundUri();
@@ -189,6 +195,7 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setVibratePatternFromString(mPrefsFragment.getVibratePatternAsString());
         mLedSettings.setActiveScreenEnabled(mPrefsFragment.getActiveScreenEnabled());
         mLedSettings.setActiveScreenExpanded(mPrefsFragment.getActiveScreenExpanded());
+        mLedSettings.setLedMode(mPrefsFragment.getLedMode());
         mLedSettings.serialize();
         Intent intent;
         if (activeScreenChanged) {

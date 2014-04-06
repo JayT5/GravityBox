@@ -1432,4 +1432,10 @@
     <string name="pref_lc_qh_end_title">End time</string>
     <string name="pref_lc_qh_mute_led_title">Mute lights</string>
 
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">LED mode</string>
+    <string name="lc_led_mode_original">Original (from app)</string>
+    <string name="lc_led_mode_override">Override</string>
+    <string name="lc_led_mode_off">Off (no lights)</string>
+
 </resources>

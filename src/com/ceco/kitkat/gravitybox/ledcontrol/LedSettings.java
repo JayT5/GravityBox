@@ -27,6 +27,8 @@ public class LedSettings {
     public static final String PREF_KEY_LOCKED = "uncLocked";
     public static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "activeScreenEnabled";
 
+    public enum LedMode { ORIGINAL, OVERRIDE, OFF };
+
     private Context mContext;
     private String mPackageName;
     private boolean mEnabled;
@@ -43,6 +45,7 @@ public class LedSettings {
     private long[] mVibratePattern;
     private boolean mActiveScreenEnabled;
     private boolean mActiveScreenExpanded;
+    private LedMode mLedMode;
 
     protected static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -103,6 +106,8 @@ public class LedSettings {
                 ls.setActiveScreenEnabled(Boolean.valueOf(data[1]));
             } else if (data[0].equals("activeScreenExpanded")) {
                 ls.setActiveScreenExpanded(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("ledMode")) {
+                ls.setLedMode(LedMode.valueOf(data[1]));
             }
         }
         return ls;
@@ -125,6 +130,7 @@ public class LedSettings {
         mVibratePattern = null;
         mActiveScreenEnabled = false;
         mActiveScreenExpanded = false;
+        mLedMode = LedMode.OVERRIDE;
     }
 
     protected static LedSettings getDefault(Context context) {
@@ -216,6 +222,10 @@ public class LedSettings {
         mActiveScreenExpanded = expanded;
     }
 
+    protected void setLedMode(LedMode ledMode) {
+        mLedMode = ledMode;
+    }
+
     public String getPackageName() {
         return mPackageName;
     }
@@ -276,6 +286,10 @@ public class LedSettings {
         return mActiveScreenExpanded;
     }
 
+    public LedMode getLedMode() {
+        return mLedMode;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -296,6 +310,7 @@ public class LedSettings {
             }
             dataSet.add("activeScreenEnabled:" + mActiveScreenEnabled);
             dataSet.add("activeScreenExpanded:" + mActiveScreenExpanded);
+            dataSet.add("ledMode:" + mLedMode);
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();

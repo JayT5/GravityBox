@@ -22,6 +22,7 @@ import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.adapters.BaseListAdapterFilter;
 import com.ceco.kitkat.gravitybox.adapters.IIconListAdapterItem;
 import com.ceco.kitkat.gravitybox.adapters.BaseListAdapterFilter.IBaseListAdapterFilterable;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings.LedMode;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -100,7 +101,8 @@ public class LedListAdapter extends ArrayAdapter<LedListItem>
         holder.appNameView.setText(item.getAppName());
         holder.appDescView.setText(item.getAppDesc());
         holder.colorView.setColor(item.getLedSettings().getColor());
-        holder.colorView.setVisibility(item.isEnabled() ? View.VISIBLE : View.GONE);
+        holder.colorView.setVisibility(item.isEnabled() && 
+                item.getLedSettings().getLedMode() == LedMode.OVERRIDE ? View.VISIBLE : View.GONE);
         holder.enabledView.setChecked(item.isEnabled());
         holder.enabledView.setTag(item);
         holder.insistentView.setVisibility(item.isEnabled() && 

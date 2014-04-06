@@ -18,6 +18,7 @@ package com.ceco.kitkat.gravitybox.ledcontrol;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.ceco.kitkat.gravitybox.R;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings.LedMode;
 import com.ceco.kitkat.gravitybox.preference.SeekBarPreference;
 
 import android.app.Activity;
@@ -28,6 +29,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -53,6 +55,7 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private static final String PREF_CAT_KEY_ACTIVE_SCREEN = "pref_cat_lc_active_screen";
     private static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "pref_lc_active_screen_enable";
     private static final String PREF_KEY_ACTIVE_SCREEN_EXPANDED = "pref_lc_active_screen_expand";
+    private static final String PREF_KEY_LED_MODE = "pref_lc_led_mode";
 
     private static final int REQ_PICK_SOUND = 101;
 
@@ -71,6 +74,7 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private PreferenceCategory mActiveScreenCat;
     private CheckBoxPreference mActiveScreenEnabledPref;
     private CheckBoxPreference mActiveScreenExpandedPref;
+    private ListPreference mLedModePref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,8 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         mActiveScreenCat = (PreferenceCategory) findPreference(PREF_CAT_KEY_ACTIVE_SCREEN);
         mActiveScreenEnabledPref = (CheckBoxPreference) findPreference(PREF_KEY_ACTIVE_SCREEN_ENABLED);
         mActiveScreenExpandedPref = (CheckBoxPreference) findPreference(PREF_KEY_ACTIVE_SCREEN_EXPANDED);
+        mLedModePref = (ListPreference) findPreference(PREF_KEY_LED_MODE);
+        mLedModePref.setOnPreferenceChangeListener(this);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -120,6 +126,8 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
             mActiveScreenEnabledPref.setChecked(ledSettings.getActiveScreenEnabled());
             mActiveScreenExpandedPref.setChecked(ledSettings.getActiveScreenExpanded());
         }
+        mLedModePref.setValue(ledSettings.getLedMode().toString());
+        updateLedModeDependentState();
     }
 
     private void updateSoundPrefSummary() {
@@ -132,6 +140,14 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
                 mSoundUri = null;
             }
         }
+    }
+
+    private void updateLedModeDependentState() {
+        mLedModePref.setSummary(mLedModePref.getEntry());
+        LedMode lm = LedMode.valueOf(mLedModePref.getValue());
+        mColorPref.setEnabled(lm == LedMode.OVERRIDE);
+        mLedOnMsPref.setEnabled(lm == LedMode.OVERRIDE);
+        mLedOffMsPref.setEnabled(lm == LedMode.OVERRIDE);
     }
 
     protected int getColor() {
@@ -186,6 +202,10 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         return mActiveScreenExpandedPref.isChecked();
     }
 
+    protected LedMode getLedMode() {
+        return LedMode.valueOf(mLedModePref.getValue());
+    }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
         if (pref == mNotifSoundPref) {
@@ -224,6 +244,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
                         Toast.LENGTH_SHORT).show();
                 return false;
             }
+        } else if (preference == mLedModePref) {
+            mLedModePref.setValue((String)newValue);
+            updateLedModeDependentState();
         }
         return true;
     }

@@ -944,4 +944,16 @@
         <item>7</item>
     </string-array>
 
+    <string-array name="lc_led_mode_entries" translatable="false">
+        <item>@string/lc_led_mode_original</item>
+        <item>@string/lc_led_mode_override</item>
+        <item>@string/lc_led_mode_off</item>
+    </string-array>
+
+    <string-array name="lc_led_mode_values" translatable="false">
+        <item>ORIGINAL</item>
+        <item>OVERRIDE</item>
+        <item>OFF</item>
+    </string-array>
+
 </resources>

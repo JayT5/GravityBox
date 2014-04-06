@@ -19,6 +19,7 @@ import java.util.Locale;
 
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.adapters.IBaseListAdapterItem;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings.LedMode;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -58,12 +59,19 @@ public class LedListItem implements IBaseListAdapterItem {
             return defLs.getEnabled() ? mContext.getString(R.string.lc_defaults_apply) :
                     mContext.getString(R.string.lc_disabled);
         } else {
-            String buf = String.format(Locale.getDefault(),
+            String buf = "LED: ";
+            if (mLedSettings.getLedMode() == LedMode.OFF) {
+                buf += mContext.getString(R.string.lc_led_mode_off);
+            } else if (mLedSettings.getLedMode() == LedMode.ORIGINAL) {
+                buf += mContext.getString(R.string.lc_led_mode_original);
+            } else {
+                buf += String.format(Locale.getDefault(),
                     "%s=%dms", mContext.getString(R.string.lc_item_summary_on),
                         mLedSettings.getLedOnMs());
-            buf += String.format(Locale.getDefault(),
+                buf += String.format(Locale.getDefault(),
                     "; %s=%dms", mContext.getString(R.string.lc_item_summary_off),
                     mLedSettings.getLedOffMs());
+            }
             if (mLedSettings.getSoundOverride()) {
                 if (mLedSettings.getSoundUri() == null) {
                     buf += "; " + mContext.getString(R.string.lc_notif_sound_none);

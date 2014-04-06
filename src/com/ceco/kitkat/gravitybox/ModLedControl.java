@@ -18,6 +18,7 @@ package com.ceco.kitkat.gravitybox;
 import com.ceco.kitkat.gravitybox.ledcontrol.ActiveScreenActivity;
 import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings.LedMode;
 
 import android.app.KeyguardManager;
 import android.app.Notification;
@@ -240,6 +241,7 @@ public class ModLedControl {
                 // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
                 if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
                         (Integer)param.args[1] == MISSED_CALL_NOTIF_ID && 
+                        ls.getLedMode() != LedMode.OFF &&
                         !quietHours.quietHoursActiveIncludingLED()) {
                     mNotifOnNextScreenOff = n;
                     context.registerReceiver(mScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
@@ -249,15 +251,16 @@ public class ModLedControl {
 
                 if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
                         !ls.getOngoing() && !quietHours.quietHoursActive()) {
-                    if (DEBUG) log("Ongoing led control disabled. Forcing LED Off");
+                    if (DEBUG) log("Ongoing led control disabled. Ignoring.");
                     return;
                 }
 
                 // lights
-                n.defaults &= ~Notification.DEFAULT_LIGHTS;
-                if (quietHours.quietHoursActiveIncludingLED()) {
+                if (quietHours.quietHoursActiveIncludingLED() || ls.getLedMode() == LedMode.OFF) {
+                    n.defaults &= ~Notification.DEFAULT_LIGHTS;
                     n.flags &= ~Notification.FLAG_SHOW_LIGHTS;
-                } else {
+                } else if (ls.getLedMode() == LedMode.OVERRIDE) {
+                    n.defaults &= ~Notification.DEFAULT_LIGHTS;
                     n.flags |= Notification.FLAG_SHOW_LIGHTS;
                     n.ledOnMS = ls.getLedOnMs();
                     n.ledOffMS = ls.getLedOffMs();
