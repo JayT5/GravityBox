@@ -148,6 +148,9 @@ public class LedControlActivity extends ListActivity implements ListItemActionHa
             case R.id.lc_activity_menu_active_screen:
                 startActivity(new Intent(this, ActiveScreenActivity.class));
                 return true;
+            case R.id.lc_activity_menu_quiet_hours:
+                startActivity(new Intent(this, QuietHoursActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -22,4 +22,6 @@
           android:title="@string/lc_activity_menu_default_settings" />
     <item android:id="@+id/lc_activity_menu_active_screen"
           android:title="@string/lc_active_screen" />
+    <item android:id="@+id/lc_activity_menu_quiet_hours"
+          android:title="@string/lc_quiet_hours" />
 </menu>

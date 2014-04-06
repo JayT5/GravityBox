@@ -1423,4 +1423,13 @@
     <string name="lc_expand_notification_panel_summary">Expands notification panel automatically when screen turns on 
         (if allowed by current lock screen security policy)</string>
 
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Quiet hours</string>
+    <string name="pref_lc_qh_enabled_title">Enable quiet hours</string>
+    <string name="pref_lc_qh_enabled_summary">Mutes sounds/vibrations and optionally LED for 
+        all notifications arriving within defined time range</string>
+    <string name="pref_lc_qh_start_title">Start time</string>
+    <string name="pref_lc_qh_end_title">End time</string>
+    <string name="pref_lc_qh_mute_led_title">Mute lights</string>
+
 </resources>

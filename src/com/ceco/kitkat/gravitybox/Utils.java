@@ -403,6 +403,27 @@ public class Utils {
         return arr;
     }
 
+    public static boolean isTimeOfDayInRange(long timeMs, long startMs, long endMs) {
+        Calendar c = new GregorianCalendar();
+
+        c.setTimeInMillis(timeMs);
+        int timeMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+
+        c.setTimeInMillis(startMs);
+        int startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+
+        c.setTimeInMillis(endMs);
+        int endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+
+        if (startMin == endMin) {
+            return false;
+        } else if (startMin > endMin) {
+            return (timeMin >= startMin || timeMin < endMin);
+        } else {
+            return (timeMin >= startMin && timeMin < endMin);
+        }
+    }
+
     static class SystemProp extends Utils {
         
         private SystemProp() {
