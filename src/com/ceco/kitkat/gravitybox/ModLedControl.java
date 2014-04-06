@@ -342,6 +342,13 @@ public class ModLedControl {
                 }
                 if (!ls.getActiveScreenEnabled()) return;
 
+                Notification n = (Notification) param.args[4];
+                if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
+                        !ls.getOngoing()) {
+                    if (DEBUG) log("Ongoing led control disabled. Ignoring.");
+                    return;
+                }
+
                 if (DEBUG) log("Performing Active Screen for " + pkgName);
                 final LedSettings fls = ls;
                 mOnPanelRevealedBlocked = fls.getActiveScreenExpanded();
