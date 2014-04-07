@@ -1377,4 +1377,33 @@
     <string name="lc_defaults_apply">Aplikované predvolené nastavenia</string>
     <string name="lc_settings_menu_reset">Nastaviť predvolené hodnoty</string>
 
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Aktívna obrazovka</string>
+    <string name="lc_active_screen_info">Funkcia aktívnej obrazovky slúži na automatické zapnutie obrazovky 
+        po obdržaní každého nového oznámenia. To sa udeje len v prípade, ak nie je obrazovka zakrytá 
+        (napr. ak nie je zariadenie vo vrecku alebo v púzdre). Voliteľne dôjde k automatickékmu rozbaleniu 
+        lišty oznámení v závislosti od aktuálnej bezpečnostnej politiky obrazovky uzamknutia. 
+        Funkcia aktívnej obrazovky sa uplatní len v prípade, ak je aktivovaná obrazovka uzamknutia.  
+        Prepínač nižšie slúži na hlavné zapnutie/vypnutie funkcie. Ak je funkcia zapnutá, ďalšie jej nastavenia 
+        budú prístupné na úrovni nastavení jednotlivých aplikácií.</string>
+    <string name="lc_active_screen_switch_title">Povoliť aktívnu obrazovku</string>
+    <string name="lc_expand_notification_panel_title">Rozbaliť lištu oznmámení</string>
+    <string name="lc_expand_notification_panel_summary">Rozbalí lištu oznámení automaticky počas zapnutia obrazovky 
+        (ak to súčasná bezpečnostná politika obrazovky uzamknutia povoľuje)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Tiché hodiny</string>
+    <string name="pref_lc_qh_enabled_title">Povoliť tiché hodiny</string>
+    <string name="pref_lc_qh_enabled_summary">Umlčí zvuky/vibrácie a voliteľne LED 
+        pre všetky oznámenia obdržané v definovanom časovom okne</string>
+    <string name="pref_lc_qh_start_title">Začiatok</string>
+    <string name="pref_lc_qh_end_title">Koniec</string>
+    <string name="pref_lc_qh_mute_led_title">Zakázať aj LED</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Režim LED</string>
+    <string name="lc_led_mode_original">Pôvodný</string>
+    <string name="lc_led_mode_override">Vlastný</string>
+    <string name="lc_led_mode_off">Vypnutý</string>
+
 </resources>
