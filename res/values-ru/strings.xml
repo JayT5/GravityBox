@@ -1410,4 +1410,32 @@
     <string name="lc_defaults_apply">Применение умолчаний</string>
     <string name="lc_settings_menu_reset">Сброс к умолчаниям</string>
 
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Активный экран</string>
+    <string name="lc_active_screen_info">Функция активного экрана автоматически включает экран при 
+        получении каждого нового уведомления. Функция не работает, если экран закрыт 
+        (например, когда устройство находится в кармане). Опционально, можно настроить раскрытие панели уведомлений, 
+        в зависимости от текущей политики безопасности экрана блокировки и настроек пользователя. Имейте в виду, что для работы
+        активного экрана требуется, чтобы экран блокировки был включен.\nФункция активируется переключателем ниже. После включения, 
+        возможно выполнить дополнительную конфигурацию по приложениям</string>
+    <string name="lc_active_screen_switch_title">Включение активного экрана</string>
+    <string name="lc_expand_notification_panel_title">Раскрытие уведомлений</string>
+    <string name="lc_expand_notification_panel_summary">Автоматическое раскрытие панели уведомлений при включении экрана 
+        (если разрешено текущей политикой безопасности экрана блокировки)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Тихий час</string>
+    <string name="pref_lc_qh_enabled_title">Включение тихого часа</string>
+    <string name="pref_lc_qh_enabled_summary">Отключение звуков/вибраций и, опционально, световой 
+        индикации для всех уведомлений, поступающих в определённый временной период</string>
+    <string name="pref_lc_qh_start_title">Время начала</string>
+    <string name="pref_lc_qh_end_title">Время конца</string>
+    <string name="pref_lc_qh_mute_led_title">Откл свет.индикацию</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Режим индикатора</string>
+    <string name="lc_led_mode_original">Оригинальный (из прилож.)</string>
+    <string name="lc_led_mode_override">Установленный</string>
+    <string name="lc_led_mode_off">Выкл (без индикации)</string>
+
 </resources>
