@@ -192,7 +192,7 @@ public abstract class TrafficMeterAbstract extends TextView
             setTextColor(colorInfo.coloringEnabled ?
                     colorInfo.iconColor[0] : colorInfo.defaultIconColor);
         } else if ((flags & StatusBarIconManager.FLAG_ICON_ALPHA_CHANGED) != 0) {
-            setAlpha(colorInfo.alphaTextAndBattery);
+            setAlpha(colorInfo.alphaSignalCluster);
         }
     }
 
