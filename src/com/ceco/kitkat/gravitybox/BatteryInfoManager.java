@@ -17,6 +17,7 @@ package com.ceco.kitkat.gravitybox;
 
 import java.util.ArrayList;
 
+import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import android.content.Context;
 import android.content.Intent;
@@ -107,7 +108,7 @@ public class BatteryInfoManager {
     }
 
     private void playSound(String fileName) {
-        if (!isPhoneIdle()) return;
+        if (!isPhoneIdle() || quietHoursActive()) return;
         try {
             final String filePath = mGbContext.getFilesDir().getAbsolutePath() + "/" + fileName;
             final Uri soundUri = Uri.parse("file://" + filePath);
@@ -134,5 +135,11 @@ public class BatteryInfoManager {
             XposedBridge.log(t);
             return true;
         }
+    }
+
+    private boolean quietHoursActive() {
+        ModLedControl.QuietHours qh = new ModLedControl.QuietHours(
+                new XSharedPreferences(GravityBox.PACKAGE_NAME, "ledcontrol"));
+        return qh.quietHoursActive();
     }
 }
