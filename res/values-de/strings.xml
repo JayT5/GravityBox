@@ -1398,5 +1398,32 @@
     <string name="pref_lc_default_settings_summary">Wenn aktiviert werden Standardeinstellungen auf alle Anwendungen ohne aktive Einstellungen angewendet</string>
     <string name="lc_defaults_apply">Standardeinstellungen aktiv</string>
     <string name="lc_settings_menu_reset">Standard wiederherstellen</string>
+    
+        <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Aktiv-Bildschirm</string>
+    <string name="lc_active_screen_info">Beim Aktiv-Bildschirm wird der Bildschirm automatisch
+        aktiviert, wenn eine Benachrichtigung eingeht. Dies geschieht nur, wenn das Gerät
+        nicht verdeckt ist (z.B. in der Tasche). Optional kann die Benachrichtigungsleiste ausgeklappt
+        werden. Der Aktiv-Bildschirm benötigt eine aktive Bildschirmsperre\n Ist der untenstehende Hauptschalter
+        an, kann das Verhalten für einzelne Apps konfiguriert werden.</string>
+    <string name="lc_active_screen_switch_title">Aktiv-Bidlschirm aktivieren</string>
+    <string name="lc_expand_notification_panel_title">Benachritigungsleiste erweitern</string>
+    <string name="lc_expand_notification_panel_summary">Benachrichtigungsleiste automatisch erweitern wenn Bildschirm aktiviert wird
+        (Wenn zugelassen durch Einstellungen des Sperrbildschirms)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Ruhestunden</string>
+    <string name="pref_lc_qh_enabled_title">Ruhestunden aktivieren</string>
+    <string name="pref_lc_qh_enabled_summary">Innerhalb eines definierbarem Zeitfensters Ton/Vibration und optional LED
+        aller eingehenden Benachrichtigungen deaktiveren</string>
+    <string name="pref_lc_qh_start_title">Startzeit</string>
+    <string name="pref_lc_qh_end_title">Endzeit</string>
+    <string name="pref_lc_qh_mute_led_title">LED-Lichter deaktiveren</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">LED-Modus</string>
+    <string name="lc_led_mode_original">Original (von App)</string>
+    <string name="lc_led_mode_override">Überschreiben</string>
+    <string name="lc_led_mode_off">Aus (Kein Licht)</string>
 
 </resources>
