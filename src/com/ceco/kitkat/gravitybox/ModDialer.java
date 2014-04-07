@@ -274,6 +274,21 @@ public class ModDialer {
         }
     };
 
+    private static boolean isDayDreaming() {
+        try {
+            Class<?> serviceManagerClass = XposedHelpers.findClass("android.os.ServiceManager", null);
+            Object dmService = XposedHelpers.callStaticMethod(serviceManagerClass, "getService", "dreams");
+            Class<?> dreamManagerStub = XposedHelpers.findClass("android.service.dreams.IDreamManager.Stub", null);
+            Object dreamManager = XposedHelpers.callStaticMethod(dreamManagerStub, "asInterface", dmService);
+            boolean isDreaming = (Boolean) XposedHelpers.callMethod(dreamManager, "isDreaming");
+            if (DEBUG) log("isDayDreaming: " + isDreaming);
+            return isDreaming;
+        } catch (Throwable t) {
+            if (DEBUG) XposedBridge.log(t);
+            return false;
+        }
+    }
+
     public static void init(final XSharedPreferences prefs, ClassLoader classLoader, final String packageName) {
         mPrefsPhone = prefs;
 
@@ -513,7 +528,7 @@ public class ModDialer {
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                     refreshPhonePrefs();
                     mIsCallUiInBackground = false;
-                    if (!mNonIntrusiveIncomingCall) return;
+                    if (!mNonIntrusiveIncomingCall || isDayDreaming()) return;
                     if (mNonIntrusiveIncomingCallBlocked) {
                         mNonIntrusiveIncomingCallBlocked = false;
                         return;

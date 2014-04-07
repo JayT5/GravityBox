@@ -34,6 +34,7 @@ public class PermissionGranter {
     private static final String PERM_CHANGE_NETWORK_STATE = "android.permission.CHANGE_NETWORK_STATE";
     private static final String PERM_MODIFY_AUDIO_SETTINGS = "android.permission.MODIFY_AUDIO_SETTINGS";
     private static final String PERM_CAPTURE_AUDIO_OUTPUT = "android.permission.CAPTURE_AUDIO_OUTPUT";
+    private static final String PERM_READ_DREAM_STATE = "android.permission.READ_DREAM_STATE";
 
     private static void log(String message) {
         XposedBridge.log(TAG + ": " + message);
@@ -151,6 +152,28 @@ public class PermissionGranter {
                                     "appendInts", gpGids, bpGids);
 
                             if (DEBUG) log(pkgName + ": Permission added: " + pCns);
+                        }
+                    }
+
+                    // Dialer
+                    if (pkgName.equals("com.google.android.dialer") || pkgName.equals("com.android.dialer")) {
+                        final Object extras = XposedHelpers.getObjectField(param.args[0], "mExtras");
+                        final HashSet<String> grantedPerms = 
+                                (HashSet<String>) XposedHelpers.getObjectField(extras, "grantedPermissions");
+                        final Object settings = XposedHelpers.getObjectField(param.thisObject, "mSettings");
+                        final Object permissions = XposedHelpers.getObjectField(settings, "mPermissions");
+
+                        // Add android.permission.READ_DREAM_STATE needed by non-intrusive call feature
+                        if (!grantedPerms.contains(PERM_READ_DREAM_STATE)) {
+                            final Object perm = XposedHelpers.callMethod(permissions, "get",
+                                    PERM_READ_DREAM_STATE);
+                            grantedPerms.add(PERM_READ_DREAM_STATE);
+                            int[] gpGids = (int[]) XposedHelpers.getObjectField(extras, "gids");
+                            int[] bpGids = (int[]) XposedHelpers.getObjectField(perm, "gids");
+                            gpGids = (int[]) XposedHelpers.callStaticMethod(param.thisObject.getClass(), 
+                                    "appendInts", gpGids, bpGids);
+
+                            if (DEBUG) log(pkgName + ": Permission added: " + perm);
                         }
                     }
                 }
