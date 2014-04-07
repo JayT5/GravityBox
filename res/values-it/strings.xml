@@ -1400,4 +1400,47 @@
     <string name="trial_info">Questa funzione è in Demo. Se la reputi utile puoi continuare ad usarla dopo la registrazione dell\'ID della transazione donazione PayPal.
     Il periodo di prova termina dopo %d riavvii.</string>
 
+    <!-- Navbar: disable camera icon -->
+    <string name="pref_navbar_camera_key_disable_title">Disabilita icona fotocamera</string>
+    <string name="pref_navbar_camera_key_disable_summary">Disabilita icona fotocamera nella schermata di blocco</string>
+
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">Settaggi di Default</string>
+    <string name="pref_lc_default_settings_summary">Quando attivo automaticamente verranno settati i parametri di default nelle applicazioni che non hanno settaggi attivi.</string>
+    <string name="lc_defaults_apply">Applica settaggi di default</string>
+    <string name="lc_settings_menu_reset">Resetta ai settaggi di default</string>
+
+
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Active Screen</string>
+    <string name="lc_active_screen_info">Questa funzione accende automaticamente lo schermo 
+        ogni volta che una nuova notifica arriva. Questo succede solo in caso che lo schermo non sia coperto
+        (es. quando il dispositivo è in tasca).
+        Può essere anche selezionabile l\'opzione di espandere il pannello notifiche se le opzioni di 
+        sicurezza della schermata di blocco e se le preferenze dell\'utente lo permettono.
+        Bisogna essere consapevoli che questa funzione richiede che sia attiva la schermata di 
+        blocco.\nL\'interruttore sotto è il principale. Dopo essere stato abilitato la configurazione
+        può essere fatta per ogni app.</string>
+    <string name="lc_active_screen_switch_title">Abilita Active Screen</string>
+    <string name="lc_expand_notification_panel_title">Espandi pannello notifiche</string>
+    <string name="lc_expand_notification_panel_summary">Espandi pannello notifiche automaticamente quando lo schermo si accende.
+        (se permesso dalle opzioni di sicurezza della schermata di blocco)</string>
+
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Ore Notturne</string>
+    <string name="pref_lc_qh_enabled_title">Abilita ore notturne</string>
+    <string name="pref_lc_qh_enabled_summary">Togli suono/vibrazione ed eventualmente anche il LED per tutte le notifiche che arrivano 
+    nelle ore stabilite come notturne.</string>
+    <string name="pref_lc_qh_start_title">Ora Inizio</string>
+    <string name="pref_lc_qh_end_title">Ora Fine</string>
+    <string name="pref_lc_qh_mute_led_title">Togli LED</string>
+
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">LED mode</string>
+    <string name="lc_led_mode_original">Originale (dall\'app)</string>
+    <string name="lc_led_mode_override">Sovrascrivi</string>
+    <string name="lc_led_mode_off">Off (no LED)</string>
+
 </resources>
