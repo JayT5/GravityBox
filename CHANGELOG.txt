@@ -1,3 +1,32 @@
+Changelog 3.0.2 - 07/04/2014
+--------------------------------------
+- Ultimate Notification Control extended:
+--- Active Screen:
+------ automatically turns on screen every time new notification arrives
+------ optionally expands notification panel automatically
+------ takes into account whether device is in the pocket or case
+------ master switch + configuration on per-app basis
+--- Quiet hours:
+------ mutes sounds/vibrations for all notifications arriving within defined time range
+------ optionally mutes LED (won't pulse when notification arrives)
+------ mutes also GB's charger plugged/unplugged/battery charged sounds
+--- More control over LED settings:
+------ allows preserving original LED settings coming from a particular app
+------ allows overriding LED settings to provide custom behavior
+------ allows turning LED off for a particular app
+- Dialer: don't perform non-intrusive call when day dreaming
+- Traffic Meter: follow signal cluster alpha changes:
+--- e.g. hides traffic meter when statusbar is in low profile mode
+- Updated French translation (thanks to ch-vox)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated Hungarian translations (thanks to joco82)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated Russian translations (thanks to gaich)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Slovak and Czech translations
+
 Changelog 3.0.1 - 31/03/2014
 --------------------------------------
 - Fixed volume key crashes on Xperia devices
