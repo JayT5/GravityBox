@@ -1410,4 +1410,32 @@
     <string name="lc_defaults_apply">Paramètres par défaut appliqués</string>
     <string name="lc_settings_menu_reset">Rétablir les paramètres par défaut</string>
 
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Écran Actif</string>
+    <string name="lc_active_screen_info">L\'option Écran Actif allume automatiquement l\'écran à chaque fois 
+        fois qu\'une nouvelle notification arrive. Cela se produira seulement si l\'écran n\'est pas recouvert
+        (ex : lorsque l\'appareil est dans la poche). Elle peut dérouler le panneau de notification en option selon
+        la politique de sécurité de l\'écran de déverrouillage et les préférences utilisateur. Attention, l\'Écran Actif nécessite 
+        que l\'écran de déverrouillage soit actif. L\'interrupteur en-dessous est l\'interrupteur principal. Après qu\'il soit enclenché, 
+        la configuration précise par application peut être effectuée</string>
+    <string name="lc_active_screen_switch_title">Enclencher l\'Écran Actif</string>
+    <string name="lc_expand_notification_panel_title">Dérouler le panneau de nofication</string>
+    <string name="lc_expand_notification_panel_summary">Déroule le panneau de notification automatiquement lorsque l\'écran s\'allume 
+        (si autorisé par la politique actuelle de sécurité de l\'écran de déverrouillage)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Heures tranquilles</string>
+    <string name="pref_lc_qh_enabled_title">Activer les heures tranquilles</string>
+    <string name="pref_lc_qh_enabled_summary">Éteint les son/vibrations et en option les LED
+        pour toutes les notifications qui se produisent dans un laps de temps défini</string>
+    <string name="pref_lc_qh_start_title">Début</string>
+    <string name="pref_lc_qh_end_title">Fin</string>
+    <string name="pref_lc_qh_mute_led_title">Éteindre les LED</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Mode LED</string>
+    <string name="lc_led_mode_original">Original (appli)</string>
+    <string name="lc_led_mode_override">Remplacer</string>
+    <string name="lc_led_mode_off">Off (pas de lumières)</string>
+
 </resources>
