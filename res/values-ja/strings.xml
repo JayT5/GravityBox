@@ -1382,4 +1382,27 @@
     <string name="lc_defaults_apply">デフォルト設定の適用</string>
     <string name="lc_settings_menu_reset">デフォルトに戻す</string>
     
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">アクティブスクリーン</string>
+    <string name="lc_active_screen_info">アクティブスクリーンは、新しい通知が表示されるたびに画面をオンにする機能です。この機能は端末がカバーされていないとき(ポケットに入れていないときなど)だけ有効になります。
+        ロック画面の設定やUIによっては通知領域の展開もします。アクティブスクリーンを使用する際はロック画面を有効にしないといけません。\nこのスイッチで有効/無効を切り替えられます。有効にした後、アプリ毎に設定できます。</string>
+    <string name="lc_active_screen_switch_title">アクティブスクリーンを有効化</string>
+    <string name="lc_expand_notification_panel_title">通知領域を開く</string>
+    <string name="lc_expand_notification_panel_summary">画面がオンになったとき自動的に通知領域を開きます。
+        (ロック画面の設定で許可されている場合のみ)</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">お休みモード</string>
+    <string name="pref_lc_qh_enabled_title">お休みモードを有効化</string>
+    <string name="pref_lc_qh_enabled_summary">指定した時間帯に通知音/バイブをならさないようにしたり、通知LEDを点灯させないようにしたり(任意)します。</string>
+    <string name="pref_lc_qh_start_title">開始時間</string>
+    <string name="pref_lc_qh_end_title">終了時間</string>
+    <string name="pref_lc_qh_mute_led_title">通知LEDを点灯させない</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">LEDモード</string>
+    <string name="lc_led_mode_original">アプリの標準</string>
+    <string name="lc_led_mode_override">上書き</string>
+    <string name="lc_led_mode_off">オフ(点灯させない)</string>
+    
 </resources>
