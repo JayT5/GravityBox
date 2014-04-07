@@ -155,8 +155,6 @@ public class StatusbarBatteryPercentage implements IconManagerListener, BatteryS
             } else {
                 setTextColor(mDefaultColor);
             }
-        } else if ((flags & StatusBarIconManager.FLAG_LOW_PROFILE_CHANGED) != 0) {
-            mPercentage.setAlpha(colorInfo.lowProfile ? 0.5f : 1);
         } else if ((flags & StatusBarIconManager.FLAG_ICON_ALPHA_CHANGED) != 0) {
             mPercentage.setAlpha(colorInfo.alphaTextAndBattery);
         }

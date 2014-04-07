@@ -49,10 +49,9 @@ public class StatusBarIconManager implements BroadcastSubReceiver {
     public static final int FLAG_ICON_COLOR_CHANGED = 1 << 2;
     public static final int FLAG_ICON_COLOR_SECONDARY_CHANGED = 1 << 3;
     public static final int FLAG_DATA_ACTIVITY_COLOR_CHANGED = 1 << 4;
-    public static final int FLAG_LOW_PROFILE_CHANGED = 1 << 5;
-    public static final int FLAG_ICON_STYLE_CHANGED = 1 << 6;
-    public static final int FLAG_ICON_ALPHA_CHANGED = 1 << 7;
-    private static final int FLAG_ALL = 0xFF;
+    public static final int FLAG_ICON_STYLE_CHANGED = 1 << 5;
+    public static final int FLAG_ICON_ALPHA_CHANGED = 1 << 6;
+    private static final int FLAG_ALL = 0x7F;
 
     private Context mContext;
     private Resources mGbResources;
@@ -77,7 +76,6 @@ public class StatusBarIconManager implements BroadcastSubReceiver {
         int defaultDataActivityColor;
         int[] dataActivityColor;
         int signalIconMode;
-        boolean lowProfile;
         int iconStyle;
         float alphaSignalCluster;
         float alphaTextAndBattery;
@@ -167,7 +165,6 @@ public class StatusBarIconManager implements BroadcastSubReceiver {
                 R.integer.signal_cluster_data_activity_icon_color);
         mColorInfo.dataActivityColor = new int[2];
         mColorInfo.signalIconMode = SI_MODE_STOCK;
-        mColorInfo.lowProfile = false;
         mColorInfo.iconStyle = KITKAT;
         mColorInfo.alphaSignalCluster = 1;
         mColorInfo.alphaTextAndBattery = 1;
@@ -256,13 +253,6 @@ public class StatusBarIconManager implements BroadcastSubReceiver {
 
     public boolean isColoringEnabled() {
         return mColorInfo.coloringEnabled;
-    }
-
-    public void setLowProfile(boolean lowProfile) {
-        if (mColorInfo.lowProfile != lowProfile) {
-            mColorInfo.lowProfile = lowProfile;
-            notifyListeners(FLAG_LOW_PROFILE_CHANGED);
-        }
     }
 
     public int getDefaultIconColor() {

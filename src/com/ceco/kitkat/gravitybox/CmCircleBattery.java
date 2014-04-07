@@ -301,22 +301,11 @@ public class CmCircleBattery extends ImageView implements IconManagerListener, B
         invalidate();
     }
 
-    public void setLowProfile(boolean lightsOut) {
-        final int alpha = lightsOut ? 127 : 255;
-        mPaintSystem.setAlpha(alpha);
-        mPaintGray.setAlpha(alpha);
-        mPaintFont.setAlpha(alpha);
-        mPaintRed.setAlpha(alpha);
-        invalidate();
-    }
-
     @Override
     public void onIconManagerStatusChanged(int flags, ColorInfo colorInfo) {
         if ((flags & StatusBarIconManager.FLAG_ICON_COLOR_CHANGED) != 0) {
             setColor(colorInfo.coloringEnabled ?
                     colorInfo.iconColor[0] : colorInfo.defaultIconColor);
-        } else if ((flags & StatusBarIconManager.FLAG_LOW_PROFILE_CHANGED) != 0) {
-            setLowProfile(colorInfo.lowProfile);
         } else if ((flags & StatusBarIconManager.FLAG_ICON_ALPHA_CHANGED) != 0) {
             setAlpha(colorInfo.alphaTextAndBattery);
         }
