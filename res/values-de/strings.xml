@@ -578,9 +578,9 @@
     <string name="pref_qs_tile_order_summary">Erlaubt die Neuanordnung der Schnelleinstellungen</string>
 
     <!-- Ongoing notifications -->
-    <string name="pref_ongoing_notifications_title">Fortlaufende Benachrichtigungen blockieren</string>
-    <string name="pref_ongoing_notifications_summary">Erlaubt es, fortlaufende Benachrichtigungen selektiv zu blockieren</string>
-    <string name="ongoing_notif_info">Jede fortlaufende Benachrichtigung wird automatisch in die Liste eingetragen. Sie können dann entscheiden, ob Sie die fortlaufende Benachrichtigung beim nächsten Erscheinen blockieren möchten. (bitte mit Vorsicht verwenden)</string>
+    <string name="pref_ongoing_notifications_title">Dauerhafte Benachrichtigungen blockieren</string>
+    <string name="pref_ongoing_notifications_summary">Erlaubt es, dauerhafte Benachrichtigungen selektiv zu blockieren</string>
+    <string name="ongoing_notif_info">Jede dauerhafte Benachrichtigung wird automatisch in die Liste eingetragen. Sie können dann entscheiden, ob die dauerhafte Benachrichtigung beim nächsten Erscheinen blockiert wird. (bitte mit Vorsicht verwenden)</string>
     <string name="ongoing_notif_reset_list">Liste zurücksetzen</string>
     <string name="ongoing_notif_reset_alert">Wollen Sie die Liste wirklich zurücksetzen? Löscht die aktuelle Liste und gibt alle zuvor blockierten Benachrichtigungen frei.</string>
     <string name="ongoing_notif_list_empty">(Liste ist leer)</string>
@@ -1355,7 +1355,7 @@
     <string name="lc_preview_notif_text">Testen für %s</string>
     <string name="lc_activity_menu_show_all">Alle Einträge zeigen</string>
     <string name="lc_activity_menu_show_active">Nur aktive Einträge zeigen</string>
-    <string name="pref_cat_lc_lights_title">Lichter</string>
+    <string name="pref_cat_lc_lights_title">LED</string>
     <string name="pref_cat_lc_other_title">Sonstige</string>
     <string name="pref_cat_lc_sounds_title">Töne</string>
     <string name="pref_cat_lc_vibrations_title">Vibration</string>
@@ -1387,7 +1387,7 @@
     <string name="pref_lockscreen_show_pattern_error_summary">Bei Aktivierung wird ein falsch eingegebenes Muster durch einen roten Pfad angezeigt</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">Diese Premiumfunktion kann getestet werden. Nach Ablauf der Testphase kann sie durch die Registrierung eines PayPal Transaktionscodes weiterhin genutzt werden. Die Testphase endet nach %d Neustarts.</string>
+    <string name="trial_info">Diese Premiumfunktion ist im Testmodus. Nach Ablauf der Testphase kann sie durch die Registrierung eines PayPal Transaktionscodes weiterhin genutzt werden. Die Testphase endet nach %d Neustarts.</string>
     
     <!-- Navbar: disable camera icon -->
     <string name="pref_navbar_camera_key_disable_title">Kamerasymbol deaktivieren</string>
@@ -1403,11 +1403,11 @@
     <string name="lc_active_screen">Aktiv-Bildschirm</string>
     <string name="lc_active_screen_info">Beim Aktiv-Bildschirm wird der Bildschirm automatisch
         aktiviert, wenn eine Benachrichtigung eingeht. Dies geschieht nur, wenn das Gerät
-        nicht verdeckt ist (z.B. in der Tasche). Optional kann die Benachrichtigungsleiste ausgeklappt
-        werden. Der Aktiv-Bildschirm benötigt eine aktive Bildschirmsperre\n Ist der untenstehende Hauptschalter
-        an, kann das Verhalten für einzelne Apps konfiguriert werden.</string>
-    <string name="lc_active_screen_switch_title">Aktiv-Bidlschirm aktivieren</string>
-    <string name="lc_expand_notification_panel_title">Benachritigungsleiste erweitern</string>
+        nicht verdeckt ist (z.B. in der Tasche). Optional kann die Benachrichtigungsleiste erweitert
+        werden. Der Aktiv-Bildschirm benötigt eine aktive Bildschirmsperre.\nIst der untenstehende Hauptschalter
+        aktiviert, kann das Verhalten für einzelne Apps konfiguriert werden.</string>
+    <string name="lc_active_screen_switch_title">Aktiv-Bildschirm aktivieren</string>
+    <string name="lc_expand_notification_panel_title">Benachrichtigungsleiste erweitern</string>
     <string name="lc_expand_notification_panel_summary">Benachrichtigungsleiste automatisch erweitern wenn Bildschirm aktiviert wird
         (Wenn zugelassen durch Einstellungen des Sperrbildschirms)</string>
 
