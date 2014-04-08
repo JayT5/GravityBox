@@ -1019,7 +1019,6 @@
    
     <!-- Smart Radio -->
     <string name="smart_radio_action_undefined">未定義</string>
-	<string name="pref_cat_smart_radio_title">Smart radio</string>
     <string name="pref_smart_radio_enable_summary">根據行動數據和無線網絡連接狀態，這會自動切換您自訂的省電模式或正常模式（需要重新啟動）</string>
     <string name="pref_smart_radio_normal_mode_title">正常網路模式</string>
     <string name="pref_smart_radio_power_saving_mode_title">節省電力網路模式</string>
