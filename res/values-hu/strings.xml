@@ -663,7 +663,7 @@
     <string name="pref_statusbar_signal_color_mode_title">Jelszint ikon színezés mód</string>
     <string name="signal_color_mode_gb">Használja a GravityBox ikonokat</string>
     <string name="signal_color_mode_stock">Használja a gyári ikonokat</string>
-    <string name="signal_color_mode_disabled">Nem alkalmaz színezést</string>g>
+    <string name="signal_color_mode_disabled">Nem alkalmaz színezést</string>
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Alkalmazás Indító</string>
