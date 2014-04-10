@@ -185,8 +185,8 @@ public class ModLedControl {
                         intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
                         mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
-                        toggleActiveScreenFeature(mPrefs.getBoolean(
-                                LedSettings.PREF_KEY_ACTIVE_SCREEN_ENABLED, false));
+                        toggleActiveScreenFeature(!mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false) && 
+                                mPrefs.getBoolean(LedSettings.PREF_KEY_ACTIVE_SCREEN_ENABLED, false));
                         if (DEBUG) log("Notification manager service initialized");
                     }
                 }
@@ -328,6 +328,10 @@ public class ModLedControl {
     private static XC_MethodHook activeScreenHook = new XC_MethodHook() {
         @Override
         protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
+            if (mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false)) {
+                if (DEBUG) log("Ultimate notification control feature locked.");
+                return;
+            }
             if (mPm != null && !mPm.isScreenOn() && !mScreenCovered && mKm.isKeyguardLocked()) {
                 final QuietHours quietHours = new QuietHours(mPrefs);
                 if(quietHours.quietHoursActive()) return;
