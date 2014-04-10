@@ -1406,4 +1406,31 @@
     <string name="lc_defaults_apply">Default settings apply</string>
     <string name="lc_settings_menu_reset">Restablecer a predeterminados</string>
     
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">Pantalla activa</string>
+    <string name="lc_active_screen_info">Pantalla activa enciende automáticamente la pantalla cuando
+        hay nuevas notificaciones. Solo ocurrirá si la pantalla no está tapada 
+        (por ejemplo, al sacar del bolsillo). Opcionalmente expande el pandel de notificación dependiendo 
+        de la actual política de bloqueo de pantalla y de la preferencia del usuario. Pantalla activa requiere tener activada la
+        pantalla de bloqueo.\nDebajo está el interruptor principal. Tras activar, 
+        se pueden configurar más opciones por app</string>
+    <string name="lc_active_screen_switch_title">Activar Pantalla activa</string>
+    <string name="lc_expand_notification_panel_title">Expandir panel de notificación</string>
+    <string name="lc_expand_notification_panel_summary">Expande automáticamente el panel de notificación al cender la pantalla
+    (si está permitido por la actual política de seguridad de la pantalla de bloqueo)</string>
+        
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">Horas tranquilas</string>
+    <string name="pref_lc_qh_enabled_title">Activar horas tranquilas</string>
+    <string name="pref_lc_qh_enabled_summary">Silencia sonidos/vibraciones y opcionalmente el LED 
+        para todas las notificaciones dentro del rango de tiempo definido</string>
+    <string name="pref_lc_qh_start_title">Comienzo</string>
+    <string name="pref_lc_qh_end_title">Finalización</string>
+    <string name="pref_lc_qh_mute_led_title">No parpadear LED</string>
+    
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">Modo del LED</string>
+    <string name="lc_led_mode_original">Original (de la app)</string>
+    <string name="lc_led_mode_override">Sobrescribir</string>
+    <string name="lc_led_mode_off">Desactivado (sin luces)</string>
 </resources>
