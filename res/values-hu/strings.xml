@@ -87,7 +87,7 @@
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Állapotsáv Gyorsbeállítások csempéi</string>
-    <string name="quick_settings_summary">Mutatja vagy elrejti a Gyorsbeállítások csempéket az állapotsávon</string>
+    <string name="quick_settings_summary">Lehetővé teszi a Gyorsbeállítások csempék elrejtését/mutatását az állapotsávon</string>
     <string name="qs_tile_user_profile">Felhasználói profil</string>
     <string name="qs_tile_airplane_mode">Repülő üzemmód</string>
     <string name="qs_tile_battery">Akkumlátor státusz</string>
@@ -155,7 +155,7 @@
 
     <!-- Dual SIM ringer -->
     <string name="dual_sim_ringer_title">Dual SIM Ringer</string>
-    <string name="dual_sim_ringer_summary">Elindítja a programot, ami lehetővé teszi csengőhangok és figyelmeztető hangok beállítását külön, mindkét SIM-hez</string>
+    <string name="dual_sim_ringer_summary">Elindítja azt a programot, ami lehetővé teszi csengőhangok és figyelmeztető hangok beállítását külön, mindkét SIM-hez</string>
 
     <!--  Lockscreen tweaks -->
     <string name="pref_cat_lockscreen_title">Zárképernyő módosítások</string>
@@ -294,10 +294,10 @@
 
     <!-- Auto-switch QuickSettings -->
     <string name="pref_auto_switch_qs_title">Automatikus váltás a Gyorsbeállítások panelre</string>
-    <string name="pref_auto_switch_qs_summary">A Gyorsbeállítások panel fog megjelenni automatikusan az Állapotsáv megnyitásakor, amennyiben nincs értesítés</string>
+    <string name="pref_auto_switch_qs_summary">A Gyorsbeállítások panel fog megjelenni automatikusan az Állapotsáv megnyitásakor, amennyiben nincsenek értesítések</string>
 
     <!-- Quick pulldown -->
-    <string name="pref_quick_pulldown_title">Gyors lehúzás</string>
+    <string name="pref_quick_pulldown_title">Gyors legördítés</string>
     <string name="pref_quick_pulldown_summary">Az Állapotsáv szélének lehúzása megnyitja a Gyorsbeállítások panelt</string>
     <string name="quick_pulldown_off">Kikapcsolva</string>
     <string name="quick_pulldown_right">Jobb</string>
@@ -574,7 +574,7 @@
 
     <!-- QuickSettings tile order -->
     <string name="pref_qs_tile_order_title">Csempék átrendezése</string>
-    <string name="pref_qs_tile_order_summary">Lehetővé teszi a Gyorsbeállítások csempék átrendezését</string>
+    <string name="pref_qs_tile_order_summary">Lehetővé teszi a Gyorsbeállítások csempék sorrendjének az átrendezését</string>
 
     <!-- Ongoing notifications -->
     <string name="pref_ongoing_notifications_title">Folyamatban lévő értesítések blokkoló</string>
@@ -834,6 +834,7 @@
     <!-- Battery percent text -->
     <string name="battery_percent_text_title">Akkumlátor százalék szövege</string>
     <string name="battery_percent_text_size_title">Akkumlátor százalék szöveg mérete</string>
+    <string name="battery_percent_text_size_larger">Nagyobb</string>
     <string name="battery_percent_text_size_normal">Normál</string>
     <string name="battery_percent_text_size_smaller">Kisebb</string>
     <string name="battery_percent_text_size_even_smaller">Még kisebb</string>
@@ -1103,7 +1104,7 @@
 
     <!-- Transaction verification -->
     <string name="wsc_trans_parse_response_error">Hiba történt a web szolgáltatástól kapott tranzakciós adat elemzése során</string>
-    <string name="wsc_trans_valid">A tranzakció-azonosító ellenőrzése sikerült. A pérmium funkciók a Gravitybox újraindítása után kerülnek feloldásra.</string>
+    <string name="wsc_trans_valid">A tranzakció-azonosító ellenőrzése sikerült. A prémium funkciók a Gravitybox újraindítása után kerülnek feloldásra.</string>
     <string name="wsc_trans_invalid">Nem található feljegyzés a megadott tranzakció-azonosítóhoz.</string>
     <string name="wsc_trans_violation">A megadott tranzakció-azonosító túl sokszor került regisztrálásra. A probléma megoldásához lépjen kapcsolatba a GravityBox fejlesztőivel.</string>
     <string name="wsc_trans_blocked">A megadott tranzakció-azonosító blokkolásra került. A probléma megoldásához lépjen kapcsolatba a GravityBox fejlesztőivel.</string>
@@ -1186,7 +1187,7 @@
 
     <!-- Lockscreen: Slide before unlock -->
     <string name="pref_lockscreen_slide_before_unlock_title">Csúsztatás feloldás előtt</string>
-    <string name="pref_lockscreen_slide_before_unlock_summary">Lehetővé teszi a feloldó kör célpontok és a biztonsági feloldás együttes, csúsztatással való használatát</string>
+    <string name="pref_lockscreen_slide_before_unlock_summary">Lehetővé teszi a feloldó kör célpontok csúsztatással történő és a biztonsági feloldás együttes használatát</string>
 
     <!-- Lockscreen tweaks: option categories -->
     <string name="pref_cat_lockscreen_widgets_title">Widget-ek</string>
@@ -1366,10 +1367,10 @@
     <string name="pref_lc_notif_sound_title">Értesítési hang</string>
     <string name="lc_notif_sound_none">Nincs hang</string>
     <string name="pref_lc_notif_sound_only_once_title">Egyszeri figyelmeztetés</string>
-    <string name="pref_lc_notif_sound_only_once_summary">Ha engedélyezve van, a hang és/vagy rezgés nem kerül lejátszára már létező értesítések esetén</string>
+    <string name="pref_lc_notif_sound_only_once_summary">Ha engedélyezve van, a hang és/vagy rezgés nem kerül lejátszásra már létező értesítések esetén</string>
     <string name="pref_lc_notif_insistent_title">Folyamatos figyelmeztetés</string>
-    <string name="pref_lc_notif_insistent_summary">Ha engedélyezve van, a hang ismétlődően lejátszásra került az értesítés törléséig vagy az értesítési ablak megnyitásáig</string>
-    <string name="pref_lc_vibrate_override_title">Rezgések felülírásra</string>
+    <string name="pref_lc_notif_insistent_summary">Ha engedélyezve van, az értesítési hang ismétlődően lejátszásra kerül az értesítés törléséig vagy az értesítési ablak megnyitásáig</string>
+    <string name="pref_lc_vibrate_override_title">Rezgések felülírása</string>
     <string name="pref_lc_vibrate_pattern_title">Rezgés minta</string>
     <string name="pref_lc_vibrate_pattern_summary">A rezgés ki/be időtartam párok vesszővel elválasztott listája, ezredmásodpercben. Állíts be 0 értéket a rezgés letilátásához</string>
     <string name="lc_vibrate_pattern_invalid">Érvénytelen rezgés minta formátum</string>
