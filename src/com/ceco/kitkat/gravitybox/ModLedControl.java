@@ -225,9 +225,9 @@ public class ModLedControl {
                 if (n.extras.containsKey("gbIgnoreNotification")) return;
 
                 final QuietHours quietHours = new QuietHours(mPrefs);
-
                 final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
                 final String pkgName = context.getPackageName();
+
                 LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
                 if (!ls.getEnabled()) {
                     // use default settings in case they are active
@@ -241,7 +241,7 @@ public class ModLedControl {
                 // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
                 if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
                         (Integer)param.args[1] == MISSED_CALL_NOTIF_ID && 
-                        ls.getLedMode() != LedMode.OFF &&
+                        ls.getEnabled() && ls.getLedMode() != LedMode.OFF &&
                         !quietHours.quietHoursActiveIncludingLED()) {
                     mNotifOnNextScreenOff = n;
                     context.registerReceiver(mScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
@@ -256,10 +256,11 @@ public class ModLedControl {
                 }
 
                 // lights
-                if (quietHours.quietHoursActiveIncludingLED() || ls.getLedMode() == LedMode.OFF) {
+                if (quietHours.quietHoursActiveIncludingLED() || 
+                        (ls.getEnabled() && ls.getLedMode() == LedMode.OFF)) {
                     n.defaults &= ~Notification.DEFAULT_LIGHTS;
                     n.flags &= ~Notification.FLAG_SHOW_LIGHTS;
-                } else if (ls.getLedMode() == LedMode.OVERRIDE) {
+                } else if (ls.getEnabled() && ls.getLedMode() == LedMode.OVERRIDE) {
                     n.defaults &= ~Notification.DEFAULT_LIGHTS;
                     n.flags |= Notification.FLAG_SHOW_LIGHTS;
                     n.ledOnMS = ls.getLedOnMs();
