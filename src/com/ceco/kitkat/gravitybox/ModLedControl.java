@@ -64,12 +64,14 @@ public class ModLedControl {
         long start;
         long end;
         boolean muteLED;
+        boolean showStatusbarIcon;
 
         QuietHours(XSharedPreferences prefs) {
             enabled = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
             start = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START, 0);
             end = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END, 0);
             muteLED = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_MUTE_LED, false);
+            showStatusbarIcon = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_STATUSBAR_ICON, true);
         }
 
         boolean quietHoursActive() {

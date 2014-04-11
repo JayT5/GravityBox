@@ -39,4 +39,11 @@
         android:defaultValue="false"
         android:dependency="pref_lc_qh_enabled" />
 
+    <CheckBoxPreference
+        android:key="pref_lc_qh_statusbar_icon"
+        android:title="@string/pref_lc_qh_statusbar_icon_title"
+        android:summary="@string/pref_lc_qh_statusbar_icon_summary"
+        android:defaultValue="true"
+        android:dependency="pref_lc_qh_enabled" />
+
 </PreferenceScreen>

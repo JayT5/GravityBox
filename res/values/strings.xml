@@ -1438,4 +1438,8 @@
     <string name="lc_led_mode_override">Override</string>
     <string name="lc_led_mode_off">Off (no lights)</string>
 
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Status bar icon</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Shows icon in status bar during quiet hours</string>
+
 </resources>

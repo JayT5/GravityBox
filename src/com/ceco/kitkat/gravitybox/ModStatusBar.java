@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ceco.kitkat.gravitybox.TrafficMeterAbstract.TrafficMeterMode;
+import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
 
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XC_MethodReplacement;
@@ -280,6 +281,11 @@ public class ModStatusBar {
                     if (DEBUG) log("mLayoutClock injected");
                     setClockPosition(prefs.getBoolean(
                             GravityBoxSettings.PREF_KEY_STATUSBAR_CENTER_CLOCK, false));
+
+                    // inject Quiet Hours view
+                    StatusbarQuietHoursView qhv = new StatusbarQuietHoursView(liparam.view.getContext());
+                    mIconArea.addView(qhv, 0);
+                    mBroadcastSubReceivers.add(qhv);
                 }
             });
         } catch (Throwable t) {
@@ -395,6 +401,8 @@ public class ModStatusBar {
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_CARRIER_TEXT_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_EXPAND_ALL_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_PREF_STATUSBAR_DT2S_CHANGED);
+                    intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
+                    intentFilter.addAction(Intent.ACTION_TIME_TICK);
                     mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
                     mSettingsObserver = new SettingsObserver(
