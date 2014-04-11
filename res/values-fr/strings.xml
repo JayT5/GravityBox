@@ -1424,8 +1424,8 @@
         (si autorisé par la politique actuelle de sécurité de l\'écran de déverrouillage)</string>
 
     <!-- Notification control: Quiet hours -->
-    <string name="lc_quiet_hours">Heures tranquilles</string>
-    <string name="pref_lc_qh_enabled_title">Activer les heures tranquilles</string>
+    <string name="lc_quiet_hours">Heures silencieuses</string>
+    <string name="pref_lc_qh_enabled_title">Activer les heures silencieuses</string>
     <string name="pref_lc_qh_enabled_summary">Éteint les son/vibrations et en option les LED
         pour toutes les notifications qui se produisent dans un laps de temps défini</string>
     <string name="pref_lc_qh_start_title">Début</string>
@@ -1436,6 +1436,13 @@
     <string name="pref_lc_led_mode_title">Mode LED</string>
     <string name="lc_led_mode_original">Original (appli)</string>
     <string name="lc_led_mode_override">Remplacer</string>
-    <string name="lc_led_mode_off">Off (pas de lumières)</string>
+    <string name="lc_led_mode_off">Off (pas de lumière)</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Icône barre d\'état</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Affiche une icône dans la barre d\'état pendant les heures silencieuses</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Couleur durant la charge</string>
 
 </resources>
