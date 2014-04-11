@@ -1442,4 +1442,7 @@
     <string name="pref_lc_qh_statusbar_icon_title">Status bar icon</string>
     <string name="pref_lc_qh_statusbar_icon_summary">Shows icon in status bar during quiet hours</string>
 
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Charging color</string>
+
 </resources>

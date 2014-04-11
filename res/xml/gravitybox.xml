@@ -661,6 +661,12 @@
                 android:entryValues="@array/bpt_charging_values"
                 android:defaultValue="0" />
 
+            <net.margaritov.preference.colorpicker.ColorPickerPreference 
+                android:key="pref_battery_percent_text_charging_color"
+                android:title="@string/battery_percent_text_charging_color_title"
+                android:defaultValue="@integer/COLOR_GREEN"
+                android:dependency="pref_battery_percent_text" />
+
         </PreferenceScreen>
 
         <PreferenceScreen

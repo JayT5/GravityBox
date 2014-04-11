@@ -100,6 +100,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_BATTERY_PERCENT_TEXT_SIZE = "pref_battery_percent_text_size";
     public static final String PREF_KEY_BATTERY_PERCENT_TEXT_STYLE = "pref_battery_percent_text_style";
     public static final String PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING = "battery_percent_text_charging";
+    public static final String PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING_COLOR = "pref_battery_percent_text_charging_color";
     public static final int BATTERY_STYLE_STOCK = 1;
     public static final int BATTERY_STYLE_CIRCLE = 2;
     public static final int BATTERY_STYLE_CIRCLE_PERCENT = 3;
@@ -483,6 +484,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             "gravitybox.intent.action.BATTERY_PERCENT_TEXT_SIZE_CHANGED";
     public static final String EXTRA_BATTERY_PERCENT_TEXT_STYLE = "batteryPercentTextStyle";
     public static final String EXTRA_BATTERY_PERCENT_TEXT_CHARGING = "batteryPercentTextCharging";
+    public static final String EXTRA_BATTERY_PERCENT_TEXT_CHARGING_COLOR = "batteryPercentTextChargingColor";
 
     public static final String ACTION_PREF_STATUSBAR_COLOR_CHANGED = "gravitybox.intent.action.STATUSBAR_COLOR_CHANGED";
     public static final String EXTRA_SB_BG_COLOR = "bgColor";
@@ -2046,6 +2048,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent.setAction(ACTION_PREF_BATTERY_PERCENT_TEXT_STYLE_CHANGED);
                 intent.putExtra(EXTRA_BATTERY_PERCENT_TEXT_CHARGING, Integer.valueOf(
                         prefs.getString(PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING, "0")));
+            } else if (key.equals(PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING_COLOR)) {
+                intent.setAction(ACTION_PREF_BATTERY_PERCENT_TEXT_STYLE_CHANGED);
+                intent.putExtra(EXTRA_BATTERY_PERCENT_TEXT_CHARGING_COLOR,
+                        prefs.getInt(PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING_COLOR, Color.GREEN));
             } else if (key.equals(PREF_KEY_QUICK_SETTINGS)) {
                 intent.setAction(ACTION_PREF_QUICKSETTINGS_CHANGED);
                 intent.putExtra(EXTRA_QS_PREFS, TileOrderActivity.updateTileList(prefs));

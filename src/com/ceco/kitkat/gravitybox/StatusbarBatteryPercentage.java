@@ -37,6 +37,7 @@ public class StatusbarBatteryPercentage implements IconManagerListener, BatteryS
     private BatteryData mBatteryData;
     private ValueAnimator mChargeAnim;
     private int mChargingStyle;
+    private int mChargingColor;
 
     public static final int CHARGING_STYLE_NONE = 0;
     public static final int CHARGING_STYLE_STATIC = 1;
@@ -47,12 +48,13 @@ public class StatusbarBatteryPercentage implements IconManagerListener, BatteryS
         mDefaultColor = mIconColor = mPercentage.getCurrentTextColor();
         mPercentSign = "";
         mChargingStyle = CHARGING_STYLE_NONE;
+        mChargingColor = Color.GREEN;
     }
 
     private boolean startChargingAnimation() {
         if (mChargeAnim == null || !mChargeAnim.isRunning()) {
             mChargeAnim = ValueAnimator.ofObject(new ArgbEvaluator(),
-                    mIconColor, Color.GREEN);
+                    mIconColor, mChargingColor);
 
             mChargeAnim.addUpdateListener(new AnimatorUpdateListener() {
                 @Override
@@ -122,6 +124,12 @@ public class StatusbarBatteryPercentage implements IconManagerListener, BatteryS
         update();
     }
 
+    public void setChargingColor(int color) {
+        mChargingColor = color;
+        stopChargingAnimation();
+        update();
+    }
+
     public void update() {
         if (mBatteryData == null) return;
 
@@ -130,7 +138,7 @@ public class StatusbarBatteryPercentage implements IconManagerListener, BatteryS
         if (mBatteryData.charging && mBatteryData.level < 100) {
             if (mChargingStyle == CHARGING_STYLE_STATIC) {
                 stopChargingAnimation();
-                mPercentage.setTextColor(Color.GREEN);
+                mPercentage.setTextColor(mChargingColor);
             } else if (mChargingStyle == CHARGING_STYLE_ANIMATED) {
                 startChargingAnimation();
             } else {

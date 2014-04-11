@@ -18,6 +18,7 @@
     <integer name="COLOR_BLACK">0xff000000</integer>
     <integer name="COLOR_HOLO_BLUE_LIGHT">0xff33b5e5</integer>
     <integer name="COLOR_WHITE">0xffffffff</integer>
+    <integer name="COLOR_GREEN">0xff00ff00</integer>
 
     <!-- Default signal cluster data activity icon color -->
     <integer name="signal_cluster_data_activity_icon_color">0xff404040</integer>

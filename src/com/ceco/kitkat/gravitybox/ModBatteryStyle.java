@@ -91,6 +91,12 @@ public class ModBatteryStyle {
                     mPercentText.setChargingStyle(chargingStyle);
                     if (DEBUG) log("PercentText charging style changed to: " + chargingStyle);
                 }
+                if (intent.hasExtra(GravityBoxSettings.EXTRA_BATTERY_PERCENT_TEXT_CHARGING_COLOR)) {
+                    int chargingColor = intent.getIntExtra(
+                            GravityBoxSettings.EXTRA_BATTERY_PERCENT_TEXT_CHARGING_COLOR, Color.GREEN);
+                    mPercentText.setChargingColor(chargingColor);
+                    if (DEBUG) log("PercentText charging color changed to: " + chargingColor);
+                }
             } else if (intent.getAction().equals(ACTION_MTK_BATTERY_PERCENTAGE_SWITCH)) {
                 mMtkPercentTextEnabled = intent.getIntExtra(EXTRA_MTK_BATTERY_PERCENTAGE_STATE, 0) == 1;
                 if (DEBUG) log("mMtkPercentText changed to: " + mMtkPercentTextEnabled);
@@ -161,6 +167,8 @@ public class ModBatteryStyle {
                             GravityBoxSettings.PREF_KEY_BATTERY_PERCENT_TEXT_STYLE, "%"));
                     mPercentText.setChargingStyle(Integer.valueOf(prefs.getString(
                             GravityBoxSettings.PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING, "0")));
+                    mPercentText.setChargingColor(prefs.getInt(
+                            GravityBoxSettings.PREF_KEY_BATTERY_PERCENT_TEXT_CHARGING_COLOR, Color.GREEN));
                     ModStatusbarColor.registerIconManagerListener(mPercentText);
 
                     // inject circle battery view
