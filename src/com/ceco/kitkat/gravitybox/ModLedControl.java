@@ -137,6 +137,7 @@ public class ModLedControl {
 
     public static void initZygote() {
         mPrefs = new XSharedPreferences(GravityBox.PACKAGE_NAME, "ledcontrol");
+        mPrefs.makeWorldReadable();
 
         try {
             XposedHelpers.findAndHookMethod(NotificationManager.class, "notify",
