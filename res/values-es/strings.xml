@@ -1420,7 +1420,7 @@
     (si está permitido por la actual política de seguridad de la pantalla de bloqueo)</string>
         
     <!-- Notification control: Quiet hours -->
-    <string name="lc_quiet_hours">Horas tranquilas</string>
+    <string name="lc_quiet_hours">Horas de silencio</string>
     <string name="pref_lc_qh_enabled_title">Activar horas tranquilas</string>
     <string name="pref_lc_qh_enabled_summary">Silencia sonidos/vibraciones y opcionalmente el LED 
         para todas las notificaciones dentro del rango de tiempo definido</string>
@@ -1433,4 +1433,11 @@
     <string name="lc_led_mode_original">Original (de la app)</string>
     <string name="lc_led_mode_override">Sobrescribir</string>
     <string name="lc_led_mode_off">Desactivado (sin luces)</string>
+    
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Icono de la barra de estado</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Muestra el icono en la barra de estado durante las horas de silencio</string>
+    
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Color de carga</string>
 </resources>
