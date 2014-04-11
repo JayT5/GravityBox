@@ -66,21 +66,26 @@ public class SettingsManager {
         }
 
         // preferences
-        String prefsFileName = mContext.getPackageName() + "_preferences.xml";
-        File prefsFile = new File(mContext.getFilesDir() + "/../shared_prefs/" + prefsFileName);
-        if (prefsFile.exists()) {
-            File prefsDestFile = new File(BACKUP_PATH + "/" + prefsFileName);
-            try {
-                Utils.copyFile(prefsFile, prefsDestFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(mContext, R.string.settings_backup_failed, Toast.LENGTH_LONG).show();
+        String[] prefsFileNames = new String[] { 
+                mContext.getPackageName() + "_preferences.xml",
+                "ledcontrol.xml"
+        };
+        for (String prefsFileName : prefsFileNames) {
+            File prefsFile = new File(mContext.getFilesDir() + "/../shared_prefs/" + prefsFileName);
+            if (prefsFile.exists()) {
+                File prefsDestFile = new File(BACKUP_PATH + "/" + prefsFileName);
+                try {
+                    Utils.copyFile(prefsFile, prefsDestFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(mContext, R.string.settings_backup_failed, Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            } else if (prefsFileName.equals(prefsFileNames[0])) {
+                // normally, this should never happen
+                Toast.makeText(mContext, R.string.settings_backup_no_prefs, Toast.LENGTH_LONG).show();
                 return false;
             }
-        } else {
-            // normally, this should never happen
-            Toast.makeText(mContext, R.string.settings_backup_no_prefs, Toast.LENGTH_LONG).show();
-            return false;
         }
 
         // other files
@@ -154,21 +159,26 @@ public class SettingsManager {
         }
 
         // preferences
-        String prefsFileName = mContext.getPackageName() + "_preferences.xml";
-        File prefsFile = new File(BACKUP_PATH + "/" + prefsFileName);
-        if (prefsFile.exists()) {
-            File prefsDestFile = new File(mContext.getFilesDir() + "/../shared_prefs/" + prefsFileName);
-            try {
-                Utils.copyFile(prefsFile, prefsDestFile);
-                prefsDestFile.setReadable(true, false);
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(mContext, R.string.settings_restore_failed, Toast.LENGTH_LONG).show();
+        String[] prefsFileNames = new String[] { 
+                mContext.getPackageName() + "_preferences.xml",
+                "ledcontrol.xml"
+        };
+        for (String prefsFileName : prefsFileNames) {
+            File prefsFile = new File(BACKUP_PATH + "/" + prefsFileName);
+            if (prefsFile.exists()) {
+                File prefsDestFile = new File(mContext.getFilesDir() + "/../shared_prefs/" + prefsFileName);
+                try {
+                    Utils.copyFile(prefsFile, prefsDestFile);
+                    prefsDestFile.setReadable(true, false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(mContext, R.string.settings_restore_failed, Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            } else if (prefsFileName.equals(prefsFileNames[0])) {
+                Toast.makeText(mContext, R.string.settings_restore_no_backup, Toast.LENGTH_SHORT).show();
                 return false;
             }
-        } else {
-            Toast.makeText(mContext, R.string.settings_restore_no_backup, Toast.LENGTH_SHORT).show();
-            return false;
         }
 
         // other files
