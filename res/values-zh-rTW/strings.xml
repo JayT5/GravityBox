@@ -1381,8 +1381,8 @@
 	<string name="lc_expand_notification_panel_summary">若鎖定面板安全性設定容許的話，當螢幕亮著時自動展開通知面板</string>    
 	
 	<!-- Notification control: Quiet hours -->    
-	<string name="lc_quiet_hours">靜音時間</string>    
-	<string name="pref_lc_qh_enabled_title">啟用靜音時間</string>    
+	<string name="lc_quiet_hours">靜音時段</string>    
+	<string name="pref_lc_qh_enabled_title">啟用靜音時段</string>    
 	<string name="pref_lc_qh_enabled_summary">在設定的時間內，通知鈴聲和震動會被停用。您亦可設定一併停用LED</string>    
 	<string name="pref_lc_qh_start_title">開始時間</string>    
 	<string name="pref_lc_qh_end_title">結束時間</string>    
@@ -1393,5 +1393,12 @@
 	<string name="lc_led_mode_original">由應用程式指定</string>    
 	<string name="lc_led_mode_override">由GravityBox指定</string>    
 	<string name="lc_led_mode_off">停用LED</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->    
+	<string name="pref_lc_qh_statusbar_icon_title">狀態列圖示</string>    
+	<string name="pref_lc_qh_statusbar_icon_summary">當靜音時段生效時，在狀態列顯示一個通知圖示</string>    
+	
+	<!-- Battey percent text: charging color -->    
+	<string name="battery_percent_text_charging_color_title">充電時的顏色</string>
 
 </resources>
