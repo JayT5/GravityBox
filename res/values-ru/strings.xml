@@ -270,7 +270,7 @@
     <string name="reboot_soft">Мягкая перезагрузка</string>
 
     <!--  Solid black Holo background -->
-    <string name="pref_holo_bg_solid_black_title">Чёрный задний фон</string>
+    <string name="pref_holo_bg_solid_black_title">Чёрный фон</string>
     <string name="pref_holo_bg_solid_black_summary">Использовать сплошной чёрный фон для системной Holo-темы по умолчанию вместо темно-серого градиента (необходима перезагрузка)</string>
 
     <!-- QuickSettings tiles per row -->
@@ -519,7 +519,7 @@
 
     <!-- Unlock ring settings -->
     <string name="pref_cat_lockscreen_ring_settings_title">Ярлыки кольца разблокировки</string>
-    <string name="pref_lockscreen_ring_targets_enable_summary">Включение ярлыков кольца блокировки</string>
+    <string name="pref_lockscreen_ring_targets_enable_summary">Включение ярлыков кольца разблокировки</string>
     <string name="pref_lockscreen_ring_targets_app_title">Целевое приложение %s</string>
     <string name="pref_lockscreen_ring_vertical_offset_title">Вертик. смещение кольца</string>
     <string name="pref_lockscreen_ring_horizontal_offset_title">Гориз. смещение кольца</string>
@@ -1389,7 +1389,7 @@
     <string name="shortcuts_icon_picker_spotify">Spotify</string>
 
     <!-- Virtual keys vibrate pattern -->
-    <string name="pref_virtual_key_vibrate_pattern_title">Виброотклик вирт.клавиш</string>
+    <string name="pref_virtual_key_vibrate_pattern_title">Виброотклик вирт. клавиш</string>
     <string name="pref_virtual_key_vibrate_pattern_summary">Список разделённых запятыми пар выключения/включения в миллисекундах</string>
     
     <!-- Lockscreen: show pattern error -->
@@ -1425,7 +1425,7 @@
 
     <!-- Notification control: Quiet hours -->
     <string name="lc_quiet_hours">Тихий час</string>
-    <string name="pref_lc_qh_enabled_title">Включение тихого часа</string>
+    <string name="pref_lc_qh_enabled_title">Вкл тихий час</string>
     <string name="pref_lc_qh_enabled_summary">Отключение звуков/вибраций и, опционально, световой 
         индикации для всех уведомлений, поступающих в определённый временной период</string>
     <string name="pref_lc_qh_start_title">Время начала</string>
@@ -1437,5 +1437,12 @@
     <string name="lc_led_mode_original">Оригинальный (из прилож.)</string>
     <string name="lc_led_mode_override">Установленный</string>
     <string name="lc_led_mode_off">Выкл (без индикации)</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Значок в стр.состояния</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Отображение во время тихого часа значка в строке состояния</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Цвет при зарядке</string>
 
 </resources>
