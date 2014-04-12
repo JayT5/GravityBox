@@ -1448,6 +1448,12 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 mPrefCatQsTileSettings.removePreference(mPrefQsTileBehaviourOverride);
             }
 
+            // Remove preferences not compatible with Lenovo VibeUI ROMs
+            if (Utils.hasLenovoVibeUI()) {
+                getPreferenceScreen().removePreference(mPrefCatLockscreen);
+                mPrefCatStatusbar.removePreference(mPrefCatStatusbarQs);
+            }
+
             // TODO: rework for KitKat compatibility
             getPreferenceScreen().removePreference(mPrefCatTransparencyManager);
             mPrefCatDisplay.removePreference(mPrefButtonBacklightNotif);

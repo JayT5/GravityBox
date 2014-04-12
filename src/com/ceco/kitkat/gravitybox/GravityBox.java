@@ -44,6 +44,11 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
         XposedBridge.log("GB:Is MTK device: " + Utils.isMtkDevice());
         XposedBridge.log("GB:Is Xperia device: " + Utils.isXperiaDevice());
         XposedBridge.log("GB:Is Moto XT device: " + Utils.isMotoXtDevice());
+        XposedBridge.log("GB:Has Lenovo custom UI: " + Utils.hasLenovoCustomUI());
+        if (Utils.hasLenovoCustomUI()) {
+            XposedBridge.log("GB:Lenovo UI is VIBE: " + Utils.hasLenovoVibeUI());
+            XposedBridge.log("GB:Lenovo ROM is ROW: " + Utils.isLenovoROW());
+        }
         XposedBridge.log("GB:Has telephony support: " + Utils.hasTelephonySupport());
         XposedBridge.log("GB:Has Gemini support: " + Utils.hasGeminiSupport());
         XposedBridge.log("GB:Android SDK: " + Build.VERSION.SDK_INT);
@@ -90,11 +95,13 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
             ModSettings.initPackageResources(prefs, resparam);
         }
 
-        if (resparam.packageName.equals(ModQuickSettings.PACKAGE_NAME)) {
+        if (!Utils.hasLenovoVibeUI() &&
+                resparam.packageName.equals(ModQuickSettings.PACKAGE_NAME)) {
             ModQuickSettings.initResources(prefs, resparam);
         }
 
-        if (resparam.packageName.equals(ModLockscreen.PACKAGE_NAME)) {
+        if (!Utils.hasLenovoVibeUI() &&
+                resparam.packageName.equals(ModLockscreen.PACKAGE_NAME)) {
             ModLockscreen.initPackageResources(prefs, resparam);
         }
     }
@@ -131,7 +138,8 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
             ModDialer.init(prefs, lpparam.classLoader, lpparam.packageName);
         }
 
-        if (lpparam.packageName.equals(ModQuickSettings.PACKAGE_NAME) &&
+        if (!Utils.hasLenovoVibeUI() &&
+                lpparam.packageName.equals(ModQuickSettings.PACKAGE_NAME) &&
                 prefs.getBoolean(GravityBoxSettings.PREF_KEY_QUICK_SETTINGS_ENABLE, true)) {
             ModQuickSettings.init(prefs, lpparam.classLoader);
         }
@@ -161,7 +169,8 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
             ModNavigationBar.init(prefs, lpparam.classLoader);
         }
 
-        if (lpparam.packageName.equals(ModLockscreen.PACKAGE_NAME)) {
+        if (!Utils.hasLenovoVibeUI() &&
+                lpparam.packageName.equals(ModLockscreen.PACKAGE_NAME)) {
             ModLockscreen.init(prefs, lpparam.classLoader);
         }
 
