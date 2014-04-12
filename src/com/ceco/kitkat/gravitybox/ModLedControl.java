@@ -83,6 +83,8 @@ public class ModLedControl {
         }
 
         boolean quietHoursActive() {
+            if (!enabled) return false;
+
             int endMin;
             Calendar c = new GregorianCalendar();
             c.setTimeInMillis(System.currentTimeMillis());
@@ -121,7 +123,7 @@ public class ModLedControl {
                 }
             }
 
-            return (enabled && Utils.isTimeOfDayInRange(System.currentTimeMillis(), s, e));
+            return (Utils.isTimeOfDayInRange(System.currentTimeMillis(), s, e));
         }
 
         boolean quietHoursActiveIncludingLED() {
