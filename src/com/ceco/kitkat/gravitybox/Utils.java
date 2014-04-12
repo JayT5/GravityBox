@@ -16,6 +16,7 @@
 package com.ceco.kitkat.gravitybox;
 
 import de.robv.android.xposed.XposedBridge;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -24,6 +25,7 @@ import android.content.res.XResources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -45,6 +47,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.*;
+import java.util.Map.Entry;
 
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
@@ -406,6 +409,35 @@ public class Utils {
 
         rs.destroy();
         return out;
+    }
+
+    @SuppressLint("UseSparseArrays")
+    public static int getBitmapPredominantColor(Bitmap bmp) {
+        int width = bmp.getWidth();
+        int height = bmp.getHeight();
+        int[] pixels = new int[width * height];
+
+        bmp.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        Map<Integer, Integer> tmpMap = new HashMap<Integer, Integer>();
+        for (int i=0; i < pixels.length ; i++) {
+            Integer counter = (Integer) tmpMap.get(pixels[i]);
+            if (counter == null) counter = 0;
+            counter++;
+            tmpMap.put(pixels[i], counter);
+        }
+
+        Entry<Integer, Integer> maxEntry = null;
+        for (Entry<Integer, Integer> entry : tmpMap.entrySet()) {
+            // discard transparent pixels
+            if (entry.getKey() == Color.TRANSPARENT) continue;
+
+            if (maxEntry == null || entry.getValue() > maxEntry.getValue()) {
+                maxEntry = entry;
+            }
+        }
+
+        return maxEntry.getKey();
     }
 
     public static void performSoftReboot() {
