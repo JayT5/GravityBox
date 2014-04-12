@@ -56,6 +56,7 @@ public class ModLedControl {
     private static SensorManager mSm;
     private static KeyguardManager mKm;
     private static Sensor mProxSensor;
+    private static boolean mProxSensorListenerRegistered;
     private static boolean mScreenCovered;
     private static boolean mOnPanelRevealedBlocked;
 
@@ -124,9 +125,21 @@ public class ModLedControl {
             if (action.equals(Intent.ACTION_USER_PRESENT)) {
                 if (DEBUG) log("User present");
                 mOnPanelRevealedBlocked = false;
+                if (mProxSensorListenerRegistered && mSm != null && mProxSensor != null) {
+                    mSm.unregisterListener(mProxSensorEventListener, mProxSensor);
+                    mProxSensorListenerRegistered = false;
+                    if (DEBUG) log("Prox sensor listener unregistered");
+                }
             }
             if (action.equals(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED)) {
                 mPrefs.reload();
+            }
+            if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                if (!mProxSensorListenerRegistered && mSm != null && mProxSensor != null) {
+                    mSm.registerListener(mProxSensorEventListener, mProxSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                    mProxSensorListenerRegistered = true;
+                    if (DEBUG) log("Prox sensor listener registered");
+                }
             }
         }
     };
@@ -186,6 +199,7 @@ public class ModLedControl {
                         intentFilter.addAction(ActiveScreenActivity.ACTION_ACTIVE_SCREEN_CHANGED);
                         intentFilter.addAction(Intent.ACTION_USER_PRESENT);
                         intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
+                        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
                         mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
                         toggleActiveScreenFeature(!mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false) && 
@@ -384,13 +398,7 @@ public class ModLedControl {
                 mKm = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                 mSm = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
                 mProxSensor = mSm.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-                if (mSm != null && mProxSensor != null) {
-                    mSm.registerListener(mProxSensorEventListener, mProxSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                }
             } else {
-                if (mSm != null && mProxSensor != null) {
-                    mSm.unregisterListener(mProxSensorEventListener, mProxSensor);
-                }
                 mProxSensor = null;
                 mSm = null;
                 mPm = null;
