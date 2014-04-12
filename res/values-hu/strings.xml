@@ -204,7 +204,7 @@
     <string name="pref_ab_number_error_negative">Az értékek nem lehetnek kisebbek vagy egyenlőek 0-val</string>
     <string name="pref_ab_number_not_ascending">A kisebb szintek értékei nem lehetnek nagyobbak mint a nagyobb szintek értékei.</string>
     <string name="pref_ab_number_not_descending">A nagyobb szintek értékei nem lehetnek kisebbek mint az alacsonyabb szintek értékei.</string>
-    <string name="pref_ab_values_set">Értékek %-os megadása</string>
+    <string name="pref_ab_values_set">Értékek %s megadása</string>
     <string name="pref_ab_config_saved">Új automatikus fényerő konfiguráció elmentve</string>
     <string name="pref_ab_config_cancelled">Automatikus fényerő konfiguráció NINCS elmentve</string>
     <string name="pref_ab_button_set">Beállít</string>
