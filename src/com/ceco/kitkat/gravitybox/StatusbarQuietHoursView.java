@@ -16,6 +16,7 @@ package com.ceco.kitkat.gravitybox;
 
 import com.ceco.kitkat.gravitybox.StatusBarIconManager.ColorInfo;
 import com.ceco.kitkat.gravitybox.StatusBarIconManager.IconManagerListener;
+import com.ceco.kitkat.gravitybox.ledcontrol.QuietHours;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
 
 import de.robv.android.xposed.XSharedPreferences;
@@ -32,7 +33,7 @@ import android.widget.LinearLayout;
 public class StatusbarQuietHoursView extends ImageView implements BroadcastSubReceiver, IconManagerListener {
 
     private XSharedPreferences mPrefs;
-    private ModLedControl.QuietHours mQuietHours;
+    private QuietHours mQuietHours;
 
     public StatusbarQuietHoursView(Context context) {
         super(context);
@@ -49,7 +50,7 @@ public class StatusbarQuietHoursView extends ImageView implements BroadcastSubRe
         try {
             mPrefs = new XSharedPreferences(GravityBox.PACKAGE_NAME, "ledcontrol");
             if (mPrefs != null) {
-                mQuietHours = new ModLedControl.QuietHours(mPrefs);
+                mQuietHours = new QuietHours(mPrefs);
             }
             Context gbContext = context.createPackageContext(GravityBox.PACKAGE_NAME, Context.CONTEXT_IGNORE_SECURITY);
             setImageDrawable(gbContext.getResources().getDrawable(R.drawable.stat_sys_quiet_hours));
@@ -80,7 +81,7 @@ public class StatusbarQuietHoursView extends ImageView implements BroadcastSubRe
         } else if (QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED.equals(action)) {
             if (mPrefs != null) {
                 mPrefs.reload();
-                mQuietHours = new ModLedControl.QuietHours(mPrefs);
+                mQuietHours = new QuietHours(mPrefs);
             }
             updateVisibility();
         }

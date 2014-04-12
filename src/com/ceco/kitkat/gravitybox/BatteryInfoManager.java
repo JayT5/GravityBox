@@ -17,6 +17,8 @@ package com.ceco.kitkat.gravitybox;
 
 import java.util.ArrayList;
 
+import com.ceco.kitkat.gravitybox.ledcontrol.QuietHours;
+
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import android.content.Context;
@@ -138,7 +140,7 @@ public class BatteryInfoManager {
     }
 
     private boolean quietHoursActive() {
-        ModLedControl.QuietHours qh = new ModLedControl.QuietHours(
+        QuietHours qh = new QuietHours(
                 new XSharedPreferences(GravityBox.PACKAGE_NAME, "ledcontrol"));
         return qh.quietHoursActive();
     }
