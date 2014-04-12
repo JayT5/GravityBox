@@ -252,6 +252,16 @@ public class ModQuickSettings {
         return null;
     }
 
+    private static String getGbTileKey(View view) {
+        final Resources res = mGbContext.getResources();
+        for (Integer ikey : mCustomGbTileKeys) {
+            if (view.findViewById(ikey) != null) {
+                return res.getResourceEntryName(ikey);
+            }
+        }
+        return null;
+    }
+
     private static String getTileKey(View view) {
         if (view == null) return null;
 
@@ -259,13 +269,7 @@ public class ModQuickSettings {
         key = getAospTileKey(view);
 
         if (key == null) {
-            final Resources res = mGbContext.getResources();
-            for (Integer ikey : mCustomGbTileKeys) {
-                if (view.findViewById(ikey) != null) {
-                    key = res.getResourceEntryName(ikey);
-                    break;
-                }
-            }
+            key = getGbTileKey(view);
         }
 
         return key;
@@ -417,7 +421,7 @@ public class ModQuickSettings {
             final int tileCount = mContainerView.getChildCount();
             for(int i = 0; i < tileCount; i++) {
                 final ViewGroup viewGroup = (ViewGroup) mContainerView.getChildAt(i);
-                if (viewGroup == null) continue;
+                if (viewGroup == null || getGbTileKey(viewGroup) != null) continue;
 
                 // look for layout view and tile text view
                 View layoutView = null;
