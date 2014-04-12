@@ -77,7 +77,12 @@ public class Utils {
 
     // Supported MTK devices
     private static final Set<String> MTK_DEVICES = new HashSet<String>(Arrays.asList(
-        new String[] {"mt6572","mt6575","mt6577","mt8377","mt6582","mt6589","mt8389"}
+        new String[] {
+                // Quad-core SoC
+                "mt6582", "mt6589",
+                // Octa-core SoC
+                "mt6592"
+        }
     ));
 
     private static void log(String message) {
