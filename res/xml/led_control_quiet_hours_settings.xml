@@ -21,18 +21,6 @@
         android:summary="@string/pref_lc_qh_enabled_summary"
         android:defaultValue="false" />
 
-    <com.ceco.kitkat.gravitybox.preference.TimePreference
-        android:key="pref_lc_qh_start"
-        android:title="@string/pref_lc_qh_start_title"
-        android:defaultValue="79200000"
-        android:dependency="pref_lc_qh_enabled" />
-
-    <com.ceco.kitkat.gravitybox.preference.TimePreference
-        android:key="pref_lc_qh_end"
-        android:title="@string/pref_lc_qh_end_title"
-        android:defaultValue="18000000"
-        android:dependency="pref_lc_qh_enabled" />
-
     <CheckBoxPreference
         android:key="pref_lc_qh_mute_led"
         android:title="@string/pref_lc_qh_mute_led_title"
@@ -45,5 +33,37 @@
         android:summary="@string/pref_lc_qh_statusbar_icon_summary"
         android:defaultValue="true"
         android:dependency="pref_lc_qh_enabled" />
+
+    <PreferenceCategory 
+        android:key="pref_lc_qh_cat_weekdays"
+        android:title="@string/pref_lc_qh_cat_weekdays_title">
+        <com.ceco.kitkat.gravitybox.preference.TimePreference
+            android:key="pref_lc_qh_start"
+            android:title="@string/pref_lc_qh_start_title"
+            android:defaultValue="79200000"
+            android:dependency="pref_lc_qh_enabled" />
+
+        <com.ceco.kitkat.gravitybox.preference.TimePreference
+            android:key="pref_lc_qh_end"
+            android:title="@string/pref_lc_qh_end_title"
+            android:defaultValue="18000000"
+            android:dependency="pref_lc_qh_enabled" />
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:key="pref_lc_qh_cat_weekend"
+        android:title="@string/pref_lc_qh_cat_weekend_title">
+        <com.ceco.kitkat.gravitybox.preference.TimePreference
+            android:key="pref_lc_qh_start_alt"
+            android:title="@string/pref_lc_qh_start_title"
+            android:defaultValue="79200000"
+            android:dependency="pref_lc_qh_enabled" />
+
+        <com.ceco.kitkat.gravitybox.preference.TimePreference
+            android:key="pref_lc_qh_end_alt"
+            android:title="@string/pref_lc_qh_end_title"
+            android:defaultValue="18000000"
+            android:dependency="pref_lc_qh_enabled" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

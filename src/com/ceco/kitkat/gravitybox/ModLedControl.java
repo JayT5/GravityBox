@@ -15,6 +15,9 @@
 
 package com.ceco.kitkat.gravitybox;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import com.ceco.kitkat.gravitybox.ledcontrol.ActiveScreenActivity;
 import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
@@ -64,6 +67,8 @@ public class ModLedControl {
         boolean enabled;
         long start;
         long end;
+        long startAlt;
+        long endAlt;
         boolean muteLED;
         boolean showStatusbarIcon;
 
@@ -71,12 +76,52 @@ public class ModLedControl {
             enabled = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
             start = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START, 0);
             end = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END, 0);
+            startAlt = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START_ALT, 0);
+            endAlt = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END_ALT, 0);
             muteLED = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_MUTE_LED, false);
             showStatusbarIcon = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_STATUSBAR_ICON, true);
         }
 
         boolean quietHoursActive() {
-            return (enabled && Utils.isTimeOfDayInRange(System.currentTimeMillis(), start, end));
+            int endMin;
+            Calendar c = new GregorianCalendar();
+            c.setTimeInMillis(System.currentTimeMillis());
+            int curMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+            int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+            boolean isFriday = dayOfWeek == Calendar.FRIDAY;
+            boolean isSunday = dayOfWeek == Calendar.SUNDAY;
+            long s = start; 
+            long e = end;
+            if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
+                s = startAlt;
+                e = endAlt;
+            }
+
+            // special logic for Friday and Sunday
+            // we assume people stay up longer on Friday
+            // thus when Friday and we are after previous QH let's apply weekend range instead
+            if (isFriday) {
+                c.setTimeInMillis(end);
+                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                if (curMin > endMin) {
+                   s = startAlt;
+                   e = endAlt;
+                   if (DEBUG) log("Applying weekend range for Friday");
+                }
+            }
+            // we assume people go to sleep earlier on Sunday
+            // thus when Sunday and we are after previous QH let's apply weekdays range
+            if (isSunday) {
+                c.setTimeInMillis(endAlt);
+                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                if (curMin > endMin) {
+                   s = start;
+                   e = end;
+                   if (DEBUG) log("Applying weekdays range for Sunday");
+                }
+            }
+
+            return (enabled && Utils.isTimeOfDayInRange(System.currentTimeMillis(), s, e));
         }
 
         boolean quietHoursActiveIncludingLED() {
