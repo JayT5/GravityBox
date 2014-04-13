@@ -718,6 +718,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_SCREENRECORD_MICROPHONE = "pref_screenrecord_microphone";
     public static final String PREF_KEY_SCREENRECORD_USE_STOCK = "pref_screenrecord_use_stock";
 
+    public static final String PREF_KEY_FORCE_ENGLISH_LOCALE = "pref_force_english_locale";
+
     private static final int REQ_LOCKSCREEN_BACKGROUND = 1024;
     private static final int REQ_NOTIF_BG_IMAGE_PORTRAIT = 1025;
     private static final int REQ_NOTIF_BG_IMAGE_LANDSCAPE = 1026;
@@ -2657,6 +2659,13 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent.setAction(ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED);
                 intent.putExtra(EXTRA_VK_VIBRATE_PATTERN,
                         prefs.getString(PREF_KEY_VK_VIBRATE_PATTERN, null));
+            } else if (key.equals(PREF_KEY_FORCE_ENGLISH_LOCALE)) {
+                mPrefs.edit().commit();
+                intent = new Intent(getActivity(), GravityBoxSettings.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                getActivity().startActivity(intent);
+                System.exit(0);
+                return;
             }
             if (intent.getAction() != null) {
                 mPrefs.edit().commit();
