@@ -188,9 +188,7 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
     public static StatusbarSignalCluster create(LinearLayout view, StatusBarIconManager iconManager,
             XSharedPreferences prefs) {
         sPrefs = prefs;
-        if (Utils.isMt6572Device()) {
-            return new StatusbarSignalClusterMt6572(view, iconManager);
-        } else if (Utils.isMtkDevice()) {
+        if (Utils.isMtkDevice()) {
             return new StatusbarSignalClusterMtk(view, iconManager);
         } else {
             return new StatusbarSignalCluster(view, iconManager);
@@ -308,6 +306,8 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
 
     @Override
     public void onBroadcastReceived(Context context, Intent intent) { }
+
+    public void initPreferences(XSharedPreferences prefs) { }
 
     protected void initPreferences() { 
         mConnectionStateEnabled = sPrefs.getBoolean(
