@@ -1215,13 +1215,13 @@
 
     <!-- Stay Awake Tile modes -->
     <string name="pref_qs_stay_awake_title">Tryb kafelka Blokowania Uśpienia</string>
-    <string name="stay_awake_15s">15s</string>
-    <string name="stay_awake_30s">30s</string>
-    <string name="stay_awake_1m">1m</string>
-    <string name="stay_awake_2m">2m</string>
-    <string name="stay_awake_5m">5m</string>
-    <string name="stay_awake_10m">10m</string>
-    <string name="stay_awake_30m">30m</string>
+    <string name="stay_awake_15s">15 sekund</string>
+    <string name="stay_awake_30s">30 sekund</string>
+    <string name="stay_awake_1m">1 minuta</string>
+    <string name="stay_awake_2m">2 minuty</string>
+    <string name="stay_awake_5m">5 minut</string>
+    <string name="stay_awake_10m">10 minut</string>
+    <string name="stay_awake_30m">30 minut</string>
     <string name="stay_awake_on">Blokowanie Uśpienia Włączone</string>
 
     <!-- Screen recording options -->
@@ -1406,5 +1406,23 @@
     <string name="lc_led_mode_original">Oryginalny (z aplikacji)</string>
     <string name="lc_led_mode_override">Zastąp</string>
     <string name="lc_led_mode_off">Wyłącz (brak sygnalizacji LED)</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Ikona na pasku statusu</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Pokazuje ikonę na pasku statusu podczas Cichych Godzin</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Kolor przy ładowaniu</string>
+
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Dni tygodnia</string>
+    <string name="pref_lc_qh_cat_weekend_title">Weekend</string>
+
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Wyłącz wskaźniki typu sieci</string>
+    <string name="pref_disable_data_network_type_icons_summary">Pozwala wyłączyć wskaźniki 3G/G obok słupków poziomu sygnału</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Wymuś język angielski</string>
 
 </resources>
