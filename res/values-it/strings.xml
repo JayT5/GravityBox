@@ -1449,4 +1449,8 @@
     <string name="pref_lc_qh_cat_weekdays_title">Giorni lavorativi</string>
     <string name="pref_lc_qh_cat_weekend_title">Giorni festivi</string>
 
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Disabilita indicatori connessione</string>
+    <string name="pref_disable_data_network_type_icons_summary">Permette di disabilitare gli indicatori 3G/G accanto al segnale</string>
+
 </resources>
