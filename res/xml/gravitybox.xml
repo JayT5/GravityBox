@@ -847,6 +847,12 @@
             android:defaultValue="false" />
 
         <CheckBoxPreference 
+            android:key="pref_disable_data_network_type_icons"
+            android:title="@string/pref_disable_data_network_type_icons_title"
+            android:summary="@string/pref_disable_data_network_type_icons_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference 
             android:key="pref_disable_roaming_indicators"
             android:title="@string/pref_disable_roaming_indicators_title"
             android:summary="@string/pref_disable_roaming_indicators_summary"
