@@ -120,7 +120,7 @@ public class PermissionGranter {
                     }
 
                     // SystemUI
-                    if (pkgName.equals("com.android.systemui")) {
+                    if (!Utils.hasLenovoVibeUI() && pkgName.equals("com.android.systemui")) {
                         final Object extras = XposedHelpers.getObjectField(param.args[0], "mExtras");
                         final Object sharedUser = XposedHelpers.getObjectField(extras, "sharedUser");
                         final HashSet<String> grantedPerms = 

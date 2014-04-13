@@ -305,7 +305,10 @@ public class ModStatusBar {
                     XposedHelpers.findClass(CLASS_PHONE_STATUSBAR_POLICY, classLoader);
             final Class<?> powerManagerClass = XposedHelpers.findClass(CLASS_POWER_MANAGER, classLoader);
             final Class<?> networkControllerClass = XposedHelpers.findClass(CLASS_NETWORK_CONTROLLER, classLoader);
-            final Class<?> expandableNotifRowClass = XposedHelpers.findClass(CLASS_EXPANDABLE_NOTIF_ROW, classLoader);
+            Class<?> expandableNotifRowClass = null;
+            if (!Utils.hasLenovoVibeUI()) {
+                expandableNotifRowClass = XposedHelpers.findClass(CLASS_EXPANDABLE_NOTIF_ROW, classLoader);
+            }
             final Class<?> phoneStatusbarViewClass = XposedHelpers.findClass(CLASS_PHONE_STATUSBAR_VIEW, classLoader);
 
             final Class<?>[] loadAnimParamArgs = new Class<?>[2];
@@ -544,14 +547,16 @@ public class ModStatusBar {
                 }
             });
 
-            XposedHelpers.findAndHookMethod(expandableNotifRowClass, "isUserExpanded", new XC_MethodHook() {
-                @Override
-                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                    if (mNotifExpandAll) {
-                        param.setResult(true);
+            if (!Utils.hasLenovoVibeUI()) {
+                XposedHelpers.findAndHookMethod(expandableNotifRowClass, "isUserExpanded", new XC_MethodHook() {
+                    @Override
+                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                        if (mNotifExpandAll) {
+                            param.setResult(true);
+                        }
                     }
-                }
-            });
+                });
+            }
 
             XposedBridge.hookAllConstructors(phoneStatusbarViewClass, new XC_MethodHook() {
                 @Override

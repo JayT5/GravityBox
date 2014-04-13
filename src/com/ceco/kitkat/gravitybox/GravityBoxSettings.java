@@ -984,6 +984,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private Preference mPrefNotifImageLandscape;
         private ListPreference mPrefNotifColorMode;
         private EditTextPreference mPrefNotifCarrierText;
+        private CheckBoxPreference mPrefNotifExpandAll;
         private CheckBoxPreference mPrefDisableRoamingIndicators;
         private ListPreference mPrefButtonBacklightMode;
         private CheckBoxPreference mPrefButtonBacklightNotif;
@@ -1216,6 +1217,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefNotifImageLandscape = (Preference) findPreference(PREF_KEY_NOTIF_IMAGE_LANDSCAPE);
             mPrefNotifColorMode = (ListPreference) findPreference(PREF_KEY_NOTIF_COLOR_MODE);
             mPrefNotifCarrierText = (EditTextPreference) findPreference(PREF_KEY_NOTIF_CARRIER_TEXT);
+            mPrefNotifExpandAll = (CheckBoxPreference) findPreference(PREF_KEY_NOTIF_EXPAND_ALL);
 
             mPrefDisableRoamingIndicators = (CheckBoxPreference) findPreference(PREF_KEY_DISABLE_ROAMING_INDICATORS);
             mPrefButtonBacklightMode = (ListPreference) findPreference(PREF_KEY_BUTTON_BACKLIGHT_MODE);
@@ -1452,6 +1454,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             if (Utils.hasLenovoVibeUI()) {
                 getPreferenceScreen().removePreference(mPrefCatLockscreen);
                 mPrefCatStatusbar.removePreference(mPrefCatStatusbarQs);
+                mPrefCatNotifDrawerStyle.removePreference(mPrefNotifExpandAll);
             }
 
             // TODO: rework for KitKat compatibility
