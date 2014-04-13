@@ -1419,4 +1419,15 @@
     <string name="lc_led_mode_override">Sobreposto</string>
     <string name="lc_led_mode_off">Desativado (sem aviso luminoso)</string>
 
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Dias de semana</string>
+    <string name="pref_lc_qh_cat_weekend_title">Fim-de-semana</string>
+
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Desativar indicadores de tipo de rede</string>
+    <string name="pref_disable_data_network_type_icons_summary">Permite desativar os indicadores 3G/G que se encontram ao lado das barras de sinal</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Forçar idioma Inglês</string>
+
 </resources>
