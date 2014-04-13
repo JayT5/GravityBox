@@ -31,8 +31,8 @@
 
     <string name="low_battery_warning_policy_title">Aviso de batería baja</string>
     <string name="low_battery_warning_full">Aviso y sonido</string>
-    <string name="low_battery_warning_popup">Solo aviso</string>
-    <string name="low_battery_warning_sound">Solo sonido</string>
+    <string name="low_battery_warning_popup">Sólo aviso</string>
+    <string name="low_battery_warning_sound">Sólo sonido</string>
     <string name="low_battery_warning_off">Desactivado</string>
 
     <string name="reboot_required">Los cambios se aplicarán después de reiniciar</string>
@@ -52,7 +52,7 @@
 
     <string name="important">Importante</string>
 
-    <string name="caller_fullscreen_photo_title">Foto del llamador a pantalla completa</string>
+    <string name="caller_fullscreen_photo_title">Foto del llamante a pantalla completa</string>
 
     <!-- QuickSettings strings -->
     <string name="quick_settings_sync_on">Sincronización activada</string>
@@ -169,7 +169,7 @@
     <string name="pref_lockscreen_bg_color_title">Establecer color personalizado</string>
     <string name="pref_lockscreen_bg_color_summary">Permite establecer un color de fondo personalizado en la pantalla de bloqueo</string>
     <string name="pref_lockscreen_bg_image_title">Establecer imagen personalizada</string>
-    <string name="pref_lockscreen_bg_image_summary">Permite establecer imagen de fondo personalizada en la pantalla de bloqueo</string>
+    <string name="pref_lockscreen_bg_image_summary">Permite establecer una imagen de fondo personalizada en la pantalla de bloqueo</string>
     <string name="lockscreen_background_result_successful">Fondo cambiado</string>
     <string name="lockscreen_background_result_not_successful">Fondo no cambiado</string>
     <string name="pref_cat_lockscreen_other_title">Otro</string>
@@ -204,7 +204,7 @@
     <string name="pref_ab_number_error_negative">Los valores no pueden ser menores o iguales que zero</string>
     <string name="pref_ab_number_not_ascending">Los valores en los niveles más bajos no pueden ser mayores que los valores en niveles mayores</string>
     <string name="pref_ab_number_not_descending">Los valores en los niveles más altos no pueden ser menores que los valores en niveles menores</string>
-    <string name="pref_ab_values_set">Values for %s set</string>
+    <string name="pref_ab_values_set">Valores fijados para %s</string>
     <string name="pref_ab_config_saved">Nueva configuración de brillo automático guardada</string>
     <string name="pref_ab_config_cancelled">Configuración de brillo automático NO guardada</string>
     <string name="pref_ab_button_set">Establecer</string>
@@ -439,8 +439,8 @@
     <string name="pref_alarm_icon_hide_title">Ocultar icono de alarma</string>
 
     <!-- Screen dim level -->
-    <string name="pref_screen_dim_level_title">Screen dim level</string>
-    <string name="pref_screen_dim_level_summary">Amount of brightness for dim state - when screen is about to be turned off (requires reboot)</string>
+    <string name="pref_screen_dim_level_title">Nivle de atenuación de pantalla</string>
+    <string name="pref_screen_dim_level_summary">Cantidad de brillo durante la atenuación de la pantalla - cuando está a punto de apagarse (requiere reinicio)</string>
 
     <!-- Device type -->
     <string name="device_phone">teléfono</string>
@@ -448,7 +448,7 @@
 
     <!-- Brightness preference category -->
     <string name="pref_cat_brightness_title">Ajustes de brillo</string>
-    <string name="pref_brightness_master_switch_summary">Usar solo cuando tu dispositivo soporte características estándar de brillo de Android. Deshabilitar si experimentas problemas relacionados con el brillo (requiere reinicio).</string>
+    <string name="pref_brightness_master_switch_summary">Usar sólo cuando tu dispositivo soporte características estándar de brillo de Android. Deshabilitar si experimentas problemas relacionados con el brillo (requiere reinicio).</string>
 
     <!-- HW Key Action: Recent apps -->
     <string name="hwkey_action_recent_apps">Mostrar aplicaciones recientes</string>
@@ -473,7 +473,7 @@
 
     <!-- GravityBox settings startup handling -->
     <string name="gb_startup_progress">Esperando respuesta del framework del sistema GravityBox&#8230;</string>
-    <string name="gb_startup_error">Framework del sistema GravityBox no responde. Saliendo&#8230;</string>
+    <string name="gb_startup_error">El framework del sistema GravityBox no responde. Saliendo&#8230;</string>
 
     <!-- National data roaming -->
     <string name="pref_national_roaming_title">Roaming de datos nacional</string>
@@ -520,8 +520,8 @@
     <string name="pref_cat_lockscreen_ring_settings_title">Apps en el anillo de desbloqueo</string>
     <string name="pref_lockscreen_ring_targets_enable_summary">Activador de los disparadores del anillo de desbloqueo</string>
     <string name="pref_lockscreen_ring_targets_app_title">Destino desde el anillo %s</string>
-    <string name="pref_lockscreen_ring_vertical_offset_title">Unlock ring vertical offset</string>
-    <string name="pref_lockscreen_ring_horizontal_offset_title">Unlock ring horizontal offset</string>
+    <string name="pref_lockscreen_ring_vertical_offset_title">Desplazamiento vertical</string>
+    <string name="pref_lockscreen_ring_horizontal_offset_title">Desplazamiento horizontal</string>
 
     <!-- Statusbar brightness control -->
     <string name="pref_statusbar_brightness_title">Habilitar control de brillo</string>
@@ -622,9 +622,9 @@
 
     <!--  RAM Bar -->
     <!-- [CHAR LIMIT=10] Running services, summary of background processes -->
-    <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> free</string>
+    <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> libres</string>
     <!-- [CHAR LIMIT=10] Running services, summary of foreground processes -->
-    <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> used</string>
+    <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> usados</string>
     <string name="pref_rambar_title">Barra de RAM en tareas recientes</string>
     <string name="rambar_off">Desactivada</string>
     <string name="rambar_top">Arriba</string>
@@ -668,7 +668,7 @@
     <string name="pref_cat_app_launcher_title">Lanzador de aplicaciones</string>
     <string name="pref_cat_app_launcher_summary">Diálogo que permite definir hasta 8 aplicaciones que pueden ser asignada a botones físicos o usadas como botones adicionales en la barra de navegación</string>
     <string name="pref_app_launcher_slot_title">Aplicación %d</string>
-    <string name="app_launcher_no_apps">No hay aplicaciones asignadas. Us GravityBox / menú de lanzador de aplicaciones para asignar apps.</string>
+    <string name="app_launcher_no_apps">No hay aplicaciones asignadas. Use GravityBox / menú de lanzador de aplicaciones para asignar apps.</string>
 
     <!-- HW Key Actions: application launcher -->
     <string name="hwkey_action_app_launcher">Mostrar lanzador de aplicaciones</string>
@@ -689,8 +689,8 @@
     <string name="pref_pie_color_reset_title">Restablecer colores</string>
 
     <!-- Custom unknown caller photo -->
-    <string name="pref_caller_unknown_photo_enable_title">Habilitar foto de llamador desconocido</string>
-    <string name="pref_caller_unknown_photo_title">Establecer foto para llamador desconocido</string>
+    <string name="pref_caller_unknown_photo_enable_title">Habilitar foto de llamante desconocido</string>
+    <string name="pref_caller_unknown_photo_title">Establecer foto para llamante desconocido</string>
     <string name="caller_unknown_photo_result_successful">Foto cambiada</string>
     <string name="caller_unkown_photo_result_not_successful">Foto no cambiada</string>
 
@@ -721,7 +721,7 @@
 
     <!-- Secondary signal icon color for MTK Dual SIMs -->
     <string name="pref_statusbar_icon_color_secondary_title">Color de señal secundaria</string>
-    <string name="pref_statusbar_icon_color_secondary_summary">Sobreescribre el icono de señal anaranjado predeterminado</string>
+    <string name="pref_statusbar_icon_color_secondary_summary">Sobreescribe el icono de señal anaranjado predeterminado</string>
     <string name="pref_statusbar_data_activity_color_secondary_title">Color de actividad de datos secundaria</string>
     <string name="pref_statusbar_data_activity_color_secondary_summary">Establece un color para los indicadores de actividad de datos secundaria</string>
 
@@ -1016,7 +1016,7 @@
     <string name="pref_phone_nonintrusive_incoming_call_summary">Mantiene las llamadas entrantes en segundo plano mientras el usuario esté usando el dispositivo</string>
 
     <!-- Smart Radio -->
-    <string name="smart_radio_action_undefined">No definidio</string>
+    <string name="smart_radio_action_undefined">No definido</string>
     <string name="pref_cat_smart_radio_title">Modo de red inteligente</string>
     <string name="pref_smart_radio_enable_summary">Se cambiará automáticamente el modo de red al perfil de ahorro de energía definido por el usuario o al modo normal 
         dependiendo en el estado de conexión de los datos móviles y WiFi (requiere reinicio)</string>
@@ -1144,7 +1144,7 @@
     <string name="shortcuts_icon_picker_camera">Cámera</string>
     <string name="shortcuts_icon_picker_cloud">Nube</string>
     <string name="shortcuts_icon_picker_contact">Contacto</string>
-    <string name="shortcuts_icon_picker_directdial">Direct Dial</string>
+    <string name="shortcuts_icon_picker_directdial">Llamada directa</string>
     <string name="shortcuts_icon_picker_directmessage">Mensaje directo</string>
     <string name="shortcuts_icon_picker_drive">Drive</string>
     <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
@@ -1190,12 +1190,12 @@
     <string name="shortcuts_icon_picker_unlock">Desbloquear</string>
  
     <!-- Lockscreen: Slide before unlock -->
-    <string name="pref_lockscreen_slide_before_unlock_title">Slide before unlock</string>
-    <string name="pref_lockscreen_slide_before_unlock_summary">Allows using sliding challenge with ring targets together with security lock</string>
+    <string name="pref_lockscreen_slide_before_unlock_title">Deslizar antes de desbloquear</string>
+    <string name="pref_lockscreen_slide_before_unlock_summary">Permite usar el anillo de desbloqueo junto al bloqueo de seguridad</string>
 
     <!-- Lockscreen tweaks: option categories -->
     <string name="pref_cat_lockscreen_widgets_title">Widgets</string>
-    <string name="pref_cat_lockscreen_sliding_challenge_title">Sliding challenge</string><!-- UNTRANSLATED -->
+    <string name="pref_cat_lockscreen_sliding_challenge_title">Desbloqueo de seguridad</string><!-- UNTRANSLATED -->
     <string name="pref_cat_lockscreen_statusbar_title">Barra de estado</string>
  
  
@@ -1340,8 +1340,8 @@
     <string name="pref_qs_alarm_longpress_app_title">App con pulsación larga</string>
     
     <!-- Traffic meter: show only when download active -->
-    <string name="pref_data_traffic_active_dl_only_title">Solo gestor de descargas</string>
-    <string name="pref_data_traffic_active_dl_only_summary">Muestra el medidor de tráfico solo cuando haya descargas en curso en el gestor de descargas estándar de Android</string>
+    <string name="pref_data_traffic_active_dl_only_title">Sólo gestor de descargas</string>
+    <string name="pref_data_traffic_active_dl_only_summary">Muestra el medidor de tráfico sólo cuando haya descargas en curso en el gestor de descargas estándar de Android</string>
 
     <!-- Led control -->
     <string name="pref_led_control_title">Control de notificaciones</string>
@@ -1369,7 +1369,7 @@
     <string name="pref_lc_notif_sound_override_title">Sobrescribir sonido de notificación</string>
     <string name="pref_lc_notif_sound_title">Sonido de notificación</string>
     <string name="lc_notif_sound_none">Sin sonido</string>
-    <string name="pref_lc_notif_sound_only_once_title">Avisar solo una vez</string>
+    <string name="pref_lc_notif_sound_only_once_title">Avisar sólo una vez</string>
     <string name="pref_lc_notif_sound_only_once_summary">Al activar, el sonido y/o vibración no se reproducirá en caso de que la notificación ya exista</string>
     <string name="pref_lc_notif_insistent_title">Insistente</string>
     <string name="pref_lc_notif_insistent_summary">Al activar, el sonido se repetirá hasta que la notificación se cancele o la ventana de notificacion se abra</string>
@@ -1403,20 +1403,20 @@
     <!-- Notification control: default settings -->
     <string name="lc_activity_menu_default_settings">Ajustes predeterminados</string>
     <string name="pref_lc_default_settings_summary">Al activar se aplicarán automáticamente los ajustes predeterminados a todas las aplicaciones que no tengan ajustes explícitos activos</string>
-    <string name="lc_defaults_apply">Default settings apply</string>
+    <string name="lc_defaults_apply">Aplicar la configuración por defecto</string>
     <string name="lc_settings_menu_reset">Restablecer a predeterminados</string>
     
     <!-- Notification control: Active screen -->
     <string name="lc_active_screen">Pantalla activa</string>
     <string name="lc_active_screen_info">Pantalla activa enciende automáticamente la pantalla cuando
-        hay nuevas notificaciones. Solo ocurrirá si la pantalla no está tapada 
+        hay nuevas notificaciones. Sólo ocurrirá si la pantalla no está tapada 
         (por ejemplo, al sacar del bolsillo). Opcionalmente expande el pandel de notificación dependiendo 
         de la actual política de bloqueo de pantalla y de la preferencia del usuario. Pantalla activa requiere tener activada la
         pantalla de bloqueo.\nDebajo está el interruptor principal. Tras activar, 
         se pueden configurar más opciones por app</string>
     <string name="lc_active_screen_switch_title">Activar Pantalla activa</string>
     <string name="lc_expand_notification_panel_title">Expandir panel de notificación</string>
-    <string name="lc_expand_notification_panel_summary">Expande automáticamente el panel de notificación al cender la pantalla
+    <string name="lc_expand_notification_panel_summary">Expande automáticamente el panel de notificación al encender la pantalla
     (si está permitido por la actual política de seguridad de la pantalla de bloqueo)</string>
         
     <!-- Notification control: Quiet hours -->
