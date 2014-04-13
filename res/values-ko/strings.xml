@@ -743,16 +743,8 @@
     <string name="nrt_bg_style_dark">어두움</string>
     <string name="nrt_bg_style_black">검은색</string>
 
-    <string name="smart_radio_action_do_nothing">아무것도 하지 않기</string>
-    <string name="smart_radio_action_summary">%s로 전환</string>
-    <string name="pref_smart_radio_experimental_summary">주의! 수동적으로 데이터 네트워크를 전환할 때 영향을 미칠 수 있습니다.</string>
-    <string name="pref_smart_radio_on_data_enabled_title">모바일 데이터가 활성화 될 때</string>
-    <string name="pref_smart_radio_on_data_disabled_title">모바일 데이터가 비활성화 될 때</string>
-
     <string name="pie_control_summary">Pie 컨트롤 관련 기능들이 있습니다.</string>
 
-    <string name="battery_percent_text_anim_title">충전 애니메이션 활성화</string>
-	
     <string name="shortcut_google_now">Google Now</string>
 
     <string name="pref_lockscreen_bg_opacity_title">배경화면 투명도</string>

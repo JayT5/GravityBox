@@ -989,9 +989,6 @@
     <string name="pref_navbar_always_on_bottom_title">Sempre em baixo</string>
     <string name="pref_navbar_always_on_bottom_summary">Força a barra de navegação a ficar sempre em baixo na orientação de ecrã horizontal (necessário reiniciar)</string>
 
-    <!-- Summary for Home key long-press action disabled because of navring targets -->
-    <string name="pref_hwkey_home_longpress_disabled_summary">Não pode ser utilizado quando os alvos do anel de navegação estão ativados</string>
-
     <!-- Navbar custom key: swap with menu key -->
     <string name="pref_navbar_custom_key_swap_title">Trocar posição com tecla Menu</string>
 

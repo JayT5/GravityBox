@@ -916,9 +916,6 @@
     <!-- Pie category summary -->
     <string name="pie_control_summary">パイ関連の設定を変更します。</string>
 
-    <!-- Battery percent text: option for charging animation -->
-    <string name="battery_percent_text_anim_title">充電中にアニメーションする</string>
-    
     <!-- Lockscreen background opacity -->
     <string name="pref_lockscreen_bg_opacity_title">背景の透過度</string>
     <string name="pref_lockscreen_bg_opacity_summary">カスタム壁紙とアルバムアートにのみ適用されます。</string>

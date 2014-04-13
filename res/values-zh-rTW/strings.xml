@@ -918,31 +918,20 @@
     
     <!-- Toggle WiFi AP shortcut -->
     <string name="shortcut_wifi_ap">切換 WiFi 行動熱點</string>
-    
+
     <!-- Toggle NFC shortcut -->
     <string name="shortcut_nfc">切換 NFC</string>
-    
-     <!-- Toggle GPS shortcut -->
-    <string name="shortcut_gps">切換 GPS</string>
-    
+
     <!-- Navigation bar ring targets background style -->
     <string name="pref_navbar_ring_targets_bg_style_title">目標背景風格</string>
     <string name="nrt_bg_style_none">無</string>
     <string name="nrt_bg_style_light">亮</string>
     <string name="nrt_bg_style_dark">暗</string>
     <string name="nrt_bg_style_black">黑色</string>
-    
-    <!-- Smart Radio -->
-    <string name="smart_radio_action_do_nothing">無任何操作</string>
-    <string name="smart_radio_action_summary">切換至 %s</string>
-    <string name="pref_cat_smart_radio_title">智慧型無線網路</string>
-    <string name="pref_smart_radio_experimental_summary">實驗性功能! 將可能影響手動網路模式切換</string>
-    <string name="pref_smart_radio_on_data_enabled_title">行動數據已啟用</string>
-    <string name="pref_smart_radio_on_data_disabled_title">行動數據已停用</string>
-    
+
     <!-- Pie category summary -->
     <string name="pie_control_summary">包含 Pie 控制的相關設定</string>
- 
+
     <!-- Shortcut for Google Now -->
     <string name="shortcut_google_now">Google Now</string>
 
@@ -1002,23 +991,21 @@
     <!-- Force overflow menu button -->
     <string name="pref_force_overflow_menu_button_title">強制溢位選單鍵</string>
     <string name="pref_force_overflow_menu_button_summary">需要重新啟動</string>
- 
+
     <!-- Navbar: always on bottom -->
     <string name="pref_navbar_always_on_bottom_title">總是在底部</string>
     <string name="pref_navbar_always_on_bottom_summary">強制讓導航列顯示在橫向底部 (需要重新啟動)</string>
 
-    <!-- Summary for Home key long-press action disabled because of navring targets -->
-    <string name="pref_hwkey_home_longpress_disabled_summary">當導航環目標被啟用將無法使用</string>
-
     <!-- Navbar custom key: swap with menu key -->
     <string name="pref_navbar_custom_key_swap_title">切換選單鍵</string>
-    
+
     <!-- Phone: Non-intrusive incoming call -->
     <string name="pref_phone_nonintrusive_incoming_call_title">非侵入性來電</string>
     <string name="pref_phone_nonintrusive_incoming_call_summary">當您使用裝置時，來電會顯示成一個通知</string>
-   
+
     <!-- Smart Radio -->
     <string name="smart_radio_action_undefined">未定義</string>
+    <string name="pref_cat_smart_radio_title">智慧型無線網路</string>
     <string name="pref_smart_radio_enable_summary">根據行動數據和無線網絡連接狀態，這會自動切換您自訂的省電模式或正常模式（需要重新啟動）</string>
     <string name="pref_smart_radio_normal_mode_title">正常網路模式</string>
     <string name="pref_smart_radio_power_saving_mode_title">節省電力網路模式</string>
