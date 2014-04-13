@@ -286,7 +286,7 @@ public class ModClearAllRecents {
         }
         @Override
         protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
-            if (mHandler != null) {
+            if (mRamUsageBar != null && mRamUsageBar.getVisibility() == View.VISIBLE && mHandler != null) {
                 mHandler.post(updateRamBarTask);
             }
         }
@@ -413,7 +413,7 @@ public class ModClearAllRecents {
             }
         }, 200);
 
-        if (mHandler != null) {
+        if (mRamUsageBar != null && mRamUsageBar.getVisibility() == View.VISIBLE && mHandler != null) {
             mHandler.post(updateRamBarTask);
         }
 
