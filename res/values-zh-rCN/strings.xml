@@ -1424,18 +1424,29 @@
         （如果当前的锁屏安全策略允许）</string>
 
     <!-- Notification control: Quiet hours -->
-    <string name="lc_quiet_hours">清静时光</string>
-    <string name="pref_lc_qh_enabled_title">启用清静时光</string>
-    <string name="pref_lc_qh_enabled_summary">静音声音/振动和可选的LED 
-        自定义时间范围内所有到达的通知</string>
+    <string name="lc_quiet_hours">静音时段</string>
+    <string name="pref_lc_qh_enabled_title">启用静音时段</string>
+    <string name="pref_lc_qh_enabled_summary">静音声音/振动和可选的指示灯
+        在自定义时间范围内停用所有到达的通知</string>
     <string name="pref_lc_qh_start_title">开始时间</string>
     <string name="pref_lc_qh_end_title">结束时间</string>
-    <string name="pref_lc_qh_mute_led_title">静音指示灯</string>
+    <string name="pref_lc_qh_mute_led_title">停用指示灯</string>
 
     <!-- Notification control: LED mode -->
-    <string name="pref_lc_led_mode_title">LED模式</string>
+    <string name="pref_lc_led_mode_title">指示灯模式</string>
     <string name="lc_led_mode_original">原始（来自应用程序）</string>
     <string name="lc_led_mode_override">覆盖</string>
     <string name="lc_led_mode_off">关闭（无灯光）</string>
+    
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">状态栏图标</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">当启用静音时段后在状态栏显示图标</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">充电颜色</string>
+    
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">本周</string>
+    <string name="pref_lc_qh_cat_weekend_title">周末</string>
     
 </resources>
