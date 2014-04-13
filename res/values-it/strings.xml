@@ -1453,4 +1453,7 @@
     <string name="pref_disable_data_network_type_icons_title">Disabilita indicatori connessione</string>
     <string name="pref_disable_data_network_type_icons_summary">Permette di disabilitare gli indicatori 3G/G accanto al segnale</string>
 
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Usa lingua inglese</string>
+
 </resources>
