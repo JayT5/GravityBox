@@ -1449,4 +1449,11 @@
     <string name="pref_lc_qh_cat_weekdays_title">Будни</string>
     <string name="pref_lc_qh_cat_weekend_title">Выходные</string>
 
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Откл индикаторы типа сети</string>
+    <string name="pref_disable_data_network_type_icons_summary">Отключение индикаторов 3G/G рядом с сигналом</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Английский принудительно</string>
+
 </resources>
