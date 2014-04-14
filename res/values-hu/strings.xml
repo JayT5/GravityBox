@@ -1423,5 +1423,23 @@
     <string name="lc_led_mode_original">Eredeti (alkalmazás általi)</string>
     <string name="lc_led_mode_override">Felülírt</string>
     <string name="lc_led_mode_off">Kikapcsolva (nincsenek értesítési fények)</string>
+    
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Értesítési sáv ikon</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Ikon mutatása az értesítési sávon Csendes időszakok alatt</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Töltés szín</string>
+
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Hétköznapok</string>
+    <string name="pref_lc_qh_cat_weekend_title">Hétvége</string>
+
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Adattevékenység típús kijelzők letiltása</string>
+    <string name="pref_disable_data_network_type_icons_summary">Lehetővé teszi a jelszint ikonok melletti 3G/G kijelzők letiltását</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Angol lokalicázió kényszerítése</string>
 
 </resources>
