@@ -1416,6 +1416,13 @@
     <string name="lc_led_mode_override">Sobreposto</string>
     <string name="lc_led_mode_off">Desativado (sem aviso luminoso)</string>
 
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Indicador na barra de status</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Mostrar indicador na barra de status durante horas de silêncio</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Cor do texto durante carga</string>
+
     <!-- Notification control: Quiet hours for weekends-->
     <string name="pref_lc_qh_cat_weekdays_title">Dias de semana</string>
     <string name="pref_lc_qh_cat_weekend_title">Fim-de-semana</string>
