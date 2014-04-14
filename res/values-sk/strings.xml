@@ -1406,4 +1406,22 @@
     <string name="lc_led_mode_override">Vlastný</string>
     <string name="lc_led_mode_off">Vypnutý</string>
 
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Ikona v stavovom riadku</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Zobrazí ikonu v stavovom riadku počas tichých hodín</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Farba nabíjania</string>
+
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Pracovné dni</string>
+    <string name="pref_lc_qh_cat_weekend_title">Víkend</string>
+
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Vypnúť indikátory dátových sietí</string>
+    <string name="pref_disable_data_network_type_icons_summary">Umožňuje vypnúť dodatočné 3G/G indikátory dátových sietí</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Anglická lokalizácia</string>
+
 </resources>
