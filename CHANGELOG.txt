@@ -1,3 +1,32 @@
+Changelog 3.0.3 - 14/04/2014
+--------------------------------------
+- Ultimate Notification Control:
+--- Quiet hours: option to show icon in status bar during Quiet hours
+--- Quiet hours: additional time range for weekends with automatic smart logic for Friday/Sunday
+--- Active Screen: optimized proximity sensor usage
+--- fixed handling of LED settings during Quiet hours
+--- fixed UNC settings not being backed up/restored
+- BatteryPercentText: option for choosing charging color
+- Option for forcing English locale (under About menu)
+- Initial support for MediaTek platform (thanks to bgcngm)
+- Initial support for Lenovo VibeUI KK ROMs (thanks to bgcngm)
+- PowerMenu: dynamic coloring of GB related icons based on color of original power menu icons (thanks to bgcngm)
+- Added option to disable data network type icons (available to MTK based devices with Gemini support) (thanks to bgcngm)
+- ModClearAllRecents: fixed rare FC occurring under special conditions ( https://plus.google.com/104339936357527615598/posts/BYdGbSrQXHj )
+- Cleanup of unused resources (thanks to bgcngm)
+- Updated Italian translations (thanks to pesa1234, valerioscifoni)
+- Updated German translations (thanks to Minty123, LibertyMarine
+- Updated Dutch translations (thanks to Snerual)
+- Updated Chinese (Traditional) translations (thanks to momomok)
+- Updated Hungarian translations (thanks to benjoe1)
+- Updated Spanish translations (thanks to jvbferrer, cgrs)
+- Updated French translation (thanks to ch-vox)
+- Updated Russian translations (thanks to gaich)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Slovak and Czech translations
+
 Changelog 3.0.2 - 07/04/2014
 --------------------------------------
 - Ultimate Notification Control extended:
