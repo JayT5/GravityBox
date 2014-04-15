@@ -790,7 +790,7 @@
     <string name="ringer_mode_sound_vibrate">Ton und Vibration</string>
 
     <!-- Screen recording -->
-    <string name="screenrecord_notif_ticker">Bildschirminhalt wirda ufgenommen</string>
+    <string name="screenrecord_notif_ticker">Bildschirminhalt wird aufgenommen</string>
     <string name="screenrecord_notif_title">Nehme Bildschirminhalt auf</string>
     <string name="screenrecord_notif_stop">Stop</string>
     <string name="screenrecord_notif_pointer">Pointer an-/ausschalten</string>
@@ -1425,5 +1425,23 @@
     <string name="lc_led_mode_original">Original (von App)</string>
     <string name="lc_led_mode_override">Überschreiben</string>
     <string name="lc_led_mode_off">Aus (Kein Licht)</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">Symbol in Statusleiste</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">Symbol während Ruhestunden in Statusleiste anzeigen</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">Aufladefarbe</string>
+
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Werktage</string>
+    <string name="pref_lc_qh_cat_weekend_title">Wochenende</string>
+
+   <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Indikatoren für Netzwerktyp deaktiveren</string>
+    <string name="pref_disable_data_network_type_icons_summary">Erlaubt das Deaktivieren der 3G/G Indikatoren bei den Signalbalken</string>
+    
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Englisch erzwingen</string>
 
 </resources>
