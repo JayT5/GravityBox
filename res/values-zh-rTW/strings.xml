@@ -84,6 +84,8 @@
     <string name="quick_settings_smart_radio_off">智慧型無線網路關閉</string>
     <string name="quick_settings_lock_screen_on">鎖定畫面開啟</string>
     <string name="quick_settings_lock_screen_off">鎖定畫面關閉</string>
+    <string name="quick_settings_location_on">定位服務開啟</string>
+    <string name="quick_settings_location_off">定位服務關閉</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">狀態列快速設定瓷貼</string>
@@ -94,6 +96,7 @@
     <string name="qs_tile_wifi">WiFi</string>
     <string name="qs_tile_bluetooth">藍牙</string>
     <string name="qs_tile_gps">定位</string>
+    <string name="qs_tile_gps_slimkat">定位（SlimKat 風格）</string>
     <string name="qs_tile_gps_alt">定位（CM 風格）</string>
     <string name="qs_tile_mobile_data">行動數據</string>
     <string name="qs_tile_network_mode">網路模式</string>
@@ -1434,5 +1437,8 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">強制使用英語介面</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">音量面板透明度</string>
 
 </resources>
