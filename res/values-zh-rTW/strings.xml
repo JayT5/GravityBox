@@ -94,7 +94,7 @@
     <string name="qs_tile_wifi">WiFi</string>
     <string name="qs_tile_bluetooth">藍牙</string>
     <string name="qs_tile_gps">定位</string>
-    <string name="qs_tile_gps_alt">定位（CM 風格）/string>
+    <string name="qs_tile_gps_alt">定位（CM 風格）</string>
     <string name="qs_tile_mobile_data">行動數據</string>
     <string name="qs_tile_network_mode">網路模式</string>
     <string name="qs_tile_data_usage">資料用量</string>
@@ -760,7 +760,7 @@
     <string name="hwkey_ls_torch_voldown_longpress">長按音量 - 鍵</string>
     
     <!-- QuickSettings management master switch -->
-    <string name="pref_qs_management_enable_summary">快速設定主開關（需要重新啟動）/string>
+    <string name="pref_qs_management_enable_summary">快速設定主開關（需要重新啟動）</string>
   
     <!-- AppPickerPreference: shortcut support -->
     <string name="app_picker_applications">應用程式</string>
