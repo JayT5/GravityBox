@@ -473,7 +473,7 @@
 
     <!-- GravityBox settings startup handling -->
     <string name="gb_startup_progress">正在等待系统框架响应GravityBox&#8230;</string>
-    <string name="gb_startup_error">系统框架未响应GravityBoy，正在退出&#8230;</string>
+    <string name="gb_startup_error">系统框架未响应GravityBox，正在退出&#8230;</string>
 
     <!-- National data roaming -->
     <string name="pref_national_roaming_title">国内数据漫游</string>
@@ -1448,5 +1448,12 @@
     <!-- Notification control: Quiet hours for weekends-->
     <string name="pref_lc_qh_cat_weekdays_title">本周</string>
     <string name="pref_lc_qh_cat_weekend_title">周末</string>
+    
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">禁用网络数据类型指示器</string>
+    <string name="pref_disable_data_network_type_icons_summary">允许禁用信号条旁边的3G/G指示器</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">强制英语</string>
     
 </resources>
