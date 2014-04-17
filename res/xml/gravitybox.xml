@@ -1654,6 +1654,16 @@
             android:key="pref_volume_panel_autoexpand"
             android:title="@string/pref_volume_panel_autoexpand_title" />
 
+        <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
+            android:key="pref_volume_panel_transparency"
+            android:title="@string/pref_volume_panel_transparency_title"
+            minimum="0"
+            maximum="100"
+            interval="1"
+            monitorBoxEnabled="true"
+            monitorBoxUnit="%" 
+            android:defaultValue="0" />
+
         <CheckBoxPreference 
             android:key="pref_link_volumes"
             android:title="@string/pref_link_volumes_title"

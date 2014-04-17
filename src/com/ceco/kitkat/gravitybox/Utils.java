@@ -485,6 +485,12 @@ public class Utils {
         }
     }
 
+    public static int alphaPercentToInt(int percentAlpha) {
+        percentAlpha = Math.min(Math.max(percentAlpha, 0), 100);
+        float alpha = (float)percentAlpha / 100f;
+        return (alpha == 0 ? 255 : (int)(1-alpha * 255));
+    }
+
     static class SystemProp extends Utils {
         
         private SystemProp() {
