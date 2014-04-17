@@ -78,6 +78,11 @@ public class GravityBox implements IXposedHookZygoteInit, IXposedHookInitPackage
         }
 
         ModLedControl.initZygote();
+
+        if (!Utils.hasLenovoVibeUI() &&
+                prefs.getBoolean(GravityBoxSettings.PREF_KEY_QUICK_SETTINGS_ENABLE, true)) {
+            ModQuickSettings.initDisableLocationConsent(prefs);
+        }
     }
 
     @Override
