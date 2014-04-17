@@ -534,9 +534,6 @@
 
     <!-- Network mode tile mode (2G/2G+3G/3G or 2G/2G+3G) -->
     <string name="pref_network_mode_tile_mode_title">網路模式的瓷貼模式</string>
-    !!!<string name="nm_tile_mode1">2G/2G+3G/3G/(LTE)</string>
-    !!!<string name="nm_tile_mode2">2G/2G+3G/(LTE)</string>
-    !!!<string name="nm_tile_mode3">2G/3G/(LTE)</string>
 
     <!-- Display: allow all rotations -->
     <string name="pref_display_allow_all_rotations_title">允許晝面可以全方位旋轉</string>
@@ -612,10 +609,6 @@
     <string name="dt_size_normal">正常</string>
     <string name="dt_size_smaller">較小</string>
     <string name="dt_size_smallest">最小</string>
-    !!!<string name="byte_abbr">B</string>
-    !!!<string name="kilobyte_abbr">KB</string>
-    !!!<string name="megabyte_abbr">MB</string>
-    !!!<string name="second_abbr">s</string>
 
     <!-- Disable lockscreen widget limit -->
     <string name="pref_lockscreen_widget_limit_disable_title">停用鎖定畫面小工具數量限制</string>
@@ -729,8 +722,6 @@
     <!-- Status icon style -->
     <string name="pref_status_icon_style_title">狀態列圖示風格</string>
     <string name="pref_status_icon_style_summary">套用於無聲、震動、鬧鐘等狀態圖示。</string>
-    !!!<string name="icon_style_jb">JellyBean</string>
-    !!!<string name="icon_style_kk">KitKat</string>
     
     <!-- HW Key Actions: Back double-tap -->
     <string name="hwkey_back_doubletap_dialog_title">返回鍵雙擊動作</string>
@@ -812,7 +803,6 @@
 
     <!-- Screen off effects -->
     <string name="screen_off_effect_default">系統預設</string>
-    !!!<string name="screen_off_effect_crt">CRT</string>
     <string name="screen_off_effect_fade">淡出</string>
 
     <!-- Launcher tweaks -->
