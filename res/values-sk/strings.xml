@@ -68,6 +68,8 @@
     <string name="quick_settings_smart_radio_off">Smart Radio vyp</string>
     <string name="quick_settings_lock_screen_on">Obrazovka uzamknutia zap</string>
     <string name="quick_settings_lock_screen_off">Obrazovka uzamknutia vyp</string>
+    <string name="quick_settings_location_on">Poloha</string>
+    <string name="quick_settings_location_off">Poloha vyp</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Dlaždice QuickSettings panelu</string>
@@ -78,6 +80,7 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_gps">Poloha</string>
+    <string name="qs_tile_gps_slimkat">Poloha (SlimKat štýl)</string>
     <string name="qs_tile_gps_alt">GPS (CM štýl)</string> 
     <string name="qs_tile_mobile_data">Mobilné dáta</string>
     <string name="qs_tile_network_mode">Typ siete</string>
@@ -1423,5 +1426,8 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">Anglická lokalizácia</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Priehľadnosť panela hlasitosti</string>
 
 </resources>
