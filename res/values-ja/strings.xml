@@ -69,6 +69,8 @@
     <string name="quick_settings_smart_radio_off">スマートネットワークオフ</string>
     <string name="quick_settings_lock_screen_on">ロック画面オン</string>
     <string name="quick_settings_lock_screen_off">ロック画面オフ</string>
+    <string name="quick_settings_location_on">位置情報オン</string>
+    <string name="quick_settings_location_off">位置情報オフ</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">ステータスバークイック設定タイル</string>
@@ -78,7 +80,8 @@
     <string name="qs_tile_battery">バッテリー状態</string>
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
-    <string name="qs_tile_gps">GPS</string>
+    <string name="qs_tile_gps">位置情報</string>
+    <string name="qs_tile_gps_slimkat">位置情報 (SlimKatスタイル)</string>
     <string name="qs_tile_gps_alt">GPS (CMスタイル)</string>
     <string name="qs_tile_mobile_data">モバイルデータ</string>
     <string name="qs_tile_network_mode">ネットワークモード</string>
@@ -1401,5 +1404,26 @@
     <string name="lc_led_mode_original">アプリの標準</string>
     <string name="lc_led_mode_override">上書き</string>
     <string name="lc_led_mode_off">オフ(点灯させない)</string>
+    
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">ステータスバーアイコン</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">お休みモード動作中にステータスバーにアイコンを表示します。</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">充電時の色</string>
+
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">平日</string>
+    <string name="pref_lc_qh_cat_weekend_title">週末</string>
+
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">ネットワークタイプアイコンを無効化</string>
+    <string name="pref_disable_data_network_type_icons_summary">電波強度表示の上にある3Gアイコンなどを無効化します。</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">GBを英語表示にする</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">音量パネルの透過度</string>
     
 </resources>
