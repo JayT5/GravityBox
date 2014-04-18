@@ -1454,6 +1454,9 @@
     <string name="pref_disable_data_network_type_icons_summary">Permette di disabilitare gli indicatori 3G/G accanto al segnale</string>
 
     <!-- Force English locale -->
-    <string name="pref_force_english_locale_title">Usa lingua inglese</string>
-
+    <string name="pref_force_english_locale_title">Imposta gravitybox in inglese</string>
+    
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Trasparenza pannello volume</string>
+    
 </resources>
