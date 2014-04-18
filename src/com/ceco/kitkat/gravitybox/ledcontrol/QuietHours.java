@@ -44,7 +44,7 @@ public class QuietHours {
     public boolean quietHoursActive() {
         if (!enabled) return false;
 
-        int endMin;
+        int startMin, endMin;
         Calendar c = new GregorianCalendar();
         c.setTimeInMillis(System.currentTimeMillis());
         int curMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
@@ -59,26 +59,48 @@ public class QuietHours {
         }
 
         // special logic for Friday and Sunday
-        // we assume people stay up longer on Friday
-        // thus when Friday and we are after previous QH let's apply weekend range instead
+        // we assume people stay up longer on Friday  
         if (isFriday) {
             c.setTimeInMillis(end);
             endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
             if (curMin > endMin) {
-               s = startAlt;
-               e = endAlt;
-               if (ModLedControl.DEBUG) ModLedControl.log("Applying weekend range for Friday");
+                // we are after previous QH
+                c.setTimeInMillis(startAlt);
+                startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                c.setTimeInMillis(endAlt);
+                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                if (startMin > endMin) {
+                    // weekend range spans midnight
+                    // let's apply weekend start time instead
+                    s = startAlt;
+                    if (ModLedControl.DEBUG) ModLedControl.log("Applying weekend start time for Friday");
+                } else {
+                    // weekend range happens on the next day
+                    if (ModLedControl.DEBUG) ModLedControl.log("Ignoring quiet hours for Friday");
+                    return false;
+                }
             }
         }
         // we assume people go to sleep earlier on Sunday
-        // thus when Sunday and we are after previous QH let's apply weekdays range
         if (isSunday) {
             c.setTimeInMillis(endAlt);
             endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
             if (curMin > endMin) {
-               s = start;
-               e = end;
-               if (ModLedControl.DEBUG) ModLedControl.log("Applying weekdays range for Sunday");
+                // we are after previous QH
+                c.setTimeInMillis(start);
+                startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                c.setTimeInMillis(end);
+                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
+                if (startMin > endMin) {
+                    // weekday range spans midnight
+                    // let's apply weekday start time instead
+                    s = start;
+                    if (ModLedControl.DEBUG) ModLedControl.log("Applying weekday start time for Sunday");
+                } else {
+                    // weekday range happens on the next day
+                    if (ModLedControl.DEBUG) ModLedControl.log("Ignoring quiet hours for Sunday");
+                    return false;
+                }
             }
         }
 
