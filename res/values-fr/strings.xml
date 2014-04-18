@@ -84,6 +84,8 @@
     <string name="quick_settings_smart_radio_off">Ondes Radio Intelligentes Off</string>
     <string name="quick_settings_lock_screen_on">Écran de Déverrouillage On</string>
     <string name="quick_settings_lock_screen_off">Écran de Déverrouillage Off</string>
+    <string name="quick_settings_location_on">Localisation</string>
+    <string name="quick_settings_location_off">Localisation Off</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Touches des paramètres rapides</string>
@@ -94,6 +96,7 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_gps">Localisation</string>
+    <string name="qs_tile_gps_slimkat">Localisation (style SlimKat)</string>
     <string name="qs_tile_gps_alt">GPS (Style CM)</string>
     <string name="qs_tile_mobile_data">Connexion de Données</string>
     <string name="qs_tile_network_mode">Mode Réseau</string>
@@ -1455,5 +1458,8 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">Forcer la localisation en anglais</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Transparence du panneau de volume</string>
 
 </resources>
