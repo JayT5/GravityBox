@@ -19,7 +19,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -43,6 +42,7 @@ import com.ceco.kitkat.gravitybox.quicksettings.NetworkModeTile;
 import com.ceco.kitkat.gravitybox.quicksettings.NfcTile;
 import com.ceco.kitkat.gravitybox.quicksettings.QuickAppTile;
 import com.ceco.kitkat.gravitybox.quicksettings.QuickRecordTile;
+import com.ceco.kitkat.gravitybox.quicksettings.QuietHoursTile;
 import com.ceco.kitkat.gravitybox.quicksettings.RingerModeTile;
 import com.ceco.kitkat.gravitybox.quicksettings.ScreenshotTile;
 import com.ceco.kitkat.gravitybox.quicksettings.SleepTile;
@@ -170,7 +170,8 @@ public class ModQuickSettings {
             R.id.music_tileview,
             R.id.smart_radio_tileview,
             R.id.lock_screen_tileview,
-            R.id.location_tileview
+            R.id.location_tileview,
+            R.id.quiet_hours_tileview
         ));
 
         Map<String, Integer> tmpMap = new HashMap<String, Integer>();
@@ -811,6 +812,10 @@ public class ModQuickSettings {
                 LockScreenTile lsTile = new LockScreenTile(mContext, mGbContext, mStatusBar, mPanelBar);
                 lsTile.setupQuickSettingsTile(mContainerView, inflater, mPrefs, mQuickSettings);
                 mTiles.add(lsTile);
+
+                QuietHoursTile qhTile = new QuietHoursTile(mContext, mGbContext, mStatusBar, mPanelBar);
+                qhTile.setupQuickSettingsTile(mContainerView, inflater, mPrefs, mQuickSettings);
+                mTiles.add(qhTile);
 
                 mBroadcastSubReceivers = new ArrayList<BroadcastSubReceiver>();
                 for (AQuickSettingsTile t : mTiles) {

@@ -23,15 +23,20 @@ import com.ceco.kitkat.gravitybox.Utils;
 import de.robv.android.xposed.XSharedPreferences;
 
 public class QuietHours {
-    boolean enabled;
+    public enum Mode { ON, OFF, AUTO };
+
+    public boolean uncLocked;
+    public boolean enabled;
     long start;
     long end;
     long startAlt;
     long endAlt;
     boolean muteLED;
     public boolean showStatusbarIcon;
+    public Mode mode;
 
     public QuietHours(XSharedPreferences prefs) {
+        uncLocked = prefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false);
         enabled = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
         start = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START, 0);
         end = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END, 0);
@@ -39,10 +44,15 @@ public class QuietHours {
         endAlt = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END_ALT, 0);
         muteLED = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_MUTE_LED, false);
         showStatusbarIcon = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_STATUSBAR_ICON, true);
+        mode = Mode.valueOf(prefs.getString(QuietHoursActivity.PREF_KEY_QH_MODE, "AUTO"));
     }
 
     public boolean quietHoursActive() {
         if (!enabled) return false;
+
+        if (mode != Mode.AUTO) {
+            return (mode == Mode.ON ? true : false);
+        }
 
         int startMin, endMin;
         Calendar c = new GregorianCalendar();

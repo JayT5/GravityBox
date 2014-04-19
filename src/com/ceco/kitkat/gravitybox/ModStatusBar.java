@@ -311,7 +311,6 @@ public class ModStatusBar {
                     // inject Quiet Hours view
                     StatusbarQuietHoursView qhv = new StatusbarQuietHoursView(liparam.view.getContext());
                     mIconArea.addView(qhv, 0);
-                    mBroadcastSubReceivers.add(qhv);
                 }
             });
         } catch (Throwable t) {
@@ -452,8 +451,6 @@ public class ModStatusBar {
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_CARRIER2_TEXT_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_EXPAND_ALL_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_PREF_STATUSBAR_DT2S_CHANGED);
-                    intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
-                    intentFilter.addAction(Intent.ACTION_TIME_TICK);
                     mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
                     mSettingsObserver = new SettingsObserver(

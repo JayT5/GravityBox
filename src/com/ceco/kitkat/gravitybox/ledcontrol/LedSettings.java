@@ -148,6 +148,27 @@ public class LedSettings {
         }
     }
 
+    public static boolean isUncLocked(Context context) {
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(
+                    "ledcontrol", Context.MODE_WORLD_READABLE);
+            return prefs.getBoolean(PREF_KEY_LOCKED, false);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return true;
+        }
+    }
+
+    public static void lockUnc(Context context, boolean lock) {
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(
+                    "ledcontrol", Context.MODE_WORLD_READABLE);
+            prefs.edit().putBoolean(PREF_KEY_LOCKED, lock).commit();
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+
     protected void setPackageName(String pkgName) {
         mPackageName = pkgName;
     }

@@ -91,6 +91,7 @@
             <intent-filter>
                 <action android:name="gravitybox.intent.action.TOGGLE_SYNC" />
                 <action android:name="gravitybox.intent.action.GET_SYNC_STATUS" />
+                <action android:name="gravitybox.intent.action.SET_QUIET_HOURS_MODE" />
             </intent-filter>
         </service>
 

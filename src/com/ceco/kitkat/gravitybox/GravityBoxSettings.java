@@ -1535,6 +1535,13 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                     qsPrefs.remove("nfc_tileview");
                 }
             }
+            if (LedSettings.isUncLocked(getActivity())) {
+                qsEntries.remove(getString(R.string.lc_quiet_hours));
+                qsEntryValues.remove("quiet_hours_tileview");
+                if (qsPrefs != null && qsPrefs.contains("quiet_hours_tileview")) {
+                    qsPrefs.remove("quiet_hours_tileview");
+                }
+            }
             // and update saved prefs in case it was previously checked in previous versions
             mPrefs.edit().putStringSet(PREF_KEY_QUICK_SETTINGS, qsPrefs).commit();
             mQuickSettings.setEntries(qsEntries.toArray(new CharSequence[qsEntries.size()]));
@@ -1656,16 +1663,12 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                     mPrefLedControl.setEnabled(false);
                     mPrefLedControl.setSummary(String.format("%s (%s)", mPrefLedControl.getSummary(),
                         getString(R.string.wsc_trans_required_summary)));
-                    SharedPreferences uncPrefs = getActivity().getSharedPreferences(
-                            "ledcontrol", Context.MODE_WORLD_READABLE);
-                    uncPrefs.edit().putBoolean(LedSettings.PREF_KEY_LOCKED, true).commit();
+                    LedSettings.lockUnc(getActivity(), true);
                 }
                 mPrefs.edit().putString(PREF_KEY_TRANS_VERIFICATION, null).commit();
                 mPrefTransVerification.getEditText().setText(null);
             } else {
-                SharedPreferences uncPrefs = getActivity().getSharedPreferences(
-                        "ledcontrol", Context.MODE_WORLD_READABLE);
-                uncPrefs.edit().putBoolean(LedSettings.PREF_KEY_LOCKED, false).commit();
+                LedSettings.lockUnc(getActivity(), false);
                 mPrefTransVerification.setEnabled(false);
                 mPrefTransVerification.setSummary(mPrefs.getString(PREF_KEY_TRANS_VERIFICATION,
                         getString(R.string.pref_trans_verification_summary)));

@@ -37,9 +37,25 @@ public class QuietHoursActivity extends Activity {
     public static final String PREF_KEY_QH_END_ALT = "pref_lc_qh_end_alt";
     public static final String PREF_KEY_QH_MUTE_LED = "pref_lc_qh_mute_led";
     public static final String PREF_KEY_QH_STATUSBAR_ICON = "pref_lc_qh_statusbar_icon";
+    public static final String PREF_KEY_QH_MODE = "pref_lc_qh_mode";
 
     public static final String ACTION_QUIET_HOURS_CHANGED = 
             "gravitybox.intent.action.QUIET_HOURS_CHANGED";
+    public static final String ACTION_SET_QUIET_HOURS_MODE = 
+            "gravitybox.intent.action.SET_QUIET_HOURS_MODE";
+    public static final String EXTRA_QH_MODE = "qhMode";
+
+    public static void setQuietHoursMode(Context context, String mode) {
+        try {
+            QuietHours.Mode qhMode = QuietHours.Mode.valueOf(mode);
+            SharedPreferences prefs = context.getSharedPreferences("ledcontrol", Context.MODE_WORLD_READABLE);
+            prefs.edit().putString(QuietHoursActivity.PREF_KEY_QH_MODE, mode.toString()).commit();
+            Intent intent = new Intent(ACTION_QUIET_HOURS_CHANGED);
+            context.sendBroadcast(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
