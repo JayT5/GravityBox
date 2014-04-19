@@ -15,12 +15,15 @@
 
 package com.ceco.kitkat.gravitybox.quicksettings;
 
+import com.ceco.kitkat.gravitybox.GravityBox;
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.StatusbarQuietHoursManager;
 import com.ceco.kitkat.gravitybox.StatusbarQuietHoursManager.QuietHoursListener;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHours;
+import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 public class QuietHoursTile extends BasicTile implements QuietHoursListener {
@@ -41,8 +44,14 @@ public class QuietHoursTile extends BasicTile implements QuietHoursListener {
         mOnLongClick = new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (mQh != null && mQh.mode != QuietHours.Mode.AUTO) {
-                    mManager.setMode(QuietHours.Mode.AUTO);
+                if (mQh != null) {
+                    if (mQh.mode != QuietHours.Mode.AUTO) {
+                        mManager.setMode(QuietHours.Mode.AUTO);
+                    } else {
+                        Intent i = new Intent();
+                        i.setClassName(GravityBox.PACKAGE_NAME, QuietHoursActivity.class.getName());
+                        startActivity(i);
+                    }
                 }
                 return true;
             }
