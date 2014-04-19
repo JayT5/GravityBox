@@ -30,7 +30,7 @@ import android.content.IntentFilter;
 public class StatusbarQuietHoursManager extends BroadcastReceiver {
 
     private static final Object lock = new Object();
-    private static StatusbarQuietHoursManager mManager;
+    private static StatusbarQuietHoursManager sManager;
 
     private Context mContext;
     private XSharedPreferences mPrefs;
@@ -44,10 +44,10 @@ public class StatusbarQuietHoursManager extends BroadcastReceiver {
 
     public static StatusbarQuietHoursManager getInstance(Context context) {
         synchronized(lock) {
-            if (mManager == null) {
-                mManager = new StatusbarQuietHoursManager(context);
+            if (sManager == null) {
+                sManager = new StatusbarQuietHoursManager(context);
             }
-            return mManager;
+            return sManager;
         }
     }
 
