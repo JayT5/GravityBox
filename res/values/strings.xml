@@ -1462,4 +1462,7 @@
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">Volume panel transparency</string>
 
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Custom secondary carrier text</string>
+
 </resources>
