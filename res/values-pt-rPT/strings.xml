@@ -69,6 +69,8 @@
     <string name="quick_settings_smart_radio_off">Rádio inteligente desativado</string>
     <string name="quick_settings_lock_screen_on">Bloqueio de ecrã ativado</string>
     <string name="quick_settings_lock_screen_off">Bloqueio de ecrã desativado</string>
+    <string name="quick_settings_location_on">Localização</string>
+    <string name="quick_settings_location_off">Localização desativada</string>
 
     <!-- QuickSettings settings -->
     <string name="quick_settings_title">Definições rápidas na barra de status</string>
@@ -79,7 +81,8 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_gps">Localização</string>
-    <string name="qs_tile_gps_alt">GPS (estilo CM)</string>
+    <string name="qs_tile_gps_slimkat">Localização (estilo SlimKat)</string>
+    <string name="qs_tile_gps_alt">Localização (estilo CM)</string>
     <string name="qs_tile_mobile_data">Dados móveis</string>
     <string name="qs_tile_network_mode">Modo de Rede</string>
     <string name="qs_tile_data_usage">Utilização de dados</string>
@@ -1433,5 +1436,8 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">Forçar idioma Inglês</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Transparência do painel de volume</string>
 
 </resources>
