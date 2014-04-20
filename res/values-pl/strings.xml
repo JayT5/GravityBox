@@ -69,6 +69,11 @@
     <string name="quick_settings_smart_radio_off">Smart Radio Wyłączone</string>
     <string name="quick_settings_lock_screen_on">Ekran Blokady Włączony</string>
     <string name="quick_settings_lock_screen_off">Ekran Blokady Wyłączony</string>
+    <string name="quick_settings_location_on">Lokalizacja Włączona</string>
+    <string name="quick_settings_location_off">Lokalizacja Wyłączona</string>
+    <string name="quick_settings_quiet_hours_off">Ciche Godziny Wyłączone</string>
+    <string name="quick_settings_quiet_hours_on">Ciche Godziny Włączone</string>
+    <string name="quick_settings_quiet_hours_auto">Ciche Godziny Auto</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Kafelki Szybkich Ustawień</string>
@@ -1424,5 +1429,19 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">Wymuś język angielski</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Przezroczystość panelu głośności</string>
+
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Własny tekst drugiego operatora</string>
+
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">Ignoruj Ciche Godziny</string>
+    <string name="pref_lc_qh_ignore_list_title">Dla określonych słów kluczowych</string>
+    <string name="pref_lc_qh_ignore_list_summary">Oddzielona przecinkami lista słów kluczowych, dla których będą ignorowane Ciche Godziny. Pozostaw puste dla wszystkich powiadomień.</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Przełącz Ciche Godziny</string>
 
 </resources>
