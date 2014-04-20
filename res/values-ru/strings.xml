@@ -84,6 +84,11 @@
     <string name="quick_settings_smart_radio_off">Умн.радио выкл</string>
     <string name="quick_settings_lock_screen_on">Экр.блокировки вкл</string>
     <string name="quick_settings_lock_screen_off">Экр.блокировки выкл</string>
+    <string name="quick_settings_location_on">Геоданные</string>
+    <string name="quick_settings_location_off">Геоданные выкл</string>
+    <string name="quick_settings_quiet_hours_off">Тихий час выкл</string>
+    <string name="quick_settings_quiet_hours_on">Тихий час вкл</string>
+    <string name="quick_settings_quiet_hours_auto">Тихий час авто</string>
     
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Плитки быстрых настроек</string>
@@ -93,8 +98,9 @@
     <string name="qs_tile_battery">Состояние батареи</string>
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
-    <string name="qs_tile_gps">GPS</string>
-    <string name="qs_tile_gps_alt">GPS (стиль CM)</string>
+    <string name="qs_tile_gps">Геоданные</string>
+    <string name="qs_tile_gps_slimkat">Геоданные (стиль SlimKat)</string>
+    <string name="qs_tile_gps_alt">Геоданные (стиль CM)</string>
     <string name="qs_tile_mobile_data">Моб. данные</string>
     <string name="qs_tile_network_mode">Режим сети</string>
     <string name="qs_tile_data_usage">Мобильные данные</string>
@@ -1405,7 +1411,7 @@
     <string name="pref_navbar_camera_key_disable_summary">Отключение отображения значка камеры на экране блокировки</string>
 
     <!-- Notification control: default settings -->
-    <string name="lc_activity_menu_default_settings">Настройки по умолчанию</string>
+    <string name="lc_activity_menu_default_settings">Умолчания</string>
     <string name="pref_lc_default_settings_summary">Если включено, настройки по умолчанию будут применены ко всем приложениям, не имеющим заданных активных параметров</string>
     <string name="lc_defaults_apply">Применение умолчаний</string>
     <string name="lc_settings_menu_reset">Сброс к умолчаниям</string>
@@ -1455,5 +1461,11 @@
 
     <!-- Force English locale -->
     <string name="pref_force_english_locale_title">Английский принудительно</string>
+
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Прозрачность панели громкости</string>
+
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Доп. текст для оператора</string>
 
 </resources>
