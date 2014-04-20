@@ -218,19 +218,6 @@ public class ModLedControl {
                 Notification n = (Notification) param.args[2];
                 if (n.extras.containsKey("gbIgnoreNotification")) return;
 
-                if (DEBUG) {
-                    log("notif title: " + n.extras.getString(Notification.EXTRA_TITLE, ""));
-                    log("notif text: " + n.extras.getString(Notification.EXTRA_TEXT, ""));
-                    log("notif summary text: " + n.extras.getString(Notification.EXTRA_SUMMARY_TEXT, ""));
-                    log("notif sub text: " + n.extras.getString(Notification.EXTRA_SUB_TEXT, ""));
-                    log("notif ticker text: " + n.tickerText);
-                    if (n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES) != null) {
-                        for (CharSequence c : n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES)) {
-                            log("notif line: " + c);
-                        }
-                    }
-                }
-
                 final QuietHours quietHours = new QuietHours(mPrefs);
                 final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
                 final String pkgName = context.getPackageName();
