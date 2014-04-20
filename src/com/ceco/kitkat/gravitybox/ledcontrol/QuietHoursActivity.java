@@ -48,11 +48,15 @@ public class QuietHoursActivity extends Activity {
     public static void setQuietHoursMode(Context context, String mode) {
         try {
             SharedPreferences prefs = context.getSharedPreferences("ledcontrol", Context.MODE_WORLD_READABLE);
+            QuietHours qh = new QuietHours(prefs);
+            if (qh.uncLocked || !qh.enabled) {
+                return;
+            }
+
             QuietHours.Mode qhMode;
             if (mode != null) {
                 qhMode = QuietHours.Mode.valueOf(mode);
             } else {
-                QuietHours qh = new QuietHours(prefs);
                 switch (qh.mode) {
                     default:
                     case ON:
