@@ -49,6 +49,7 @@ import android.view.ViewConfiguration;
 import android.widget.Toast;
 
 import com.ceco.kitkat.gravitybox.R;
+import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
 import com.ceco.kitkat.gravitybox.shortcuts.ShortcutActivity;
 
 import de.robv.android.xposed.XC_MethodHook;
@@ -92,6 +93,7 @@ public class ModHwKeys {
     public static final String ACTION_SHOW_BRIGHTNESS_DIALOG = "gravitybox.intent.action.SHOW_BRIGHTNESS_DIALOG";
     public static final String ACTION_RECENTS_CLEAR_ALL_SINGLETAP = "gravitybox.intent.action.ACTION_RECENTS_CLEARALL";
     public static final String ACTION_RECENTS_CLEAR_ALL_LONGPRESS = "gravitybox.intent.action.ACTION_RECENTS_CLEARALL_LONGPRESS";
+    public static final String ACTION_TOGGLE_QUIET_HOURS = "gravitybox.intent.action.ACTION_TOGGLE_QUIET_HOURS";
 
     public static final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
@@ -344,6 +346,8 @@ public class ModHwKeys {
             } else if (action.equals(GravityBoxSettings.ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED)) {
                 setVirtualKeyVibePattern(intent.getStringExtra(
                         GravityBoxSettings.EXTRA_VK_VIBRATE_PATTERN));
+            } else if (action.equals(ACTION_TOGGLE_QUIET_HOURS)) {
+                toggleQuietHours(intent.getStringExtra(QuietHoursActivity.EXTRA_QH_MODE));
             }
         }
     };
@@ -839,6 +843,7 @@ public class ModHwKeys {
             intentFilter.addAction(ACTION_SHOW_VOLUME_PANEL);
             intentFilter.addAction(ACTION_SHOW_BRIGHTNESS_DIALOG);
             intentFilter.addAction(GravityBoxSettings.ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED);
+            intentFilter.addAction(ACTION_TOGGLE_QUIET_HOURS);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
             if (DEBUG) log("Phone window manager initialized");
@@ -1580,6 +1585,19 @@ public class ModHwKeys {
             if (vp != null) {
                 XposedHelpers.setObjectField(mPhoneWindowManager, "mVirtualKeyVibePattern", vp);
             }
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
+    }
+
+    private static void toggleQuietHours(String mode) {
+        try {
+            Intent intent = new Intent(mGbContext, GravityBoxService.class);
+            intent.setAction(QuietHoursActivity.ACTION_SET_QUIET_HOURS_MODE);
+            if (mode != null) {
+                intent.putExtra(QuietHoursActivity.EXTRA_QH_MODE, mode);
+            }
+            mGbContext.startService(intent);
         } catch (Throwable t) {
             XposedBridge.log(t);
         }

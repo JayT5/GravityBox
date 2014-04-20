@@ -44,8 +44,7 @@ public class GravityBoxService extends IntentService {
             Bundle data = new Bundle();
             data.putBoolean(KEY_SYNC_STATUS, syncStatus);
             receiver.send(RESULT_SYNC_STATUS, data);
-        } else if (intent.getAction().equals(QuietHoursActivity.ACTION_SET_QUIET_HOURS_MODE) &&
-                intent.hasExtra(QuietHoursActivity.EXTRA_QH_MODE)) {
+        } else if (intent.getAction().equals(QuietHoursActivity.ACTION_SET_QUIET_HOURS_MODE)) {
             QuietHoursActivity.setQuietHoursMode(this, intent.getStringExtra(
                     QuietHoursActivity.EXTRA_QH_MODE));
         }

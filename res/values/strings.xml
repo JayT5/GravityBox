@@ -1474,4 +1474,7 @@
     <string name="pref_lc_qh_ignore_list_summary">Comma separated list of keywords for which to ignore 
         Quiet hours. Leave empty for all notifications.</string>
 
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Toggle Quiet hours</string>
+
 </resources>

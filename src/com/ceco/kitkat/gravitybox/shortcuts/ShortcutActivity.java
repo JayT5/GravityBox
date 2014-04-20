@@ -21,6 +21,7 @@ import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.Utils;
 import com.ceco.kitkat.gravitybox.adapters.IIconListAdapterItem;
 import com.ceco.kitkat.gravitybox.adapters.IconListAdapter;
+import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.shortcuts.AShortcut.CreateShortcutListener;
 
 import android.app.ListActivity;
@@ -132,6 +133,8 @@ public class ShortcutActivity extends ListActivity {
             BrightnessDialogShortcut.launchAction(mContext, intent);
         } else if (action.equals(SmartRadioShortcut.ACTION)) {
             SmartRadioShortcut.launchAction(mContext, intent);
+        } else if (action.equals(QuietHoursShortcut.ACTION)) {
+            QuietHoursShortcut.launchAction(mContext, intent);
         }
     }
 
@@ -184,6 +187,9 @@ public class ShortcutActivity extends ListActivity {
         list.add(new LauncherDrawerShortcut(mContext));
         list.add(new RotationLockShortcut(mContext));
         list.add(new SleepShortcut(mContext));
+        if (!LedSettings.isUncLocked(mContext)) {
+            list.add(new QuietHoursShortcut(mContext));
+        }
 
         mListAdapter = new IconListAdapter(mContext, list);
         setListAdapter(mListAdapter);

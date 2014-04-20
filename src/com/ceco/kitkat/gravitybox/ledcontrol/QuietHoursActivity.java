@@ -47,9 +47,27 @@ public class QuietHoursActivity extends Activity {
 
     public static void setQuietHoursMode(Context context, String mode) {
         try {
-            QuietHours.Mode qhMode = QuietHours.Mode.valueOf(mode);
             SharedPreferences prefs = context.getSharedPreferences("ledcontrol", Context.MODE_WORLD_READABLE);
-            prefs.edit().putString(QuietHoursActivity.PREF_KEY_QH_MODE, mode.toString()).commit();
+            QuietHours.Mode qhMode;
+            if (mode != null) {
+                qhMode = QuietHours.Mode.valueOf(mode);
+            } else {
+                QuietHours qh = new QuietHours(prefs);
+                switch (qh.mode) {
+                    default:
+                    case ON:
+                        qhMode = QuietHours.Mode.OFF;
+                        break;
+                    case AUTO:
+                        qhMode = qh.quietHoursActive() ? 
+                                QuietHours.Mode.OFF : QuietHours.Mode.ON;
+                        break;
+                    case OFF:
+                        qhMode = QuietHours.Mode.ON;
+                        break;
+                }
+            }
+            prefs.edit().putString(QuietHoursActivity.PREF_KEY_QH_MODE, qhMode.toString()).commit();
             Intent intent = new Intent(ACTION_QUIET_HOURS_CHANGED);
             context.sendBroadcast(intent);
         } catch (Exception e) {
