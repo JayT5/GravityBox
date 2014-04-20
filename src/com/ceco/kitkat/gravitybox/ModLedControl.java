@@ -218,6 +218,19 @@ public class ModLedControl {
                 Notification n = (Notification) param.args[2];
                 if (n.extras.containsKey("gbIgnoreNotification")) return;
 
+                if (DEBUG) {
+                    log("notif title: " + n.extras.getString(Notification.EXTRA_TITLE, ""));
+                    log("notif text: " + n.extras.getString(Notification.EXTRA_TEXT, ""));
+                    log("notif summary text: " + n.extras.getString(Notification.EXTRA_SUMMARY_TEXT, ""));
+                    log("notif sub text: " + n.extras.getString(Notification.EXTRA_SUB_TEXT, ""));
+                    log("notif ticker text: " + n.tickerText);
+                    if (n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES) != null) {
+                        for (CharSequence c : n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES)) {
+                            log("notif line: " + c);
+                        }
+                    }
+                }
+
                 final QuietHours quietHours = new QuietHours(mPrefs);
                 final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
                 final String pkgName = context.getPackageName();
@@ -226,17 +239,20 @@ public class ModLedControl {
                 if (!ls.getEnabled()) {
                     // use default settings in case they are active
                     ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
-                    if (!ls.getEnabled() && !quietHours.quietHoursActive()) {
+                    if (!ls.getEnabled() && !quietHours.quietHoursActive(ls, n)) {
                         return;
                     }
                 }
                 if (DEBUG) log(pkgName + ": " + ls.toString());
 
+                final boolean qhActive = quietHours.quietHoursActive(ls, n);
+                final boolean qhActiveIncludingLed = quietHours.quietHoursActiveIncludingLED(ls, n);
+
                 // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
                 if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
                         (Integer)param.args[1] == MISSED_CALL_NOTIF_ID && 
                         ls.getEnabled() && ls.getLedMode() != LedMode.OFF &&
-                        !quietHours.quietHoursActiveIncludingLED()) {
+                        !qhActiveIncludingLed) {
                     mNotifOnNextScreenOff = n;
                     context.registerReceiver(mScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
                     if (DEBUG) log("Scheduled missed call notification for next screen off");
@@ -244,13 +260,13 @@ public class ModLedControl {
                 }
 
                 if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
-                        !ls.getOngoing() && !quietHours.quietHoursActive()) {
+                        !ls.getOngoing() && !qhActive) {
                     if (DEBUG) log("Ongoing led control disabled. Ignoring.");
                     return;
                 }
 
                 // lights
-                if (quietHours.quietHoursActiveIncludingLED() || 
+                if (qhActiveIncludingLed || 
                         (ls.getEnabled() && ls.getLedMode() == LedMode.OFF)) {
                     n.defaults &= ~Notification.DEFAULT_LIGHTS;
                     n.flags &= ~Notification.FLAG_SHOW_LIGHTS;
@@ -263,7 +279,7 @@ public class ModLedControl {
                 }
 
                 // sound
-                if (quietHours.quietHoursActive()) {
+                if (qhActive) {
                     n.defaults &= ~Notification.DEFAULT_SOUND;
                     n.sound = null;
                     n.flags &= ~Notification.FLAG_INSISTENT;
@@ -285,7 +301,7 @@ public class ModLedControl {
                 }
 
                 // vibration
-                if (quietHours.quietHoursActive()) {
+                if (qhActive) {
                     n.defaults &= ~Notification.DEFAULT_VIBRATE;
                     n.vibrate = new long[] {0};
                 } else if (ls.getVibrateOverride() && ls.getVibratePattern() != null) {
@@ -327,9 +343,6 @@ public class ModLedControl {
                 return;
             }
             if (mPm != null && !mPm.isScreenOn() && !mScreenCovered && mKm.isKeyguardLocked()) {
-                final QuietHours quietHours = new QuietHours(mPrefs);
-                if(quietHours.quietHoursActive()) return;
-
                 final String pkgName = (String) param.args[0];
                 LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
                 if (!ls.getEnabled()) {
@@ -342,6 +355,11 @@ public class ModLedControl {
                 if (!ls.getActiveScreenEnabled()) return;
 
                 Notification n = (Notification) param.args[4];
+                final QuietHours quietHours = new QuietHours(mPrefs);
+                if (quietHours.quietHoursActive(ls, n)) {
+                    return;
+                }
+
                 if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
                         !ls.getOngoing()) {
                     if (DEBUG) log("Ongoing led control disabled. Ignoring.");

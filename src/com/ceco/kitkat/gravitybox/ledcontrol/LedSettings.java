@@ -46,6 +46,8 @@ public class LedSettings {
     private boolean mActiveScreenEnabled;
     private boolean mActiveScreenExpanded;
     private LedMode mLedMode;
+    private boolean mQhIgnore;
+    private String mQhIgnoreList;
 
     protected static LedSettings deserialize(Context context, String packageName) {
         try {
@@ -108,6 +110,10 @@ public class LedSettings {
                 ls.setActiveScreenExpanded(Boolean.valueOf(data[1]));
             } else if (data[0].equals("ledMode")) {
                 ls.setLedMode(LedMode.valueOf(data[1]));
+            } else if (data[0].equals("qhIgnore")) {
+                ls.setQhIgnore(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("qhIgnoreList")) {
+                ls.setQhIgnoreList(data[1]);
             }
         }
         return ls;
@@ -131,6 +137,8 @@ public class LedSettings {
         mActiveScreenEnabled = false;
         mActiveScreenExpanded = false;
         mLedMode = LedMode.OVERRIDE;
+        mQhIgnore = false;
+        mQhIgnoreList = null;
     }
 
     protected static LedSettings getDefault(Context context) {
@@ -142,6 +150,17 @@ public class LedSettings {
             SharedPreferences prefs = context.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             return prefs.getBoolean(PREF_KEY_ACTIVE_SCREEN_ENABLED, false);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return false;
+        }
+    }
+
+    protected static boolean isQuietHoursEnabled(Context context) {
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(
+                    "ledcontrol", Context.MODE_WORLD_READABLE);
+            return prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
         } catch (Throwable t) {
             t.printStackTrace();
             return false;
@@ -247,6 +266,14 @@ public class LedSettings {
         mLedMode = ledMode;
     }
 
+    protected void setQhIgnore(boolean ignore) {
+        mQhIgnore = ignore;
+    }
+
+    protected void setQhIgnoreList(String ignoreList) {
+        mQhIgnoreList = ignoreList;
+    }
+
     public String getPackageName() {
         return mPackageName;
     }
@@ -311,6 +338,14 @@ public class LedSettings {
         return mLedMode;
     }
 
+    public boolean getQhIgnore() {
+        return mQhIgnore;
+    }
+
+    public String getQhIgnoreList() {
+        return mQhIgnoreList;
+    }
+
     protected void serialize() {
         try {
             Set<String> dataSet = new HashSet<String>();
@@ -332,6 +367,10 @@ public class LedSettings {
             dataSet.add("activeScreenEnabled:" + mActiveScreenEnabled);
             dataSet.add("activeScreenExpanded:" + mActiveScreenExpanded);
             dataSet.add("ledMode:" + mLedMode);
+            dataSet.add("qhIgnore:" + mQhIgnore);
+            if (mQhIgnoreList != null) {
+                dataSet.add("qhIgnoreList:" + mQhIgnoreList);
+            }
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();

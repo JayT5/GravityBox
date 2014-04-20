@@ -196,6 +196,8 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setActiveScreenEnabled(mPrefsFragment.getActiveScreenEnabled());
         mLedSettings.setActiveScreenExpanded(mPrefsFragment.getActiveScreenExpanded());
         mLedSettings.setLedMode(mPrefsFragment.getLedMode());
+        mLedSettings.setQhIgnore(mPrefsFragment.getQhIgnore());
+        mLedSettings.setQhIgnoreList(mPrefsFragment.getQhIgnoreList());
         mLedSettings.serialize();
         Intent intent;
         if (activeScreenChanged) {

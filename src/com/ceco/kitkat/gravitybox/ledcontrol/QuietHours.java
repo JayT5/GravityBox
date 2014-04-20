@@ -17,6 +17,8 @@ package com.ceco.kitkat.gravitybox.ledcontrol;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import android.app.Notification;
+
 import com.ceco.kitkat.gravitybox.ModLedControl;
 import com.ceco.kitkat.gravitybox.Utils;
 
@@ -47,8 +49,37 @@ public class QuietHours {
         mode = Mode.valueOf(prefs.getString(QuietHoursActivity.PREF_KEY_QH_MODE, "AUTO"));
     }
 
+    public boolean quietHoursActive(LedSettings ls, Notification n) {
+        if (!uncLocked && enabled && ls.getEnabled() && ls.getQhIgnore()) {
+            if (ls.getQhIgnoreList() == null || ls.getQhIgnoreList().trim().isEmpty()) {
+                if (ModLedControl.DEBUG) ModLedControl.log("QH ignored for all notifications");
+                return false;
+            } else {
+                String[] keywords = ls.getQhIgnoreList().trim().split(",");
+                boolean ignore = false;
+                for (String kw : keywords) {
+                    kw = kw.toLowerCase();
+                    ignore |= n.tickerText != null && n.tickerText.toString().toLowerCase().contains(kw);
+                    ignore |= n.extras.getString(Notification.EXTRA_TITLE, "").toLowerCase().contains(kw);
+                    ignore |= n.extras.getString(Notification.EXTRA_TEXT, "").toLowerCase().contains(kw);
+                    ignore |= n.extras.getString(Notification.EXTRA_SUMMARY_TEXT, "").toLowerCase().contains(kw);
+                    ignore |= n.extras.getString(Notification.EXTRA_SUB_TEXT, "").toLowerCase().contains(kw);
+                    if (n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES) != null) {
+                        for (CharSequence c : n.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES)) {
+                            ignore |= c != null && c.toString().toLowerCase().contains(kw);
+                        }
+                    }
+                }
+                if (ModLedControl.DEBUG) ModLedControl.log("QH ignore list contains keyword?: " + ignore);
+                return (ignore ? false : quietHoursActive());
+            }
+        } else {
+            return quietHoursActive();
+        }
+    }
+
     public boolean quietHoursActive() {
-        if (!enabled) return false;
+        if (uncLocked || !enabled) return false;
 
         if (mode != Mode.AUTO) {
             return (mode == Mode.ON ? true : false);
@@ -117,7 +148,7 @@ public class QuietHours {
         return (Utils.isTimeOfDayInRange(System.currentTimeMillis(), s, e));
     }
 
-    public boolean quietHoursActiveIncludingLED() {
-        return quietHoursActive() && muteLED;
+    public boolean quietHoursActiveIncludingLED(LedSettings ls, Notification n) {
+        return quietHoursActive(ls, n) && muteLED;
     }
 }

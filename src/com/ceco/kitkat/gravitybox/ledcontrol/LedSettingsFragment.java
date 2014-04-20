@@ -37,7 +37,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.text.Editable;
 import android.widget.Toast;
 
 public class LedSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener {
@@ -56,6 +55,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "pref_lc_active_screen_enable";
     private static final String PREF_KEY_ACTIVE_SCREEN_EXPANDED = "pref_lc_active_screen_expand";
     private static final String PREF_KEY_LED_MODE = "pref_lc_led_mode";
+    private static final String PREF_CAT_KEY_QH = "pref_cat_lc_quiet_hours";
+    private static final String PREF_KEY_QH_IGNORE = "pref_lc_qh_ignore";
+    private static final String PREF_KEY_QH_IGNORE_LIST = "pref_lc_qh_ignore_list";
 
     private static final int REQ_PICK_SOUND = 101;
 
@@ -75,6 +77,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
     private CheckBoxPreference mActiveScreenEnabledPref;
     private CheckBoxPreference mActiveScreenExpandedPref;
     private ListPreference mLedModePref;
+    private PreferenceCategory mQhCat;
+    private CheckBoxPreference mQhIgnorePref;
+    private EditTextPreference mQhIgnoreListPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +103,9 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         mActiveScreenExpandedPref = (CheckBoxPreference) findPreference(PREF_KEY_ACTIVE_SCREEN_EXPANDED);
         mLedModePref = (ListPreference) findPreference(PREF_KEY_LED_MODE);
         mLedModePref.setOnPreferenceChangeListener(this);
+        mQhCat = (PreferenceCategory) findPreference(PREF_CAT_KEY_QH);
+        mQhIgnorePref = (CheckBoxPreference) findPreference(PREF_KEY_QH_IGNORE);
+        mQhIgnoreListPref = (EditTextPreference) findPreference(PREF_KEY_QH_IGNORE_LIST);
     }
 
     protected void initialize(LedSettings ledSettings) {
@@ -128,6 +136,12 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
         }
         mLedModePref.setValue(ledSettings.getLedMode().toString());
         updateLedModeDependentState();
+        if (!LedSettings.isQuietHoursEnabled(getActivity())) {
+            getPreferenceScreen().removePreference(mQhCat);
+        } else {
+            mQhIgnorePref.setChecked(ledSettings.getQhIgnore());
+            mQhIgnoreListPref.setText(ledSettings.getQhIgnoreList());
+        }
     }
 
     private void updateSoundPrefSummary() {
@@ -204,6 +218,14 @@ public class LedSettingsFragment extends PreferenceFragment implements OnPrefere
 
     protected LedMode getLedMode() {
         return LedMode.valueOf(mLedModePref.getValue());
+    }
+
+    protected boolean getQhIgnore() {
+        return mQhIgnorePref.isChecked();
+    }
+
+    protected String getQhIgnoreList() {
+        return mQhIgnoreListPref.getText();
     }
 
     @Override
