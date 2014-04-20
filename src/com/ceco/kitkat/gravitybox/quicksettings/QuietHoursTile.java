@@ -118,8 +118,11 @@ public class QuietHoursTile extends BasicTile implements QuietHoursListener {
 
         switch (mQh.mode) {
             case ON:
-            case AUTO:
                 mManager.setMode(QuietHours.Mode.OFF);
+                break;
+            case AUTO:
+                mManager.setMode(mQh.quietHoursActive() ? 
+                        QuietHours.Mode.OFF : QuietHours.Mode.ON);
                 break;
             case OFF:
                 mManager.setMode(QuietHours.Mode.ON);
