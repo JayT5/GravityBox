@@ -1477,4 +1477,8 @@
     <!-- GB Actions: Quiet hours shortcut -->
     <string name="shortcut_quiet_hours_toggle">Toggle Quiet hours</string>
 
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Enable H+ indicator</string>
+    <string name="pref_signal_cluster_hplus_summary">Requires reboot</string>
+
 </resources>

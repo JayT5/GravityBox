@@ -313,6 +313,8 @@ public class ModStatusBar {
                     mIconArea.addView(qhv, 0);
                 }
             });
+
+            StatusbarSignalCluster.initResources(prefs, resparam);
         } catch (Throwable t) {
             XposedBridge.log(t);
         }
