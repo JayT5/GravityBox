@@ -1468,4 +1468,17 @@
     <!-- Lockscreen: secondary custom carrier text (MTK only) -->
     <string name="pref_lockscreen_carrier2_text_title">Доп. текст для оператора</string>
 
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">Игноририровать тихий час</string>
+    <string name="pref_lc_qh_ignore_list_title">По ключевым словам</string>
+    <string name="pref_lc_qh_ignore_list_summary">Список разделённых запятыми ключевых слов для игнорирования 
+        тихого часа. Оставьте пустым для сохранения всех уведомлений.</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Включение тихого часа</string>
+
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Вкл индикатор H+</string>
+    <string name="pref_signal_cluster_hplus_summary">Необходима перезагрузка</string>
+
 </resources>
