@@ -213,6 +213,12 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
             };
             QS_DATA_HP = new int[] { sQsHpResId, sQsHpFullResId };
         }
+
+        String lteStyle = prefs.getString(GravityBoxSettings.PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE, "DEFAULT");
+        if (!lteStyle.equals("DEFAULT")) {
+            resparam.res.setReplacement(ModStatusBar.PACKAGE_NAME, "bool", "config_show4GForLTE",
+                    lteStyle.equals("4G"));
+        }
     }
 
     public static StatusbarSignalCluster create(LinearLayout view, StatusBarIconManager iconManager,

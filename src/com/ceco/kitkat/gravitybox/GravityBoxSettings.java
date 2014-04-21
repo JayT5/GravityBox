@@ -674,6 +674,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_SIGNAL_CLUSTER_CONNECTION_STATE = "pref_signal_cluster_connection_state";
     public static final String PREF_KEY_SIGNAL_CLUSTER_DATA_ACTIVITY = "pref_signal_cluster_data_activity";
     public static final String PREF_KEY_SIGNAL_CLUSTER_HPLUS = "pref_signal_cluster_hplus";
+    public static final String PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE = "pref_signal_cluster_lte_style";
 
     public static final String PREF_CAT_KEY_NAVBAR_RING_TARGETS = "pref_cat_navbar_ring_targets";
     public static final String PREF_KEY_NAVBAR_RING_TARGETS_ENABLE = "pref_navbar_ring_targets_enable";
@@ -756,7 +757,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             PREF_KEY_PULSE_NOTIFICATION_DELAY,
             PREF_KEY_CRT_OFF_EFFECT,
             PREF_KEY_STATUSBAR_CLOCK_MASTER_SWITCH,
-            PREF_KEY_SIGNAL_CLUSTER_HPLUS
+            PREF_KEY_SIGNAL_CLUSTER_HPLUS,
+            PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE
     ));
 
     private static final class SystemProperties {
@@ -1119,6 +1121,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private PreferenceScreen mPrefCatQsNmTileSettings;
         private Preference mPrefLedControl;
         private EditTextPreference mPrefVkVibratePattern;
+        private ListPreference mPrefScLteStyle;
 
         @SuppressWarnings("deprecation")
         @Override
@@ -1410,6 +1413,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
 
             mPrefVkVibratePattern = (EditTextPreference) findPreference(PREF_KEY_VK_VIBRATE_PATTERN);
             mPrefVkVibratePattern.setOnPreferenceChangeListener(this);
+
+            mPrefScLteStyle = (ListPreference) findPreference(PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE);
 
             // Remove Phone specific preferences on Tablet devices
             if (sSystemProperties.isTablet) {
@@ -2065,6 +2070,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                     mPrefCatDataTraffic.addPreference(mPrefDataTrafficOmniAutohide);
                     mPrefCatDataTraffic.addPreference(mPrefDataTrafficOmniAutohideTh);
                 }
+            }
+
+            if (key == null || key.equals(PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE)) {
+                mPrefScLteStyle.setSummary(mPrefScLteStyle.getEntry());
             }
         }
 
