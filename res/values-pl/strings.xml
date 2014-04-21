@@ -1444,4 +1444,14 @@
     <!-- GB Actions: Quiet hours shortcut -->
     <string name="shortcut_quiet_hours_toggle">Przełącz Ciche Godziny</string>
 
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Włącz wskaźnik H+ </string>
+    <string name="pref_signal_cluster_hplus_summary">Wymaga ponownego uruchomienia</string>
+
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">Styl wskaźnika LTE</string>
+    <string name="sc_lte_style_default">Systemowy</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
+
 </resources>
