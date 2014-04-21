@@ -457,6 +457,7 @@ public class ModLockscreen {
                             Intent newIntent = new Intent(appInfo.intent.getStringExtra(ShortcutActivity.EXTRA_ACTION));
                             newIntent.putExtras(appInfo.intent);
                             mGlowPadView.getContext().sendBroadcast(newIntent);
+                            XposedHelpers.setIntField(mGlowPadView, "mActiveTarget", -1);
                             XposedHelpers.callMethod(mGlowPadView, "doFinish");
                         // otherwise start activity
                         } else {
