@@ -71,6 +71,9 @@
     <string name="quick_settings_lock_screen_off">ロック画面オフ</string>
     <string name="quick_settings_location_on">位置情報オン</string>
     <string name="quick_settings_location_off">位置情報オフ</string>
+    <string name="quick_settings_quiet_hours_off">お休みモードオフ</string>
+    <string name="quick_settings_quiet_hours_on">お休みモードオン</string>
+    <string name="quick_settings_quiet_hours_auto">お休みモード自動</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">ステータスバークイック設定タイル</string>
@@ -1425,5 +1428,26 @@
 
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">音量パネルの透過度</string>
+    
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">カスタム第二キャリアラベル</string>
+
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">お休みモードを無視</string>
+    <string name="pref_lc_qh_ignore_list_title">キーワード設定</string>
+    <string name="pref_lc_qh_ignore_list_summary">お休みモードを無視するキーワードをコンマで分けて入力してください。空白にすると全ての通知を対象にします。</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">お休みモードトグル</string>
+
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">H+表示の有効化</string>
+    <string name="pref_signal_cluster_hplus_summary">再起動してください。</string>
+
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">LTE表示スタイル</string>
+    <string name="sc_lte_style_default">デフォルト</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
     
 </resources>
