@@ -454,9 +454,17 @@ public class ModLockscreen {
                     if (appInfo != null) {
                         // if intent is a GB action of broadcast type, handle it directly here
                         if (ShortcutActivity.isGbBroadcastShortcut(appInfo.intent)) {
-                            Intent newIntent = new Intent(appInfo.intent.getStringExtra(ShortcutActivity.EXTRA_ACTION));
-                            newIntent.putExtras(appInfo.intent);
-                            mGlowPadView.getContext().sendBroadcast(newIntent);
+                            final Object lockPatternUtils = XposedHelpers.getObjectField(
+                                    XposedHelpers.getSurroundingThis(param.thisObject), "mLockPatternUtils");
+                            if (lockPatternUtils != null && 
+                                    (Boolean) XposedHelpers.callMethod(lockPatternUtils, "isSecure")) {
+                                if (DEBUG) log("Keyguard is secured - ignoring GB action");
+                            } else {
+                                Intent newIntent = new Intent(appInfo.intent.getStringExtra(
+                                        ShortcutActivity.EXTRA_ACTION));
+                                newIntent.putExtras(appInfo.intent);
+                                mGlowPadView.getContext().sendBroadcast(newIntent);
+                            }
                             XposedHelpers.setIntField(mGlowPadView, "mActiveTarget", -1);
                             XposedHelpers.callMethod(mGlowPadView, "doFinish");
                         // otherwise start activity
