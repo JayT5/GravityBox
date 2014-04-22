@@ -1059,9 +1059,6 @@
     <string name="pref_smart_radio_screen_off_delay_summary">画面がオフになった時の省電力モードへの切り替えを遅らせます。
         値が0以外の場合はデフォルトの遅延を上書きします。</string>
 
-    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
-    <string name="pref_lockscreen_carrier2_text_title">カスタムセカンダリキャリアラベル</string>
-
     <!-- Backup and restore settings -->
     <string name="pref_settings_backup_title">設定のバックアップ</string>
     <string name="pref_settings_restore_title">設定のリストア</string>
