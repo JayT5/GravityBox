@@ -1,3 +1,48 @@
+Changelog 3.1.0 - 22/04/2014
+--------------------------------------
+- QuickSettings management:
+--- added SlimKat style Location tile (thanks to SilentException):
+------ single press = enable / disable, long press = change location mode
+------ compatible with "Disable location consent" xposed module
+--- added Quiet hours tile:
+------ single-press cycles between QH on/off (manual mode)
+------ long-press turns on QH auto mode (follows time ranges defined in QH settings)
+------ long-press during auto mode opens QH settings
+- UNC Quiet hours:
+--- fixed bug in time range handling for Friday/Sunday
+--- added option for ignoring QH on per-app basis:
+------ allows ignoring QH for all notifications arriving from particular app
+------ allows defining keywords for which to ignore QH (QH will be ignored for notifications containing keywords)
+- GravityBox Actions:
+--- added Quiet hours shortcuts:
+------ one for toggling manual on/off, another one for switching to AUTO mode
+------ 3rd party control via intent available:
+--------- Intent: gravitybox.intent.action.ACTION_TOGGLE_QUIET_HOURS
+--------- Extra param (optional): qhMode (case sensitive string; supported values: ON, OFF, AUTO)
+--- fixed Google Now action not launching on devices without navigation bar
+--- fixed bug in launching GB Actions from unlock ring (toggle actions were affected)
+--- prevent GB actions from launching from navbar ring or unlock ring when keyguard is secured (security measure)
+- SignalCluster settings: 
+--- option to show H+ indicator (distinguishes between HSPA and HSPA+)
+--- option to change mobile data indicator style (LTE/4G)
+- Media tweaks: option for adjusting volume panel transparency
+- Notification drawer style: added custom carrier text support for MediaTek devices (thanks to bgcngm)
+- Improved support for RTL languages
+--- proper cursor control arrows in navigation bar
+--- proper mobile signal icons (e.g. when statusbar coloring is on)
+--- switching between RTL/non-RTL system language requires reboot for GB to load proper resources
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Russian translations (thanks to gaich)
+- Updated Chinese (Traditional) translations (thanks to momomok)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated Hungarian translations (thanks to benjoe1)
+- Updated German translations (thanks to Minty123)
+- Updated Italian translations (thanks to pesa1234)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated French translation (thanks to ch-vox)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Slovak and Czech translations
+
 Changelog 3.0.3 - 14/04/2014
 --------------------------------------
 - Ultimate Notification Control:
