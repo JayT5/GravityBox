@@ -69,6 +69,9 @@
     <string name="quick_settings_lock_screen_off">Obrazovka uzamčení vyp</string>
     <string name="quick_settings_location_on">Poloha</string>
     <string name="quick_settings_location_off">Poloha vyp</string>
+    <string name="quick_settings_quiet_hours_off">Tiché hodiny vyp</string>
+    <string name="quick_settings_quiet_hours_on">Tiché hodiny zap</string>
+    <string name="quick_settings_quiet_hours_auto">Tiché hodiny auto</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Dlaždice QuickSettings panelu</string>
@@ -1430,5 +1433,27 @@
 
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">Průhlednost panelu hlasitosti</string>
+
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Vlastní text operátora 2</string>
+
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">Ignorovat tiché hodiny</string>
+    <string name="pref_lc_qh_ignore_list_title">Pro zadaná klíčová slova</string>
+    <string name="pref_lc_qh_ignore_list_summary">Seznam čárkou oddělených klíčových slov, 
+         pro které ignorovat tiché hodiny. Ponechte prázdné pro všechny oznámení.</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Přepnout tiché hodiny</string>
+
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Povolit H+ indikátor</string>
+    <string name="pref_signal_cluster_hplus_summary">Vyžaduje restart</string>
+
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">Styl indikátoru LTE</string>
+    <string name="sc_lte_style_default">Původní</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
 
 </resources>
