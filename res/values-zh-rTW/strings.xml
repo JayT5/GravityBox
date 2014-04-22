@@ -1441,4 +1441,24 @@
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">音量面板透明度</string>
 
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">自訂第二電訊商標題文字</string>
+
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">忽略靜音時段設定</string>
+    <string name="pref_lc_qh_ignore_list_title">只有當通知包含下列的關鍵字才會忽略靜音時段</string>
+    <string name="pref_lc_qh_ignore_list_summary">觸發忽略靜音時段的關鍵字清單，以逗號分隔。留空的話，本應用程式所有通知皆會忽略靜音時段</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">開關靜音時段</string>
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">啟用 H+ 圖示</string>
+    <string name="pref_signal_cluster_hplus_summary">需要重新啟動</string>
+
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">LTE 圖示風格</string>
+    <string name="sc_lte_style_default">系統預設</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
+
 </resources>
