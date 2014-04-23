@@ -86,6 +86,9 @@
     <string name="quick_settings_lock_screen_off">Écran de Déverrouillage Off</string>
     <string name="quick_settings_location_on">Localisation</string>
     <string name="quick_settings_location_off">Localisation Off</string>
+    <string name="quick_settings_quiet_hours_off">Heures Silencieuses Off</string>
+    <string name="quick_settings_quiet_hours_on">Heures Silencieuses On</string>
+    <string name="quick_settings_quiet_hours_auto">Heures Silencieuses Auto</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Touches des paramètres rapides</string>
@@ -1461,5 +1464,27 @@
 
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">Transparence du panneau de volume</string>
+
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Personnaliser le texte du nom d\'opérateur secondaire</string>
+
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">Ignorer les Heures silencieuses</string>
+    <string name="pref_lc_qh_ignore_list_title">Pour les mots-clés spécifiés</string>
+    <string name="pref_lc_qh_ignore_list_summary">Liste de mots-clés séparés par une virgule selon laquelle les
+        Heures silencieuses sont ignorées. Laisser vide pour toutes les notifications.</string>
+
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Interrupteur Heures silencieuses</string>
+
+    <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Activer l\'indicateur H+</string>
+    <string name="pref_signal_cluster_hplus_summary">Redémarrage nécessaire</string>
+
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">Style de l\'indicateur LTE</string>
+    <string name="sc_lte_style_default">Par défaut</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
 
 </resources>
