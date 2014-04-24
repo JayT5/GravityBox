@@ -1419,7 +1419,7 @@
     <!-- Notification control: Active screen -->
     <string name="lc_active_screen">Écran Actif</string>
     <string name="lc_active_screen_info">L\'option Écran Actif allume automatiquement l\'écran à chaque fois 
-        fois qu\'une nouvelle notification arrive. Cela se produira seulement si l\'écran n\'est pas recouvert
+        qu\'une nouvelle notification arrive. Cela se produira seulement si l\'écran n\'est pas recouvert
         (ex : lorsque l\'appareil est dans la poche). Elle peut dérouler le panneau de notification en option selon
         la politique de sécurité de l\'écran de déverrouillage et les préférences utilisateur. Attention, l\'Écran Actif nécessite 
         que l\'écran de déverrouillage soit actif. L\'interrupteur en-dessous est l\'interrupteur principal. Après qu\'il soit enclenché, 
