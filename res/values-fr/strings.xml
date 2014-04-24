@@ -1380,7 +1380,7 @@
     <string name="lc_notif_sound_none">Pas de son</string>
     <string name="pref_lc_notif_sound_only_once_title">Avertir une fois seulement</string>
     <string name="pref_lc_notif_sound_only_once_summary">Si activé, le son et/ou les vibrations ne seront pas reproduits dans le cas où la notication existait déjà</string>
-    <string name="pref_lc_notif_insistent_title">Insistance</string>
+    <string name="pref_lc_notif_insistent_title">Répétition</string>
     <string name="pref_lc_notif_insistent_summary">Si activé, le son sera répété jusqu\'à ce que la notification soit annulée ou que sa fenêtre soit ouverte</string>
     <string name="pref_lc_vibrate_override_title">Outrepasser les vibrations</string>
     <string name="pref_lc_vibrate_pattern_title">Modèle de vibration</string>
