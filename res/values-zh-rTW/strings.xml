@@ -38,9 +38,9 @@
     <string name="reboot_required">重啟裝置後更改將被套用</string>
 
     <string name="poweroff_advanced_title">進階重啟選單</string>
-    <string name="poweroff_advanced_summary">啟用進階重啟選單 (內含重啟至還原模式選項)</string>
-    <string name="poweroff_recovery">還原模式</string>
-    <string name="poweroff_bootloader">Bootloader</string>
+    <string name="poweroff_advanced_summary">啟用進階重啟選單 (包含重啟及Recovery模式選項)</string>
+    <string name="poweroff_recovery">Recovery 模式</string>
+    <string name="poweroff_bootloader">Bootloader 模式</string>
 
     <string name="vol_key_cursor_control_title">音量鍵鍵盤游標控制</string>
     <string name="vol_key_cursor_control_summary">在文字輸入區域內，以音量鍵控制鍵盤游標位置</string>
@@ -539,7 +539,7 @@
     <string name="pref_network_mode_tile_mode_title">網路模式的瓷貼模式</string>
 
     <!-- Display: allow all rotations -->
-    <string name="pref_display_allow_all_rotations_title">允許晝面可以全方位旋轉</string>
+    <string name="pref_display_allow_all_rotations_title">允許畫面可以全方位旋轉</string>
 
     <!-- QuickSettings: override AOSP tile behaviour -->
     <string name="pref_qs_tile_behaviour_override_title">更改系統預設瓷貼動作</string>
@@ -1243,19 +1243,19 @@
     <string name="stay_awake_on">Stay awake on</string>
 
     <!-- Screen recording options -->
-    <string name="pref_cat_screenrecord_options_title">Screen recording</string>
-    <string name="pref_cat_screenrecord_options_summary">Contains options for screen recording</string>
-    <string name="pref_screenrecord_size_title">Video size</string>
-    <string name="scr_size_default">Device default</string>
-    <string name="scr_size_sd">SD (360x640px)</string>
-    <string name="scr_size_hd">HD (720x1280px)</string>
-    <string name="scr_size_full_hd">Full HD (1080x1920px)</string>
-    <string name="pref_screenrecord_bitrate_title">Video bitrate</string>
-    <string name="pref_screenrecord_timelimit_title">Time limit</string>
-    <string name="pref_screenrecord_rotate_title">Rotate picture</string>
-    <string name="pref_screenrecord_rotate_summary">Rotates the output by 90 degrees</string>
-    <string name="pref_screenrecord_microphone_title">Use microphone</string>
-    <string name="pref_screenrecord_microphone_summary">Whether to use microphone for audio input</string>
+    <string name="pref_cat_screenrecord_options_title">螢幕錄製</string>
+    <string name="pref_cat_screenrecord_options_summary">包含有關螢幕錄製的選項</string>
+    <string name="pref_screenrecord_size_title">錄製畫質</string>
+    <string name="scr_size_default">系統預設</string>
+    <string name="scr_size_sd">SD (360x640像素)</string>
+    <string name="scr_size_hd">HD (720x1280像素)</string>
+    <string name="scr_size_full_hd">Full HD (1080x1920像素)</string>
+    <string name="pref_screenrecord_bitrate_title">影像資料流量</string>
+    <string name="pref_screenrecord_timelimit_title">影像錄製時限</string>
+    <string name="pref_screenrecord_rotate_title">旋轉畫面</string>
+    <string name="pref_screenrecord_rotate_summary">旋轉90度後輸出畫面</string>
+    <string name="pref_screenrecord_microphone_title">使用麥克風</string>
+    <string name="pref_screenrecord_microphone_summary">是否使用麥克風作為音訊輸入</string>
 
     <!-- Icon picker: new icons -->
     <string name="shortcuts_icon_picker_tapatalk">Tapatalk</string>
