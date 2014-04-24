@@ -1432,7 +1432,7 @@
     <!-- Notification control: Quiet hours -->
     <string name="lc_quiet_hours">Heures silencieuses</string>
     <string name="pref_lc_qh_enabled_title">Activer les heures silencieuses</string>
-    <string name="pref_lc_qh_enabled_summary">Éteint les son/vibrations et en option les LED
+    <string name="pref_lc_qh_enabled_summary">Éteint les sons/vibrations et en option les LED
         pour toutes les notifications qui se produisent dans un laps de temps défini</string>
     <string name="pref_lc_qh_start_title">Début</string>
     <string name="pref_lc_qh_end_title">Fin</string>
