@@ -24,7 +24,7 @@
     <string name="battery_style_circle_percent">圓形電量指示器(包含電量百分比)</string>
     <string name="battery_style_kitkat">KitKat 電量指示器</string>
     <string name="battery_style_kitkat_percent">KitKat 電量指示器(包含電量百分比)</string>
-    <string name="battery_style_none">無</string>
+    <string name="battery_style_none">隱藏</string>
 
     <string name="vol_music_controls_title">音量鍵跳過歌曲曲目</string>
     <string name="vol_music_controls_summary">當螢幕關閉時長按音量鍵將可以跳過歌曲曲目</string>
@@ -55,12 +55,12 @@
     <string name="caller_fullscreen_photo_title">全螢幕的來電者相片</string>
 
     <!-- QuickSettings strings -->
-    <string name="quick_settings_sync_on">同步處理開啟</string>
-    <string name="quick_settings_sync_off">同步處理關閉</string>
+    <string name="quick_settings_sync_on">同步處理 開啟</string>
+    <string name="quick_settings_sync_off">同步處理 關閉</string>
     <string name="quick_settings_wifi_ap_on">WiFi 行動熱點 開啟</string>
     <string name="quick_settings_wifi_ap_off">WiFi 行動熱點 關閉</string>
-    <string name="quick_settings_torch_on">手電筒開啟</string>
-    <string name="quick_settings_torch_off">手電筒關閉</string>
+    <string name="quick_settings_torch_on">手電筒 開啟</string>
+    <string name="quick_settings_torch_off">手電筒 關閉</string>
     <string name="quick_settings_torch_off_notif">輕觸以關閉手電筒</string>
     <string name="quick_settings_qr_playing">播放中&#8230;</string>
     <string name="quick_settings_qr_recording">錄音中&#8230;</string>
@@ -70,22 +70,22 @@
     <string name="quick_settings_expanded_desktop_disabled">已停用</string>
     <string name="quick_settings_expanded_desktop_normal">正常</string>
     <string name="quick_settings_expanded_desktop_expanded">擴展</string>
-    <string name="quick_settings_stay_awake_on">開啟保持清醒</string>
-    <string name="quick_settings_stay_awake_off">關閉保持清醒</string>
+    <string name="quick_settings_stay_awake_on">保持螢幕長亮 開啟</string>
+    <string name="quick_settings_stay_awake_off">保持螢幕長亮 關閉</string>
     <string name="quick_settings_nfc_on">NFC 開啟</string>
     <string name="quick_settings_nfc_off">NFC 關閉</string>
     <string name="quick_settings_camera_error_connect">無法連結至相機</string>
     <string name="quick_settings_usb_tether_off">中斷連結</string>
-    <string name="quick_settings_usb_tether_connected">USB 網絡共用關閉</string>
-    <string name="quick_settings_usb_tether_on">USB 網絡共用</string>
+    <string name="quick_settings_usb_tether_connected">USB 網絡共用 關閉</string>
+    <string name="quick_settings_usb_tether_on">USB 網絡共用 開啓</string>
     <string name="quick_settings_music_play">播放</string>
     <string name="quick_settings_music_pause">暫停</string>
-    <string name="quick_settings_smart_radio_on">智慧型無線網路開啟</string>
-    <string name="quick_settings_smart_radio_off">智慧型無線網路關閉</string>
-    <string name="quick_settings_lock_screen_on">鎖定畫面開啟</string>
-    <string name="quick_settings_lock_screen_off">鎖定畫面關閉</string>
-    <string name="quick_settings_location_on">定位服務開啟</string>
-    <string name="quick_settings_location_off">定位服務關閉</string>
+    <string name="quick_settings_smart_radio_on">智慧型無線網路 開啟</string>
+    <string name="quick_settings_smart_radio_off">智慧型無線網路 關閉</string>
+    <string name="quick_settings_lock_screen_on">鎖定畫面 開啟</string>
+    <string name="quick_settings_lock_screen_off">鎖定畫面 關閉</string>
+    <string name="quick_settings_location_on">定位服務 開啟</string>
+    <string name="quick_settings_location_off">定位服務 關閉</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">狀態列快速設定瓷貼</string>
@@ -112,7 +112,7 @@
     <string name="qs_tile_settings">設定</string>
     <string name="qs_tile_volume">音量</string>
     <string name="qs_tile_expanded_desktop">全螢幕模式</string>
-    <string name="qs_tile_stay_awake">保持螢幕開啓</string>
+    <string name="qs_tile_stay_awake">螢幕逾時</string>
     <string name="qs_tile_screenshot">螢幕截圖</string>
     <string name="qs_tile_nfc">NFC</string>
     <string name="qs_tile_camera">相機</string>
@@ -301,7 +301,7 @@
 
     <!-- Quick pulldown -->
     <string name="pref_quick_pulldown_title">快速設定選單下拉位置</string>
-    <string name="pref_quick_pulldown_summary">選擇下拉狀態列邊緣啟用快速設定選單的位置</string>
+    <string name="pref_quick_pulldown_summary">選擇在哪個位置下拉狀態列可以直接切換至快速設定選單</string>
     <string name="quick_pulldown_off">關閉</string>
     <string name="quick_pulldown_right">右邊</string>
     <string name="quick_pulldown_left">左邊</string>
@@ -622,7 +622,7 @@
     <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> 可用</string>
     <!-- [CHAR LIMIT=10] Running services, summary of foreground processes -->
     <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> 已使用</string>
-    <string name="pref_rambar_title">多工面板RAM使用量棒條</string>
+    <string name="pref_rambar_title">於多工面板內顯示記憶體使用量棒條</string>
     <string name="rambar_off">關閉</string>
     <string name="rambar_top">頂部</string>
     <string name="rambar_bottom">底部</string>
@@ -1232,7 +1232,7 @@
     <string name="pref_quick_pulldown_size_title">快速下拉大小</string>
     
     <!-- Stay Awake Tile modes -->
-    <string name="pref_qs_stay_awake_title">Stay awake tile mode</string>
+    <string name="pref_qs_stay_awake_title">螢幕逾時瓷貼模式</string>
     <string name="stay_awake_15s">15秒</string>
     <string name="stay_awake_30s">30秒</string>
     <string name="stay_awake_1m">1分鐘</string>
@@ -1240,7 +1240,7 @@
     <string name="stay_awake_5m">5分鐘</string>
     <string name="stay_awake_10m">10分鐘</string>
     <string name="stay_awake_30m">30分鐘</string>
-    <string name="stay_awake_on">Stay awake on</string>
+    <string name="stay_awake_on">保持螢幕長亮</string>
 
     <!-- Screen recording options -->
     <string name="pref_cat_screenrecord_options_title">螢幕錄製</string>
