@@ -457,7 +457,9 @@ public class ModLockscreen {
                             final Object lockPatternUtils = XposedHelpers.getObjectField(
                                     XposedHelpers.getSurroundingThis(param.thisObject), "mLockPatternUtils");
                             if (lockPatternUtils != null && 
-                                    (Boolean) XposedHelpers.callMethod(lockPatternUtils, "isSecure")) {
+                                    (Boolean) XposedHelpers.callMethod(lockPatternUtils, "isSecure") &&
+                                        !ShortcutActivity.isActionSafe(appInfo.intent.getStringExtra(
+                                            ShortcutActivity.EXTRA_ACTION))) {
                                 if (DEBUG) log("Keyguard is secured - ignoring GB action");
                             } else {
                                 Intent newIntent = new Intent(appInfo.intent.getStringExtra(

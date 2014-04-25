@@ -650,7 +650,9 @@ public class ModNavigationBar {
                             // if intent is a GB action of broadcast type, handle it directly here
                             if (ShortcutActivity.isGbBroadcastShortcut(intent)) {
                                 if (mKeyguard != null && 
-                                        mKeyguard.isKeyguardLocked() && mKeyguard.isKeyguardSecure()) {
+                                        mKeyguard.isKeyguardLocked() && mKeyguard.isKeyguardSecure() &&
+                                            !ShortcutActivity.isActionSafe(intent.getStringExtra(
+                                                    ShortcutActivity.EXTRA_ACTION))) {
                                     if (DEBUG) log("Keyguard is locked & secured - ignoring GB action");
                                 } else {
                                     Intent newIntent = new Intent(intent.getStringExtra(ShortcutActivity.EXTRA_ACTION));
