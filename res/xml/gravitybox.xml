@@ -1450,14 +1450,14 @@
             android:defaultValue="false" />
 
         <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
-            android:key="pref_pulse_notification_delay"
+            android:key="pref_pulse_notification_delay2"
             android:title="@string/pref_pulse_notification_delay_title"
             android:summary="@string/pref_pulse_notification_delay_summary"
-            minimum="1"
-            maximum="20"
-            interval="1"
+            minimum="500"
+            maximum="20000"
+            interval="100"
             monitorBoxEnabled="true"
-            monitorBoxUnit="s" />
+            monitorBoxUnit="ms" />
 
         <ListPreference
             android:key="pref_button_backlight_mode"

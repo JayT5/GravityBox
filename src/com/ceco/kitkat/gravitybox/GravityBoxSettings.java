@@ -709,7 +709,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_FORCE_OVERFLOW_MENU_BUTTON = "pref_force_overflow_menu_button2";
 
     public static final String PREF_CAT_KEY_MISC_OTHER = "pref_cat_misc_other";
-    public static final String PREF_KEY_PULSE_NOTIFICATION_DELAY = "pref_pulse_notification_delay";
+    public static final String PREF_KEY_PULSE_NOTIFICATION_DELAY = "pref_pulse_notification_delay2";
 
     private static final String PREF_KEY_SETTINGS_BACKUP = "pref_settings_backup";
     private static final String PREF_KEY_SETTINGS_RESTORE = "pref_settings_restore";
@@ -1653,7 +1653,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefUnplugTurnsOnScreen.setChecked(value);
 
             if (!mPrefs.getBoolean(PREF_KEY_PULSE_NOTIFICATION_DELAY + "_set", false)) {
-                int delay = Math.min(Math.max(sSystemProperties.defaultNotificationLedOff/1000, 1), 20);
+                int delay = Math.min(Math.max(sSystemProperties.defaultNotificationLedOff, 500), 20000);
                 Editor editor = mPrefs.edit();
                 editor.putInt(PREF_KEY_PULSE_NOTIFICATION_DELAY, delay);
                 editor.putBoolean(PREF_KEY_PULSE_NOTIFICATION_DELAY + "_set", true);
