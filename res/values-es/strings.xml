@@ -72,8 +72,8 @@
     <string name="quick_settings_expanded_desktop_expanded">Expandido</string>
     <string name="quick_settings_stay_awake_on">Permanecer despierto</string>
     <string name="quick_settings_stay_awake_off">No permanecer despierto</string>
-    <string name="quick_settings_nfc_on">NFC</string>
-    <string name="quick_settings_nfc_off">NFC desactivado</string>
+    <string name="quick_settings_nfc_on">NFC activado</string>
+    <string name="quick_settings_nfc_off">NFC</string>
     <string name="quick_settings_camera_error_connect">Imposible conectar con la cámara</string>
     <string name="quick_settings_usb_tether_off">Desconectado</string>
     <string name="quick_settings_usb_tether_connected">Tethering</string>
