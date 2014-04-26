@@ -56,11 +56,11 @@
 
     <!-- QuickSettings strings -->
     <string name="quick_settings_sync_on">Sincronización activada</string>
-    <string name="quick_settings_sync_off">Sincronización desactivada</string>
+    <string name="quick_settings_sync_off">Sincronización</string>
     <string name="quick_settings_wifi_ap_on">Punto de acceso Wi-Fi activado</string>
-    <string name="quick_settings_wifi_ap_off">Punto de acceso Wi-Fi desactivado</string>
+    <string name="quick_settings_wifi_ap_off">Punto de acceso Wi-Fi</string>
     <string name="quick_settings_torch_on">Linterna activada</string>
-    <string name="quick_settings_torch_off">Linterna desactivada</string>
+    <string name="quick_settings_torch_off">Linterna</string>
     <string name="quick_settings_torch_off_notif">Toca para desactivar</string>
     <string name="quick_settings_qr_playing">Reproduciendo&#8230;</string>
     <string name="quick_settings_qr_recording">Grabando&#8230;</string>
@@ -72,18 +72,23 @@
     <string name="quick_settings_expanded_desktop_expanded">Expandido</string>
     <string name="quick_settings_stay_awake_on">Permanecer despierto</string>
     <string name="quick_settings_stay_awake_off">No permanecer despierto</string>
-    <string name="quick_settings_nfc_on">NFC activado</string>
+    <string name="quick_settings_nfc_on">NFC</string>
     <string name="quick_settings_nfc_off">NFC desactivado</string>
     <string name="quick_settings_camera_error_connect">Imposible conectar con la cámara</string>
     <string name="quick_settings_usb_tether_off">Desconectado</string>
-    <string name="quick_settings_usb_tether_connected">Tethering desactivado</string>
+    <string name="quick_settings_usb_tether_connected">Tethering</string>
     <string name="quick_settings_usb_tether_on">Tethering activado</string>
     <string name="quick_settings_music_play">Reproducir</string>
     <string name="quick_settings_music_pause">Pausar</string>
     <string name="quick_settings_smart_radio_on">Modo de red inteligente activado</string>
-    <string name="quick_settings_smart_radio_off">Modo de red inteligente desactivado</string>
+    <string name="quick_settings_smart_radio_off">Modo de red inteligente</string>
     <string name="quick_settings_lock_screen_on">Bloquear pantalla activado</string>
-    <string name="quick_settings_lock_screen_off">Bloquear pantalla desactivado</string>
+    <string name="quick_settings_lock_screen_off">Bloquear pantalla</string>
+    <string name="quick_settings_location_on">Ubicación</string>
+    <string name="quick_settings_location_off">Ubicación desactivada</string>
+    <string name="quick_settings_quiet_hours_off">Horas tranquilas</string>
+    <string name="quick_settings_quiet_hours_on">Horas tranquilas activado</string>
+    <string name="quick_settings_quiet_hours_auto">Horas tranquilas automático</string>
  
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">Ajustes rápidos de la barra de estado</string>
@@ -94,6 +99,7 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_gps">Ubicación</string>
+    <string name="qs_tile_gps_slimkat">Ubicación (estilo SlimKat)</string>
     <string name="qs_tile_gps_alt">GPS (estilo CM)</string>
     <string name="qs_tile_mobile_data">Datos móviles</string>
     <string name="qs_tile_network_mode">Modo de red</string>
@@ -1440,4 +1446,40 @@
     
     <!-- Battey percent text: charging color -->
     <string name="battery_percent_text_charging_color_title">Color de carga</string>
+    
+    <!-- Notification control: Quiet hours for weekends-->
+    <string name="pref_lc_qh_cat_weekdays_title">Días entre semana</string>
+    <string name="pref_lc_qh_cat_weekend_title">Fin de semana</string>
+    
+    <!-- Disable data network type icons -->
+    <string name="pref_disable_data_network_type_icons_title">Desactivar indicadores de tipo de red de datos</string>
+    <string name="pref_disable_data_network_type_icons_summary">Permite desactivar los indicadores 3G/G al lado de las barras de señal</string>
+
+    <!-- Force English locale -->
+    <string name="pref_force_english_locale_title">Forzar idioma a inglés</string>
+    
+    <!-- VolumePanel transparency -->
+    <string name="pref_volume_panel_transparency_title">Transparencia del panel de volumen</string>
+    
+    <!-- Lockscreen: secondary custom carrier text (MTK only) -->
+    <string name="pref_lockscreen_carrier2_text_title">Texto de operador secundario personalizado</string>
+    
+    <!-- UNC Quiet Hours: ignore on per-app basis -->
+    <string name="pref_lc_qh_ignore_title">Ignorar horas tranquilas</string>
+    <string name="pref_lc_qh_ignore_list_title">Para teclados específicos</string>
+    <string name="pref_lc_qh_ignore_list_summary">Lista separada por comas de palabras clave para las cuales ignorar
+        las horas tranquilas. Dejar vacío para todas las notificaciones.</string>
+        
+    <!-- GB Actions: Quiet hours shortcut -->
+    <string name="shortcut_quiet_hours_toggle">Activar/desactivar horas tranquilas</string>
+    
+     <!-- Signal cluster: H+ indicator -->
+    <string name="pref_signal_cluster_hplus_title">Activar indicador H+</string>
+    <string name="pref_signal_cluster_hplus_summary">Requiere reinicio</string>
+    
+    <!-- Signal cluster: LTE/4G indicator style -->
+    <string name="pref_signal_cluster_lte_style_title">Estilo de indicador LTE</string>
+    <string name="sc_lte_style_default">Predeterminado</string>
+    <string name="sc_lte_style_lte">LTE</string>
+    <string name="sc_lte_style_4g">4G</string>
 </resources>
