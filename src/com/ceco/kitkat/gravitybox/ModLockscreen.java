@@ -450,7 +450,7 @@ public class ModLockscreen {
                             mGlowPadView, "mTargetDrawables");
                     final Object td = targets.get(index);
 
-                    AppInfo appInfo = (AppInfo) XposedHelpers.getAdditionalInstanceField(td, "mGbAppInfo");
+                    final AppInfo appInfo = (AppInfo) XposedHelpers.getAdditionalInstanceField(td, "mGbAppInfo");
                     if (appInfo != null) {
                         // if intent is a GB action of broadcast type, handle it directly here
                         if (ShortcutActivity.isGbBroadcastShortcut(appInfo.intent)) {
@@ -472,7 +472,12 @@ public class ModLockscreen {
                             final Object activityLauncher = XposedHelpers.getObjectField(
                                     XposedHelpers.getSurroundingThis(param.thisObject), "mActivityLauncher");
                             XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
-                                    appInfo.intent, false, true, null, null);
+                                    appInfo.intent, false, true, new Handler(), new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if (DEBUG) log("onStarted: " + appInfo.intent);
+                                        }
+                            });
                         }
                     }
                 }
