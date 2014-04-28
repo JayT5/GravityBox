@@ -28,6 +28,7 @@ import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import android.app.Dialog;
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -236,11 +237,30 @@ public class AppLauncher {
     private void startActivity(Context context, Intent intent) {
         // if intent is a GB action of broadcast type, handle it directly here
         if (ShortcutActivity.isGbBroadcastShortcut(intent)) {
-            Intent newIntent = new Intent(intent.getStringExtra(ShortcutActivity.EXTRA_ACTION));
-            newIntent.putExtras(intent);
-            context.sendBroadcast(newIntent);
-        // otherwise start activity
+            boolean isLaunchBlocked = false;
+            try {
+                KeyguardManager kgManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+                isLaunchBlocked = kgManager != null && 
+                    kgManager.isKeyguardLocked() && kgManager.isKeyguardSecure() &&
+                        !ShortcutActivity.isActionSafe(intent.getStringExtra(
+                                ShortcutActivity.EXTRA_ACTION));
+            } catch (Throwable t) { }
+            if (DEBUG) log("isLaunchBlocked: " + isLaunchBlocked);
+
+            if (!isLaunchBlocked) {
+                Intent newIntent = new Intent(intent.getStringExtra(ShortcutActivity.EXTRA_ACTION));
+                newIntent.putExtras(intent);
+                context.sendBroadcast(newIntent);
+            }
+        // otherwise start activity dismissing keyguard
         } else {
+            try {
+                Class<?> amnCls = XposedHelpers.findClass("android.app.ActivityManagerNative",
+                        mContext.getClassLoader());
+                Object amn = XposedHelpers.callStaticMethod(amnCls, "getDefault");
+                XposedHelpers.callMethod(amn, "dismissKeyguardOnNextActivity");
+            } catch (Throwable t) { }
+
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(intent);
         }
