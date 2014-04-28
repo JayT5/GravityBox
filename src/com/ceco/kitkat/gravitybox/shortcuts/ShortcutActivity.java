@@ -55,7 +55,8 @@ public class ShortcutActivity extends ListActivity {
             WifiApShortcut.ACTION,
             NfcShortcut.ACTION,
             LocationModeShortcut.ACTION,
-            SmartRadioShortcut.ACTION
+            SmartRadioShortcut.ACTION,
+            AirplaneModeShortcut.ACTION
     ));
 
     public static boolean isActionSafe(String action) {
@@ -155,6 +156,8 @@ public class ShortcutActivity extends ListActivity {
             SmartRadioShortcut.launchAction(mContext, intent);
         } else if (action.equals(QuietHoursShortcut.ACTION)) {
             QuietHoursShortcut.launchAction(mContext, intent);
+        } else if (action.equals(AirplaneModeShortcut.ACTION)) {
+            AirplaneModeShortcut.launchAction(mContext, intent);
         }
     }
 
@@ -189,6 +192,7 @@ public class ShortcutActivity extends ListActivity {
             list.add(new NetworkModeShortcut(mContext));
             list.add(new SmartRadioShortcut(mContext));
         }
+        list.add(new AirplaneModeShortcut(mContext));
         list.add(new BluetoothShortcut(mContext));
         if (Utils.hasNfc(mContext)) {
             list.add(new NfcShortcut(mContext));
