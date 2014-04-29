@@ -1465,4 +1465,13 @@
     <string name="sc_lte_style_lte">LTE</string>
     <string name="sc_lte_style_4g">4G</string>
 
+    <!-- GB Actions: toggle airplane mode -->
+    <string name="shortcut_airplane_mode">Comutar modo de avião</string>
+
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Visibilidade do indicador Bluetooth</string>
+    <string name="sb_bt_default">Sempre que estiver ativado (predefinido)</string>
+    <string name="sb_bt_connected">Quando algum dispositivo estiver ligado</string>
+    <string name="sb_bt_hidden">Oculto</string>
+
 </resources>
