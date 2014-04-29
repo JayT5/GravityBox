@@ -727,6 +727,11 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
 
     public static final String PREF_KEY_FORCE_ENGLISH_LOCALE = "pref_force_english_locale";
 
+    public static final String PREF_KEY_STATUSBAR_BT_VISIBILITY = "pref_sb_bt_visibility";
+    public static final String ACTION_PREF_STATUSBAR_BT_VISIBILITY_CHANGED = 
+            "gravitybox.intent.action.STATUSBAR_BT_VISIBILITY_CHANGED";
+    public static final String EXTRA_SB_BT_VISIBILITY = "sbBtVisibility";
+
     private static final int REQ_LOCKSCREEN_BACKGROUND = 1024;
     private static final int REQ_NOTIF_BG_IMAGE_PORTRAIT = 1025;
     private static final int REQ_NOTIF_BG_IMAGE_LANDSCAPE = 1026;
@@ -1122,6 +1127,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private Preference mPrefLedControl;
         private EditTextPreference mPrefVkVibratePattern;
         private ListPreference mPrefScLteStyle;
+        private ListPreference mPrefSbBtVisibility;
 
         @SuppressWarnings("deprecation")
         @Override
@@ -1415,6 +1421,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefVkVibratePattern.setOnPreferenceChangeListener(this);
 
             mPrefScLteStyle = (ListPreference) findPreference(PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE);
+
+            mPrefSbBtVisibility = (ListPreference) findPreference(PREF_KEY_STATUSBAR_BT_VISIBILITY);
 
             // Remove Phone specific preferences on Tablet devices
             if (sSystemProperties.isTablet) {
@@ -2076,6 +2084,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             if (key == null || key.equals(PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE)) {
                 mPrefScLteStyle.setSummary(mPrefScLteStyle.getEntry());
             }
+
+            if (key == null || key.equals(PREF_KEY_STATUSBAR_BT_VISIBILITY)) {
+                mPrefSbBtVisibility.setSummary(mPrefSbBtVisibility.getEntry());
+            }
         }
 
         @Override
@@ -2710,6 +2722,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 getActivity().startActivity(intent);
                 System.exit(0);
                 return;
+            } else if (key.equals(PREF_KEY_STATUSBAR_BT_VISIBILITY)) {
+                intent.setAction(ACTION_PREF_STATUSBAR_BT_VISIBILITY_CHANGED);
+                intent.putExtra(EXTRA_SB_BT_VISIBILITY,
+                        prefs.getString(PREF_KEY_STATUSBAR_BT_VISIBILITY, "DEFAULT"));
             }
             if (intent.getAction() != null) {
                 mPrefs.edit().commit();

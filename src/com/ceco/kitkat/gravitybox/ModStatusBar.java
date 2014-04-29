@@ -457,6 +457,7 @@ public class ModStatusBar {
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_CARRIER2_TEXT_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_NOTIF_EXPAND_ALL_CHANGED);
                     intentFilter.addAction(GravityBoxSettings.ACTION_PREF_STATUSBAR_DT2S_CHANGED);
+                    intentFilter.addAction(GravityBoxSettings.ACTION_PREF_STATUSBAR_BT_VISIBILITY_CHANGED);
                     mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
                     mSettingsObserver = new SettingsObserver(
@@ -810,6 +811,9 @@ public class ModStatusBar {
             } catch (Throwable t) {
                 XposedBridge.log(t);;
             }
+
+            // Status bar Bluetooth icon policy
+            mBroadcastSubReceivers.add(new StatusbarBluetoothIcon(classLoader, prefs));
         }
         catch (Throwable t) {
             XposedBridge.log(t);

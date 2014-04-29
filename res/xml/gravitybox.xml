@@ -848,6 +848,13 @@
 
         </PreferenceScreen>
 
+        <ListPreference 
+            android:key="pref_sb_bt_visibility"
+            android:title="@string/pref_sb_bt_visibility_title"
+            android:entries="@array/sb_bt_entries"
+            android:entryValues="@array/sb_bt_values"
+            android:defaultValue="DEFAULT" />
+
         <com.ceco.kitkat.gravitybox.preference.OngoingNotifPreference
             android:key="pref_ongoing_notifications"
             android:title="@string/pref_ongoing_notifications_title"

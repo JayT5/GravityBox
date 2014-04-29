@@ -1490,4 +1490,10 @@
     <!-- GB Actions: toggle airplane mode -->
     <string name="shortcut_airplane_mode">Toggle airplane mode</string>
 
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Bluetooth icon visibility</string>
+    <string name="sb_bt_default">When BT enabled (default)</string>
+    <string name="sb_bt_connected">When BT connected</string>
+    <string name="sb_bt_hidden">Hidden</string>
+
 </resources>

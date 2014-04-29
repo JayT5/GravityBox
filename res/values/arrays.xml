@@ -972,4 +972,16 @@
         <item>4G</item>
     </string-array>
 
+    <string-array name="sb_bt_entries" translatable="false">
+        <item>@string/sb_bt_default</item>
+        <item>@string/sb_bt_connected</item>
+        <item>@string/sb_bt_hidden</item>
+    </string-array>
+
+    <string-array name="sb_bt_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>CONNECTED</item>
+        <item>HIDDEN</item>
+    </string-array>
+
 </resources>
