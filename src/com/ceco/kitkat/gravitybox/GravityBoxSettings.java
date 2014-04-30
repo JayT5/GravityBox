@@ -732,6 +732,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             "gravitybox.intent.action.STATUSBAR_BT_VISIBILITY_CHANGED";
     public static final String EXTRA_SB_BT_VISIBILITY = "sbBtVisibility";
 
+    public static final String PREF_KEY_INCREASING_RING = "pref_increasing_ring";
+
     private static final int REQ_LOCKSCREEN_BACKGROUND = 1024;
     private static final int REQ_NOTIF_BG_IMAGE_PORTRAIT = 1025;
     private static final int REQ_NOTIF_BG_IMAGE_LANDSCAPE = 1026;

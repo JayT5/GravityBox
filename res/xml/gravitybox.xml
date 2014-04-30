@@ -14,7 +14,8 @@
  * limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gb="http://schemas.android.com/apk/res/com.ceco.kitkat.gravitybox" >
 
     <PreferenceScreen
         android:key="pref_cat_lockscreen"
@@ -1511,6 +1512,12 @@
                 android:entries="@array/call_vibration_entries"
                 android:entryValues="@array/call_vibration_values"
                 android:defaultValue="@array/empty_array" />
+
+            <com.ceco.kitkat.gravitybox.preference.IncreasingRingPreference
+                android:key="pref_increasing_ring"
+                android:title="@string/pref_increasing_ring_title"
+                android:dialogTitle="@string/pref_increasing_ring_title"
+                gb:streamType="ring" />
 
             <CheckBoxPreference 
                 android:key="pref_phone_nonintrusive_incoming_call"
