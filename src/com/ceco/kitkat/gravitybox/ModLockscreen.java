@@ -355,6 +355,7 @@ public class ModLockscreen {
                             mArcPaint = new Paint();
                             mArcPaint.setStrokeWidth(10.0f);
                             mArcPaint.setStyle(Paint.Style.STROKE); 
+                            mArcPaint.setAntiAlias(true);
                             mArcRect = new RectF(mHandleDrawable.getPositionX() - mHandleDrawable.getWidth()/2, 
                                     mHandleDrawable.getPositionY() - mHandleDrawable.getHeight()/2,
                                     mHandleDrawable.getPositionX() + mHandleDrawable.getWidth()/2, 
