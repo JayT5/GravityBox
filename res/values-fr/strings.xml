@@ -1490,4 +1490,24 @@
     <!-- GB Actions: toggle airplane mode -->
     <string name="shortcut_airplane_mode">Interrupteur mode avion</string>
 
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Visibilité icône Bluetooth</string>
+    <string name="sb_bt_default">Lorsque le BT est actif (par défaut)</string>
+    <string name="sb_bt_connected">Lorsque le BT est connecté</string>
+    <string name="sb_bt_hidden">Masqué</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">Sonnerie progressive</string>
+    <string name="increasing_ring_enable">Activer</string>
+    <string name="increasing_ring_min_volume_title">Volume début de sonnerie</string>
+    <string name="increasing_ring_volume_notice">Remarque:\nComme le volume de début est supérieur au volume de la sonnerie, celle-ci sera jouée au volume défini initialement</string>
+    <string name="increasing_ring_interval_title">Augmenter les intervalles</string>
+    <string name="increasing_ring_interval_eachring">À chaque sonnerie</string>
+    <string name="increasing_ring_interval_half_second">0,5 seconde</string>
+    <string name="increasing_ring_interval_1second">1 seconde</string>
+    <string name="increasing_ring_interval_2seconds">2 secondes</string>
+    <string name="increasing_ring_interval_3seconds">3 secondes</string>
+    <string name="increasing_ring_interval_5seconds">5 secondes</string>
+    <string name="increasing_ring_interval_10seconds">10 secondes</string>
+
 </resources>
