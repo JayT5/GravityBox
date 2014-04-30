@@ -1436,7 +1436,7 @@
         индикации для всех уведомлений, поступающих в определённый временной период</string>
     <string name="pref_lc_qh_start_title">Время начала</string>
     <string name="pref_lc_qh_end_title">Время конца</string>
-    <string name="pref_lc_qh_mute_led_title">Откл свет.индикацию</string>
+    <string name="pref_lc_qh_mute_led_title">Откл световую индикацию</string>
 
     <!-- Notification control: LED mode -->
     <string name="pref_lc_led_mode_title">Режим индикатора</string>
@@ -1445,7 +1445,7 @@
     <string name="lc_led_mode_off">Выкл (без индикации)</string>
 
     <!-- Notification control: Quiet hours statusbar icon -->
-    <string name="pref_lc_qh_statusbar_icon_title">Значок в стр.состояния</string>
+    <string name="pref_lc_qh_statusbar_icon_title">Значок в строке состояния</string>
     <string name="pref_lc_qh_statusbar_icon_summary">Отображение во время тихого часа значка в строке состояния</string>
 
     <!-- Battey percent text: charging color -->
@@ -1486,5 +1486,14 @@
     <string name="sc_lte_style_default">Системный по умолчанию</string>
     <string name="sc_lte_style_lte">LTE</string>
     <string name="sc_lte_style_4g">4G</string>
+
+    <!-- GB Actions: toggle airplane mode -->
+    <string name="shortcut_airplane_mode">Включение режима полёта</string>
+
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Видимость значка Bluetooth</string>
+    <string name="sb_bt_default">При включенном BT (по умолчанию)</string>
+    <string name="sb_bt_connected">При сопряжённом BT</string>
+    <string name="sb_bt_hidden">Скрыт</string>
 
 </resources>
