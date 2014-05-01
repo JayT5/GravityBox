@@ -83,7 +83,7 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
         XposedBridge.log(TAG + ": " + message);
     }
 
-    private void logAndMute(String key, Throwable t) {
+    protected void logAndMute(String key, Throwable t) {
         if (!mErrorsLogged.contains(key)) {
             XposedBridge.log(t);
             mErrorsLogged.add(key);
@@ -125,8 +125,12 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
             }
         }
 
-        public void update() throws Throwable {
-            update(enabled, fullyConnected, activityIn, activityOut);
+        public void update() {
+            try {
+                update(enabled, fullyConnected, activityIn, activityOut);
+            } catch (Throwable t) {
+                logAndMute("SignalActivity.update", t);
+            }
         }
 
         public void update(boolean enabled, boolean fully, boolean in, boolean out) throws Throwable {
@@ -366,7 +370,7 @@ public class StatusbarSignalCluster implements BroadcastSubReceiver, IconManager
                     }
                 });
             } catch (Throwable t) {
-                XposedBridge.log(t);
+                logAndMute("updateDataNetType", t);
             }
         }
     }
