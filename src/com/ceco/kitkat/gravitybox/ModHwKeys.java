@@ -95,6 +95,7 @@ public class ModHwKeys {
     public static final String ACTION_RECENTS_CLEAR_ALL_LONGPRESS = "gravitybox.intent.action.ACTION_RECENTS_CLEARALL_LONGPRESS";
     public static final String ACTION_TOGGLE_QUIET_HOURS = "gravitybox.intent.action.ACTION_TOGGLE_QUIET_HOURS";
     public static final String ACTION_TOGGLE_AIRPLANE_MODE = "gravitybox.intent.action.TOGGLE_AIRPLANE_MODE";
+    public static final String ACTION_INAPP_SEARCH = "gravitybox.intent.action.INAPP_SEARCH";
 
     public static final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
@@ -351,6 +352,8 @@ public class ModHwKeys {
                 toggleQuietHours(intent.getStringExtra(QuietHoursActivity.EXTRA_QH_MODE));
             } else if (action.equals(ACTION_TOGGLE_AIRPLANE_MODE)) {
                 toggleAirplaneMode();
+            } else if (action.equals(ACTION_INAPP_SEARCH)) {
+                injectKey(KeyEvent.KEYCODE_SEARCH);
             }
         }
     };
@@ -848,6 +851,7 @@ public class ModHwKeys {
             intentFilter.addAction(GravityBoxSettings.ACTION_PREF_VK_VIBRATE_PATTERN_CHANGED);
             intentFilter.addAction(ACTION_TOGGLE_QUIET_HOURS);
             intentFilter.addAction(ACTION_TOGGLE_AIRPLANE_MODE);
+            intentFilter.addAction(ACTION_INAPP_SEARCH);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
             if (DEBUG) log("Phone window manager initialized");
@@ -1081,6 +1085,8 @@ public class ModHwKeys {
             clearAllRecents(false);
         } else if (action == GravityBoxSettings.HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS) {
             clearAllRecents(true);
+        } else if (action == GravityBoxSettings.HWKEY_ACTION_INAPP_SEARCH) {
+            injectKey(KeyEvent.KEYCODE_SEARCH);
         }
     }
 

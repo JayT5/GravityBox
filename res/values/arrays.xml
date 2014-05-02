@@ -202,6 +202,7 @@
         <item>@string/hwkey_action_default</item>
         <item>@string/hwkey_action_search</item>
         <item>@string/hwkey_action_voice_search</item>
+        <item>@string/hwkey_action_inapp_search</item>
         <item>@string/hwkey_action_prev_app</item>
         <item>@string/hwkey_action_kill</item>
         <item>@string/hwkey_action_sleep</item>
@@ -229,6 +230,7 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>24</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>

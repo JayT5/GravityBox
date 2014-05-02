@@ -1513,4 +1513,7 @@
     <!-- Icon picker: Snapchat icon -->
     <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
 
+    <!-- HW Key Action: In-app search -->
+    <string name="hwkey_action_inapp_search">In-app search</string>
+
 </resources>

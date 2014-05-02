@@ -343,6 +343,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final int HWKEY_ACTION_VOLUME_PANEL = 21;
     public static final int HWKEY_ACTION_LAUNCHER_DRAWER = 22;
     public static final int HWKEY_ACTION_BRIGHTNESS_DIALOG = 23;
+    public static final int HWKEY_ACTION_INAPP_SEARCH = 24;
     public static final int HWKEY_ACTION_CLEAR_ALL_RECENTS_SINGLETAP = 101;
     public static final int HWKEY_ACTION_CLEAR_ALL_RECENTS_LONGPRESS = 102;
     public static final int HWKEY_DOUBLETAP_SPEED_DEFAULT = 400;
