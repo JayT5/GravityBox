@@ -1446,5 +1446,28 @@
     <string name="sc_lte_style_default">デフォルト</string>
     <string name="sc_lte_style_lte">LTE</string>
     <string name="sc_lte_style_4g">4G</string>
-    
+
+    <!-- GB Actions: toggle airplane mode -->
+    <string name="shortcut_airplane_mode">機内モードトグル</string>
+
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Bluetoothアイコン表示</string>
+    <string name="sb_bt_default">BT有効時(デフォルト)</string>
+    <string name="sb_bt_connected">BT接続時</string>
+    <string name="sb_bt_hidden">非表示</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">ステップアップ着信音量</string>
+    <string name="increasing_ring_enable">有効</string>
+    <string name="increasing_ring_min_volume_title">開始音量</string>
+    <string name="increasing_ring_volume_notice">注意:\n開始音量が着信音の音量設定より大きい場合は着信音の音量を使います。</string>
+    <string name="increasing_ring_interval_title">大きくする間隔</string>
+    <string name="increasing_ring_interval_eachring">ループ毎</string>
+    <string name="increasing_ring_interval_half_second">0.5秒</string>
+    <string name="increasing_ring_interval_1second">1秒</string>
+    <string name="increasing_ring_interval_2seconds">2秒</string>
+    <string name="increasing_ring_interval_3seconds">3秒</string>
+    <string name="increasing_ring_interval_5seconds">5秒</string>
+    <string name="increasing_ring_interval_10seconds">10秒</string>
+
 </resources>
