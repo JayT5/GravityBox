@@ -1467,5 +1467,38 @@
     <string name="sc_lte_style_default">Standard</string>
     <string name="sc_lte_style_lte">LTE</string>
     <string name="sc_lte_style_4g">4G</string>
+    
+    <!-- GB Actions: toggle airplane mode -->
+    <string name="shortcut_airplane_mode">Flugmodus umschalten</string>
+
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">Anzeige des Bluetoothsymbols</string>
+    <string name="sb_bt_default">Wenn BT aktiv (Standard)</string>
+    <string name="sb_bt_connected">Wenn BT verbunden</string>
+    <string name="sb_bt_hidden">Verbergen</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">Ansteigender Klingelton</string>
+    <string name="increasing_ring_enable">Aktiviert</string>
+    <string name="increasing_ring_min_volume_title">Startlautstärke</string>
+    <string name="increasing_ring_volume_notice">Achtung:\nIst die Startlautstärke höher als die Klingeltonlautstärke, so wird nur letzere zum Abspielen benutzt</string>
+    <string name="increasing_ring_interval_title">Steigerungsintervall</string>
+    <string name="increasing_ring_interval_eachring">Bei jedem Klingeln</string>
+    <string name="increasing_ring_interval_half_second">0.5 Sekunden</string>
+    <string name="increasing_ring_interval_1second">1 Sekunde</string>
+    <string name="increasing_ring_interval_2seconds">2 Sekunden</string>
+    <string name="increasing_ring_interval_3seconds">3 Sekunden</string>
+    <string name="increasing_ring_interval_5seconds">5 Sekunden</string>
+    <string name="increasing_ring_interval_10seconds">10 Sekunden</string>
+
+    <!-- Icon picker: Snapchat icon -->
+    <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
+
+    <!-- HW Key Action: In-app search -->
+    <string name="hwkey_action_inapp_search">In-App Suche</string>
+
+    <!-- Misc: Force LTR direction -->
+    <string name="pref_force_ltr_direction_title">LTR-Ausrichtung erzwingen</string>
+    <string name="pref_force_ltr_direction_summary">Erfordert Neustart</string>
 
 </resources>
