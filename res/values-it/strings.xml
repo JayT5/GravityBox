@@ -1504,4 +1504,14 @@
     <string name="increasing_ring_interval_5seconds">5 secondi</string>
     <string name="increasing_ring_interval_10seconds">10 secondi</string>
 
+    <!-- Icon picker: Snapchat icon -->
+    <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
+
+    <!-- HW Key Action: In-app search -->
+    <string name="hwkey_action_inapp_search">Cerca In-app</string>
+
+    <!-- Misc: Force LTR direction -->
+    <string name="pref_force_ltr_direction_title">Forza direzione LTR</string>
+    <string name="pref_force_ltr_direction_summary">Richiede riavvio</string>
+
 </resources>
