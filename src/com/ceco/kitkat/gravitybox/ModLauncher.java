@@ -60,7 +60,7 @@ public class ModLauncher {
     static {
         CLASS_DYNAMIC_GRID = new HashMap<String, DynamicGrid>();
         CLASS_DYNAMIC_GRID.put("com.android.launcher3.DynamicGrid",
-                new DynamicGrid("mProfile", "numRows", "numCols"));
+                new DynamicGrid("mProfile", "numRows", "numColumns"));
         CLASS_DYNAMIC_GRID.put("nw", new DynamicGrid("Bq", "yx", "yy"));
     }
 
