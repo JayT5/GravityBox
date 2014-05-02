@@ -708,6 +708,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_IME_FULLSCREEN_DISABLE = "pref_ime_fullscreen_disable";
     public static final String PREF_KEY_TORCH_AUTO_OFF = "pref_torch_auto_off";
     public static final String PREF_KEY_FORCE_OVERFLOW_MENU_BUTTON = "pref_force_overflow_menu_button2";
+    public static final String PREF_KEY_FORCE_LTR_DIRECTION = "pref_force_ltr_direction";
 
     public static final String PREF_CAT_KEY_MISC_OTHER = "pref_cat_misc_other";
     public static final String PREF_KEY_PULSE_NOTIFICATION_DELAY = "pref_pulse_notification_delay2";
@@ -766,7 +767,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             PREF_KEY_CRT_OFF_EFFECT,
             PREF_KEY_STATUSBAR_CLOCK_MASTER_SWITCH,
             PREF_KEY_SIGNAL_CLUSTER_HPLUS,
-            PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE
+            PREF_KEY_SIGNAL_CLUSTER_LTE_STYLE,
+            PREF_KEY_FORCE_LTR_DIRECTION
     ));
 
     private static final class SystemProperties {

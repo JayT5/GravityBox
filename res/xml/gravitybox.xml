@@ -2072,6 +2072,12 @@
                 android:entryValues="@array/overflow_menu_values"
                 android:defaultValue="default" />
 
+            <CheckBoxPreference
+                android:key="pref_force_ltr_direction"
+                android:title="@string/pref_force_ltr_direction_title"
+                android:summary="@string/pref_force_ltr_direction_summary"
+                android:defaultValue="false" />
+
         </PreferenceCategory>
 
     </PreferenceScreen>
