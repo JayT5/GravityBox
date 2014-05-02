@@ -1490,4 +1490,18 @@
     <string name="sb_bt_connected">Quando BT connesso</string>
     <string name="sb_bt_hidden">Nascosta</string>
 
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">Suoneria Ascendente</string>
+    <string name="increasing_ring_enable">Abilita</string>
+    <string name="increasing_ring_min_volume_title">Volume di partenza</string>
+    <string name="increasing_ring_volume_notice">Avviso:\n Qualora il volume di partenza sia settato superiore al volume della suoneria, questa verrà riprodotto utilizzando il volume della suoneria.</string>
+    <string name="increasing_ring_interval_title">Intervallo incremento</string>
+    <string name="increasing_ring_interval_eachring">Ogni squillo</string>
+    <string name="increasing_ring_interval_half_second">0.5 secondo</string>
+    <string name="increasing_ring_interval_1second">1 secondo</string>
+    <string name="increasing_ring_interval_2seconds">2 secondi</string>
+    <string name="increasing_ring_interval_3seconds">3 secondi</string>
+    <string name="increasing_ring_interval_5seconds">5 secondi</string>
+    <string name="increasing_ring_interval_10seconds">10 secondi</string>
+
 </resources>
