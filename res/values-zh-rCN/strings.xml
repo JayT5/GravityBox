@@ -84,6 +84,11 @@
     <string name="quick_settings_smart_radio_off">智能网络已关闭</string>
     <string name="quick_settings_lock_screen_on">锁屏已开启</string>
     <string name="quick_settings_lock_screen_off">锁屏已关闭</string>
+    <string name="quick_settings_location_on">位置</string>
+    <string name="quick_settings_location_off">位置已关闭</string>
+    <string name="quick_settings_quiet_hours_off">静音时段已关闭</string>
+    <string name="quick_settings_quiet_hours_on">静音时段已开启</string>
+    <string name="quick_settings_quiet_hours_auto">自动静音时段</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">状态栏快速设置</string>
@@ -94,6 +99,7 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">蓝牙</string>
     <string name="qs_tile_gps">位置信息</string>
+    <string name="qs_tile_gps_slimkat">位置（SlimKat风格）</string>
     <string name="qs_tile_gps_alt">GPS（CM风格）</string>
     <string name="qs_tile_mobile_data">移动数据</string>
     <string name="qs_tile_network_mode">网络模式</string>
@@ -1480,5 +1486,38 @@
     <string name="sc_lte_style_default">系统默认</string>
     <string name="sc_lte_style_lte">LTE</string>
     <string name="sc_lte_style_4g">4G</string>
+    
+    <!-- GB Actions: toggle airplane mode -->
+    <string name="shortcut_airplane_mode">切换飞行模式</string>
+
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">蓝牙图标可见性</string>
+    <string name="sb_bt_default">当蓝牙启用（默认）</string>
+    <string name="sb_bt_connected">当蓝牙连接</string>
+    <string name="sb_bt_hidden">隐藏</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">渐变铃声</string>
+    <string name="increasing_ring_enable">启用</string>
+    <string name="increasing_ring_min_volume_title">开始振铃音量</string>
+    <string name="increasing_ring_volume_notice">注意：由于设置音量比铃声音量大，将使用铃声音量播放</string>
+    <string name="increasing_ring_interval_title">增加间隔</string>
+    <string name="increasing_ring_interval_eachring">在每环</string>
+    <string name="increasing_ring_interval_half_second">0.5秒</string>
+    <string name="increasing_ring_interval_1second">1秒</string>
+    <string name="increasing_ring_interval_2seconds">2秒</string>
+    <string name="increasing_ring_interval_3seconds">3秒</string>
+    <string name="increasing_ring_interval_5seconds">5秒</string>
+    <string name="increasing_ring_interval_10seconds">10秒</string>
+
+    <!-- Icon picker: Snapchat icon -->
+    <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
+
+    <!-- HW Key Action: In-app search -->
+    <string name="hwkey_action_inapp_search">在应用程序内搜索</string>
+
+    <!-- Misc: Force LTR direction -->
+    <string name="pref_force_ltr_direction_title">强制LTR方向</string>
+    <string name="pref_force_ltr_direction_summary">需要重新启动</string>
     
 </resources>
