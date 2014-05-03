@@ -499,6 +499,13 @@ public class ModNavigationBar {
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     setCustomKeyVisibility();
                     setMenuKeyVisibility();
+
+                    if (mNavbarRingDisabled) {
+                        View v = (View) XposedHelpers.callMethod(param.thisObject, "getSearchLight");
+                        if (v != null) {
+                            v.setVisibility(View.GONE);
+                        }
+                    }
                 }
             });
 
