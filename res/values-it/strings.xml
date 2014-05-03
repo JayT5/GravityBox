@@ -84,6 +84,11 @@
     <string name="quick_settings_smart_radio_off">Modem Intelligente Off</string>
     <string name="quick_settings_lock_screen_on">Blocco schermo On</string>
     <string name="quick_settings_lock_screen_off">Blocco schermo Off</string>
+    <string name="quick_settings_location_on">GPS</string>
+    <string name="quick_settings_location_off">GPS Spento</string>
+    <string name="quick_settings_quiet_hours_off">Ore Notturne Off</string>
+    <string name="quick_settings_quiet_hours_on">Ore Notturne On</string>
+    <string name="quick_settings_quiet_hours_auto">Ore Notturne Auto</string>
 
     <!-- QuickSettings settings -->
     <string name="quick_settings_title">Caselle QuickSetting</string>
@@ -94,6 +99,7 @@
     <string name="qs_tile_wifi">Wi-Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_gps">GPS</string>
+    <string name="qs_tile_gps_slimkat">GPS (Stile SlimKat)</string>
     <string name="qs_tile_gps_alt">GPS (stile CM)</string>
     <string name="qs_tile_mobile_data">Dati Mobili</string>
     <string name="qs_tile_network_mode">Modalità Rete</string>
@@ -1454,7 +1460,7 @@
     <string name="pref_disable_data_network_type_icons_summary">Permette di disabilitare gli indicatori 3G/G accanto al segnale</string>
 
     <!-- Force English locale -->
-    <string name="pref_force_english_locale_title">Imposta gravitybox in inglese</string>
+    <string name="pref_force_english_locale_title">Imposta Gravitybox in inglese</string>
     
     <!-- VolumePanel transparency -->
     <string name="pref_volume_panel_transparency_title">Trasparenza pannello volume</string>
@@ -1464,8 +1470,8 @@
 
     <!-- UNC Quiet Hours: ignore on per-app basis -->
     <string name="pref_lc_qh_ignore_title">Ignora ore notturne</string>
-    <string name="pref_lc_qh_ignore_list_title">Lista keywords</string>
-    <string name="pref_lc_qh_ignore_list_summary">Separare con una virgola la lista di keywords per ignorare le notifiche
+    <string name="pref_lc_qh_ignore_list_title">Lista keyword</string>
+    <string name="pref_lc_qh_ignore_list_summary">Separare con una virgola la lista di keyword per ignorare le notifiche
     durante le ore notturne. Lasciare il campo vuoto per tutte le notifiche.</string>
 
     <!-- GB Actions: Quiet hours shortcut -->
@@ -1473,7 +1479,7 @@
 
     <!-- Signal cluster: H+ indicator -->
     <string name="pref_signal_cluster_hplus_title">Abilita indicatore H+</string>
-    <string name="pref_signal_cluster_hplus_summary">Necessario riavvio</string>
+    <string name="pref_signal_cluster_hplus_summary">Richiede riavvio</string>
 
     <!-- Signal cluster: LTE/4G indicator style -->
     <string name="pref_signal_cluster_lte_style_title">Stile indicatore LTE</string>
@@ -1486,18 +1492,18 @@
  
     <!-- Statusbar BT icon visibility -->
     <string name="pref_sb_bt_visibility_title">Visibilità icona Bluetooth</string>
-    <string name="sb_bt_default">Quando BT abilitato(default)</string>
+    <string name="sb_bt_default">Quando BT abilitato(predefinito)</string>
     <string name="sb_bt_connected">Quando BT connesso</string>
     <string name="sb_bt_hidden">Nascosta</string>
 
     <!-- Increasing ringtone volume -->
-    <string name="pref_increasing_ring_title">Suoneria Ascendente</string>
+    <string name="pref_increasing_ring_title">Suoneria incrementale</string>
     <string name="increasing_ring_enable">Abilita</string>
     <string name="increasing_ring_min_volume_title">Volume di partenza</string>
-    <string name="increasing_ring_volume_notice">Avviso:\n Qualora il volume di partenza sia settato superiore al volume della suoneria, questa verrà riprodotto utilizzando il volume della suoneria.</string>
+    <string name="increasing_ring_volume_notice">Avviso:\n Se il volume di partenza è superiore al volume della suoneria, questa verrà riprodotta utilizzando il volume della suoneria.</string>
     <string name="increasing_ring_interval_title">Intervallo incremento</string>
     <string name="increasing_ring_interval_eachring">Ogni squillo</string>
-    <string name="increasing_ring_interval_half_second">0.5 secondo</string>
+    <string name="increasing_ring_interval_half_second">0.5 secondi</string>
     <string name="increasing_ring_interval_1second">1 secondo</string>
     <string name="increasing_ring_interval_2seconds">2 secondi</string>
     <string name="increasing_ring_interval_3seconds">3 secondi</string>
@@ -1508,10 +1514,10 @@
     <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
 
     <!-- HW Key Action: In-app search -->
-    <string name="hwkey_action_inapp_search">Cerca In-app</string>
+    <string name="hwkey_action_inapp_search">Ricerca in-app</string>
 
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">Forza direzione LTR</string>
-    <string name="pref_force_ltr_direction_summary">Richiede riavvio</string>
+    <string name="pref_force_ltr_direction_summary">Forza dislocazione a sinistra per le lingue con dislocazione a destra (richiede riavvio)</string>
 
 </resources>
