@@ -1518,6 +1518,6 @@
 
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">Force LTR direction</string>
-    <string name="pref_force_ltr_direction_summary">Requires reboot</string>
+    <string name="pref_force_ltr_direction_summary">Forces LTR layout direction for RTL locales (requires reboot)</string>
 
 </resources>
