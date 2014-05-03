@@ -453,14 +453,16 @@ public class ModLockscreen {
 
                     final AppInfo appInfo = (AppInfo) XposedHelpers.getAdditionalInstanceField(td, "mGbAppInfo");
                     if (appInfo != null) {
+                        boolean isSecure = false;
+                        final Object lockPatternUtils = XposedHelpers.getObjectField(
+                                XposedHelpers.getSurroundingThis(param.thisObject), "mLockPatternUtils");
+                        if (lockPatternUtils != null) {
+                            isSecure = (Boolean) XposedHelpers.callMethod(lockPatternUtils, "isSecure");
+                        }
                         // if intent is a GB action of broadcast type, handle it directly here
                         if (ShortcutActivity.isGbBroadcastShortcut(appInfo.intent)) {
-                            final Object lockPatternUtils = XposedHelpers.getObjectField(
-                                    XposedHelpers.getSurroundingThis(param.thisObject), "mLockPatternUtils");
-                            if (lockPatternUtils != null && 
-                                    (Boolean) XposedHelpers.callMethod(lockPatternUtils, "isSecure") &&
-                                        !ShortcutActivity.isActionSafe(appInfo.intent.getStringExtra(
-                                            ShortcutActivity.EXTRA_ACTION))) {
+                            if (isSecure && !ShortcutActivity.isActionSafe(appInfo.intent.getStringExtra(
+                                                ShortcutActivity.EXTRA_ACTION))) {
                                 if (DEBUG) log("Keyguard is secured - ignoring GB action");
                             } else {
                                 Intent newIntent = new Intent(appInfo.intent.getStringExtra(
@@ -474,13 +476,19 @@ public class ModLockscreen {
                         } else {
                             final Object activityLauncher = XposedHelpers.getObjectField(
                                     XposedHelpers.getSurroundingThis(param.thisObject), "mActivityLauncher");
-                            XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
+                            if (isSecure && prefs.getBoolean(
+                                    GravityBoxSettings.PREF_KEY_LOCKSCREEN_SLIDE_BEFORE_UNLOCK, false)) {
+                                XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
                                     appInfo.intent, false, true, new Handler(), new Runnable() {
                                         @Override
                                         public void run() {
                                             if (DEBUG) log("onStarted: " + appInfo.intent);
                                         }
-                            });
+                                });
+                            } else {
+                                XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
+                                        appInfo.intent, false, true, null, null);
+                            }
                         }
                     }
                 }
