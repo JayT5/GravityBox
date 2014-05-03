@@ -1,3 +1,38 @@
+Changelog 3.1.1 - 03/05/2014
+--------------------------------------
+- Phone tweaks: Added option for ascending (increasing) ring tone
+- Lockscreen tweaks:
+--- Fixed issues with launching activities from "slide before unlock" ring (double-ring anomaly)
+--- Allow safe GravityBox Actions to be run from unlock ring and navbar ring when lock screen is secured
+--- Anti-aliased Battery Arc for better visual quality
+- GB App Launcher:
+--- Allows app launcher to be triggered from unlock/navbar rings on secured lock screen
+--- Allows launching only safe GravityBox Actions when lock screen is secured
+--- Will request unlock prior to launching activity - prompts user to unlock before running activity
+- GravityBox Actions: Added action for toggling Airplane Mode
+- Statusbar tweaks: Added option for controlling Bluetooth icon visibility
+- Navbar tweaks: Don't show search icon hint when navbar ring is disabled
+- RAM Bar: Fixed text alignment for RTL locales
+- Key actions: Added action for in-app search (works in apps that support it)
+- Launcher tweaks: Adjusted for compatibility with the latest obfuscated version of GNL
+- Power Menu: Improved option to disable power menu while locked:
+--- Won't allow power menu while activity that's allowed to be running 
+    during keyguard lock is in the foreground (e.g. emergency dialer or camera app)
+- Display tweaks: Changed unit of pulse notification delay to allow values < 1s
+- Icon Picker: Added icon for Snapchat (thanks to jacknicholson)
+- Misc tweaks: Option to force LTR layout direction for RTL languages
+- Updated French translation (thanks to ch-vox)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated Chinese (Traditional) translations (thanks to bluestarr, momomok)
+- Updated Italian translations (thanks to pesa1234)
+- Updated German translations (thanks to LibertyMarine, Minty123)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated Portuguese (PT) translation (thanks to bgcngm)
+- Updated Russian translations (thanks to gaich)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Slovak and Czech translations
+
 Changelog 3.1.0 - 22/04/2014
 --------------------------------------
 - QuickSettings management:
