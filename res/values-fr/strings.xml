@@ -1061,7 +1061,7 @@
     <string name="pref_translucent_decor_disabled">Désactivé</string>
 
     <!-- Pulse notification delay -->
-    <string name="pref_pulse_notification_delay_title">Retard impulsion de notification</string>
+    <string name="pref_pulse_notification_delay_title">Fréquence LED de notification</string>
     <string name="pref_pulse_notification_delay_summary">Redémarrage nécessaire</string>
 
     <!--  Clear recents modes -->
