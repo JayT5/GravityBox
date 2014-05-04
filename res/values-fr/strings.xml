@@ -1518,5 +1518,6 @@
 
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">Forcer le sens gauche à droite</string>
-    <string name="pref_force_ltr_direction_summary">Redémarrage nécessaire</string>
+    <string name="pref_force_ltr_direction_summary">Force le sens de lecture de gauche à droite pour les langues lues de droite à gauche (redémarrage nécessaire)</string>
+
 </resources>
