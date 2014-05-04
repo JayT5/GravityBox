@@ -1462,4 +1462,31 @@
     <!-- GB Actions: toggle airplane mode -->
     <string name="shortcut_airplane_mode">開關飛航模式</string>
 
+    <!-- Statusbar BT icon visibility -->
+    <string name="pref_sb_bt_visibility_title">藍牙圖示可視性</string>
+    <string name="sb_bt_default">當藍牙啟用時（系統預設值）</string>
+    <string name="sb_bt_connected">當已連接藍牙設備時</string>
+    <string name="sb_bt_hidden">隱藏</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="pref_increasing_ring_title">遞增鈴聲</string>
+    <string name="increasing_ring_enable">啟用</string>
+    <string name="increasing_ring_min_volume_title">起始鈴聲音量</string>
+    <string name="increasing_ring_volume_notice">請注意：\n由於起始音量較已設定的鈴聲音量大，鈴聲將以已設定的鈴聲音量播放</string>
+    <string name="increasing_ring_interval_title">遞增間隙</string>
+    <string name="increasing_ring_interval_eachring">每次鈴聲播放後</string>
+    <string name="increasing_ring_interval_half_second">0.5 秒</string>
+    <string name="increasing_ring_interval_1second">1 秒</string>
+    <string name="increasing_ring_interval_2seconds">2 秒</string>
+    <string name="increasing_ring_interval_3seconds">3 秒</string>
+    <string name="increasing_ring_interval_5seconds">5 秒</string>
+    <string name="increasing_ring_interval_10seconds">10 秒</string>
+
+    <!-- HW Key Action: In-app search -->
+    <string name="hwkey_action_inapp_search">應用程式內的搜尋</string>
+
+    <!-- Misc: Force LTR direction -->
+    <string name="pref_force_ltr_direction_title">強制使用從左至右版面配置方向</string>
+    <string name="pref_force_ltr_direction_summary">對所有從右至左的語系強制使用從左至右版面配置方向（需要重新啟動）</string>
+
 </resources>
