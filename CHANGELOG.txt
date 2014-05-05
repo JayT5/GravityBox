@@ -1,3 +1,10 @@
+Changelog 3.1.2 - 05/05/2014
+--------------------------------------
+- Fixed issues with launching apps/shortcuts from unlock ring
+- Updated Italian translations (thanks to valerioscifoni)
+- Updated French translation (thanks to ch-vox)
+- Updated Chinese (Traditional) translations (thanks to momomok)
+
 Changelog 3.1.1 - 03/05/2014
 --------------------------------------
 - Phone tweaks: Added option for ascending (increasing) ring tone
