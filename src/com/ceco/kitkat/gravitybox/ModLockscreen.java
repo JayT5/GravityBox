@@ -478,13 +478,13 @@ public class ModLockscreen {
                                     XposedHelpers.getSurroundingThis(param.thisObject), "mActivityLauncher");
                             if (isSecure && prefs.getBoolean(
                                     GravityBoxSettings.PREF_KEY_LOCKSCREEN_SLIDE_BEFORE_UNLOCK, false)) {
-                                XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
-                                    appInfo.intent, false, true, new Handler(), new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            if (DEBUG) log("onStarted: " + appInfo.intent);
-                                        }
-                                });
+                                Class<?> amnCls = XposedHelpers.findClass("android.app.ActivityManagerNative",
+                                        mGlowPadView.getContext().getClassLoader());
+                                Object amn = XposedHelpers.callStaticMethod(amnCls, "getDefault");
+                                XposedHelpers.callMethod(amn, "dismissKeyguardOnNextActivity");
+                                appInfo.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                                        Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                mGlowPadView.getContext().startActivity(appInfo.intent);
                             } else {
                                 XposedHelpers.callMethod(activityLauncher, "launchActivity", mLaunchActivityArgs,
                                         appInfo.intent, false, true, null, null);
