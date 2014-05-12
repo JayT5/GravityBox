@@ -330,6 +330,15 @@ public class ModNavigationBar {
             mCameraKeyDisabled = prefs.getBoolean(
                     GravityBoxSettings.PREF_KEY_NAVBAR_CAMERA_KEY_DISABLE, false);
 
+            // for HTC GPE devices having capacitive keys
+            if (prefs.getBoolean(GravityBoxSettings.PREF_KEY_NAVBAR_ENABLE, false)) {
+                try {
+                    Class<?> sbFlagClass = XposedHelpers.findClass(
+                            "com.android.systemui.statusbar.StatusBarFlag", classLoader);
+                    XposedHelpers.setStaticBooleanField(sbFlagClass, "supportHWNav", false);
+                } catch (Throwable t) { }
+            }
+
             XposedBridge.hookAllConstructors(navbarViewClass, new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
