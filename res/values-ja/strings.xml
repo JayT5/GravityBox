@@ -1478,6 +1478,6 @@
 
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">LTRレイアウト方向を強制</string>
-    <string name="pref_force_ltr_direction_summary">RTL言語でLTRレイアウト方向を使うようにします。(要再起動)</resources>
+    <string name="pref_force_ltr_direction_summary">RTL言語でLTRレイアウト方向を使うようにします。(要再起動)</string>
     
 </resources>
