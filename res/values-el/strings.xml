@@ -1211,5 +1211,6 @@
     <string name="animation_scale5">Κλίμακα κίνησης 2x</string>
     <string name="animation_scale6">Κλίμακα κίνησης 5x</string>
     <string name="animation_scale7">Κλίμακα κίνησης 10x</string>
+    <string name="animation_scale8">Κλίμακα κίνησης .75x</string>
 
 </resources>

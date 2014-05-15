@@ -1226,6 +1226,7 @@
     <string name="animation_scale5">Scala animazione 2x</string>
     <string name="animation_scale6">Scala animazione 5x</string>
     <string name="animation_scale7">Scala animazione 10x</string>
+    <string name="animation_scale8">Scala animazione .75x</string>
 
     <!-- QS Tiles: Tile label style -->
     <string name="pref_qs_tile_label_style_title">Stile testo caselle</string>

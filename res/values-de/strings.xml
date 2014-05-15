@@ -1215,6 +1215,7 @@
     <string name="animation_scale5">Animation 2x</string>
     <string name="animation_scale6">Animation 5x</string>
     <string name="animation_scale7">Animation 10x</string>
+    <string name="animation_scale8">Animation .75x</string>
 
     <!-- QS Tiles: Tile label style -->
     <string name="pref_qs_tile_label_style_title">Textstil der Symbole</string>
