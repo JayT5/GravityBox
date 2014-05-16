@@ -464,17 +464,11 @@ public class Utils {
         return arr;
     }
 
-    public static boolean isTimeOfDayInRange(long timeMs, long startMs, long endMs) {
+    public static boolean isTimeOfDayInRange(long timeMs, int startMin, int endMin) {
         Calendar c = new GregorianCalendar();
 
         c.setTimeInMillis(timeMs);
         int timeMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-
-        c.setTimeInMillis(startMs);
-        int startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-
-        c.setTimeInMillis(endMs);
-        int endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
 
         if (startMin == endMin) {
             return false;

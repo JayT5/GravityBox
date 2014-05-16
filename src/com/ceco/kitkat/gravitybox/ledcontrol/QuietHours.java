@@ -37,10 +37,10 @@ public class QuietHours {
 
     public boolean uncLocked;
     public boolean enabled;
-    long start;
-    long end;
-    long startAlt;
-    long endAlt;
+    int start;
+    int end;
+    int startAlt;
+    int endAlt;
     boolean muteLED;
     public boolean showStatusbarIcon;
     public Mode mode;
@@ -48,10 +48,10 @@ public class QuietHours {
     public QuietHours(SharedPreferences prefs) {
         uncLocked = prefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false);
         enabled = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
-        start = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START, 0);
-        end = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END, 0);
-        startAlt = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_START_ALT, 0);
-        endAlt = prefs.getLong(QuietHoursActivity.PREF_KEY_QH_END_ALT, 0);
+        start = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START, 0);
+        end = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END, 0);
+        startAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START_ALT, 0);
+        endAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END_ALT, 0);
         muteLED = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_MUTE_LED, false);
         showStatusbarIcon = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_STATUSBAR_ICON, true);
         mode = Mode.valueOf(prefs.getString(QuietHoursActivity.PREF_KEY_QH_MODE, "AUTO"));
@@ -88,15 +88,14 @@ public class QuietHours {
             return (mode == Mode.ON ? true : false);
         }
 
-        int startMin, endMin;
         Calendar c = new GregorianCalendar();
         c.setTimeInMillis(System.currentTimeMillis());
         int curMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         boolean isFriday = dayOfWeek == Calendar.FRIDAY;
         boolean isSunday = dayOfWeek == Calendar.SUNDAY;
-        long s = start; 
-        long e = end;
+        int s = start; 
+        int e = end;
         if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
             s = startAlt;
             e = endAlt;
@@ -105,15 +104,9 @@ public class QuietHours {
         // special logic for Friday and Sunday
         // we assume people stay up longer on Friday  
         if (isFriday) {
-            c.setTimeInMillis(end);
-            endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-            if (curMin > endMin) {
+            if (curMin > end) {
                 // we are after previous QH
-                c.setTimeInMillis(startAlt);
-                startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-                c.setTimeInMillis(endAlt);
-                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-                if (startMin > endMin) {
+                if (startAlt > endAlt) {
                     // weekend range spans midnight
                     // let's apply weekend start time instead
                     s = startAlt;
@@ -127,15 +120,9 @@ public class QuietHours {
         }
         // we assume people go to sleep earlier on Sunday
         if (isSunday) {
-            c.setTimeInMillis(endAlt);
-            endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-            if (curMin > endMin) {
+            if (curMin > endAlt) {
                 // we are after previous QH
-                c.setTimeInMillis(start);
-                startMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-                c.setTimeInMillis(end);
-                endMin = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
-                if (startMin > endMin) {
+                if (start > end) {
                     // weekday range spans midnight
                     // let's apply weekday start time instead
                     s = start;

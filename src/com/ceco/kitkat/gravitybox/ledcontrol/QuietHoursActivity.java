@@ -31,10 +31,10 @@ import android.preference.PreferenceFragment;
 public class QuietHoursActivity extends Activity {
 
     public static final String PREF_KEY_QH_ENABLED = "pref_lc_qh_enabled";
-    public static final String PREF_KEY_QH_START = "pref_lc_qh_start";
-    public static final String PREF_KEY_QH_END = "pref_lc_qh_end";
-    public static final String PREF_KEY_QH_START_ALT = "pref_lc_qh_start_alt";
-    public static final String PREF_KEY_QH_END_ALT = "pref_lc_qh_end_alt";
+    public static final String PREF_KEY_QH_START = "pref_lc_qh_start2";
+    public static final String PREF_KEY_QH_END = "pref_lc_qh_end2";
+    public static final String PREF_KEY_QH_START_ALT = "pref_lc_qh_start_alt2";
+    public static final String PREF_KEY_QH_END_ALT = "pref_lc_qh_end_alt2";
     public static final String PREF_KEY_QH_MUTE_LED = "pref_lc_qh_mute_led";
     public static final String PREF_KEY_QH_STATUSBAR_ICON = "pref_lc_qh_statusbar_icon";
     public static final String PREF_KEY_QH_MODE = "pref_lc_qh_mode";
