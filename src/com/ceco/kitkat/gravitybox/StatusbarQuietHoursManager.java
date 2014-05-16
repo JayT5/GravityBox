@@ -57,6 +57,8 @@ public class StatusbarQuietHoursManager extends BroadcastReceiver {
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_TIME_TICK);
+        intentFilter.addAction(Intent.ACTION_TIME_CHANGED);
+        intentFilter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
         intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
         mContext.registerReceiver(this, intentFilter);
 
@@ -66,7 +68,9 @@ public class StatusbarQuietHoursManager extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
-        if (action.equals(Intent.ACTION_TIME_TICK)) {
+        if (action.equals(Intent.ACTION_TIME_TICK) ||
+                action.equals(Intent.ACTION_TIME_CHANGED) ||
+                action.equals(Intent.ACTION_TIMEZONE_CHANGED)) {
             notifyTimeTick();
         } else if (action.equals(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED)) {
             refreshState();
