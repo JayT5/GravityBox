@@ -63,7 +63,6 @@ import de.robv.android.xposed.callbacks.XCallback;
 public class ModHwKeys {
     private static final String TAG = "GB:ModHwKeys";
     private static final String CLASS_PHONE_WINDOW_MANAGER = "com.android.internal.policy.impl.PhoneWindowManager";
-    private static final String CLASS_ACTIVITY_MANAGER_NATIVE = "android.app.ActivityManagerNative";
     private static final String CLASS_WINDOW_STATE = "android.view.WindowManagerPolicy$WindowState";
     private static final String CLASS_WINDOW_MANAGER_FUNCS = "android.view.WindowManagerPolicy.WindowManagerFuncs";
     private static final String CLASS_IWINDOW_MANAGER = "android.view.IWindowManager";
@@ -105,7 +104,6 @@ public class ModHwKeys {
 
     public static final String SETTING_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
 
-    private static Class<?> classActivityManagerNative;
     private static Object mPhoneWindowManager;
     private static Context mContext;
     private static Context mGbContext;
@@ -422,7 +420,6 @@ public class ModHwKeys {
             }
 
             final Class<?> classPhoneWindowManager = XposedHelpers.findClass(CLASS_PHONE_WINDOW_MANAGER, null);
-            classActivityManagerNative = XposedHelpers.findClass(CLASS_ACTIVITY_MANAGER_NATIVE, null);
 
             XposedHelpers.findAndHookMethod(classPhoneWindowManager, "init",
                 Context.class, CLASS_IWINDOW_MANAGER, CLASS_WINDOW_MANAGER_FUNCS, phoneWindowManagerInitHook);
@@ -1127,18 +1124,15 @@ public class ModHwKeys {
                         final PackageManager pm = mContext.getPackageManager();
                         String defaultHomePackage = "com.android.launcher";
                         intent.addCategory(Intent.CATEGORY_HOME);
-                        
+
                         final ResolveInfo res = pm.resolveActivity(intent, 0);
                         if (res.activityInfo != null && !res.activityInfo.packageName.equals("android")) {
                             defaultHomePackage = res.activityInfo.packageName;
                         }
-        
-                        Object mgr = XposedHelpers.callStaticMethod(classActivityManagerNative, "getDefault");
-        
-                        @SuppressWarnings("unchecked")
-                        List<RunningAppProcessInfo> apps = (List<RunningAppProcessInfo>) 
-                                XposedHelpers.callMethod(mgr, "getRunningAppProcesses");
-        
+
+                        ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+                        List<RunningAppProcessInfo> apps = am.getRunningAppProcesses();
+
                         String targetKilled = null;
                         for (RunningAppProcessInfo appInfo : apps) {  
                             int uid = appInfo.uid;  
@@ -1147,21 +1141,28 @@ public class ModHwKeys {
                             if (uid >= Process.FIRST_APPLICATION_UID && uid <= Process.LAST_APPLICATION_UID  
                                     && appInfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND &&
                                     !mKillIgnoreList.contains(appInfo.processName) &&
-                                    !appInfo.processName.equals(defaultHomePackage)) {  
-                                if (DEBUG) log("Killing process ID " + appInfo.pid + ": " + appInfo.processName);
-                                Process.killProcess(appInfo.pid);
-                                targetKilled = appInfo.processName;
-                                try {
-                                    targetKilled = (String) pm.getApplicationLabel(
-                                            pm.getApplicationInfo(targetKilled, 0));
-                                } catch (PackageManager.NameNotFoundException nfe) {
-                                    //
+                                    !appInfo.processName.equals(defaultHomePackage)) {
+                                if (appInfo.pkgList != null && appInfo.pkgList.length > 0) {
+                                    for (String pkg : appInfo.pkgList) {
+                                        if (DEBUG) log("Force stopping: " + pkg);
+                                        XposedHelpers.callMethod(am, "forceStopPackage", pkg);
+                                    }
+                                } else {
+                                    if (DEBUG) log("Killing process ID " + appInfo.pid + ": " + appInfo.processName);
+                                    Process.killProcess(appInfo.pid);
                                 }
+                                targetKilled = appInfo.processName;
                                 break;
-                            }  
+                            }
                         }
         
                         if (targetKilled != null) {
+                            try {
+                                targetKilled = (String) pm.getApplicationLabel(
+                                        pm.getApplicationInfo(targetKilled, 0));
+                            } catch (PackageManager.NameNotFoundException nfe) {
+                                //
+                            }
                             Class<?>[] paramArgs = new Class<?>[3];
                             paramArgs[0] = XposedHelpers.findClass(CLASS_WINDOW_STATE, null);
                             paramArgs[1] = int.class;
