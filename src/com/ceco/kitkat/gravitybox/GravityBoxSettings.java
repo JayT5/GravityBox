@@ -667,7 +667,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final List<String> PREF_KEY_APP_LAUNCHER_SLOT = new ArrayList<String>(Arrays.asList(
             "pref_app_launcher_slot0", "pref_app_launcher_slot1", "pref_app_launcher_slot2",
             "pref_app_launcher_slot3", "pref_app_launcher_slot4", "pref_app_launcher_slot5",
-            "pref_app_launcher_slot6", "pref_app_launcher_slot7"));
+            "pref_app_launcher_slot6", "pref_app_launcher_slot7", "pref_app_launcher_slot8",
+            "pref_app_launcher_slot9", "pref_app_launcher_slot10", "pref_app_launcher_slot11"));
     public static final String ACTION_PREF_APP_LAUNCHER_CHANGED = "gravitybox.intent.action.APP_LAUNCHER_CHANGED";
     public static final String EXTRA_APP_LAUNCHER_SLOT = "appLauncherSlot";
     public static final String EXTRA_APP_LAUNCHER_APP = "appLauncherApp";

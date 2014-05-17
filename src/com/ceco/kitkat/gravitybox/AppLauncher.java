@@ -136,6 +136,10 @@ public class AppLauncher {
         mAppSlots.add(new AppInfo(R.id.quickapp6));
         mAppSlots.add(new AppInfo(R.id.quickapp7));
         mAppSlots.add(new AppInfo(R.id.quickapp8));
+        mAppSlots.add(new AppInfo(R.id.quickapp9));
+        mAppSlots.add(new AppInfo(R.id.quickapp10));
+        mAppSlots.add(new AppInfo(R.id.quickapp11));
+        mAppSlots.add(new AppInfo(R.id.quickapp12));
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(GravityBoxSettings.ACTION_PREF_APP_LAUNCHER_CHANGED);
@@ -182,10 +186,13 @@ public class AppLauncher {
 
             View appRow1 = mAppView.findViewById(R.id.appRow1);
             View appRow2 = mAppView.findViewById(R.id.appRow2);
+            View appRow3 = mAppView.findViewById(R.id.appRow3);
             View separator = mAppView.findViewById(R.id.separator);
+            View separator2 = mAppView.findViewById(R.id.separator2);
             int appCount = 0;
             boolean appRow1Visible = false;
             boolean appRow2Visible = false;
+            boolean appRow3Visible = false;
             TextView lastVisible = null;
             for (AppInfo ai : mAppSlots) {
                 TextView tv = (TextView) mAppView.findViewById(ai.getResId());
@@ -204,6 +211,8 @@ public class AppLauncher {
                         ai.getResId() == R.id.quickapp3 || ai.getResId() == R.id.quickapp4;
                 appRow2Visible |= ai.getResId() == R.id.quickapp5 || ai.getResId() == R.id.quickapp6 || 
                         ai.getResId() == R.id.quickapp7 || ai.getResId() == R.id.quickapp8;
+                appRow3Visible |= ai.getResId() == R.id.quickapp9 || ai.getResId() == R.id.quickapp10 || 
+                        ai.getResId() == R.id.quickapp11 || ai.getResId() == R.id.quickapp12;
 
                 appCount++;
             }
@@ -216,8 +225,11 @@ public class AppLauncher {
             } else {
                 appRow1.setVisibility(appRow1Visible ? View.VISIBLE : View.GONE);
                 appRow2.setVisibility(appRow2Visible ? View.VISIBLE : View.GONE);
+                appRow3.setVisibility(appRow3Visible ? View.VISIBLE : View.GONE);
                 separator.setVisibility(appRow1Visible && appRow2Visible ?
                         View.VISIBLE : View.GONE);
+                separator2.setVisibility(appRow2Visible && appRow3Visible ||
+                        appRow1Visible && appRow3Visible ? View.VISIBLE : View.GONE);
                 mDialog.show();
                 mHandler.postDelayed(mDismissAppDialogRunnable, 4000);
             }
