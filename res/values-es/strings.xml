@@ -1516,4 +1516,18 @@
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">Forzar dirección LTR</string>
     <string name="pref_force_ltr_direction_summary">Forces LTR layout direction for RTL locales (requires reboot)</string>
+
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Opaco al interactuar</string>
+    <string name="pref_volume_panel_opaque_summary">Desactiva la transparencia al interactuar con el panel de volumen</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Establecer mode de sonido</string>
+    
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Solo datos móviles</string>
+    
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Batería circular punteada</string>
+    <string name="battery_style_circle_dashed_percent">Batería circular punteada con porcentaje</string>
 </resources>
