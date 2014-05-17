@@ -1531,4 +1531,8 @@
     <!-- Data traffic monitor: Only for mobile data -->
     <string name="pref_data_traffic_active_mobile_only_title">Mobile data only</string>
 
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Dashed circle battery</string>
+    <string name="battery_style_circle_dashed_percent">Dashed circle battery with percentage</string>
+
 </resources>

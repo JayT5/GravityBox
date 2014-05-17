@@ -22,6 +22,8 @@
         <item>@string/battery_style_circle_percent</item>
         <item>@string/battery_style_kitkat</item>
         <item>@string/battery_style_kitkat_percent</item>
+        <item>@string/battery_style_circle_dashed</item>
+        <item>@string/battery_style_circle_dashed_percent</item>
         <item>@string/battery_style_none</item>
     </string-array>
 
@@ -31,6 +33,8 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
         <item>0</item>
     </string-array>
 

@@ -106,6 +106,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final int BATTERY_STYLE_CIRCLE_PERCENT = 3;
     public static final int BATTERY_STYLE_KITKAT = 4;
     public static final int BATTERY_STYLE_KITKAT_PERCENT = 5;
+    public static final int BATTERY_STYLE_CIRCLE_DASHED = 6;
+    public static final int BATTERY_STYLE_CIRCLE_DASHED_PERCENT = 7;
     public static final int BATTERY_STYLE_NONE = 0;
 
     public static final String PREF_KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
