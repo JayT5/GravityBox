@@ -1528,4 +1528,7 @@
     <!-- Ringer mode shortcut -->
     <string name="shortcut_ringer_mode">Set ringer mode</string>
 
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Mobile data only</string>
+
 </resources>

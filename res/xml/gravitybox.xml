@@ -793,6 +793,11 @@
                 android:defaultValue="OFF" />
 
             <CheckBoxPreference 
+                android:key="pref_data_traffic_active_mobile_only"
+                android:title="@string/pref_data_traffic_active_mobile_only_title"
+                android:defaultValue="false" />
+
+            <CheckBoxPreference 
                 android:key="pref_data_traffic_active_dl_only"
                 android:title="@string/pref_data_traffic_active_dl_only_title"
                 android:summary="@string/pref_data_traffic_active_dl_only_summary"
