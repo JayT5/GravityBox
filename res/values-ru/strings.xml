@@ -1521,4 +1521,18 @@
     <string name="pref_force_ltr_direction_title">Слева направо принудительно</string>
     <string name="pref_force_ltr_direction_summary">Принудительная установка написания слева направо для языков с письмом справа налево (необходима перезагрузка)</string>
 
+   <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Непрозрачная при использовании</string>
+    <string name="pref_volume_panel_opaque_summary">Отключение прозрачности при использовании панели громкости</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Установка режима звонка</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Только моб.данные</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Круг из точек</string>
+    <string name="battery_style_circle_dashed_percent">Круг из точек с процентами</string>
+
 </resources>
