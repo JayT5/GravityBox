@@ -874,14 +874,14 @@ public class ModQuickSettings {
                     final View thisView = (View) param.thisObject;
                     final int width = thisView.getWidth();
                     final int height = thisView.getHeight();
-                    final int paddingBottom = thisView.getPaddingBottom();
+                    //final int paddingBottom = thisView.getPaddingBottom();
 
                     switch (event.getActionMasked()) {
                         case MotionEvent.ACTION_DOWN:
                             mGestureStartX = event.getX(0);
                             mGestureStartY = event.getY(0);
-                            mTrackingSwipe = isFullyExpanded &&
-                                    mGestureStartY > height - handleBarHeight - paddingBottom;
+                            mTrackingSwipe = isFullyExpanded;// &&
+                                    //mGestureStartY > height - handleBarHeight - paddingBottom;
                             okToFlip = (expandedHeight == 0);
                             XposedHelpers.setBooleanField(param.thisObject, "mOkToFlip", okToFlip);
                             if (mAutoSwitch == 1 && !notifDataHasVisibleItems(notificationData)) {
