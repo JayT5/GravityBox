@@ -41,6 +41,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -94,6 +95,24 @@ public class AppLauncher {
         }
     };
 
+    private BroadcastReceiver mPackageRemoveReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (DEBUG) log("Broadcast received: " + intent.toString());
+
+            Uri data = intent.getData();
+            String pkgName = data == null ? null : data.getSchemeSpecificPart();
+            if (pkgName != null) {
+                for (AppInfo ai : mAppSlots) {
+                    if (pkgName.equals(ai.getPackageName())) {
+                        ai.initAppInfo(null);
+                        if (DEBUG) log("Removed package: " + pkgName);
+                    }
+                }
+            }
+        }
+    };
+
     public AppLauncher(Context context, XSharedPreferences prefs) {
         mContext = context;
         mResources = mContext.getResources();
@@ -121,6 +140,10 @@ public class AppLauncher {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(GravityBoxSettings.ACTION_PREF_APP_LAUNCHER_CHANGED);
         mContext.registerReceiver(mBroadcastReceiver, intentFilter);
+
+        intentFilter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
+        intentFilter.addDataScheme("package");
+        mContext.registerReceiver(mPackageRemoveReceiver, intentFilter);
     }
 
     public boolean dismissDialog() {
@@ -208,21 +231,15 @@ public class AppLauncher {
         public void onClick(View v) {
             dismissDialog();
 
-            AppInfo aiProcessing = null;
             try {
                 for(AppInfo ai : mAppSlots) {
-                    aiProcessing = ai;
                     if (v.getId() == ai.getResId()) {
                         startActivity(v.getContext(), ai.getIntent());
                         return;
                     }
                 }
-                aiProcessing = null;
             } catch (Exception e) {
                 log("Unable to start activity: " + e.getMessage());
-                if (aiProcessing != null) {
-                    aiProcessing.initAppInfo(null);
-                }
             }
         }
     };
@@ -272,6 +289,7 @@ public class AppLauncher {
         private String mValue;
         private int mResId;
         private Intent mIntent;
+        private String mPkgName;
 
         public AppInfo(int resId) {
             mResId = resId;
@@ -298,10 +316,15 @@ public class AppLauncher {
             return mIntent;
         }
 
+        public String getPackageName() {
+            return mPkgName;
+        }
+
         private void reset() {
             mValue = mAppName = null;
             mAppIcon = null;
             mIntent = null;
+            mPkgName = null;
         }
 
         public void initAppInfo(String value) {
@@ -316,6 +339,9 @@ public class AppLauncher {
                 if (!mIntent.hasExtra("mode")) {
                     reset();
                     return;
+                }
+                if (mIntent.getComponent() != null) {
+                    mPkgName = mIntent.getComponent().getPackageName();
                 }
                 final int mode = mIntent.getIntExtra("mode", AppPickerPreference.MODE_APP);
                 final int iconResId = mIntent.getStringExtra("iconResName") != null ?
@@ -350,7 +376,7 @@ public class AppLauncher {
                     Bitmap scaledIcon = Bitmap.createScaledBitmap(appIcon, sizePx, sizePx, true);
                     mAppIcon = new BitmapDrawable(mResources, scaledIcon);
                 }
-                if (DEBUG) log("AppInfo initialized for: " + getAppName());
+                if (DEBUG) log("AppInfo initialized for: " + getAppName() + " [" + mPkgName + "]");
             } catch (NameNotFoundException e) {
                 log("App not found: " + mIntent);
                 reset();
