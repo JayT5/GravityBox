@@ -50,8 +50,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
-import com.ceco.kitkat.gravitybox.AppLauncher;
-import com.ceco.kitkat.gravitybox.GravityBox;
 import com.ceco.kitkat.gravitybox.GravityBoxSettings;
 import com.ceco.kitkat.gravitybox.ModClearAllRecents;
 import com.ceco.kitkat.gravitybox.ModHwKeys;
@@ -99,7 +97,6 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
     private Context mGbContext;
     private Resources mGbResources;
     private PieLayout mPieContainer;
-    private AppLauncher mAppLauncher;
     /**
      * This is only needed for #toggleRecentApps()
      */
@@ -650,18 +647,8 @@ public class PieController implements PieLayout.OnSnapListener, PieItem.PieOnCli
     }
 
     private void showAppLauncher() {
-        if (mAppLauncher == null) {
-            try {
-                mAppLauncher = new AppLauncher(mContext, 
-                        new XSharedPreferences(GravityBox.PACKAGE_NAME));
-            } catch (Throwable t) {
-                log ("Error creating app launcher: " + t.getMessage());
-            }
-        }
-
-        if (mAppLauncher != null) {
-            mAppLauncher.showDialog();
-        }
+        Intent intent = new Intent(ModHwKeys.ACTION_SHOW_APP_LAUCNHER);
+        mContext.sendBroadcast(intent);
     }
 
     private void setRecentAlt() {
