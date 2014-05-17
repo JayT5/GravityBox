@@ -1521,4 +1521,8 @@
     <string name="pref_force_ltr_direction_title">Force LTR direction</string>
     <string name="pref_force_ltr_direction_summary">Forces LTR layout direction for RTL locales (requires reboot)</string>
 
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Opaque on interaction</string>
+    <string name="pref_volume_panel_opaque_summary">Removes transparency when interacting with volume panel</string>
+
 </resources>

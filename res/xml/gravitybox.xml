@@ -1698,6 +1698,12 @@
             android:defaultValue="0" />
 
         <CheckBoxPreference 
+            android:key="pref_volume_panel_opaque"
+            android:title="@string/pref_volume_panel_opaque_title"
+            android:summary="@string/pref_volume_panel_opaque_summary"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference 
             android:key="pref_link_volumes"
             android:title="@string/pref_link_volumes_title"
             android:summary="@string/pref_link_volumes_summary"
