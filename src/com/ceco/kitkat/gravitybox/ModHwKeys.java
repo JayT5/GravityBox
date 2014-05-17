@@ -50,6 +50,7 @@ import android.widget.Toast;
 
 import com.ceco.kitkat.gravitybox.R;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
+import com.ceco.kitkat.gravitybox.shortcuts.RingerModeShortcut;
 import com.ceco.kitkat.gravitybox.shortcuts.ShortcutActivity;
 
 import de.robv.android.xposed.XC_MethodHook;
@@ -96,9 +97,13 @@ public class ModHwKeys {
     public static final String ACTION_TOGGLE_QUIET_HOURS = "gravitybox.intent.action.ACTION_TOGGLE_QUIET_HOURS";
     public static final String ACTION_TOGGLE_AIRPLANE_MODE = "gravitybox.intent.action.TOGGLE_AIRPLANE_MODE";
     public static final String ACTION_INAPP_SEARCH = "gravitybox.intent.action.INAPP_SEARCH";
+    public static final String ACTION_SET_RINGER_MODE = "gravitybox.intent.action.SET_RINGER_MODE";
+    public static final String EXTRA_RINGER_MODE = "ringerMode";
 
     public static final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
+
+    public static final String SETTING_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
 
     private static Class<?> classActivityManagerNative;
     private static Object mPhoneWindowManager;
@@ -354,6 +359,8 @@ public class ModHwKeys {
                 toggleAirplaneMode();
             } else if (action.equals(ACTION_INAPP_SEARCH)) {
                 injectKey(KeyEvent.KEYCODE_SEARCH);
+            } else if (action.equals(ACTION_SET_RINGER_MODE)) {
+                setRingerMode(intent.getIntExtra(EXTRA_RINGER_MODE, RingerModeShortcut.MODE_RING_VIBRATE));
             }
         }
     };
@@ -852,6 +859,7 @@ public class ModHwKeys {
             intentFilter.addAction(ACTION_TOGGLE_QUIET_HOURS);
             intentFilter.addAction(ACTION_TOGGLE_AIRPLANE_MODE);
             intentFilter.addAction(ACTION_INAPP_SEARCH);
+            intentFilter.addAction(ACTION_SET_RINGER_MODE);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
             if (DEBUG) log("Phone window manager initialized");
@@ -1621,6 +1629,33 @@ public class ModHwKeys {
             Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
             intent.putExtra("state", !enabled);
             mContext.sendBroadcast(intent);
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
+    }
+
+    private static void setRingerMode(int mode)
+    {
+        try {
+            AudioManager am = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+            ContentResolver cr = mContext.getContentResolver();
+            switch (mode) {
+                case RingerModeShortcut.MODE_RING:
+                    am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                    Settings.System.putInt(cr, SETTING_VIBRATE_WHEN_RINGING, 0);
+                    break;
+                case RingerModeShortcut.MODE_RING_VIBRATE:
+                    am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                    Settings.System.putInt(cr, SETTING_VIBRATE_WHEN_RINGING, 1);
+                    break;
+                case RingerModeShortcut.MODE_SILENT:
+                    am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                    break;
+                case RingerModeShortcut.MODE_VIBRATE:
+                    am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                    Settings.System.putInt(cr, SETTING_VIBRATE_WHEN_RINGING, 1);
+                    break;
+            }
         } catch (Throwable t) {
             XposedBridge.log(t);
         }

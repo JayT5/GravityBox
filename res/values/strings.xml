@@ -1525,4 +1525,7 @@
     <string name="pref_volume_panel_opaque_title">Opaque on interaction</string>
     <string name="pref_volume_panel_opaque_summary">Removes transparency when interacting with volume panel</string>
 
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Set ringer mode</string>
+
 </resources>
