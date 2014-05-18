@@ -1488,4 +1488,18 @@
     <string name="pref_force_ltr_direction_title">Wymuś kierunek od Lewej do Prawej</string>
     <string name="pref_force_ltr_direction_summary">Wymusza kierunek tekstu od Lewej do Prawej dla języków z zapisem od Prawej do Lewej (wymagany restart)</string>
 
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Nieprzezroczysty przy interakcji</string>
+    <string name="pref_volume_panel_opaque_summary">Usuwa przezroczystość panelu głośności podczas interakcji</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Ustaw tryb dzwonka</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Tylko dane mobilne</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Przerywane koło</string>
+    <string name="battery_style_circle_dashed_percent">Przerywane koło z procentami</string>
+
 </resources>
