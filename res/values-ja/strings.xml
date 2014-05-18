@@ -1481,4 +1481,18 @@
     <string name="pref_force_ltr_direction_title">LTRレイアウト方向を強制</string>
     <string name="pref_force_ltr_direction_summary">RTL言語でLTRレイアウト方向を使うようにします。(要再起動)</string>
     
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">操作時の不透明効果</string>
+    <string name="pref_volume_panel_opaque_summary">音量パネル操作時の透過を削除します。</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">着信音モードの変更</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">モバイルデータ通信のみ</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">サークルアイコン(破線)</string>
+    <string name="battery_style_circle_dashed_percent">サークルアイコン(破線)＋％</string>
+    
 </resources>
