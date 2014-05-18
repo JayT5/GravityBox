@@ -1086,7 +1086,7 @@
     <string name="pref_trans_verification_title">ID PayPal transakcie</string>
     <string name="pref_trans_verification_summary">V prípade, ak ste podporili projekt príspevkom cez PayPal, 
         môžete použiť ID PayPal transakcie na odomknutie prémiových funkcií</string>
-    <string name="wsc_trans_required_summary">Táto funkcia vyžaduje platné ID PayPal transakcie</string>
+    <string name="wsc_trans_required_summary">Táto funkcia je prémiová a vyžaduje odomknutie</string>
 
     <!-- Pie: disable system info -->
     <string name="pref_pie_sysinfo_disable_title">Vypnúť systémové informácie</string>
@@ -1371,7 +1371,7 @@
     <string name="pref_lockscreen_show_pattern_error_summary">Zobrazí červenú stopu po zadaní nesprávneho odomykacieho vzorca</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">Táto funkcia je v skúšobnom režime. V prípade, ak vyhovuje Vašim potrebám je možné ju aktivovať zadaním platného ID PayPal transakcie. 
+    <string name="trial_info">Táto funkcia je v skúšobnom režime. V prípade, ak vyhovuje Vašim potrebám je možné ju aktivovať odomknutím prémiových funkcií. 
         Počet reštartov do skončenia skúšobného režimu: %d</string>
 
     <!-- Navbar: disable camera icon -->
@@ -1500,5 +1500,8 @@
     <!-- Dashed circle battery style -->
     <string name="battery_style_circle_dashed">Čiarkovaný kruh</string>
     <string name="battery_style_circle_dashed_percent">Čiarkovaný kruh s percentami</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Ďakujeme za podporu. Prémiové funkcie budú odomknuté po reštartovaní GravityBox.</string>
 
 </resources>
