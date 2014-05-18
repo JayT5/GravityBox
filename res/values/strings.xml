@@ -1120,7 +1120,7 @@
     <string name="wsc_trans_blocked">Specified transaction ID has been blocked. Contact GravityBox dev to resolve.</string>
     <string name="pref_trans_verification_title">PayPal transaction ID</string>
     <string name="pref_trans_verification_summary">In case you donated, you can enter your PayPal donation transaction ID to unlock premium features</string>
-    <string name="wsc_trans_required_summary">This feature requires valid PayPal transaction ID</string>
+    <string name="wsc_trans_required_summary">This feature is premium and requires unlocking</string>
 
     <!-- Pie: disable system info -->
     <string name="pref_pie_sysinfo_disable_title">Disable system info</string>
@@ -1404,8 +1404,8 @@
     <string name="pref_lockscreen_show_pattern_error_summary">Show red trail when wrong pattern is entered</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">This feature is in trial mode. If you find it useful you can continue using it after registering your PayPal 
-        donation transaction ID. Trial period ends after %d reboots.</string>
+    <string name="trial_info">This feature is in trial mode. If you find it useful you can continue using it after unlocking premium features. 
+        Trial period ends after %d reboots.</string>
 
     <!-- Navbar: disable camera icon -->
     <string name="pref_navbar_camera_key_disable_title">Disable camera icon</string>
@@ -1534,5 +1534,8 @@
     <!-- Dashed circle battery style -->
     <string name="battery_style_circle_dashed">Dashed circle battery</string>
     <string name="battery_style_circle_dashed_percent">Dashed circle battery with percentage</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Thank you for your support. Premium features will be unlocked after GravityBox is restarted.</string>
 
 </resources>

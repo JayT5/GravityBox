@@ -35,6 +35,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <permission
+        android:name="gravitybox.permission.UNLOCK"
+        android:label="Permission to unlock GravityBox premium features"
+        android:protectionLevel="signature" />
+
     <application
         android:name="com.ceco.kitkat.gravitybox.GravityBoxApplication"
         android:allowBackup="true"
@@ -88,6 +93,16 @@
             android:label="@string/lc_quiet_hours" >
         </activity>
 
+        <activity
+            android:name="com.ceco.kitkat.gravitybox.UnlockActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:stateNotNeeded="true"
+            android:permission="gravitybox.permission.UNLOCK">
+        </activity>
+
         <service android:name="com.ceco.kitkat.gravitybox.GravityBoxService">
             <intent-filter>
                 <action android:name="gravitybox.intent.action.TOGGLE_SYNC" />
@@ -123,6 +138,16 @@
             android:exported="false">
             <intent-filter>
                  <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver 
+            android:name=".UnlockActivity$UnlockReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="gravitybox.permission.UNLOCK">
+            <intent-filter>
+                 <action android:name="gravitybox.intent.action.UNLOCK" />
             </intent-filter>
         </receiver>
 
