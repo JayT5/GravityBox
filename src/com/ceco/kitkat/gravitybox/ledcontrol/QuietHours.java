@@ -48,10 +48,10 @@ public class QuietHours {
     public QuietHours(SharedPreferences prefs) {
         uncLocked = prefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false);
         enabled = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_ENABLED, false);
-        start = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START, 0);
-        end = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END, 0);
-        startAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START_ALT, 0);
-        endAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END_ALT, 0);
+        start = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START, 1380);
+        end = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END, 360);
+        startAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_START_ALT, 1380);
+        endAlt = prefs.getInt(QuietHoursActivity.PREF_KEY_QH_END_ALT, 360);
         muteLED = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_MUTE_LED, false);
         showStatusbarIcon = prefs.getBoolean(QuietHoursActivity.PREF_KEY_QH_STATUSBAR_ICON, true);
         mode = Mode.valueOf(prefs.getString(QuietHoursActivity.PREF_KEY_QH_MODE, "AUTO"));
