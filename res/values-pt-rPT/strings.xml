@@ -1499,4 +1499,18 @@
     <string name="pref_force_ltr_direction_title">Forçar direção LTR</string>
     <string name="pref_force_ltr_direction_summary">Permite forçar a apresentação da grafia da esquerda para a direita (LTR) em idiomas grafados da direita para a esquerda (RTL) (necessário reiniciar)</string>
 
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Opaco durante interação</string>
+    <string name="pref_volume_panel_opaque_summary">Permite remover a transparência durante a interação com o painel de volume</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Definir Modo de Toque</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Apenas dados móveis</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Indicador de bateria circular e tracejado</string>
+    <string name="battery_style_circle_dashed_percent">Indicador de bateria circular e tracejado com percentagem</string>
+
 </resources>
