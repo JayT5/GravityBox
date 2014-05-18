@@ -1487,4 +1487,18 @@
     <string name="pref_force_ltr_direction_title">Vynutit LTR rozložení</string>
     <string name="pref_force_ltr_direction_summary">Vynutí rozložení LTR pro všechny jazyky (vyžaduje restart)</string>
 
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Neprůhledné při interakci</string>
+    <string name="pref_volume_panel_opaque_summary">Odstraní neprůhlednost při interakci s panelem nastavení hlasitosti</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Nastavit režim vyzvánění</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Pouze pro mobilní data</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Čárkovaný kruh</string>
+    <string name="battery_style_circle_dashed_percent">Čárkovaný kruh s procenty</string>
+
 </resources>
