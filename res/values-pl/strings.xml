@@ -1502,4 +1502,7 @@
     <string name="battery_style_circle_dashed">Przerywane koło</string>
     <string name="battery_style_circle_dashed_percent">Przerywane koło z procentami</string>
 
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Dziękujemy za wsparcie. Funkcje premium zostaną odblokowane po ponownym uruchomieniu GravityBox.</string>
+
 </resources>
