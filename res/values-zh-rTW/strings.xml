@@ -1501,7 +1501,7 @@
     <string name="pref_data_traffic_active_mobile_only_title">只限行動數據</string>
 
     <!-- Dashed circle battery style -->
-    <string name="battery_style_circle_dashed">虛線圓形電量指示器Dashed circle battery</string>
-    <string name="battery_style_circle_dashed_percent">虛線圓形電量指示器(包含電量百分比)Dashed circle battery with percentage</string>
+    <string name="battery_style_circle_dashed">虛線圓形電量指示器</string>
+    <string name="battery_style_circle_dashed_percent">虛線圓形電量指示器(包含電量百分比)</string>
 
 </resources>
