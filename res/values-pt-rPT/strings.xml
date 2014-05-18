@@ -658,7 +658,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Lançador de aplicações</string>
-    <string name="pref_cat_app_launcher_summary">Permite definir até 8 aplicações como ações para as teclas físicas ou para mostrar em botão adicional na barra de navegação</string>
+    <string name="pref_cat_app_launcher_summary">Permite definir até 12 aplicações como ações para as teclas físicas ou para mostrar em botão adicional na barra de navegação</string>
     <string name="pref_app_launcher_slot_title">Aplicação posição %d</string>
     <string name="app_launcher_no_apps">Nenhuma aplicação definida. Aceda a \"GravityBox / Lançador de aplicações\" para definir aplicações.</string>
 

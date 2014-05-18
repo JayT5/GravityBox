@@ -667,7 +667,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Alkalmazás Indító</string>
-    <string name="pref_cat_app_launcher_summary">Alkalmazás ablak 8 beállítható applikációval, melynek a megjelenítése hozzárendelhető hardver gomb művelethez vagy egy külön navigációs sáv gombhoz</string>
+    <string name="pref_cat_app_launcher_summary">Alkalmazás ablak 12 beállítható applikációval, melynek a megjelenítése hozzárendelhető hardver gomb művelethez vagy egy külön navigációs sáv gombhoz</string>
     <string name="pref_app_launcher_slot_title">Alkalmazás hely %d</string>
     <string name="app_launcher_no_apps">Nincs beállítva alkalmazás. Applikációk hozzárendeléséhez használja a GravityBox / Alkalmazás Indító menüt. </string>
 

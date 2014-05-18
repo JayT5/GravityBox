@@ -641,7 +641,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Launcher aplikasi</string>
-    <string name="pref_cat_app_launcher_summary">Dialog yang memperbolehkan pengguna menetapkan sampai 8 aplikasi yang bisa ditetapkan sebagai aksi tombol fisik atau tombol tambahan di navbar.</string>
+    <string name="pref_cat_app_launcher_summary">Dialog yang memperbolehkan pengguna menetapkan sampai 12 aplikasi yang bisa ditetapkan sebagai aksi tombol fisik atau tombol tambahan di navbar.</string>
     <string name="pref_app_launcher_slot_title">Aplikasi slot %d</string>
     <string name="app_launcher_no_apps">Tidak ada aplikasi yang ditetapkan. Gunakan GravityBox / menu Launcher Aplikasi untuk menetapkan aplikasi.</string>
 

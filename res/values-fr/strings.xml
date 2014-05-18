@@ -673,7 +673,7 @@
  
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Lanceur d\'applications</string>
-    <string name="pref_cat_app_launcher_summary">Boîte de dialogue qui permet de définir jusqu\'à 8 applications pouvant être assignées à une action sur touche matérielle ou utilisées comme touche supplémentaire dans la barre de navigation</string>
+    <string name="pref_cat_app_launcher_summary">Boîte de dialogue qui permet de définir jusqu\'à 12 applications pouvant être assignées à une action sur touche matérielle ou utilisées comme touche supplémentaire dans la barre de navigation</string>
     <string name="pref_app_launcher_slot_title">Application de l\'emplacement %d</string>
     <string name="app_launcher_no_apps">Aucune application assignée. Utiliser l\'item GravityBox / Lanceur d\'applications pour assigner des applications</string>
 

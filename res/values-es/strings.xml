@@ -672,7 +672,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Lanzador de aplicaciones</string>
-    <string name="pref_cat_app_launcher_summary">Diálogo que permite definir hasta 8 aplicaciones que pueden ser asignada a botones físicos o usadas como botones adicionales en la barra de navegación</string>
+    <string name="pref_cat_app_launcher_summary">Diálogo que permite definir hasta 12 aplicaciones que pueden ser asignada a botones físicos o usadas como botones adicionales en la barra de navegación</string>
     <string name="pref_app_launcher_slot_title">Aplicación %d</string>
     <string name="app_launcher_no_apps">No hay aplicaciones asignadas. Use GravityBox / menú de lanzador de aplicaciones para asignar apps.</string>
 

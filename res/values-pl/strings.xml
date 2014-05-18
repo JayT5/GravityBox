@@ -655,7 +655,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Uruchamianie aplikacji</string>
-    <string name="pref_cat_app_launcher_summary">Dialog pozwala na zdefiniowanie do 8 aplikacji, które mogą być przypisane jako akcje klawiszy sprzętowych lub użyte jako dodatkowe przyciski paska nawigacyjnego</string>
+    <string name="pref_cat_app_launcher_summary">Dialog pozwala na zdefiniowanie do 12 aplikacji, które mogą być przypisane jako akcje klawiszy sprzętowych lub użyte jako dodatkowe przyciski paska nawigacyjnego</string>
     <string name="pref_app_launcher_slot_title">Slot aplikacji %d</string>
     <string name="app_launcher_no_apps">Brak przypisanych aplikacji. Użyj GravityBox / menu Uruchamiania aplikacji aby przypisać aplikacje.</string>
 

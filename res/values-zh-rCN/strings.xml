@@ -673,7 +673,7 @@
         
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">应用程序启动器</string>
-    <string name="pref_cat_app_launcher_summary">允许定义最多8个应用程序，并分配至实体按键行为或作为额外的导航栏按键</string>
+    <string name="pref_cat_app_launcher_summary">允许定义最多12个应用程序，并分配至实体按键行为或作为额外的导航栏按键</string>
     <string name="pref_app_launcher_slot_title">应用程序槽 %d</string>
     <string name="app_launcher_no_apps">没有应用程序被分配，请使用 GravityBox 或应用程序启动器来分配应用程序</string>
 

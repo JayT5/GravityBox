@@ -673,7 +673,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">Запуск приложений</string>
-    <string name="pref_cat_app_launcher_summary">Диалог, позволяющий выбрать до 8 приложений, которые можно назначить для действий физических кнопок или использовать в качестве дополнительной кнопки на панели навигации</string>
+    <string name="pref_cat_app_launcher_summary">Диалог, позволяющий выбрать до 12 приложений, которые можно назначить для действий физических кнопок или использовать в качестве дополнительной кнопки на панели навигации</string>
     <string name="pref_app_launcher_slot_title">Слот приложения %d</string>
     <string name="app_launcher_no_apps">Приложения не выбраны. Используйте меню GravityBox / Запуск приложений для выбора приложений.</string>
 

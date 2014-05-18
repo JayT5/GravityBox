@@ -663,7 +663,7 @@
 
     <!-- Application launcher -->
     <string name="pref_cat_app_launcher_title">應用程式啟動器</string>
-    <string name="pref_cat_app_launcher_summary">一個可以被指派為硬體按鍵動作或作為額外導航列按鍵的對對框。您可以指定最多 8 個應用程式到這對話框內</string>
+    <string name="pref_cat_app_launcher_summary">一個可以被指派為硬體按鍵動作或作為額外導航列按鍵的對對框。您可以指定最多 12 個應用程式到這對話框內</string>
     <string name="pref_app_launcher_slot_title">應用程式槽 %d</string>
     <string name="app_launcher_no_apps">沒有指定任何應用程式。請使用 GravityBox 內的 程式啟動器選單來分配應用程式。</string>
 
