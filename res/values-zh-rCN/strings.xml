@@ -1518,7 +1518,24 @@
     <string name="hwkey_action_inapp_search">在应用程序内搜索</string>
 
     <!-- Misc: Force LTR direction -->
-    <string name="pref_force_ltr_direction_title">强制LTR方向</string>
-    <string name="pref_force_ltr_direction_summary">需要重新启动</string>
+    <string name="pref_force_ltr_direction_title">强制从左到右方向</string>
+    <string name="pref_force_ltr_direction_summary">对于从右到左的语言环境布局强制使用从左到右方向（需要重新启动）</string>
+    
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">交换时不透明</string>
+    <string name="pref_volume_panel_opaque_summary">当音量面板进行交换时会移除透明度</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">设置铃声模式</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">仅移动数据</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">虚线圆圈电池</string>
+    <string name="battery_style_circle_dashed_percent">虚线圆圈电池含百分比</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">感谢您的支持，高级功能将在GravityBox重新启动后解锁。</string>
     
 </resources>
