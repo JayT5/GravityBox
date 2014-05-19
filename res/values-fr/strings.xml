@@ -1120,7 +1120,7 @@
     <string name="wsc_trans_blocked">Le n° de transaction unique a été bloqué. Contactez le développeur de GravityBox</string>
     <string name="pref_trans_verification_title">N° de transaction unique PayPal</string>
     <string name="pref_trans_verification_summary">Dans le cas où vous avez fait une donation, vous pouvez saisir le n° de transaction unique Paypal pour avoir accès aux éléments de la version Premium</string>
-    <string name="wsc_trans_required_summary">Cet élément nécessite un n° de transaction unique Paypal</string>
+    <string name="wsc_trans_required_summary">Ceci est un élément de la version Premium et doit être déverrouillé</string>
 
     <!-- Pie: disable system info -->
     <string name="pref_pie_sysinfo_disable_title">Désactiver les infos système</string>
@@ -1404,8 +1404,8 @@
     <string name="pref_lockscreen_show_pattern_error_summary">Affiche une ligne rouge lorsqu\'une mauvaise entrée est saisie dans le modèle</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">Cette option est en mode d\'essai. Si vous la trouvez utile vous pouvez continuer de l\'utiliser après avoir enregistrer 
-        votre N° de transaction unique PayPal. La période d\'essai finit dans %d redémarrage(s)</string>
+    <string name="trial_info">Cette option est en mode d\'essai. Si vous la trouvez utile vous pouvez continuer de l\'utiliser après avoir déverrouillé les éléments Premium. 
+        La période d\'essai finit dans %d redémarrage(s)</string>
 
     <!-- Navbar: disable camera icon -->
     <string name="pref_navbar_camera_key_disable_title">Désactiver l\'icône de l\'appareil photo</string>
@@ -1534,5 +1534,8 @@
     <!-- Dashed circle battery style -->
     <string name="battery_style_circle_dashed">Batterie circulaire en pointillés</string>
     <string name="battery_style_circle_dashed_percent">Batterie circulaire en pointillés avec pourcentage</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Merci pour votre soutien. Les éléments de la version Premium seront déverrouillés après le redémarrage de GravityBox</string>
 
 </resources>
