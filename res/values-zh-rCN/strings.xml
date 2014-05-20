@@ -1120,7 +1120,7 @@
     <string name="wsc_trans_blocked">指定交易ID已被封锁，请联系 GravityBox 开发者解决</string>
     <string name="pref_trans_verification_title">PayPal 交易ID</string>
     <string name="pref_trans_verification_summary">如果您已捐赠，您可以输入您的 PayPal 捐赠交易ID来解锁高级功能</string>
-    <string name="wsc_trans_required_summary">此功能需要有效的 PayPal 交易ID</string>
+    <string name="wsc_trans_required_summary">此功能需要付费解锁</string>
 
     <!-- Pie: disable system info -->
     <string name="pref_pie_sysinfo_disable_title">禁用系统信息</string>
@@ -1404,7 +1404,7 @@
     <string name="pref_lockscreen_show_pattern_error_summary">进入错误格式时显示红色足迹</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">此功能是试用模式！如果您觉得它有用您可以继续登录您的PayPal后使用它捐赠交易ID。 %d将在重启后结束试用期</string>
+    <string name="trial_info">此功能是试用模式！如果你觉得它有用您可以解锁高级功能！在%d重启后将结束试用期</string>
     
     
     <!-- Navbar: disable camera icon -->
@@ -1536,6 +1536,6 @@
     <string name="battery_style_circle_dashed_percent">虚线圆圈电池含百分比</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">感谢您的支持，高级功能将在GravityBox重新启动后解锁。</string>
+    <string name="premium_unlocked_message">感谢您的支持，高级功能将在GravityBox重新启动后解锁</string>
     
 </resources>
