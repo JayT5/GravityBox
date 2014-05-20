@@ -145,7 +145,7 @@ public class AppLauncher {
         intentFilter.addAction(GravityBoxSettings.ACTION_PREF_APP_LAUNCHER_CHANGED);
         mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
-        intentFilter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
+        intentFilter = new IntentFilter(Intent.ACTION_PACKAGE_FULLY_REMOVED);
         intentFilter.addDataScheme("package");
         mContext.registerReceiver(mPackageRemoveReceiver, intentFilter);
     }
