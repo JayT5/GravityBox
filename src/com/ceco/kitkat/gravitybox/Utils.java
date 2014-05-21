@@ -117,7 +117,7 @@ public class Utils {
     }
 
     public static boolean isPhoneUI(Context con) {
-        return getScreenType(con) == DEVICE_PHONE;
+        return (getScreenType(con) == DEVICE_PHONE && !isTablet());
     }
 
     public static boolean isHybridUI(Context con) {
