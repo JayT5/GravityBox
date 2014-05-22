@@ -9,6 +9,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +19,8 @@ import android.util.Log;
 import android.view.ContextThemeWrapper;
 
 public class UnlockActivity extends Activity implements GravityBoxResultReceiver.Receiver {
+    private static final String PKG_UNLOCKER = "com.ceco.gravitybox.unlocker";
+
     private GravityBoxResultReceiver mReceiver;
     private Handler mHandler;
     private Dialog mAlertDialog;
@@ -140,7 +144,7 @@ public class UnlockActivity extends Activity implements GravityBoxResultReceiver
         public void onReceive(Context context, Intent intent) {
             Uri data = intent.getData();
             String pkgName = data == null ? null : data.getSchemeSpecificPart();
-            if (!"com.ceco.gravitybox.unlocker".equals(pkgName)) return;
+            if (!PKG_UNLOCKER.equals(pkgName)) return;
 
             if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) &&
                     !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
@@ -149,12 +153,7 @@ public class UnlockActivity extends Activity implements GravityBoxResultReceiver
             }
 
             if (intent.getAction().equals(Intent.ACTION_PACKAGE_FULLY_REMOVED)) {
-                long addedMs = SettingsManager.getInstance(context).getUnlockerTimestamp();
-                long removedMs = System.currentTimeMillis();
-                if ((removedMs - addedMs) < 900000) {
-                    Log.d("GravityBox", "Unlocker uninstalled too early");
-                    SettingsManager.getInstance(context).resetUuid();
-                }
+                checkPolicyOk(context);
             }
         }
     }
@@ -168,5 +167,28 @@ public class UnlockActivity extends Activity implements GravityBoxResultReceiver
         } catch (Exception e) { 
             //e.printStackTrace();
         }
+    }
+
+    @SuppressWarnings("unused")
+    protected static boolean checkPolicyOk(Context context) {
+        boolean unlockerInstalled = true;
+        try {
+            PackageInfo pkgInfo = context.getPackageManager()
+                    .getPackageInfo(PKG_UNLOCKER, 0);
+        } catch (NameNotFoundException e) {
+            unlockerInstalled = false;
+        }
+
+        if (!unlockerInstalled) {
+            long addedMs = SettingsManager.getInstance(context).getUnlockerTimestamp();
+            long removedMs = System.currentTimeMillis();
+            if ((removedMs - addedMs) < 900000) {
+                Log.d("GravityBox", "Unlocker uninstalled too early");
+                SettingsManager.getInstance(context).resetUuid();
+                return false;
+            }
+        }
+
+        return true;
     }
 }
