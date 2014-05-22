@@ -2131,6 +2131,11 @@
             android:title="@string/about_donate_title"
             android:summary="@string/about_donate_summary" />
 
+        <Preference
+            android:key="pref_about_get_unlocker"
+            android:title="@string/pref_about_get_unlocker_title"
+            android:summary="@string/pref_about_get_unlocker_summary" />
+
         <EditTextPreference
             android:key="pref_trans_verification"
             android:title="@string/pref_trans_verification_title"

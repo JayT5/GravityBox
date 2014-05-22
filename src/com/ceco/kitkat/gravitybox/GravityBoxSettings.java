@@ -191,10 +191,13 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_TM_STATUSBAR_LOCKSCREEN = "pref_tm_statusbar_lockscreen";
     public static final String PREF_KEY_TM_NAVBAR_LAUNCHER = "pref_tm_navbar_launcher";
     public static final String PREF_KEY_TM_NAVBAR_LOCKSCREEN = "pref_tm_navbar_lockscreen";
+
+    public static final String PREF_CAT_KEY_ABOUT = "pref_cat_about";
     public static final String PREF_KEY_ABOUT_GRAVITYBOX = "pref_about_gb";
     public static final String PREF_KEY_ABOUT_GPLUS = "pref_about_gplus";
     public static final String PREF_KEY_ABOUT_XPOSED = "pref_about_xposed";
     public static final String PREF_KEY_ABOUT_DONATE = "pref_about_donate";
+    public static final String PREF_KEY_ABOUT_UNLOCKER = "pref_about_get_unlocker";
     public static final String PREF_KEY_CRT_OFF_EFFECT = "pref_crt_off_effect2";
     public static final String PREF_KEY_UNPLUG_TURNS_ON_SCREEN = "pref_unplug_turns_on_screen";
     public static final String PREF_KEY_ENGINEERING_MODE = "pref_engineering_mode";
@@ -964,10 +967,12 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private SharedPreferences mPrefs;
         private AlertDialog mDialog;
         private MultiSelectListPreference mQuickSettings;
+        private PreferenceScreen mPrefCatAbout;
         private Preference mPrefAboutGb;
         private Preference mPrefAboutGplus;
         private Preference mPrefAboutXposed;
         private Preference mPrefAboutDonate;
+        private Preference mPrefAboutUnlocker;
         private Preference mPrefEngMode;
         private Preference mPrefDualSimRinger;
         private PreferenceCategory mPrefCatLockscreenBg;
@@ -1161,8 +1166,9 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mLowBatteryWarning = (ListPreference) findPreference(PREF_KEY_LOW_BATTERY_WARNING_POLICY);
             mQuickSettings = (MultiSelectListPreference) findPreference(PREF_KEY_QUICK_SETTINGS);
 
+            mPrefCatAbout = (PreferenceScreen) findPreference(PREF_CAT_KEY_ABOUT);
             mPrefAboutGb = (Preference) findPreference(PREF_KEY_ABOUT_GRAVITYBOX);
-            
+
             String version = "";
             try {
                 PackageInfo pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
@@ -1176,6 +1182,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefAboutGplus = (Preference) findPreference(PREF_KEY_ABOUT_GPLUS);
             mPrefAboutXposed = (Preference) findPreference(PREF_KEY_ABOUT_XPOSED);
             mPrefAboutDonate = (Preference) findPreference(PREF_KEY_ABOUT_DONATE);
+            mPrefAboutUnlocker = (Preference) findPreference(PREF_KEY_ABOUT_UNLOCKER);
 
             mPrefEngMode = (Preference) findPreference(PREF_KEY_ENGINEERING_MODE);
             if (!Utils.isAppInstalled(getActivity(), APP_ENGINEERING_MODE)) {
@@ -1696,12 +1703,13 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                     LedSettings.lockUnc(getActivity(), true);
                 }
                 mPrefs.edit().putString(PREF_KEY_TRANS_VERIFICATION, null).commit();
+                mPrefTransVerification.setText(null);
                 mPrefTransVerification.getEditText().setText(null);
+                UnlockActivity.maybeRunUnlocker(getActivity());
             } else {
                 LedSettings.lockUnc(getActivity(), false);
-                mPrefTransVerification.setEnabled(false);
-                mPrefTransVerification.setSummary(mPrefs.getString(PREF_KEY_TRANS_VERIFICATION,
-                        getString(R.string.pref_trans_verification_summary)));
+                mPrefCatAbout.removePreference(mPrefTransVerification);
+                mPrefCatAbout.removePreference(mPrefAboutUnlocker);
             }
 
             // fix for potential invalid alpha value stored for data activity indicator color introduced in v2.9.9
@@ -2798,6 +2806,8 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_xposed)));
             } else if (pref == mPrefAboutDonate) {
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_donate)));
+            } else if (pref == mPrefAboutUnlocker) {
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_gravitybox_unlocker)));
             } else if (pref == mPrefEngMode) {
                 intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName(APP_ENGINEERING_MODE, APP_ENGINEERING_MODE_CLASS);

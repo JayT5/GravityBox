@@ -9,8 +9,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.ResultReceiver;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 
@@ -124,9 +126,47 @@ public class UnlockActivity extends Activity implements GravityBoxResultReceiver
     public static class UnlockReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (intent.getParcelableExtra("receiver") instanceof ResultReceiver) {
+                ((ResultReceiver)intent.getParcelableExtra("receiver")).send(0, null);
+            }
             Intent i = new Intent(context, UnlockActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
+        }
+    }
+
+    public static class PkgManagerReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Uri data = intent.getData();
+            String pkgName = data == null ? null : data.getSchemeSpecificPart();
+            if (!"com.ceco.gravitybox.unlocker".equals(pkgName)) return;
+
+            if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) &&
+                    !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
+                SettingsManager.getInstance(context).setUnlockerTimestamp(System.currentTimeMillis());
+                maybeRunUnlocker(context);
+            }
+
+            if (intent.getAction().equals(Intent.ACTION_PACKAGE_FULLY_REMOVED)) {
+                long addedMs = SettingsManager.getInstance(context).getUnlockerTimestamp();
+                long removedMs = System.currentTimeMillis();
+                if ((removedMs - addedMs) < 900000) {
+                    Log.d("GravityBox", "Unlocker uninstalled too early");
+                    SettingsManager.getInstance(context).resetUuid();
+                }
+            }
+        }
+    }
+
+    protected static void maybeRunUnlocker(Context context) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setPackage("com.ceco.gravitybox.unlocker");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        } catch (Exception e) { 
+            //e.printStackTrace();
         }
     }
 }

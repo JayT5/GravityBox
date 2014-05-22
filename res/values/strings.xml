@@ -1536,6 +1536,9 @@
     <string name="battery_style_circle_dashed_percent">Dashed circle battery with percentage</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">Thank you for your support. Premium features will be unlocked after GravityBox is restarted.</string>
+    <string name="premium_unlocked_message">Thank you for your support. Premium features will be unlocked after GravityBox is restarted. 
+        Make sure to keep GravityBox Unlocker installed for at least 20 minutes.</string>
+    <string name="pref_about_get_unlocker_title">Get unlocker</string>
+    <string name="pref_about_get_unlocker_summary">Don\'t have PayPal? Simply touch here to get GravityBox premium feature unlocker from the Play Store.</string>
 
 </resources>
