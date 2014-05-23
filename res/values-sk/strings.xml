@@ -161,8 +161,8 @@
     <string name="lockscreen_background_result_successful">Pozadie zmenené</string>
     <string name="lockscreen_background_result_not_successful">Pozadie nebolo zmenené</string>
     <string name="pref_cat_lockscreen_other_title">Iné</string>
-    <string name="pref_lockscreen_maximize_widgets_title">Maximalizovať widgety</string>
-    <string name="pref_lockscreen_maximize_widgets_summary">Umožní zobrazenie widgetov v maximalizovanom stave automaticky po zobrazení obrazovky uzamknutia</string>
+    <string name="pref_lockscreen_maximize_widgets_title">Maximalizovať miniaplikácie</string>
+    <string name="pref_lockscreen_maximize_widgets_summary">Umožní zobrazenie miniaplikácií v maximalizovanom stave automaticky po zobrazení obrazovky uzamknutia</string>
 
     <!--  Power tweaks category -->
     <string name="pref_cat_power_title">Nastavenia napájania</string>
@@ -590,8 +590,8 @@
     <string name="dt_size_smallest">Najmenšia</string>
 
     <!-- Disable lockscreen widget limit -->
-    <string name="pref_lockscreen_widget_limit_disable_title">Vypnúť limit widgetov</string>
-    <string name="pref_lockscreen_widget_limit_disable_summary">Umožní neobmedzený počet widgetov obrazovky uzamknutia</string>
+    <string name="pref_lockscreen_widget_limit_disable_title">Vypnúť limit miniaplikácií</string>
+    <string name="pref_lockscreen_widget_limit_disable_summary">Umožní neobmedzený počet miniaplikácií obrazovky uzamknutia</string>
 
     <!--  RAM Bar -->
     <!-- [CHAR LIMIT=10] Running services, summary of background processes -->
@@ -795,7 +795,7 @@
     <string name="pref_cat_launcher_tweaks_title">Nastavenia spúšťača</string>
     <string name="pref_cat_launcher_tweaks_summary">Vzťahuje sa na štandardný KitKat spúšťač alebo Google Experience spúšťač</string>
     <string name="pref_cat_launcher_desktop_grid_title">Mriežka plochy</string>
-    <string name="pref_launcher_desktop_grid_info_title">Použitie iných ako východzích hodnôt môže spôsobiť narušenie vzhľadu widgetov. Zmeny vyžadujú reštart spúšťača.</string>
+    <string name="pref_launcher_desktop_grid_info_title">Použitie iných ako východzích hodnôt môže spôsobiť narušenie vzhľadu miniaplikácií. Zmeny vyžadujú reštart spúšťača.</string>
     <string name="pref_launcher_desktop_grid_rows_title">Počet riadkov</string>
     <string name="pref_launcher_desktop_grid_cols_title">Počet stĺpcov</string>
     <string name="desktop_grid_default">Štandardný</string>
@@ -941,7 +941,7 @@
 
     <!-- Lockscreen statusbar clock visibility -->
     <string name="pref_lockscreen_sb_clock_title">Viditeľnosť hodín stavového riadku</string>
-    <string name="lockscreen_sb_clock_hide_on_widget">Skryť pre známe widgety hodín</string>
+    <string name="lockscreen_sb_clock_hide_on_widget">Skryť pre známe miniaplikácie hodín</string>
     <string name="lockscreen_sb_clock_always_hide">Vždy skryť</string>
     <string name="lockscreen_sb_clock_always_show">Vždy zobraziť</string>
 
@@ -1103,8 +1103,8 @@
 
     <!-- Launcher tweaks: resize any widget -->
     <string name="pref_cat_launcher_other_title">Iné</string>
-    <string name="pref_launcher_resize_widget_title">Zmena veľkosti widgetov</string>
-    <string name="pref_launcher_resize_widget_summary">Povolí zmenu veľkosti widgetov na obrazovkách spúšťača (vyžaduje reštart spúšťača)</string>
+    <string name="pref_launcher_resize_widget_title">Zmena veľkosti miniaplikácií</string>
+    <string name="pref_launcher_resize_widget_summary">Povolí zmenu veľkosti miniaplikácií na obrazovkách spúšťača (vyžaduje reštart spúšťača)</string>
 
     <!-- Icon picker -->
     <string name="icon_picker_choose_icon_title">Vyberte ikonu</string>
@@ -1166,7 +1166,7 @@
     <string name="pref_lockscreen_slide_before_unlock_summary">Umožňuje použiť odomykací prstenec a jeho skratky aj v prípade bezpečnostného zámku</string>
 
     <!-- Lockscreen tweaks: option categories -->
-    <string name="pref_cat_lockscreen_widgets_title">Widgety</string>
+    <string name="pref_cat_lockscreen_widgets_title">Miniaplikácie</string>
     <string name="pref_cat_lockscreen_sliding_challenge_title">Odomykací prstenec</string>
     <string name="pref_cat_lockscreen_statusbar_title">Stavová lišta</string>
 
