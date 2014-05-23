@@ -1541,4 +1541,7 @@
     <string name="pref_about_get_unlocker_title">Get unlocker</string>
     <string name="pref_about_get_unlocker_summary">Don\'t have PayPal? Simply touch here to get GravityBox premium feature unlocker from the Play Store.</string>
 
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Use alternate icon</string>
+
 </resources>

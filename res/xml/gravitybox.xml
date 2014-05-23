@@ -974,6 +974,12 @@
                     android:defaultValue="false"
                     android:dependency="pref_navbar_custom_key_enable" />
 
+                <CheckBoxPreference 
+                    android:key="pref_navbar_custom_key_icon"
+                    android:title="@string/pref_navbar_custom_key_icon_title"
+                    android:defaultValue="false"
+                    android:dependency="pref_navbar_custom_key_enable" />
+
             </PreferenceScreen>
 
             <CheckBoxPreference 
