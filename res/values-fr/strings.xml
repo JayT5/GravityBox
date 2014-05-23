@@ -1536,6 +1536,9 @@
     <string name="battery_style_circle_dashed_percent">Batterie circulaire en pointillés avec pourcentage</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">Merci pour votre soutien. Les éléments de la version Premium seront déverrouillés après le redémarrage de GravityBox</string>
+    <string name="premium_unlocked_message">Merci pour votre soutien. Les éléments de la version Premium seront déverrouillés après le redémarrage de GravityBox. 
+        Laissez installé le déverrouilleur de GravityBox au moins 20 minutes</string>
+    <string name="pref_about_get_unlocker_title">Obtenir le déverrouilleur</string>
+    <string name="pref_about_get_unlocker_summary">Vous n\'avez pas de compte Paypal ? Alors touchez ici pour obtenir le déverrouilleur d\'éléments premium de GravityBox depuis le PlayStore</string>
 
 </resources>
