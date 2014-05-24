@@ -1521,4 +1521,24 @@
     <string name="pref_force_ltr_direction_title">Forza direzione LTR</string>
     <string name="pref_force_ltr_direction_summary">Forza dislocazione a sinistra per le lingue con dislocazione a destra (richiede riavvio)</string>
 
+    <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Rendi opaco in interazione</string>
+    <string name="pref_volume_panel_opaque_summary">Rimuove la trasparenza quando si interagisce con il pannello volume</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Imposta suoneria</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Solo dati mobili</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Batteria circolare a trattini</string>
+    <string name="battery_style_circle_dashed_percent">Batteria circolare a trattini con percentuale</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Grazie per il supporto. Le funzioni Premium saranno sbloccate dopo il riavvio di GravityBox. 
+        Assicurarsi di mantenere Gravitybox Unlocker installato per almeno 20 minuti.</string>
+    <string name="pref_about_get_unlocker_title">Scarica Unlocker</string>
+    <string name="pref_about_get_unlocker_summary">Non hai PayPal? Basta toccare qui per ottenere Gravitybox Premium unlocker dal Play Store.</string>
+
 </resources>
