@@ -160,6 +160,8 @@ public class ShortcutActivity extends ListActivity {
             AirplaneModeShortcut.launchAction(mContext, intent);
         } else if (action.equals(RingerModeShortcut.ACTION)) {
             RingerModeShortcut.launchAction(mContext, intent);
+        } else if (action.equals(SyncShortcut.ACTION)) {
+            SyncShortcut.launchAction(mContext, intent);
         }
     }
 
@@ -199,6 +201,7 @@ public class ShortcutActivity extends ListActivity {
         if (Utils.hasNfc(mContext)) {
             list.add(new NfcShortcut(mContext));
         }
+        list.add(new SyncShortcut(mContext));
         if (mInvokedFromGb) {
             list.add(new MediaControlShortcut(mContext));
         }

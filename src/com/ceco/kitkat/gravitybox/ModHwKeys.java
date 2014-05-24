@@ -359,6 +359,8 @@ public class ModHwKeys {
                 injectKey(KeyEvent.KEYCODE_SEARCH);
             } else if (action.equals(ACTION_SET_RINGER_MODE)) {
                 setRingerMode(intent.getIntExtra(EXTRA_RINGER_MODE, RingerModeShortcut.MODE_RING_VIBRATE));
+            } else if (action.equals(GravityBoxService.ACTION_TOGGLE_SYNC)) {
+                toggleSync();
             }
         }
     };
@@ -857,6 +859,7 @@ public class ModHwKeys {
             intentFilter.addAction(ACTION_TOGGLE_AIRPLANE_MODE);
             intentFilter.addAction(ACTION_INAPP_SEARCH);
             intentFilter.addAction(ACTION_SET_RINGER_MODE);
+            intentFilter.addAction(GravityBoxService.ACTION_TOGGLE_SYNC);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
 
             if (DEBUG) log("Phone window manager initialized");
@@ -1657,6 +1660,17 @@ public class ModHwKeys {
                     Settings.System.putInt(cr, SETTING_VIBRATE_WHEN_RINGING, 1);
                     break;
             }
+        } catch (Throwable t) {
+            XposedBridge.log(t);
+        }
+    }
+
+    private static void toggleSync() {
+        try {
+            Intent si = new Intent(mGbContext, GravityBoxService.class);
+            si.setAction(GravityBoxService.ACTION_TOGGLE_SYNC);
+            si.putExtra(GravityBoxService.EXTRA_SYNC_SHOW_TOAST, true);
+            mGbContext.startService(si);
         } catch (Throwable t) {
             XposedBridge.log(t);
         }

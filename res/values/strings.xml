@@ -1551,4 +1551,7 @@
     <string name="pref_smart_radio_mda_ignore_title">Ignore mobile data availability</string>
     <string name="pref_smart_radio_mda_ignore_summary">Switches to normal mode even if mobile data is currently unavailable</string>
 
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Toggle sync</string>
+
 </resources>
