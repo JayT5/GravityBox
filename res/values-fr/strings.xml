@@ -1541,4 +1541,6 @@
     <string name="pref_about_get_unlocker_title">Obtenir le déverrouilleur</string>
     <string name="pref_about_get_unlocker_summary">Vous n\'avez pas de compte Paypal ? Alors touchez ici pour obtenir le déverrouilleur d\'éléments premium de GravityBox depuis le PlayStore</string>
 
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Utiliser une icône alternative</string>
 </resources>
