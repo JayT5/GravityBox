@@ -479,6 +479,12 @@
                 monitorBoxUnit="%" 
                 android:defaultValue="15" />
 
+            <CheckBoxPreference 
+                android:key="pref_qs_swipe_enable"
+                android:title="@string/pref_qs_swipe_enable_title"
+                android:defaultValue="true"
+                android:dependency="pref_qs_management_enable" />
+
         </PreferenceScreen>
 
         <PreferenceScreen

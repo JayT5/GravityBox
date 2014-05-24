@@ -91,6 +91,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_QUICK_SETTINGS_AUTOSWITCH = "pref_auto_switch_qs2";
     public static final String PREF_KEY_QUICK_PULLDOWN = "pref_quick_pulldown";
     public static final String PREF_KEY_QUICK_PULLDOWN_SIZE = "pref_quick_pulldown_size";
+    public static final String PREF_KEY_QUICK_SETTINGS_SWIPE = "pref_qs_swipe_enable";
     public static final int QUICK_PULLDOWN_OFF = 0;
     public static final int QUICK_PULLDOWN_RIGHT = 1;
     public static final int QUICK_PULLDOWN_LEFT = 2;
@@ -525,6 +526,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String EXTRA_QS_TILE_STYLE = "qsTileStyle";
     public static final String EXTRA_QS_HIDE_ON_CHANGE = "qsHideOnChange";
     public static final String EXTRA_QS_TILE_LABEL_STYLE = "qsTileLabelStyle";
+    public static final String EXTRA_QS_SWIPE = "qsSwipe";
 
     public static final String ACTION_PREF_CLOCK_CHANGED = "gravitybox.intent.action.CENTER_CLOCK_CHANGED";
     public static final String EXTRA_CENTER_CLOCK = "centerClock";
@@ -1015,6 +1017,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
         private ListPreference mPrefAutoSwitchQs;
         private ListPreference mPrefQuickPulldown;
         private SeekBarPreference mPrefQuickPulldownSize;
+        private CheckBoxPreference mPrefQsSwipe;
         private PreferenceScreen mPrefCatNotifDrawerStyle;
         private ListPreference mPrefNotifBackground;
         private ColorPickerPreference mPrefNotifColor;
@@ -1254,6 +1257,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
             mPrefAutoSwitchQs = (ListPreference) findPreference(PREF_KEY_QUICK_SETTINGS_AUTOSWITCH);
             mPrefQuickPulldown = (ListPreference) findPreference(PREF_KEY_QUICK_PULLDOWN);
             mPrefQuickPulldownSize = (SeekBarPreference) findPreference(PREF_KEY_QUICK_PULLDOWN_SIZE);
+            mPrefQsSwipe = (CheckBoxPreference) findPreference(PREF_KEY_QUICK_SETTINGS_SWIPE);
 
             mPrefCatNotifDrawerStyle = (PreferenceScreen) findPreference(PREF_CAT_KEY_NOTIF_DRAWER_STYLE);
             mPrefNotifBackground = (ListPreference) findPreference(PREF_KEY_NOTIF_BACKGROUND);
@@ -1452,6 +1456,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 mPrefCatStatusbarQs.removePreference(mPrefAutoSwitchQs);
                 mPrefCatStatusbarQs.removePreference(mPrefQuickPulldown);
                 mPrefCatStatusbarQs.removePreference(mPrefQuickPulldownSize);
+                mPrefCatStatusbarQs.removePreference(mPrefQsSwipe);
             }
 
             // Filter preferences according to feature availability 
@@ -2173,6 +2178,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent.setAction(ACTION_PREF_QUICKSETTINGS_CHANGED);
                 intent.putExtra(EXTRA_QUICK_PULLDOWN_SIZE,
                         prefs.getInt(PREF_KEY_QUICK_PULLDOWN_SIZE, 15));
+            } else if (key.equals(PREF_KEY_QUICK_SETTINGS_SWIPE)) {
+                intent.setAction(ACTION_PREF_QUICKSETTINGS_CHANGED);
+                intent.putExtra(EXTRA_QS_SWIPE,
+                        prefs.getBoolean(PREF_KEY_QUICK_SETTINGS_SWIPE, true));
             } else if (key.equals(PREF_KEY_STATUSBAR_BGCOLOR)) {
                 intent.setAction(ACTION_PREF_STATUSBAR_COLOR_CHANGED);
                 intent.putExtra(EXTRA_SB_BG_COLOR, prefs.getInt(PREF_KEY_STATUSBAR_BGCOLOR, Color.BLACK));

@@ -139,6 +139,7 @@ public class ModQuickSettings {
     private static boolean mTrackingSwipe;
     private static boolean mSwipeTriggered;
     private static PointF mQuickPulldownSize = new PointF(0.85f, 0.15f);
+    private static boolean mQsSwipeEnabled;
 
     private static ArrayList<AQuickSettingsTile> mTiles;
     private static Map<String, View> mAllTileViews;
@@ -239,6 +240,9 @@ public class ModQuickSettings {
                 }
                 if (intent.hasExtra(GravityBoxSettings.EXTRA_QS_ALARM_LONGPRESS_APP)) {
                     mAlarmLongpressApp = intent.getStringExtra(GravityBoxSettings.EXTRA_QS_ALARM_LONGPRESS_APP);
+                }
+                if (intent.hasExtra(GravityBoxSettings.EXTRA_QS_SWIPE)) {
+                    mQsSwipeEnabled = intent.getBooleanExtra(GravityBoxSettings.EXTRA_QS_SWIPE, false);
                 }
             }
 
@@ -534,6 +538,8 @@ public class ModQuickSettings {
 
             float size = mPrefs.getInt(GravityBoxSettings.PREF_KEY_QUICK_PULLDOWN_SIZE, 15) / 100f;
             mQuickPulldownSize.set(1-size, size);
+            mQsSwipeEnabled = mPrefs.getBoolean(GravityBoxSettings.PREF_KEY_QUICK_SETTINGS_SWIPE, true)
+                    && !Utils.isTablet();
 
             try {
                 mQuickPulldown = Integer.valueOf(mPrefs.getString(
@@ -880,7 +886,7 @@ public class ModQuickSettings {
                         case MotionEvent.ACTION_DOWN:
                             mGestureStartX = event.getX(0);
                             mGestureStartY = event.getY(0);
-                            mTrackingSwipe = isFullyExpanded;// &&
+                            mTrackingSwipe = isFullyExpanded && mQsSwipeEnabled;
                                     //mGestureStartY > height - handleBarHeight - paddingBottom;
                             okToFlip = (expandedHeight == 0);
                             XposedHelpers.setBooleanField(param.thisObject, "mOkToFlip", okToFlip);
