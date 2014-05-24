@@ -1032,7 +1032,7 @@
     <string name="pref_smart_radio_screen_off_title">При отключении экрана</string>
     <string name="pref_smart_radio_screen_off_summary">Активация экономного режима при отключении экрана, независимо от того, включена или выключена мобильная передача данных</string>
     <string name="pref_smart_radio_ignore_locked_title">Игнорир. при блокировке</string>
-    <string name="pref_smart_radio_ignore_locked_summary">При включении экрана экономный режим не активируется, пока экран не будет разблокирован</string>
+    <string name="pref_smart_radio_ignore_locked_summary">При включении экрана экономный режим не деактивируется, пока экран не будет разблокирован</string>
     <string name="pref_smart_radio_mode_change_delay_title">Задержка смены режима</string>
     <string name="pref_smart_radio_mode_change_delay_summary">Задержка при смене сетевого режима на определённое число секунд</string>
 
@@ -1087,9 +1087,9 @@
     <string name="pref_lockscreen_bg_blur_intensity_title">Интенсивность размытия</string>
 
     <!-- Smart radio: independent delay for screen off power save event -->
-    <string name="pref_smart_radio_screen_off_delay_title">Задержка экономн.режима</string>
+    <string name="pref_smart_radio_screen_off_delay_title">Задержка экономн. режима</string>
     <string name="pref_smart_radio_screen_off_delay_summary">Задержка переключения в экономный режим при отключении экрана. 
-        Изменяет задержку смены режима по умолчанию, ели величина не равна нулю.</string>
+        Изменяет задержку смены режима по умолчанию, если не равна нулю.</string>
 
     <!-- Backup and restore settings -->
     <string name="pref_settings_backup_title">Резервное копирование</string>
