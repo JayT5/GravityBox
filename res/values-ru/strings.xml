@@ -890,9 +890,9 @@
     <!-- Signal cluster settings -->
     <string name="pref_cat_signal_cluster_title">Настройки сигнала</string>
     <string name="pref_signal_cluster_connection_state_title">Вкл состояние соединения</string>
-    <string name="pref_signal_cluster_connection_state_summary">Отображение состояния частичного/полного соединения в значках мобильного сигнала и  WiFi (необходима перезагрузка)</string>
+    <string name="pref_signal_cluster_connection_state_summary">Отображение состояния частичного/полного соединения в значках мобильного сигнала и Wi-Fi (необходима перезагрузка)</string>
     <string name="pref_signal_cluster_data_activity_title">Вкл активность данных</string>
-    <string name="pref_signal_cluster_data_activity_summary">Отображение активности данных в значках мобильного сигнала и  WiFi (необходима перезагрузка)</string>
+    <string name="pref_signal_cluster_data_activity_summary">Отображение активности данных в значках мобильного сигнала и Wi-Fi (необходима перезагрузка)</string>
     
     <!-- Network mode tile: CDMA support -->
     <string name="pref_network_mode_tile_cdma_title">Режимы сети CDMA</string>
@@ -922,13 +922,13 @@
     <string name="shortcut_mobile_data">Включение моб. данных</string>
 
     <!-- Toggle WiFi shortcut -->
-    <string name="shortcut_wifi">Включение WiFi</string>
+    <string name="shortcut_wifi">Включение Wi-Fi</string>
 
     <!-- Toggle Bluetooth shortcut -->
     <string name="shortcut_bluetooth">Включение Bluetooth</string>
 
     <!-- Toggle WiFi AP shortcut -->
-    <string name="shortcut_wifi_ap">Включение ТД WiFi</string>
+    <string name="shortcut_wifi_ap">Включение ТД Wi-Fi</string>
 
     <!-- Location mode shortcut -->
     <string name="shortcut_location_mode">Настройка местоположения</string>
@@ -1026,7 +1026,7 @@
     <string name="smart_radio_action_undefined">Не определено</string>
     <string name="pref_cat_smart_radio_title">Умное радио</string>
     <string name="pref_smart_radio_enable_summary">Автоматическое переключение радиомодуля на установленный пользователем экономный или обычный режим, 
-        в зависимости от передачи мобильных данных и состояния соединения WiFi (необходима перезагрузка)</string>
+        в зависимости от передачи мобильных данных и состояния соединения Wi-Fi (необходима перезагрузка)</string>
     <string name="pref_smart_radio_normal_mode_title">Обычный сетевой режим</string>
     <string name="pref_smart_radio_power_saving_mode_title">Экономный сетевой режим</string>
     <string name="pref_smart_radio_screen_off_title">При отключении экрана</string>
