@@ -1502,6 +1502,22 @@
     <string name="battery_style_circle_dashed_percent">Čárkovaný kruh s procenty</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">Děkujeme za podporu. Prémiové funkce budou odemknuty po restartování GravityBox.</string>
+    <string name="premium_unlocked_message">Děkujeme za podporu. Prémiové funkce budou odemknuty po restartování GravityBox. 
+        Ponechte GravityBox Unlocker nainstalován po dobu minimálně 20 minut.</string>
+    <string name="pref_about_get_unlocker_title">Získat odemykací aplikaci</string>
+    <string name="pref_about_get_unlocker_summary">Nemáte PayPal? Jednoduše klepněte sem pro získání odemykací aplikace prémiových funkcí z obchodu Play.</string>
+
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Použít alternativní ikonu</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Potažením zobrazit QuickSettings</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignorovat dostupnost mobilních dat</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Přepne do normálního režimu bez ohledu na dostupnost mobilních dat</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Přepnout synchronizaci</string>
 
 </resources>
