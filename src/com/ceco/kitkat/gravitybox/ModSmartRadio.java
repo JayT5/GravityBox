@@ -39,13 +39,14 @@ public class ModSmartRadio {
     private static final boolean DEBUG = false;
 
     public static final String SETTING_SMART_RADIO_ENABLED = "gb_smart_radio_enabled";
+    public static final String SETTING_SMART_RADIO_STATE = "gb_smart_radio_state";
     public static final String ACTION_TOGGLE_SMART_RADIO = "gravitybox.intent.action.TOGGLE_SMART_RADIO";
 
     private static void log(String message) {
         XposedBridge.log(TAG + ": " + message);
     }
 
-    private static enum State { UNKNOWN, NORMAL, POWER_SAVING };
+    public static enum State { UNKNOWN, NORMAL, POWER_SAVING };
 
     private static Context mContext;
     private static int mNormalMode;
@@ -253,6 +254,8 @@ public class ModSmartRadio {
                 default: break;
             }
             mCurrentState = newState;
+            Settings.System.putString(mContext.getContentResolver(),
+                    SETTING_SMART_RADIO_STATE, mCurrentState.toString());
             mNetworkModeChanger.changeNetworkMode(networkMode);
         } catch (Throwable t) {
             log("switchToState: " + t.getMessage());
@@ -398,6 +401,8 @@ public class ModSmartRadio {
                         mConnManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
                         mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                         mNetworkModeChanger = new NetworkModeChanger(mContext);
+                        Settings.System.putString(mContext.getContentResolver(), 
+                                SETTING_SMART_RADIO_STATE, mCurrentState.toString());
 
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction(GravityBoxSettings.ACTION_PREF_SMART_RADIO_CHANGED);
