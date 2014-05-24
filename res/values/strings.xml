@@ -1547,4 +1547,8 @@
     <!-- QS: swipe to Quick Settings -->
     <string name="pref_qs_swipe_enable_title">Swipe to Quick Settings</string>
 
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignore mobile data availability</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Switches to normal mode even if mobile data is currently unavailable</string>
+
 </resources>

@@ -1602,6 +1602,13 @@
                     android:defaultValue="-1"
                     android:dependency="pref_smart_radio_enable" />
 
+                <CheckBoxPreference 
+                    android:key="pref_smart_radio_mda_ignore"
+                    android:title="@string/pref_smart_radio_mda_ignore_title"
+                    android:summary="@string/pref_smart_radio_mda_ignore_summary"
+                    android:defaultValue="false"
+                    android:dependency="pref_smart_radio_enable" />
+
                 <com.ceco.kitkat.gravitybox.preference.SeekBarPreference
                     android:key="pref_smart_radio_mode_change_delay"
                     android:title="@string/pref_smart_radio_mode_change_delay_title"

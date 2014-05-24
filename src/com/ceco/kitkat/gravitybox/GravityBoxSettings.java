@@ -711,6 +711,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String PREF_KEY_SMART_RADIO_SCREEN_OFF_DELAY = "pref_smart_radio_screen_off_delay";
     public static final String PREF_KEY_SMART_RADIO_IGNORE_LOCKED = "pref_smart_radio_ignore_locked";
     public static final String PREF_KEY_SMART_RADIO_MODE_CHANGE_DELAY = "pref_smart_radio_mode_change_delay";
+    public static final String PREF_KEY_SMART_RADIO_MDA_IGNORE = "pref_smart_radio_mda_ignore";
     public static final String ACTION_PREF_SMART_RADIO_CHANGED = "gravitybox.intent.action.SMART_RADIO_CHANGED";
     public static final String EXTRA_SR_NORMAL_MODE = "smartRadioNormalMode";
     public static final String EXTRA_SR_POWER_SAVING_MODE = "smartRadioPowerSavingMode";
@@ -718,6 +719,7 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
     public static final String EXTRA_SR_SCREEN_OFF_DELAY = "smartRadioScreenOffDelay";
     public static final String EXTRA_SR_IGNORE_LOCKED = "smartRadioIgnoreLocked";
     public static final String EXTRA_SR_MODE_CHANGE_DELAY = "smartRadioModeChangeDelay";
+    public static final String EXTRA_SR_MDA_IGNORE = "smartRadioMdaIgnore";
 
     public static final String PREF_KEY_IME_FULLSCREEN_DISABLE = "pref_ime_fullscreen_disable";
     public static final String PREF_KEY_TORCH_AUTO_OFF = "pref_torch_auto_off";
@@ -2739,6 +2741,10 @@ public class GravityBoxSettings extends Activity implements GravityBoxResultRece
                 intent.setAction(ACTION_PREF_SMART_RADIO_CHANGED);
                 intent.putExtra(EXTRA_SR_MODE_CHANGE_DELAY,
                         prefs.getInt(PREF_KEY_SMART_RADIO_MODE_CHANGE_DELAY, 5));
+            } else if (key.equals(PREF_KEY_SMART_RADIO_MDA_IGNORE)) {
+                intent.setAction(ACTION_PREF_SMART_RADIO_CHANGED);
+                intent.putExtra(EXTRA_SR_MDA_IGNORE,
+                        prefs.getBoolean(PREF_KEY_SMART_RADIO_MDA_IGNORE, false));
             } else if (key.equals(PREF_KEY_LOCKSCREEN_BACKGROUND)) {
                 intent.setAction(ACTION_PREF_LOCKSCREEN_BG_CHANGED);
                 intent.putExtra(EXTRA_LOCKSCREEN_BG,

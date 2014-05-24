@@ -60,6 +60,7 @@ public class ModSmartRadio {
     private static KeyguardManager mKeyguardManager;
     private static int mScreenOffDelay;
     private static boolean mSmartRadioEnabled;
+    private static boolean mIgnoreMobileDataAvailability;
 
     private static BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -90,6 +91,10 @@ public class ModSmartRadio {
                 if (intent.hasExtra(GravityBoxSettings.EXTRA_SR_SCREEN_OFF_DELAY)) {
                     mScreenOffDelay = intent.getIntExtra(GravityBoxSettings.EXTRA_SR_SCREEN_OFF_DELAY, 0);
                     if (DEBUG) log("mScreenOffDelay = " + mScreenOffDelay);
+                }
+                if (intent.hasExtra(GravityBoxSettings.EXTRA_SR_MDA_IGNORE)) {
+                    mIgnoreMobileDataAvailability = intent.getBooleanExtra(
+                            GravityBoxSettings.EXTRA_SR_MDA_IGNORE, false);
                 }
             } else if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
                 int nwType = intent.getIntExtra(ConnectivityManager.EXTRA_NETWORK_TYPE, -1);
@@ -140,6 +145,9 @@ public class ModSmartRadio {
     }
 
     private static boolean isMobileNetworkAvailable() {
+        if (mIgnoreMobileDataAvailability) {
+            return true;
+        }
         try {
             return mConnManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isAvailable();
         } catch (Throwable t) {
@@ -376,6 +384,7 @@ public class ModSmartRadio {
             mIgnoreWhileLocked = prefs.getBoolean(GravityBoxSettings.PREF_KEY_SMART_RADIO_IGNORE_LOCKED, true);
             mModeChangeDelay = prefs.getInt(GravityBoxSettings.PREF_KEY_SMART_RADIO_MODE_CHANGE_DELAY, 5);
             mScreenOffDelay = prefs.getInt(GravityBoxSettings.PREF_KEY_SMART_RADIO_SCREEN_OFF_DELAY, 0);
+            mIgnoreMobileDataAvailability = prefs.getBoolean(GravityBoxSettings.PREF_KEY_SMART_RADIO_MDA_IGNORE, false);
 
             XposedHelpers.findAndHookMethod(classSystemUIService, "onCreate", new XC_MethodHook() {
                 @Override
