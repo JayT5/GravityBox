@@ -878,7 +878,7 @@ public class ModQuickSettings {
                     final boolean justPeeked = (Boolean) XposedHelpers.getBooleanField(param.thisObject, "mJustPeeked");
 
                     final View thisView = (View) param.thisObject;
-                    final int width = thisView.getWidth();
+                    final int width = ((View)XposedHelpers.getObjectField(mStatusBar, "mStatusBarView")).getWidth();
                     final int height = thisView.getHeight();
                     //final int paddingBottom = thisView.getPaddingBottom();
 
