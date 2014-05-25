@@ -1503,6 +1503,22 @@
     <string name="battery_style_circle_dashed_percent">Przerywane koło z procentami</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">Dziękujemy za wsparcie. Funkcje premium zostaną odblokowane po ponownym uruchomieniu GravityBox.</string>
+    <string name="premium_unlocked_message">Dziękujemy za wsparcie. Funkcje premium zostaną odblokowane po ponownym uruchomieniu GravityBox. 
+        Pozostaw GravityBox Unlocker zainstalowany na co najmniej 20 minut.</string>
+    <string name="pref_about_get_unlocker_title">Pobierz GB Unlocker</string>
+    <string name="pref_about_get_unlocker_summary">Nie posiadasz PayPal? Wystarczy kliknąć tutaj, aby pobrać ze sklepu Google Play aplikację do odblokowania funkcji premium GravityBox.</string>
+
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Użyj alternatywnej ikony</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Szybkie Ustawienia przez przeciągnięcie</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignoruj dostępność danych mobilnych</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Przełączenie do trybu normalnego niezależnie od dostępności danych mobilnych</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Przełącznik synchronizacji</string>
 
 </resources>
