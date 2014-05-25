@@ -1536,7 +1536,7 @@
     <string name="battery_style_circle_dashed_percent">Круг из точек с процентами</string>
 
     <!-- Premium feature unlock via unlocker app -->
-    <string name="premium_unlocked_message">Спасибо за Вашу поддержку. Премиум-функции будут разблокированы после перезапуска GravityBox.</string>
+    <string name="premium_unlocked_message">Спасибо за Вашу поддержку. Премиум-функции будут разблокированы после перезапуска GravityBox.
         Убедитесь, что GravityBox Unlocker установлен и работает более 20 минут.</string>
     <string name="pref_about_get_unlocker_title">Получить ключ разблокировки</string>
     <string name="pref_about_get_unlocker_summary">Нет счёта в PayPal? Просто нажмите здесь для получения ключа разблокировки премиум-функций GravityBox из Play Store.</string>
