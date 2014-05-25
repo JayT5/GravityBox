@@ -1535,4 +1535,23 @@
     <string name="battery_style_circle_dashed">Круг из точек</string>
     <string name="battery_style_circle_dashed_percent">Круг из точек с процентами</string>
 
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Спасибо за Вашу поддержку. Премиум-функции будут разблокированы после перезапуска GravityBox.</string>
+        Убедитесь, что GravityBox Unlocker установлен и работает более 20 минут.</string>
+    <string name="pref_about_get_unlocker_title">Получить ключ разблокировки</string>
+    <string name="pref_about_get_unlocker_summary">Нет счёта в PayPal? Просто нажмите здесь для получения ключа разблокировки премиум-функций GravityBox из Play Store.</string>
+
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Альтернативный значок</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Сдвиг для быстр. настроек</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Игнор.доступность моб.данных</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Переключение в нормальный режим, даже если мобильные данные в настоящий момент недоступны</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Включение синхронизации</string>
+
 </resources>
