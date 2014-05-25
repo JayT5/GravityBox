@@ -1100,7 +1100,7 @@
     <string name="wsc_trans_blocked">A transação especificada foi bloqueada. Contacte o autor do GravityBox para resolução.</string>
     <string name="pref_trans_verification_title">Transação PayPal</string>
     <string name="pref_trans_verification_summary">Caso tenha enviado algum contributo, pode introduzir o número de identificação da transação PayPal para desbloquear as funcionalidades avançadas</string>
-    <string name="wsc_trans_required_summary">Esta funcionalidade requer uma transação PayPal válida</string>
+    <string name="wsc_trans_required_summary">Esta funcionalidade é avançada e requer o desbloqueio</string>
 
     <!-- Pie: disable system info -->
     <string name="pref_pie_sysinfo_disable_title">Desativar informação do sistema</string>
@@ -1383,7 +1383,7 @@
     <string name="pref_lockscreen_show_pattern_error_summary">Permite mostrar um trilho vermelho quando a sequência é introduzida incorretamente</string>
 
     <!-- Premium features: allow trial period -->
-    <string name="trial_info">Esta funcionalidade está em modo de teste. Se a considerar útil pode continuar a utilizá-la assim que registar a transação PayPal. 
+    <string name="trial_info">Esta funcionalidade está em modo de teste. Se a considerar útil pode continuar a utilizá-la assim que desbloquear as funcionalidades avançadas. 
         O período de teste termina após reiniciar %d vezes.</string>
 
     <!-- Navbar: disable camera icon -->
@@ -1512,5 +1512,24 @@
     <!-- Dashed circle battery style -->
     <string name="battery_style_circle_dashed">Indicador de bateria circular e tracejado</string>
     <string name="battery_style_circle_dashed_percent">Indicador de bateria circular e tracejado com percentagem</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Obrigado pelo suporte. As funcionalidades avançadas serão desbloqueadas após ter reiniciado o GravityBox. 
+        Garanta que mantém a aplicação de desbloqueio do GravityBox instalada durante pelo menos 20 minutos.</string>
+    <string name="pref_about_get_unlocker_title">Obter desbloqueador</string>
+    <string name="pref_about_get_unlocker_summary">Não tem PayPal? Carregue aqui para obter a aplicação de desbloqueio das funcionalidades avançadas do GravityBox a partir da Play Store.</string>
+
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Usar ícone alternativo</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Deslizar para definições rápidas</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignorar disponibilidade de dados móveis</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Comuta para o modo normal mesmo quando a ligação de dados móveis está indisponível</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Comutar sincronização</string>
 
 </resources>
