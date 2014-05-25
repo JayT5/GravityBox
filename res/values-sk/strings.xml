@@ -75,8 +75,8 @@
     <string name="quick_settings_quiet_hours_auto">Tiché hodiny auto</string>
 
     <!--  QuickSettings settings -->
-    <string name="quick_settings_title">Dlaždice QuickSettings panelu</string>
-    <string name="quick_settings_summary">Umožní zobrazenie/skrytie jednotlivých dlaždíc v QuickSettings panely stavového riadku</string>
+    <string name="quick_settings_title">Dlaždice rýchlych nastavení</string>
+    <string name="quick_settings_summary">Umožní zobrazenie/skrytie jednotlivých dlaždíc v panely rýchlych nastavení stavového riadku</string>
     <string name="qs_tile_user_profile">Profil používateľa</string>
     <string name="qs_tile_airplane_mode">Režim v lietadle</string>
     <string name="qs_tile_battery">Stav batérie</string>
@@ -260,7 +260,7 @@
 
     <!-- QuickSettings tiles per row -->
     <string name="pref_qs_tiles_per_row_title">Počet dlaždíc na riadok</string>
-    <string name="pref_qs_tiles_per_row_summary">Definuje počet QuickSettings dlaždíc zobrazených na 1 riadok. Veľkosť dlaždíc bude upravená podľa potreby. Aplikovateľné na portrét režim.</string>
+    <string name="pref_qs_tiles_per_row_summary">Definuje počet dlaždíc rýchlych nastavení zobrazených na 1 riadok. Veľkosť dlaždíc bude upravená podľa potreby. Aplikovateľné na portrét režim.</string>
 
     <!--  Status bar clock - show day of week -->
     <string name="pref_statusbar_clock_dow_title">Zobraziť deň v týždni</string>
@@ -274,12 +274,12 @@
     <string name="pref_link_volumes_summary">Ak je vypnuté, umožňuje nastaviť úrovne hlasitosti zvlášť pre vyzváňanie a notifikácie</string>
 
     <!-- Auto-switch QuickSettings -->
-    <string name="pref_auto_switch_qs_title">Automatické zobrazenie QuickSettings</string>
-    <string name="pref_auto_switch_qs_summary">QuickSettings budú zobrazené automaticky ak sa v notifikačnom panely nenachádzajú žiadne notifikácie</string>
+    <string name="pref_auto_switch_qs_title">Automatické rýchle nastavenia</string>
+    <string name="pref_auto_switch_qs_summary">Rýchle nastavenia budú zobrazené automaticky ak sa v notifikačnom panely nenachádzajú žiadne notifikácie</string>
 
     <!-- Quick pulldown -->
-    <string name="pref_quick_pulldown_title">Rýchle zobrazenie QuickSettings</string>
-    <string name="pref_quick_pulldown_summary">Stiahnutie stavového riadku v oblasti definovaného okraja zobrazí QuickSettings</string>
+    <string name="pref_quick_pulldown_title">Rýchle zobrazenie nastavení</string>
+    <string name="pref_quick_pulldown_summary">Stiahnutie stavového riadku v oblasti definovaného okraja zobrazí rýchle nastavenia</string>
     <string name="quick_pulldown_off">Vypnuté</string>
     <string name="quick_pulldown_right">Pravý okraj</string>
     <string name="quick_pulldown_left">Ľavý okraj</string>
@@ -299,7 +299,7 @@
     <string name="pref_statusbar_data_activity_color_summary">Nastaví farbu pre indikátory dátovej aktivity</string>
 
     <!-- QuickSettings management category -->
-    <string name="pref_cat_statusbar_qs_title">QuickSettings nastavenia</string>
+    <string name="pref_cat_statusbar_qs_title">Rýchle nastavenia</string>
 
     <!-- Notification drawer style -->
     <string name="pref_cat_notification_drawer_style_title">Nastavenia notifikačného panelu</string>
@@ -377,13 +377,13 @@
     <string name="app_picker_none">(Žiadna)</string>
 
     <!-- QuickApp tile settings -->
-    <string name="qs_tile_quickapp">Quick App</string>
-    <string name="pref_cat_quickapp_tile_title">Nastavenia QuickApp dlaždice</string>
+    <string name="qs_tile_quickapp">Rýchla aplikácia</string>
+    <string name="pref_cat_quickapp_tile_title">Rýchla aplikácia</string>
     <string name="pref_quickapp_default_title">Hlavná aplikácia</string>
-    <string name="pref_quickapp_slot1_title">Dlhé stlačenie - app slot 1</string>
-    <string name="pref_quickapp_slot2_title">Dlhé stlačenie - app slot 2</string>
-    <string name="pref_quickapp_slot3_title">Dlhé stlačenie - app slot 3</string>
-    <string name="pref_quickapp_slot4_title">Dlhé stlačenie - app slot 4</string>
+    <string name="pref_quickapp_slot1_title">Dlhé stlačenie - slot 1</string>
+    <string name="pref_quickapp_slot2_title">Dlhé stlačenie - slot 2</string>
+    <string name="pref_quickapp_slot3_title">Dlhé stlačenie - slot 3</string>
+    <string name="pref_quickapp_slot4_title">Dlhé stlačenie - slot 4</string>
 
     <!-- GPS Tile (for non-MTK) -->
     <string name="qs_tile_gps_enabled">GPS zap</string>
@@ -745,7 +745,7 @@
     <string name="hwkey_ls_torch_voldown_longpress">Na dlhé podržanie Hlasitosť-</string>
 
     <!-- QuickSettings management master switch -->
-    <string name="pref_qs_management_enable_summary">Hlavný prepínač pre QuickSettings nastavenia (vyžaduje reštart)</string>
+    <string name="pref_qs_management_enable_summary">Hlavný prepínač pre rýchle nastavenia (vyžaduje reštart)</string>
 
     <!-- AppPickerPreference: shortcut support -->
     <string name="app_picker_applications">Aplikácie</string>
@@ -946,8 +946,8 @@
     <string name="lockscreen_sb_clock_always_show">Vždy zobraziť</string>
 
     <!-- QuickApp Tile #2 -->
-    <string name="pref_cat_quickapp_tile_2_title">Nastavenia QuickApp dlaždice 2</string>
-    <string name="qs_tile_quickapp_2">Quick App 2</string>
+    <string name="pref_cat_quickapp_tile_2_title">Rýchla aplikácia 2</string>
+    <string name="qs_tile_quickapp_2">Rýchla aplikácia 2</string>
 
     <!-- Force music volume control -->
     <string name="pref_vol_force_music_control_title">Vynútiť ovládanie hlasitosti médií</string>
@@ -1511,7 +1511,7 @@
     <string name="pref_navbar_custom_key_icon_title">Použiť alternatívnu ikonu</string>
 
     <!-- QS: swipe to Quick Settings -->
-    <string name="pref_qs_swipe_enable_title">Potiahnutím zobraziť QuickSettings</string>
+    <string name="pref_qs_swipe_enable_title">Potiahnutím na rýchle nastavenia</string>
 
     <!-- Smart Radio: ignore mobile data availability -->
     <string name="pref_smart_radio_mda_ignore_title">Ignorovať dostupnosť mobilných dát</string>
