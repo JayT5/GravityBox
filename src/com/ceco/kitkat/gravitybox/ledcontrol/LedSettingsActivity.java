@@ -187,6 +187,7 @@ public class LedSettingsActivity extends Activity implements OnClickListener {
         mLedSettings.setSoundOverride(mPrefsFragment.getSoundOverride());
         mLedSettings.setSoundUri(mPrefsFragment.getSoundUri());
         mLedSettings.setSoundOnlyOnce(mPrefsFragment.getSoundOnlyOnce());
+        mLedSettings.setSoundOnlyOnceTimeout(mPrefsFragment.getSoundOnlyOnceTimeout());
         mLedSettings.setInsistent(mPrefsFragment.getInsistent());
         mLedSettings.setVibrateOverride(mPrefsFragment.getVibrateOverride());
         mLedSettings.setVibratePatternFromString(mPrefsFragment.getVibratePatternAsString());

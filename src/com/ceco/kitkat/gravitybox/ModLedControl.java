@@ -15,6 +15,9 @@
 
 package com.ceco.kitkat.gravitybox;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHours;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
@@ -60,6 +63,7 @@ public class ModLedControl {
     private static boolean mScreenCovered;
     private static boolean mOnPanelRevealedBlocked;
     private static QuietHours mQuietHours;
+    private static Map<String, Long> mNotifTimestamps = new HashMap<String, Long>();
 
     private static BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
         @Override
@@ -267,18 +271,38 @@ public class ModLedControl {
                     n.ledARGB = ls.getColor();
                 }
 
-                // sound
+                // sound & vibration
                 if (qhActive) {
                     n.defaults &= ~Notification.DEFAULT_SOUND;
                     n.sound = null;
+                    n.defaults &= ~Notification.DEFAULT_VIBRATE;
+                    n.vibrate = new long[] {0};
                     n.flags &= ~Notification.FLAG_INSISTENT;
                 } else {
                     if (ls.getSoundOverride()) {
                         n.defaults &= ~Notification.DEFAULT_SOUND;
                         n.sound = ls.getSoundUri();
                     }
+                    if (ls.getVibrateOverride() && ls.getVibratePattern() != null) {
+                        n.defaults &= ~Notification.DEFAULT_VIBRATE;
+                        n.vibrate = ls.getVibratePattern();
+                    }
                     if (ls.getSoundOnlyOnce()) {
-                        n.flags |= Notification.FLAG_ONLY_ALERT_ONCE;
+                        if (ls.getSoundOnlyOnceTimeout() > 0) {
+                            if (mNotifTimestamps.containsKey(pkgName) &&
+                                    (System.currentTimeMillis() - mNotifTimestamps.get(pkgName) < 
+                                            ls.getSoundOnlyOnceTimeout())) {
+                                n.defaults &= ~Notification.DEFAULT_SOUND;
+                                n.defaults &= ~Notification.DEFAULT_VIBRATE;
+                                n.sound = null;
+                                n.vibrate = new long[] {0};
+                                n.flags &= ~Notification.FLAG_ONLY_ALERT_ONCE;
+                            } else {
+                                mNotifTimestamps.put(pkgName, System.currentTimeMillis());
+                            }
+                        } else {
+                            n.flags |= Notification.FLAG_ONLY_ALERT_ONCE;
+                        }
                     } else {
                         n.flags &= ~Notification.FLAG_ONLY_ALERT_ONCE;
                     }
@@ -287,15 +311,6 @@ public class ModLedControl {
                     } else {
                         n.flags &= ~Notification.FLAG_INSISTENT;
                     }
-                }
-
-                // vibration
-                if (qhActive) {
-                    n.defaults &= ~Notification.DEFAULT_VIBRATE;
-                    n.vibrate = new long[] {0};
-                } else if (ls.getVibrateOverride() && ls.getVibratePattern() != null) {
-                    n.defaults &= ~Notification.DEFAULT_VIBRATE;
-                    n.vibrate = ls.getVibratePattern();
                 }
 
                 if (DEBUG) log("Notification info: defaults=" + n.defaults + "; flags=" + n.flags);

@@ -43,6 +43,7 @@ public class LedSettings {
     private boolean mSoundOverride;
     private Uri mSoundUri;
     private boolean mSoundOnlyOnce;
+    private long mSoundOnlyOnceTimeout;
     private boolean mInsistent;
     private boolean mVibrateOverride;
     private String mVibratePatternStr;
@@ -102,6 +103,8 @@ public class LedSettings {
                 ls.setSoundUri(Uri.parse(data[1]));
             } else if (data[0].equals("soundOnlyOnce")) {
                 ls.setSoundOnlyOnce(Boolean.valueOf(data[1]));
+            } else if (data[0].equals("soundOnlyOnceTimeout")) {
+                ls.setSoundOnlyOnceTimeout(Long.valueOf(data[1]));
             } else if (data[0].equals("insistent")) {
                 ls.setInsistent(Boolean.valueOf(data[1]));
             } else if (data[0].equals("vibrateOverride")) {
@@ -134,6 +137,7 @@ public class LedSettings {
         mSoundOverride = false;
         mSoundUri = null;
         mSoundOnlyOnce = false;
+        mSoundOnlyOnceTimeout = 0;
         mInsistent = false;
         mVibrateOverride = false;
         mVibratePatternStr = null;
@@ -230,6 +234,10 @@ public class LedSettings {
         mSoundOnlyOnce = onlyOnce;
     }
 
+    protected void setSoundOnlyOnceTimeout(long timeout) {
+        mSoundOnlyOnceTimeout = timeout;
+    }
+
     protected void setInsistent(boolean insistent) {
         mInsistent = insistent;
     }
@@ -316,6 +324,10 @@ public class LedSettings {
         return mSoundOnlyOnce;
     }
 
+    public long getSoundOnlyOnceTimeout() {
+        return mSoundOnlyOnceTimeout;
+    }
+
     public boolean getInsistent() {
         return mInsistent;
     }
@@ -365,6 +377,7 @@ public class LedSettings {
                 dataSet.add("sound:" + mSoundUri.toString());
             }
             dataSet.add("soundOnlyOnce:" + mSoundOnlyOnce);
+            dataSet.add("soundOnlyOnceTimeout:" + mSoundOnlyOnceTimeout);
             dataSet.add("insistent:" + mInsistent);
             dataSet.add("vibrateOverride:" + mVibrateOverride);
             if (mVibratePatternStr != null) {
