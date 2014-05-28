@@ -15,7 +15,6 @@
 
 package com.ceco.kitkat.gravitybox;
 
-import com.ceco.kitkat.gravitybox.ledcontrol.ActiveScreenActivity;
 import com.ceco.kitkat.gravitybox.ledcontrol.LedSettings;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHours;
 import com.ceco.kitkat.gravitybox.ledcontrol.QuietHoursActivity;
@@ -60,6 +59,7 @@ public class ModLedControl {
     private static boolean mProxSensorListenerRegistered;
     private static boolean mScreenCovered;
     private static boolean mOnPanelRevealedBlocked;
+    private static QuietHours mQuietHours;
 
     private static BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
         @Override
@@ -92,11 +92,13 @@ public class ModLedControl {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (action.equals(ActiveScreenActivity.ACTION_ACTIVE_SCREEN_CHANGED)) {
+            if (action.equals(LedSettings.ACTION_UNC_SETTINGS_CHANGED) ||
+                    action.equals(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED)) {
                 mPrefs.reload();
-                if (intent.hasExtra(ActiveScreenActivity.EXTRA_ENABLED)) {
+                mQuietHours = new QuietHours(mPrefs);
+                if (intent.hasExtra(LedSettings.EXTRA_UNC_AS_ENABLED)) {
                     toggleActiveScreenFeature(intent.getBooleanExtra(
-                            ActiveScreenActivity.EXTRA_ENABLED, false));
+                            LedSettings.EXTRA_UNC_AS_ENABLED, false));
                 }
             }
             if (action.equals(Intent.ACTION_USER_PRESENT)) {
@@ -107,9 +109,6 @@ public class ModLedControl {
                     mProxSensorListenerRegistered = false;
                     if (DEBUG) log("Prox sensor listener unregistered");
                 }
-            }
-            if (action.equals(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED)) {
-                mPrefs.reload();
             }
             if (action.equals(Intent.ACTION_SCREEN_OFF)) {
                 if (!mProxSensorListenerRegistered && mSm != null && mProxSensor != null) {
@@ -128,17 +127,18 @@ public class ModLedControl {
     public static void initZygote() {
         mPrefs = new XSharedPreferences(GravityBox.PACKAGE_NAME, "ledcontrol");
         mPrefs.makeWorldReadable();
+        mQuietHours = new QuietHours(mPrefs);
 
         try {
             XposedHelpers.findAndHookMethod(NotificationManager.class, "notify",
-                    String.class, int.class, Notification.class, notifyHook);
+                    String.class, int.class, Notification.class, notifyHookPkg);
         } catch (Throwable t) {
             XposedBridge.log(t);
         }
 
         try {
             XposedHelpers.findAndHookMethod(NotificationManager.class, "notifyAsUser",
-                    String.class, int.class, Notification.class, CLASS_USER_HANDLE, notifyHook);
+                    String.class, int.class, Notification.class, CLASS_USER_HANDLE, notifyHookPkg);
         } catch (Throwable t) {
             XposedBridge.log(t);
         }
@@ -173,7 +173,7 @@ public class ModLedControl {
                         mHandler = (Handler) XposedHelpers.getObjectField(param.thisObject, "mHandler");
 
                         IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction(ActiveScreenActivity.ACTION_ACTIVE_SCREEN_CHANGED);
+                        intentFilter.addAction(LedSettings.ACTION_UNC_SETTINGS_CHANGED);
                         intentFilter.addAction(Intent.ACTION_USER_PRESENT);
                         intentFilter.addAction(QuietHoursActivity.ACTION_QUIET_HOURS_CHANGED);
                         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -188,7 +188,7 @@ public class ModLedControl {
 
             XposedHelpers.findAndHookMethod(CLASS_NOTIFICATION_MANAGER_SERVICE, null, "enqueueNotificationWithTag",
                     String.class, String.class, String.class, int.class, Notification.class, 
-                    int[].class, int.class, activeScreenHook);
+                    int[].class, int.class, notifyHook);
 
             XposedHelpers.findAndHookMethod(CLASS_STATUSBAR_MGR_SERVICE, null, "onPanelRevealed", 
                     new XC_MethodHook() {
@@ -205,46 +205,48 @@ public class ModLedControl {
         }
     }
 
+    private static XC_MethodHook notifyHookPkg = new XC_MethodHook() {
+        @Override
+        protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
+            // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
+            final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
+            final String pkgName = context.getPackageName();
+            if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
+                    (Integer)param.args[1] == MISSED_CALL_NOTIF_ID) {
+                mNotifOnNextScreenOff = (Notification) param.args[2];
+                context.registerReceiver(mScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+                if (DEBUG) log("Scheduled missed call notification for next screen off");
+                return;
+            }
+        }
+    };
+
     private static XC_MethodHook notifyHook = new XC_MethodHook() {
         @Override
         protected void beforeHookedMethod(final MethodHookParam param) throws Throwable {
             try {
-                mPrefs.reload();
                 if (mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false)) {
                     if (DEBUG) log("Ultimate notification control feature locked.");
                     return;
                 }
 
-                Notification n = (Notification) param.args[2];
+                Notification n = (Notification) param.args[4];
                 if (n.extras.containsKey("gbIgnoreNotification")) return;
 
-                final QuietHours quietHours = new QuietHours(mPrefs);
-                final Context context = (Context) XposedHelpers.getObjectField(param.thisObject, "mContext");
-                final String pkgName = context.getPackageName();
+                final String pkgName = (String) param.args[0];
 
                 LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
                 if (!ls.getEnabled()) {
                     // use default settings in case they are active
                     ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
-                    if (!ls.getEnabled() && !quietHours.quietHoursActive(ls, n)) {
+                    if (!ls.getEnabled() && !mQuietHours.quietHoursActive(ls, n)) {
                         return;
                     }
                 }
                 if (DEBUG) log(pkgName + ": " + ls.toString());
 
-                final boolean qhActive = quietHours.quietHoursActive(ls, n);
-                final boolean qhActiveIncludingLed = quietHours.quietHoursActiveIncludingLED(ls, n);
-
-                // Phone missed calls: fix AOSP bug preventing LED from working for missed calls
-                if (mNotifOnNextScreenOff == null && pkgName.equals(PACKAGE_NAME_PHONE) && 
-                        (Integer)param.args[1] == MISSED_CALL_NOTIF_ID && 
-                        ls.getEnabled() && ls.getLedMode() != LedMode.OFF &&
-                        !qhActiveIncludingLed) {
-                    mNotifOnNextScreenOff = n;
-                    context.registerReceiver(mScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
-                    if (DEBUG) log("Scheduled missed call notification for next screen off");
-                    return;
-                }
+                final boolean qhActive = mQuietHours.quietHoursActive(ls, n);
+                final boolean qhActiveIncludingLed = mQuietHours.quietHoursActiveIncludingLED(ls, n);
 
                 if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
                         !ls.getOngoing() && !qhActive) {
@@ -301,6 +303,53 @@ public class ModLedControl {
                 XposedBridge.log(t);
             }
         }
+
+        @Override
+        protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
+            try {
+                if (mPm != null && !mPm.isScreenOn() && !mScreenCovered && mKm.isKeyguardLocked()) {
+                    final String pkgName = (String) param.args[0];
+                    LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
+                    if (!ls.getEnabled()) {
+                        // use default settings in case they are active
+                        ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
+                        if (!ls.getEnabled()) {
+                            return;
+                        }
+                    }
+                    if (!ls.getActiveScreenEnabled()) return;
+
+                    Notification n = (Notification) param.args[4];
+                    if (mQuietHours.quietHoursActive(ls, n)) {
+                        return;
+                    }
+
+                    if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
+                            !ls.getOngoing()) {
+                        if (DEBUG) log("Ongoing led control disabled. Ignoring.");
+                        return;
+                    }
+
+                    if (DEBUG) log("Performing Active Screen for " + pkgName);
+                    final LedSettings fls = ls;
+                    mOnPanelRevealedBlocked = fls.getActiveScreenExpanded();
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (fls.getActiveScreenExpanded()) {
+                                mContext.sendBroadcast(new Intent(ModHwKeys.ACTION_EXPAND_NOTIFICATIONS));
+                            }
+                            final WakeLock wl = mPm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
+                                    PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, TAG);
+                            wl.acquire();
+                            wl.release();
+                        }
+                    }, 1000);
+                }
+            } catch (Throwable t) {
+                XposedBridge.log(t);
+            }
+        }
     };
 
     private static XC_MethodHook cancelHook = new XC_MethodHook() {
@@ -318,56 +367,6 @@ public class ModLedControl {
                 }
             } catch (Throwable t) {
                 XposedBridge.log(t);
-            }
-        }
-    };
-
-    private static XC_MethodHook activeScreenHook = new XC_MethodHook() {
-        @Override
-        protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
-            if (mPrefs.getBoolean(LedSettings.PREF_KEY_LOCKED, false)) {
-                if (DEBUG) log("Ultimate notification control feature locked.");
-                return;
-            }
-            if (mPm != null && !mPm.isScreenOn() && !mScreenCovered && mKm.isKeyguardLocked()) {
-                final String pkgName = (String) param.args[0];
-                LedSettings ls = LedSettings.deserialize(mPrefs.getStringSet(pkgName, null));
-                if (!ls.getEnabled()) {
-                    // use default settings in case they are active
-                    ls = LedSettings.deserialize(mPrefs.getStringSet("default", null));
-                    if (!ls.getEnabled()) {
-                        return;
-                    }
-                }
-                if (!ls.getActiveScreenEnabled()) return;
-
-                Notification n = (Notification) param.args[4];
-                final QuietHours quietHours = new QuietHours(mPrefs);
-                if (quietHours.quietHoursActive(ls, n)) {
-                    return;
-                }
-
-                if (((n.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT) &&
-                        !ls.getOngoing()) {
-                    if (DEBUG) log("Ongoing led control disabled. Ignoring.");
-                    return;
-                }
-
-                if (DEBUG) log("Performing Active Screen for " + pkgName);
-                final LedSettings fls = ls;
-                mOnPanelRevealedBlocked = fls.getActiveScreenExpanded();
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (fls.getActiveScreenExpanded()) {
-                            mContext.sendBroadcast(new Intent(ModHwKeys.ACTION_EXPAND_NOTIFICATIONS));
-                        }
-                        final WakeLock wl = mPm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
-                                PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, TAG);
-                        wl.acquire();
-                        wl.release();
-                    }
-                }, 1000);
             }
         }
     };

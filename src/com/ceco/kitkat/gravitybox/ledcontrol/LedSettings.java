@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
@@ -26,6 +27,9 @@ public class LedSettings {
 
     public static final String PREF_KEY_LOCKED = "uncLocked";
     public static final String PREF_KEY_ACTIVE_SCREEN_ENABLED = "activeScreenEnabled";
+
+    public static final String ACTION_UNC_SETTINGS_CHANGED = "gravitybox.intent.action.UNC_SETTINGS_CHANGED";
+    public static final String EXTRA_UNC_AS_ENABLED = "uncActiveScreenEnabled";
 
     public enum LedMode { ORIGINAL, OVERRIDE, OFF };
 
@@ -183,6 +187,8 @@ public class LedSettings {
             SharedPreferences prefs = context.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putBoolean(PREF_KEY_LOCKED, lock).commit();
+            Intent intent = new Intent(ACTION_UNC_SETTINGS_CHANGED);
+            context.sendBroadcast(intent);
         } catch (Throwable t) {
             t.printStackTrace();
         }
@@ -374,6 +380,8 @@ public class LedSettings {
             SharedPreferences prefs = mContext.getSharedPreferences(
                     "ledcontrol", Context.MODE_WORLD_READABLE);
             prefs.edit().putStringSet(mPackageName, dataSet).commit();
+            Intent intent = new Intent(ACTION_UNC_SETTINGS_CHANGED);
+            mContext.sendBroadcast(intent);
         } catch (Throwable t) {
             t.printStackTrace();
         }
