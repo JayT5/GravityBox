@@ -18,7 +18,7 @@
 
     <string name="app_name">GravityBox [KK]</string>
 
-    <string name="battery_style_title">電量指示器風格</string>	
+    <string name="battery_style_title">電量指示器風格</string>
     <string name="battery_style_stock">預設電量指示器</string>
     <string name="battery_style_circle">圓形電量指示器</string>
     <string name="battery_style_circle_percent">圓形電量指示器(包含電量百分比)</string>
@@ -86,6 +86,9 @@
     <string name="quick_settings_lock_screen_off">鎖定畫面 關閉</string>
     <string name="quick_settings_location_on">定位服務 開啟</string>
     <string name="quick_settings_location_off">定位服務 關閉</string>
+    <string name="quick_settings_quiet_hours_off">靜音時段  關閉</string>
+    <string name="quick_settings_quiet_hours_on">靜音時段  開啟</string>
+    <string name="quick_settings_quiet_hours_auto">靜音時段  自動</string>
 
     <!--  QuickSettings settings -->
     <string name="quick_settings_title">狀態列快速設定瓷貼</string>
@@ -168,7 +171,7 @@
     <string name="lockscreen_bg_default">預設背景圖片</string>
     <string name="lockscreen_bg_color">自訂顏色</string>
     <string name="lockscreen_bg_image">自訂圖片</string>
-	<string name="lockscreen_bg_last_screen">鎖定裝置前的畫面</string>
+    <string name="lockscreen_bg_last_screen">鎖定裝置前的畫面</string>
     <string name="pref_lockscreen_bg_color_title">設定自訂顏色</string>
     <string name="pref_lockscreen_bg_color_summary">為鎖定畫面設定自訂的背景顏色</string>
     <string name="pref_lockscreen_bg_image_title">設定自訂圖片</string>
@@ -389,7 +392,7 @@
     <string name="recent_clear_top_right">右上角</string>
     <string name="recent_clear_bottom_left">左下角</string>
     <string name="recent_clear_bottom_right">右下角</string>
-	<string name="recent_clear_navigation_bar">導航列（需要先啟用導航列選項</string>
+    <string name="recent_clear_navigation_bar">導航列（需要先啟用導航列選項</string>
 
     <!-- Clear all recents top margin -->
     <string name="pref_recent_clear_margin_top_title">調整頂部邊距</string>
@@ -410,7 +413,7 @@
     <!-- GPS Tile (for non-MTK) -->
     <string name="qs_tile_gps_enabled">GPS 開啟</string>
     <string name="qs_tile_gps_disabled">GPS 關閉</string>
-	<string name="qs_tile_gps_locked">GPS 已鎖定</string>
+    <string name="qs_tile_gps_locked">GPS 已鎖定</string>
 
     <!-- Pie control: always show menu button -->
     <string name="pie_control_menu_title">總是顯示選單鍵</string>
@@ -468,11 +471,11 @@
     <string name="hwkey_action_custom_app_missing">找不到已設定的自訂應用程式！（請確定已安裝該應用程式）</string>
 
     <!-- Notification panel clock -->
-	<string name="pref_cat_statusbar_clock_title">狀態列時鐘</string>
-	<string name="pref_cat_notif_panel_clock_title">通知面板時鐘</string>
+    <string name="pref_cat_statusbar_clock_title">狀態列時鐘</string>
+    <string name="pref_cat_notif_panel_clock_title">通知面板時鐘</string>
     <string name="pref_clock_link_title">點擊時鐘時執行的應用程式</string>
     <string name="pref_clock_link_summary">啟動此功能後通知面板時鐘將執行指定的應用程式而非預設的「日期與時間」設定</string>
-	<string name="pref_clock_longpress_link_title">長按時鐘時執行的應用程式</string>
+    <string name="pref_clock_longpress_link_title">長按時鐘時執行的應用程式</string>
 
     <!-- GravityBox settings startup handling -->
     <string name="gb_startup_progress">正在等待 GravityBox 系統框架回應&#8230;</string>
@@ -486,10 +489,10 @@
     <string name="pref_expanded_desktop_title">全螢幕模式</string>
     <string name="expanded_desktop_disabled">關閉</string>
     <string name="expanded_desktop_navbar">隱藏導航列</string>
-	<string name="expanded_desktop_immersive_statusbar">Immersive 模式狀態列</string>
-	<string name="expanded_desktop_immersive_navbar">Immersive 模式導航列</string>
-	<string name="expanded_desktop_both">Immersive 模式狀態列 + Pie 控制</string>
-	<string name="expanded_desktop_immersive">全Immersive 模式</string>
+    <string name="expanded_desktop_immersive_statusbar">Immersive 模式狀態列</string>
+    <string name="expanded_desktop_immersive_navbar">Immersive 模式導航列</string>
+    <string name="expanded_desktop_both">Immersive 模式狀態列 + Pie 控制</string>
+    <string name="expanded_desktop_immersive">全Immersive 模式</string>
     <string name="action_expanded_desktop_title">全螢幕模式</string>
     <string name="action_expanded_desktop_on">全螢幕模式已開啟</string>
     <string name="action_expanded_desktop_off">全螢幕模式已關閉</string>
@@ -749,10 +752,10 @@
     <!-- Old GB to new GB one-time dialog -->
     <string name="gb_new_package_dialog">偵測到舊版的 GravityBox 已被安裝在本裝置上。
         舊版必須先被解除安裝才能安裝新版的 GB 。
-		新版 GB 將從舊版 GB 傳輸您的配置與設定到新版 GB，然後解除安裝舊版 GB。
-		您必須在出現"解除安裝"提示時按下"確認"。
-		解除安裝後，請前往 Xposed 安裝器啟用新模組然後馬上重新啟動。
-		否則，您將有可能遭遇到系統相容穩定性的問題。</string>
+        新版 GB 將從舊版 GB 傳輸您的配置與設定到新版 GB，然後解除安裝舊版 GB。
+        您必須在出現"解除安裝"提示時按下"確認"。
+        解除安裝後，請前往 Xposed 安裝器啟用新模組然後馬上重新啟動。
+        否則，您將有可能遭遇到系統相容穩定性的問題。</string>
     <string name="gb_new_package_settings_transfer_ok">GravityBox 設定傳輸成功</string>
     <string name="gb_new_package_settings_transfer_failed">GravityBox 設定傳輸失敗</string>
 
@@ -829,7 +832,7 @@
     <string name="battery_percent_text_title">電池電量百分比文字</string>
     <string name="battery_percent_text_size_title">電池電量百分比文字大小</string>
     <string name="battery_percent_text_size_larger">較大</string>
-	<string name="battery_percent_text_size_normal">正常</string>
+    <string name="battery_percent_text_size_normal">正常</string>
     <string name="battery_percent_text_size_smaller">較小</string>
     <string name="battery_percent_text_size_even_smaller">更小</string>
     <string name="battery_percent_text_size_smallest">最小</string>
@@ -942,7 +945,7 @@
 
     <!-- Lockscreen background opacity -->
     <string name="pref_lockscreen_bg_opacity_title">背景不透明度</string>
-	<string name="pref_lockscreen_bg_opacity_summary">只適用於自訂背景圖片及專輯圖片</string>
+    <string name="pref_lockscreen_bg_opacity_summary">只適用於自訂背景圖片及專輯圖片</string>
 
     <!-- GB Actions: Media control shorctut -->
     <string name="shortcut_media_control">媒體控制</string>
@@ -1039,12 +1042,12 @@
     <string name="pref_pie_search_longpress_title">搜尋鍵</string>
     <string name="pref_pie_menu_longpress_title">選單鍵</string>
     <string name="pref_pie_app_longpress_title">應用程式啟動器鍵</string>
-	
-	<!-- Translucent decor options -->
-	<string name="pref_translucent_decor_title">半透明系統狀態列及導航列</string>
-	<string name="pref_translucent_decor_default">系統預設</string>
-	<string name="pref_translucent_decor_enabled">啟用</string>
-	<string name="pref_translucent_decor_disabled">停用</string>
+
+    <!-- Translucent decor options -->
+    <string name="pref_translucent_decor_title">半透明系統狀態列及導航列</string>
+    <string name="pref_translucent_decor_default">系統預設</string>
+    <string name="pref_translucent_decor_enabled">啟用</string>
+    <string name="pref_translucent_decor_disabled">停用</string>
 
     <!-- Pulse notification delay -->
     <string name="pref_pulse_notification_delay_title">跳動通知延遲</string>
@@ -1231,7 +1234,7 @@
 
     <!-- Quick pull down size -->
     <string name="pref_quick_pulldown_size_title">快速下拉大小</string>
-    
+
     <!-- Stay Awake Tile modes -->
     <string name="pref_qs_stay_awake_title">螢幕逾時瓷貼模式</string>
     <string name="stay_awake_15s">15秒</string>
@@ -1272,14 +1275,14 @@
 
     <!-- GB Actions: Toggle Smart Radio -->
     <string name="shortcut_smart_radio_toggle">開關智慧型無線網絡</string>
-    
+
     <!-- Master switch title -->
     <string name="pref_masterswitch_title">主開關</string>
 
     <!-- Mute volume adjust vibrate -->
-       <string name="pref_volume_adjust_vibrate_mute_title">停用音量調節震動</string>
+    <string name="pref_volume_adjust_vibrate_mute_title">停用音量調節震動</string>
     <string name="pref_volume_adjust_vibrate_mute_summary">停用當使用音量鍵調整通知/鈴聲音量時產生震動</string>
-    
+
     <!-- ScreenRecord: use stock binary -->
     <string name="pref_screenrecord_use_stock_title">使用預設螢幕錄製元件</string>
     <string name="pref_screenrecord_use_stock_summary">當啟用時，系統預設的螢幕錄製元件將被用於螢幕錄製。如果您在使用在GravityBox的替代螢幕錄製元件引起問題時請啟用本選項。請注意，使用預設螢幕錄製元件將無法錄製音訊亦沒法錄製超過三分鐘。</string>
@@ -1389,44 +1392,44 @@
 
     <!-- Premium features: allow trial period -->
     <string name="trial_info">此功能仍在試用階段，如果您覺得實用並想繼續使用此功能，請使用您的 PayPal ID 來捐贈本開發者帳號，本功能試用期將在您 %d 重新啟動裝置後結束。</string>
-	 
+ 
     <!-- Navbar: disable camera icon -->
-	<string name="pref_navbar_camera_key_disable_title">停用相機圖示</string>
-	<string name="pref_navbar_camera_key_disable_summary">停用在鎖定畫面內的相機圖示</string>
-	
-	<!-- Notification control: default settings -->
-	<string name="lc_activity_menu_default_settings">預設設定</string>    
-	<string name="pref_lc_default_settings_summary">當啟用後，為所有未有設置過通知控制的應用程式套用下列的設定</string>    
-	<string name="lc_defaults_apply">已套用預設設定</string>    
-	<string name="lc_settings_menu_reset">還原為預設設定</string>
-	
-	<!-- Notification control: Active screen -->
-	<string name="lc_active_screen">主動螢幕喚醒</string>    
-	<string name="lc_active_screen_info">啟用主動螢幕喚醒功能後，任何新的通知都會使螢幕自動亮著（只有當螢幕沒有被覆蓋的情況下，如：您的電話不在口袋裏）。根據鎖定畫面的安全性設定及您的設定，它亦可以自動展開通知面板。請注意，主動螢幕喚醒功能需要啟用鎖定畫面。 \n 以下的開關只是主開關，當啟用後請按需要為個別應用程式進行設定。</string>    
-	<string name="lc_active_screen_switch_title">啟用主動螢幕喚醒</string>    
-	<string name="lc_expand_notification_panel_title">展開通知面板</string>    
-	<string name="lc_expand_notification_panel_summary">若鎖定面板安全性設定容許的話，當螢幕亮著時自動展開通知面板</string>    
-	
-	<!-- Notification control: Quiet hours -->    
-	<string name="lc_quiet_hours">靜音時段</string>    
-	<string name="pref_lc_qh_enabled_title">啟用靜音時段</string>    
-	<string name="pref_lc_qh_enabled_summary">在設定的時間內，通知鈴聲和震動會被停用。您亦可設定一併停用通知燈</string>    
-	<string name="pref_lc_qh_start_title">開始時間</string>    
-	<string name="pref_lc_qh_end_title">結束時間</string>    
-	<string name="pref_lc_qh_mute_led_title">停用LED</string>    
-	
-	<!-- Notification control: LED mode -->    
-	<string name="pref_lc_led_mode_title">通知燈設定</string>    
-	<string name="lc_led_mode_original">由應用程式指定</string>    
-	<string name="lc_led_mode_override">由GravityBox指定</string>    
-	<string name="lc_led_mode_off">停用通知燈</string>
+    <string name="pref_navbar_camera_key_disable_title">停用相機圖示</string>
+    <string name="pref_navbar_camera_key_disable_summary">停用在鎖定畫面內的相機圖示</string>
 
-    <!-- Notification control: Quiet hours statusbar icon -->    
-	<string name="pref_lc_qh_statusbar_icon_title">狀態列圖示</string>    
-	<string name="pref_lc_qh_statusbar_icon_summary">當靜音時段生效時，在狀態列顯示一個通知圖示</string>    
-	
-	<!-- Battey percent text: charging color -->    
-	<string name="battery_percent_text_charging_color_title">充電時的電池文字顏色</string>
+    <!-- Notification control: default settings -->
+    <string name="lc_activity_menu_default_settings">預設設定</string>
+    <string name="pref_lc_default_settings_summary">當啟用後，為所有未有設置過通知控制的應用程式套用下列的設定</string>
+    <string name="lc_defaults_apply">已套用預設設定</string>
+    <string name="lc_settings_menu_reset">還原為預設設定</string>
+
+    <!-- Notification control: Active screen -->
+    <string name="lc_active_screen">主動螢幕喚醒</string>
+    <string name="lc_active_screen_info">啟用主動螢幕喚醒功能後，任何新的通知都會使螢幕自動亮著（只有當螢幕沒有被覆蓋的情況下，如：您的電話不在口袋裏）。根據鎖定畫面的安全性設定及您的設定，它亦可以自動展開通知面板。請注意，主動螢幕喚醒功能需要啟用鎖定畫面。 \n 以下的開關只是主開關，當啟用後請按需要為個別應用程式進行設定。</string>
+    <string name="lc_active_screen_switch_title">啟用主動螢幕喚醒</string>
+    <string name="lc_expand_notification_panel_title">展開通知面板</string>
+    <string name="lc_expand_notification_panel_summary">若鎖定面板安全性設定容許的話，當螢幕亮著時自動展開通知面板</string>
+
+    <!-- Notification control: Quiet hours -->
+    <string name="lc_quiet_hours">靜音時段</string>
+    <string name="pref_lc_qh_enabled_title">啟用靜音時段</string>
+    <string name="pref_lc_qh_enabled_summary">在設定的時間內，通知鈴聲和震動會被停用。您亦可設定一併停用通知燈</string>
+    <string name="pref_lc_qh_start_title">開始時間</string>
+    <string name="pref_lc_qh_end_title">結束時間</string>
+    <string name="pref_lc_qh_mute_led_title">停用LED</string>
+
+    <!-- Notification control: LED mode -->
+    <string name="pref_lc_led_mode_title">通知燈設定</string>
+    <string name="lc_led_mode_original">由應用程式指定</string>
+    <string name="lc_led_mode_override">由GravityBox指定</string>
+    <string name="lc_led_mode_off">停用通知燈</string>
+
+    <!-- Notification control: Quiet hours statusbar icon -->
+    <string name="pref_lc_qh_statusbar_icon_title">狀態列圖示</string>
+    <string name="pref_lc_qh_statusbar_icon_summary">當靜音時段生效時，在狀態列顯示一個通知圖示</string>
+
+    <!-- Battey percent text: charging color -->
+    <string name="battery_percent_text_charging_color_title">充電時的電池文字顏色</string>
 
     <!-- Notification control: Quiet hours for weekends-->
     <string name="pref_lc_qh_cat_weekdays_title">星期一至五</string>
@@ -1503,10 +1506,10 @@
     <!-- Dashed circle battery style -->
     <string name="battery_style_circle_dashed">虛線圓形電量指示器</string>
     <string name="battery_style_circle_dashed_percent">虛線圓形電量指示器(包含電量百分比)</string>
-	
+
     <!-- Premium feature unlock via unlocker app -->
     <string name="premium_unlocked_message">感謝您的支持。當重新啟動GravityBox後進階功能將會被解鎖。
-		請注意，安裝GravityBox解鎖器後可能要20分鐘才能順利解鎖全部功能。</string>
+      請注意，安裝GravityBox解鎖器後可能要20分鐘才能順利解鎖全部功能。</string>
     <string name="pref_about_get_unlocker_title">取得解鎖器</string>
     <string name="pref_about_get_unlocker_summary">沒有PayPal帳號？請按此到Play商店購買GravityBox解鎖器來解鎖所有進階功能</string>
 
@@ -1522,5 +1525,8 @@
 
     <!-- GB Actions: Toggle sync -->
     <string name="shortcut_sync">開關同步</string>
+
+    <!-- UNC: timeout for Alert only once -->
+  <string name="pref_lc_notif_sound_only_once_timeout_title">在設定時限內</string>
 
 </resources>
