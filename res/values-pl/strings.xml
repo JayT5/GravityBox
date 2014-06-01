@@ -1521,4 +1521,7 @@
     <!-- GB Actions: Toggle sync -->
     <string name="shortcut_sync">Przełącznik synchronizacji</string>
 
+    <!-- UNC: timeout for Alert only once -->
+    <string name="pref_lc_notif_sound_only_once_timeout_title">W przedziale czasu</string>
+
 </resources>
