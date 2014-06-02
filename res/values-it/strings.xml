@@ -1541,4 +1541,20 @@
     <string name="pref_about_get_unlocker_title">Scarica Unlocker</string>
     <string name="pref_about_get_unlocker_summary">Non hai PayPal? Basta toccare qui per ottenere Gravitybox Premium unlocker dal Play Store.</string>
 
+<!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Usa icone alternative</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Scorri per i Quick Settings</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignora disponibilità dati mobili</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Cambia a modo normale anche se i dati mobili sono temporaneamente non disponibili.</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Sincronizzazione</string>
+
+    <!-- UNC: timeout for Alert only once -->
+    <string name="pref_lc_notif_sound_only_once_timeout_title">Nei limiti di tempo</string>
+
 </resources>
