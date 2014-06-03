@@ -1501,5 +1501,41 @@
     <!-- Misc: Force LTR direction -->
     <string name="pref_force_ltr_direction_title">LTR-Ausrichtung erzwingen</string>
     <string name="pref_force_ltr_direction_summary">Erfordert Neustart</string>
+    
+        <!-- Volume panel transparency: opaque on interaction -->
+    <string name="pref_volume_panel_opaque_title">Undurchsichtig bei Interaktion</string>
+    <string name="pref_volume_panel_opaque_summary">Entfernt Transparenz, bei Interaktion mit der Lautstärkeanzeige</string>
+
+    <!-- Ringer mode shortcut -->
+    <string name="shortcut_ringer_mode">Setze Klingelmodus</string>
+
+    <!-- Data traffic monitor: Only for mobile data -->
+    <string name="pref_data_traffic_active_mobile_only_title">Nur mobile Daten</string>
+
+    <!-- Dashed circle battery style -->
+    <string name="battery_style_circle_dashed">Gestrichelt rund</string>
+    <string name="battery_style_circle_dashed_percent">Gestrichelt rund mit Prozentwert</string>
+
+    <!-- Premium feature unlock via unlocker app -->
+    <string name="premium_unlocked_message">Danke für Ihre Unterstützung. Premium Funktionen werden freigeschaltet, nachdem GravityBox neugestartet wurde. 
+        Stellen Sie sicher, dass GravityBox Unlocker für mindestens 20 Minuten installiert bleibt.</string>
+    <string name="pref_about_get_unlocker_title">Erhalte Freischalter</string>
+    <string name="pref_about_get_unlocker_summary">Sie haben kein PayPal? Klicken Sie einfach hier um die GravityBox Premium Funktionen über den PlayStore freizuschalten.</string>
+
+    <!-- Navbar custom key: alternate icon -->
+    <string name="pref_navbar_custom_key_icon_title">Verwende alternatives Symbol</string>
+
+    <!-- QS: swipe to Quick Settings -->
+    <string name="pref_qs_swipe_enable_title">Wische für Schnelleinstellungen</string>
+
+    <!-- Smart Radio: ignore mobile data availability -->
+    <string name="pref_smart_radio_mda_ignore_title">Ignoriere die Verfügbarkeit von mobilen Daten</string>
+    <string name="pref_smart_radio_mda_ignore_summary">Wechselt zum normalen Modus, sogar wenn mobile Daten momentan nicht verfügbar sind.</string>
+
+    <!-- GB Actions: Toggle sync -->
+    <string name="shortcut_sync">Synchronisation an/aus</string>
+
+    <!-- UNC: timeout for Alert only once -->
+    <string name="pref_lc_notif_sound_only_once_timeout_title">Innerhalb des Zeitintervalls</string>
 
 </resources>
