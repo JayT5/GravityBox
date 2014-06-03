@@ -1,3 +1,19 @@
+Changelog 3.1.5 - 03/06/2014
+--------------------------------------
+- Adjusted for compatibility with Android 4.4.3
+- Fixed error in expanded desktop tile causing SystemUI crash on 4.4.3
+- Ultimate notification control:
+--- added option to specify time interval for "Alert only once" option
+------ update to existing notification arriving after time interval expires won't be muted
+- Updated Russian translations (thanks to gaich)
+- Updated Chinese (Traditional) translations (thanks to momomok)
+- Updated Japanese translations (thanks to WedyDQ10)
+- Updated Chinese (Simplified) translations (thanks to liveasx)
+- Updated French translation (thanks to ch-vox)
+- Updated Spanish translations (thanks to jvbferrer)
+- Updated Polish translations (thanks to xtrem007)
+- Updated Italian translations (thanks to pesa1234)
+
 Changelog 3.1.4 - 25/05/2014
 --------------------------------------
 - Added alternative way of making a donation via Play Store (About / Get unlocker)
