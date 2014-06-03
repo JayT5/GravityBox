@@ -1526,7 +1526,7 @@
     <string name="pref_volume_panel_opaque_summary">Rimuove la trasparenza quando si interagisce con il pannello volume</string>
 
     <!-- Ringer mode shortcut -->
-    <string name="shortcut_ringer_mode">Imposta suoneria</string>
+    <string name="shortcut_ringer_mode">Imposta modalità suoneria</string>
 
     <!-- Data traffic monitor: Only for mobile data -->
     <string name="pref_data_traffic_active_mobile_only_title">Solo dati mobili</string>
