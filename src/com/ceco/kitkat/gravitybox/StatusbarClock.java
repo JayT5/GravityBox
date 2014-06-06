@@ -15,6 +15,7 @@
 
 package com.ceco.kitkat.gravitybox;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -48,6 +49,7 @@ public class StatusbarClock implements IconManagerListener, BroadcastSubReceiver
     private boolean mClockHidden;
     private float mDowSize;
     private float mAmPmSize;
+    private boolean mShowDate;
 
     private static void log(String message) {
         XposedBridge.log(TAG + ": " + message);
@@ -60,6 +62,7 @@ public class StatusbarClock implements IconManagerListener, BroadcastSubReceiver
         mClockHidden = prefs.getBoolean(GravityBoxSettings.PREF_KEY_STATUSBAR_CLOCK_HIDE, false);
         mDowSize = prefs.getInt(GravityBoxSettings.PREF_KEY_STATUSBAR_CLOCK_DOW_SIZE, 70) / 100f;
         mAmPmSize = prefs.getInt(GravityBoxSettings.PREF_KEY_STATUSBAR_CLOCK_AMPM_SIZE, 70) / 100f;
+        mShowDate = prefs.getBoolean(GravityBoxSettings.PREF_KEY_STATUSBAR_CLOCK_DATE, false);
     }
 
     public TextView getClock() {
@@ -156,6 +159,14 @@ public class StatusbarClock implements IconManagerListener, BroadcastSubReceiver
                         amPmIndex = clockText.indexOf(amPm);
                         if (DEBUG) log("AM/PM added. New clockText: '" + clockText + "'; New AM/PM index: " + amPmIndex);
                     }
+                    CharSequence date = "";
+                    // apply date to statusbar clock, not the notification panel clock
+                    if (mShowDate && sbClock != null) {
+                        SimpleDateFormat df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
+                        String pattern = df.toLocalizedPattern().replaceAll(".?[Yy].?", "");
+                        date = new SimpleDateFormat(pattern, Locale.getDefault()).format(calendar.getTime()) + " ";
+                    }
+                    clockText = date + clockText;
                     CharSequence dow = "";
                     // apply day of week only to statusbar clock, not the notification panel clock
                     if (mClockShowDow != GravityBoxSettings.DOW_DISABLED && sbClock != null) {
@@ -164,13 +175,13 @@ public class StatusbarClock implements IconManagerListener, BroadcastSubReceiver
                     }
                     clockText = dow + clockText;
                     SpannableStringBuilder sb = new SpannableStringBuilder(clockText);
-                    sb.setSpan(new RelativeSizeSpan(mDowSize), 0, dow.length(), 
+                    sb.setSpan(new RelativeSizeSpan(mDowSize), 0, dow.length() + date.length(), 
                             Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
                     if (amPmIndex > -1) {
-                        int offset = Character.isWhitespace(clockText.charAt(dow.length() + amPmIndex - 1)) ?
+                        int offset = Character.isWhitespace(clockText.charAt(dow.length() + date.length() + amPmIndex - 1)) ?
                                 1 : 0;
-                        sb.setSpan(new RelativeSizeSpan(mAmPmSize), dow.length() + amPmIndex - offset, 
-                                dow.length() + amPmIndex + amPm.length(), 
+                        sb.setSpan(new RelativeSizeSpan(mAmPmSize), dow.length() + date.length() + amPmIndex - offset, 
+                                dow.length() + date.length() + amPmIndex + amPm.length(), 
                                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
                     }
                     if (DEBUG) log("Final clockText: '" + sb + "'");
@@ -229,6 +240,10 @@ public class StatusbarClock implements IconManagerListener, BroadcastSubReceiver
                 mAmPmSize = intent.getIntExtra(GravityBoxSettings.EXTRA_AMPM_SIZE, 70) / 100f;
                 updateClock();
                 updateExpandedClock();
+            }
+            if (intent.hasExtra(GravityBoxSettings.EXTRA_CLOCK_DATE)) {
+                mShowDate = intent.getBooleanExtra(GravityBoxSettings.EXTRA_CLOCK_DATE, false);
+                updateClock();
             }
         }
     }

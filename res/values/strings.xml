@@ -1557,4 +1557,7 @@
     <!-- UNC: timeout for Alert only once -->
     <string name="pref_lc_notif_sound_only_once_timeout_title">Within time interval</string>
 
+    <!-- Statusbar clock: show date -->
+    <string name="pref_statusbar_clock_date_title">Show date</string>
+
 </resources>
